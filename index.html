@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exonova Marina | Tech News & Articles</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <style>
+        /* Material Design 3 Color System */
+        :root {
+            /* Primary Colors */
+            --md-primary: #1a73e8;
+            --md-on-primary: #FFFFFF;
+            --md-primary-container: #d2e3fc;
+            --md-on-primary-container: #001d3d;
+            
+            /* Surface Colors */
+            --md-surface: #FFFFFF;
+            --md-on-surface: #202124;
+            --md-surface-variant: #F8F9FA;
+            --md-on-surface-variant: #5f6368;
+            
+            /* Background Colors */
+            --md-background: #FFFFFF;
+            --md-on-background: #202124;
+            
+            /* Outline Colors */
+            --md-outline: #DADCE0;
+            --md-outline-variant: #E8EAED;
+            
+            /* Shadow Elevations */
+            --md-elevation-1: 0 1px 2px rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            --md-elevation-2: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+            --md-elevation-3: 0 1px 3px 1px rgba(60,64,67,0.15), 0 1px 2px rgba(60,64,67,0.3);
+            
+            /* Animation */
+            --md-transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            --md-transition-fast: all 0.15s cubic-bezier(0.2, 0, 0, 1);
+            
+            /* Border Radius */
+            --md-radius-small: 8px;
+            --md-radius-medium: 12px;
+            --md-radius-large: 16px;
+            --md-radius-extra-large: 28px;
+            
+            /* Spacing */
+            --md-spacing-xs: 4px;
+            --md-spacing-sm: 8px;
+            --md-spacing-md: 16px;
+            --md-spacing-lg: 24px;
+            --md-spacing-xl: 32px;
+            --md-spacing-xxl: 48px;
+            
+            /* Typography */
+            --md-font-logo: 'Playfair Display', serif;
+            --md-font-heading: 'Product Sans', sans-serif;
+            --md-font-body: 'Lora', serif;
+            --md-font-size-display: 3.5625rem;
+            --md-font-size-headline: 2rem;
+            --md-font-size-title: 1.375rem;
+            --md-font-size-body: 1rem;
+            --md-font-size-label: 0.875rem;
+        }
+
+        /* Dark Theme */
+        .dark-theme {
+            --md-surface: #202124;
+            --md-on-surface: #E8EAED;
+            --md-surface-variant: #303134;
+            --md-on-surface-variant: #9AA0A6;
+            --md-background: #202124;
+            --md-on-background: #E8EAED;
+            --md-primary-container: #174ea6;
+            --md-on-primary-container: #E8EAED;
+            --md-outline: #3C4043;
+            --md-outline-variant: #5F6368;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--md-font-body);
+            background-color: var(--md-background);
+            color: var(--md-on-surface);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--md-transition);
+        }
+
+        /* Header */
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--md-spacing-xl);
+            background: var(--md-surface);
+            height: 72px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: var(--md-elevation-1);
+            border-bottom: 1px solid var(--md-outline);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--md-primary);
+            border-radius: var(--md-radius-medium);
+            color: var(--md-on-primary);
+            overflow: hidden;
+        }
+
+        .app-name {
+            font-family: var(--md-font-logo);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--md-on-surface);
+            letter-spacing: -0.25px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-xs);
+        }
+
+        /* Header Buttons */
+        .header-btn {
+            background: transparent;
+            border: none;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--md-transition);
+            position: relative;
+        }
+
+        .header-btn:hover {
+            background: var(--md-surface-variant);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 140px var(--md-spacing-xl) var(--md-spacing-xxl);
+            background: linear-gradient(135deg, var(--md-primary-container) 0%, var(--md-surface) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: var(--md-font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: var(--md-spacing-md);
+            color: var(--md-on-surface);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--md-font-heading);
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--md-on-surface-variant);
+            margin-bottom: var(--md-spacing-xl);
+            max-width: 600px;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--md-spacing-md);
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--md-spacing-sm);
+            padding: var(--md-spacing-md) var(--md-spacing-lg);
+            border-radius: var(--md-radius-extra-large);
+            border: none;
+            font-family: var(--md-font-heading);
+            font-size: var(--md-font-size-body);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--md-transition-fast);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: currentColor;
+            opacity: 0;
+            transition: var(--md-transition-fast);
+        }
+
+        .btn:hover::before {
+            opacity: 0.08;
+        }
+
+        .btn:active::before {
+            opacity: 0.12;
+        }
+
+        .btn-filled {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .btn-filled:hover {
+            box-shadow: var(--md-elevation-2);
+            transform: translateY(-2px);
+        }
+
+        .btn-outlined {
+            background: transparent;
+            color: var(--md-primary);
+            border: 1px solid var(--md-outline);
+        }
+
+        .btn-outlined:hover {
+            background: var(--md-primary-container);
+            border-color: var(--md-primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--md-spacing-xl);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--md-spacing-xl);
+            padding-bottom: var(--md-spacing-md);
+            border-bottom: 1px solid var(--md-outline);
+        }
+
+        .section-title {
+            font-family: var(--md-font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--md-on-surface);
+        }
+
+        .section-link {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-xs);
+            color: var(--md-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--md-transition);
+            font-family: var(--md-font-heading);
+        }
+
+        .section-link:hover {
+            gap: var(--md-spacing-sm);
+        }
+
+        /* Article Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--md-spacing-lg);
+            margin-bottom: var(--md-spacing-xxl);
+        }
+
+        .article-card {
+            background: var(--md-surface);
+            border-radius: var(--md-radius-large);
+            overflow: hidden;
+            box-shadow: var(--md-elevation-1);
+            border: 1px solid var(--md-outline);
+            transition: var(--md-transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            box-shadow: var(--md-elevation-3);
+            transform: translateY(-4px);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--md-surface-variant);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-on-surface-variant);
+        }
+
+        .article-content {
+            padding: var(--md-spacing-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: var(--md-spacing-xs) var(--md-spacing-sm);
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+            border-radius: var(--md-radius-small);
+            font-size: var(--md-font-size-label);
+            font-weight: 500;
+            margin-bottom: var(--md-spacing-md);
+            font-family: var(--md-font-heading);
+        }
+
+        .article-title {
+            font-family: var(--md-font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--md-spacing-sm);
+            color: var(--md-on-surface);
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: var(--md-on-surface-variant);
+            margin-bottom: var(--md-spacing-lg);
+            flex: 1;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--md-font-size-label);
+            color: var(--md-on-surface-variant);
+            font-family: var(--md-font-heading);
+        }
+
+        /* Featured Article */
+        .featured-article {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--md-spacing-xl);
+            background: var(--md-surface);
+            border-radius: var(--md-radius-large);
+            overflow: hidden;
+            box-shadow: var(--md-elevation-2);
+            border: 1px solid var(--md-outline);
+            margin-bottom: var(--md-spacing-xxl);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background: var(--md-surface-variant);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-on-surface-variant);
+        }
+
+        .featured-content {
+            padding: var(--md-spacing-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-category {
+            display: inline-block;
+            padding: var(--md-spacing-xs) var(--md-spacing-sm);
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+            border-radius: var(--md-radius-small);
+            font-size: var(--md-font-size-label);
+            font-weight: 500;
+            margin-bottom: var(--md-spacing-md);
+            font-family: var(--md-font-heading);
+        }
+
+        .featured-title {
+            font-family: var(--md-font-heading);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: var(--md-spacing-md);
+            color: var(--md-on-surface);
+            line-height: 1.2;
+        }
+
+        .featured-excerpt {
+            font-size: 1.125rem;
+            color: var(--md-on-surface-variant);
+            margin-bottom: var(--md-spacing-lg);
+            line-height: 1.6;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: var(--md-surface-variant);
+            border-radius: var(--md-radius-large);
+            padding: var(--md-spacing-xl);
+            margin-bottom: var(--md-spacing-xxl);
+            text-align: center;
+        }
+
+        .newsletter-title {
+            font-family: var(--md-font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--md-spacing-md);
+            color: var(--md-on-surface);
+        }
+
+        .newsletter-description {
+            color: var(--md-on-surface-variant);
+            margin-bottom: var(--md-spacing-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--md-spacing-md);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: var(--md-spacing-md);
+            background: var(--md-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-medium);
+            font-family: inherit;
+            font-size: var(--md-font-size-body);
+            color: var(--md-on-surface);
+            transition: var(--md-transition);
+            outline: none;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--md-primary);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+        }
+
+        /* Footer */
+        .app-footer {
+            background: var(--md-surface);
+            border-top: 1px solid var(--md-outline);
+            padding: var(--md-spacing-xl);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--md-spacing-xl);
+        }
+
+        .footer-section h3 {
+            font-family: var(--md-font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--md-spacing-md);
+            color: var(--md-on-surface);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--md-spacing-sm);
+        }
+
+        .footer-links a {
+            color: var(--md-on-surface-variant);
+            text-decoration: none;
+            transition: var(--md-transition);
+            font-family: var(--md-font-heading);
+        }
+
+        .footer-links a:hover {
+            color: var(--md-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--md-spacing-xl);
+            margin-top: var(--md-spacing-xl);
+            border-top: 1px solid var(--md-outline);
+            color: var(--md-on-surface-variant);
+            font-family: var(--md-font-heading);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: var(--md-spacing-lg);
+            }
+            
+            .hero-section {
+                padding: 120px var(--md-spacing-lg) var(--md-spacing-xl);
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--md-spacing-md);
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .app-header {
+                padding: 0 var(--md-spacing-md);
+            }
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            transition: var(--md-transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--md-surface-variant);
+        }
+
+        /* Animation for interactive elements */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Micro-interactions */
+        .micro-interaction {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .micro-interaction::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .micro-interaction:active::after {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <!-- Header -->
+    <header class="app-header">
+        <div class="logo-container">
+            <div class="logo">
+                <span class="material-icons-round">article</span>
+            </div>
+            <h1 class="app-name">Exonova Marina</h1>
+        </div>
+        
+        <div class="header-actions">
+            <button class="header-btn" id="search-btn">
+                <span class="material-icons-round">search</span>
+            </button>
+            <button class="theme-toggle" id="theme-toggle">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Stay Ahead. Stay Curious. Stay Techy.</h1>
+            <p class="hero-subtitle">Your daily dose of smart tech news, minus the headache.</p>
+            <div class="hero-cta">
+                <button class="btn btn-filled micro-interaction">Explore Latest Articles</button>
+                <button class="btn btn-outlined micro-interaction">Subscribe to Newsletter</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Featured Article -->
+        <section class="featured-article micro-interaction">
+            <div class="featured-image">
+                <span class="material-icons-round" style="font-size: 48px;">smart_toy</span>
+            </div>
+            <div class="featured-content">
+                <span class="featured-category">AI & Machine Learning</span>
+                <h2 class="featured-title">The Next Generation of AI Assistants: Beyond Simple Chatbots</h2>
+                <p class="featured-excerpt">How conversational AI is evolving to become true digital companions that understand context, emotion, and complex human needs.</p>
+                <div class="article-meta">
+                    <span>8 min read</span>
+                    <span>May 18, 2023</span>
+                </div>
+                <button class="btn btn-filled micro-interaction" style="margin-top: var(--md-spacing-lg);">Read Full Article</button>
+            </div>
+        </section>
+
+        <!-- Latest Articles -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Latest Articles</h2>
+                <a href="#" class="section-link">
+                    <span>View All</span>
+                    <span class="material-icons-round">arrow_forward</span>
+                </a>
+            </div>
+            
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">security</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Cybersecurity</span>
+                        <h3 class="article-title">Quantum-Resistant Cryptography: Preparing for the Post-Quantum Era</h3>
+                        <p class="article-excerpt">New encryption standards that can withstand quantum computing attacks are becoming essential. Here's what you need to know.</p>
+                        <div class="article-meta">
+                            <span>6 min read</span>
+                            <span>May 15, 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">developer_mode</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Web Development</span>
+                        <h3 class="article-title">Material Design 3: The Future of UI is Here</h3>
+                        <p class="article-excerpt">Exploring Google's latest design system and how it's shaping modern web and app interfaces with dynamic color and improved accessibility.</p>
+                        <div class="article-meta">
+                            <span>5 min read</span>
+                            <span>May 12, 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">storage</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Cloud Computing</span>
+                        <h3 class="article-title">Edge Computing: Why Processing is Moving Closer to Users</h3>
+                        <p class="article-excerpt">How edge computing reduces latency and improves performance for real-time applications from IoT to augmented reality.</p>
+                        <div class="article-meta">
+                            <span>7 min read</span>
+                            <span>May 10, 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">code</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Programming</span>
+                        <h3 class="article-title">Rust: The Future of Systems Programming?</h3>
+                        <p class="article-excerpt">Examining why Rust is gaining popularity and how it's being adopted by major tech companies for secure, high-performance systems.</p>
+                        <div class="article-meta">
+                            <span>6 min read</span>
+                            <span>May 8, 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 5 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">devices</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Hardware</span>
+                        <h3 class="article-title">Neuromorphic Computing Breakthroughs</h3>
+                        <p class="article-excerpt">New chip architectures that mimic the human brain could revolutionize computing efficiency for AI applications.</p>
+                        <div class="article-meta">
+                            <span>8 min read</span>
+                            <span>May 5, 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 6 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">psychology</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Data Science</span>
+                        <h3 class="article-title">The Rise of Synthetic Data in AI Training</h3>
+                        <p class="article-excerpt">How artificially generated data is solving privacy issues and accelerating AI development across industries.</p>
+                        <div class="article-meta">
+                            <span>5 min read</span>
+                            <span>May 3, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter-section">
+            <h2 class="newsletter-title">Stay Updated</h2>
+            <p class="newsletter-description">Get the latest tech news and insights delivered directly to your inbox. No spam, just quality content.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-filled micro-interaction">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Popular Categories -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Popular Categories</h2>
+            </div>
+            
+            <div class="articles-grid">
+                <!-- Category 1 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">smart_toy</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">AI & Machine Learning</span>
+                        <h3 class="article-title">Latest in Artificial Intelligence</h3>
+                        <p class="article-excerpt">From GPT-4 to computer vision breakthroughs, stay updated on the AI revolution.</p>
+                        <div class="article-meta">
+                            <span>24 articles</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">security</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Cybersecurity</span>
+                        <h3 class="article-title">Digital Protection & Privacy</h3>
+                        <p class="article-excerpt">Latest threats, defense strategies, and privacy regulations affecting the digital world.</p>
+                        <div class="article-meta">
+                            <span>18 articles</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category 3 -->
+                <div class="article-card micro-interaction">
+                    <div class="article-image">
+                        <span class="material-icons-round">developer_mode</span>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Web Development</span>
+                        <h3 class="article-title">Frontend & Backend Trends</h3>
+                        <p class="article-excerpt">Frameworks, tools, and techniques shaping the future of web development.</p>
+                        <div class="article-meta">
+                            <span>32 articles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Exonova Marina</h3>
+                <p>Your trusted source for technology insights and industry developments.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">AI & Machine Learning</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">Data Science</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Subscribe</h3>
+                <p>Get the latest articles delivered to your inbox.</p>
+                <button class="btn btn-filled micro-interaction" style="margin-top: var(--md-spacing-md);">Subscribe Now</button>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Exonova Marina. All rights reserved. Part of the <a href="https://adtya-cmd-max.github.io/exonova-/ecosystem/">Exonova ecosystem.</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('.material-icons-round');
+        const microInteractions = document.querySelectorAll('.micro-interaction');
+
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            document.body.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.textContent = 'light_mode';
+            } else {
+                themeIcon.textContent = 'dark_mode';
+            }
+        });
+
+        // Enhanced micro-interactions
+        microInteractions.forEach(element => {
+            element.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.7);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
