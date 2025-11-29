@@ -13,6 +13,10 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <!-- Three.js for 3D elements -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
@@ -122,6 +126,12 @@
             z-index: 100;
             box-shadow: var(--md-elevation-1);
             border-bottom: 1px solid var(--md-outline);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .app-header.hidden {
+            transform: translateY(-100%);
         }
 
         .logo-container {
@@ -368,6 +378,7 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .article-card:hover {
@@ -436,6 +447,41 @@
             font-size: var(--md-font-size-label);
             color: var(--md-on-surface-variant);
             font-family: var(--md-font-heading);
+        }
+
+        /* Author Section */
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+            margin-bottom: var(--md-spacing-md);
+            padding: var(--md-spacing-sm);
+            background: var(--md-surface-variant);
+            border-radius: var(--md-radius-medium);
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--md-outline);
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: var(--md-font-size-label);
+            color: var(--md-on-surface);
+        }
+
+        .article-date {
+            font-size: 0.75rem;
+            color: var(--md-on-surface-variant);
         }
 
         .article-actions {
@@ -640,12 +686,6 @@
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: var(--md-elevation-3);
-            animation: modalFadeIn 0.3s ease-out;
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .modal-header {
@@ -711,6 +751,72 @@
             justify-content: flex-end;
         }
 
+        /* Morph Animation */
+        .morph-element {
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .morph-element:hover {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        /* 3D Card Effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg) scale(1.02);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(15deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-15px) rotate(-10deg); }
+        }
+
+        .floating-3d-1 {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-3d-2 {
+            animation: float2 8s ease-in-out infinite 1s;
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Animation for interactive elements */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .main-content {
@@ -771,32 +877,6 @@
         .theme-toggle:hover {
             background: var(--md-surface-variant);
         }
-
-        /* Animation for interactive elements */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        /* Ripple effect for buttons only */
-        .ripple-btn {
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* 3D Card Effect */
-        .card-3d {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .card-3d:hover {
-            transform: rotateY(5deg) rotateX(5deg);
-        }
     </style>
 </head>
 <body class="light-theme">
@@ -846,10 +926,16 @@
                 <span class="featured-category">AI & Machine Learning</span>
                 <h2 class="featured-title">The Next Generation of AI Assistants: Beyond Simple Chatbots</h2>
                 <p class="featured-excerpt">How conversational AI is evolving to become true digital companions that understand context, emotion, and complex human needs.</p>
-                <div class="article-meta">
-                    <span>8 min read</span>
-                    <span>May 18, 2023</span>
+                
+                <!-- Author Section -->
+                <div class="author-section">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Author" class="author-avatar">
+                    <div class="author-info">
+                        <span class="author-name">Alex Johnson</span>
+                        <span class="article-date">May 18, 2023 • 8 min read</span>
+                    </div>
                 </div>
+                
                 <div class="article-actions">
                     <button class="btn btn-filled ripple-btn">Read Full Article</button>
                     <button class="btn btn-preview ripple-btn" data-preview="featured">Preview</button>
@@ -877,10 +963,16 @@
                         <span class="article-category">Cybersecurity</span>
                         <h3 class="article-title">Quantum-Resistant Cryptography: Preparing for the Post-Quantum Era</h3>
                         <p class="article-excerpt">New encryption standards that can withstand quantum computing attacks are becoming essential. Here's what you need to know.</p>
-                        <div class="article-meta">
-                            <span>6 min read</span>
-                            <span>May 15, 2023</span>
+                        
+                        <!-- Author Section -->
+                        <div class="author-section">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Author" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Sarah Chen</span>
+                                <span class="article-date">May 15, 2023 • 6 min read</span>
+                            </div>
                         </div>
+                        
                         <div class="article-actions">
                             <button class="btn btn-outlined ripple-btn">Read</button>
                             <button class="btn btn-preview ripple-btn" data-preview="article1">Preview</button>
@@ -897,10 +989,16 @@
                         <span class="article-category">Web Development</span>
                         <h3 class="article-title">Material Design 3: The Future of UI is Here</h3>
                         <p class="article-excerpt">Exploring Google's latest design system and how it's shaping modern web and app interfaces with dynamic color and improved accessibility.</p>
-                        <div class="article-meta">
-                            <span>5 min read</span>
-                            <span>May 12, 2023</span>
+                        
+                        <!-- Author Section -->
+                        <div class="author-section">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Author" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Michael Rodriguez</span>
+                                <span class="article-date">May 12, 2023 • 5 min read</span>
+                            </div>
                         </div>
+                        
                         <div class="article-actions">
                             <button class="btn btn-outlined ripple-btn">Read</button>
                             <button class="btn btn-preview ripple-btn" data-preview="article2">Preview</button>
@@ -917,73 +1015,19 @@
                         <span class="article-category">Cloud Computing</span>
                         <h3 class="article-title">Edge Computing: Why Processing is Moving Closer to Users</h3>
                         <p class="article-excerpt">How edge computing reduces latency and improves performance for real-time applications from IoT to augmented reality.</p>
-                        <div class="article-meta">
-                            <span>7 min read</span>
-                            <span>May 10, 2023</span>
+                        
+                        <!-- Author Section -->
+                        <div class="author-section">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Author" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">David Kim</span>
+                                <span class="article-date">May 10, 2023 • 7 min read</span>
+                            </div>
                         </div>
+                        
                         <div class="article-actions">
                             <button class="btn btn-outlined ripple-btn">Read</button>
                             <button class="btn btn-preview ripple-btn" data-preview="article3">Preview</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Article 4 -->
-                <div class="article-card card-3d">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Rust Programming">
-                    </div>
-                    <div class="article-content">
-                        <span class="article-category">Programming</span>
-                        <h3 class="article-title">Rust: The Future of Systems Programming?</h3>
-                        <p class="article-excerpt">Examining why Rust is gaining popularity and how it's being adopted by major tech companies for secure, high-performance systems.</p>
-                        <div class="article-meta">
-                            <span>6 min read</span>
-                            <span>May 8, 2023</span>
-                        </div>
-                        <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Read</button>
-                            <button class="btn btn-preview ripple-btn" data-preview="article4">Preview</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Article 5 -->
-                <div class="article-card card-3d">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Neuromorphic Computing">
-                    </div>
-                    <div class="article-content">
-                        <span class="article-category">Hardware</span>
-                        <h3 class="article-title">Neuromorphic Computing Breakthroughs</h3>
-                        <p class="article-excerpt">New chip architectures that mimic the human brain could revolutionize computing efficiency for AI applications.</p>
-                        <div class="article-meta">
-                            <span>8 min read</span>
-                            <span>May 5, 2023</span>
-                        </div>
-                        <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Read</button>
-                            <button class="btn btn-preview ripple-btn" data-preview="article5">Preview</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Article 6 -->
-                <div class="article-card card-3d">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Synthetic Data">
-                    </div>
-                    <div class="article-content">
-                        <span class="article-category">Data Science</span>
-                        <h3 class="article-title">The Rise of Synthetic Data in AI Training</h3>
-                        <p class="article-excerpt">How artificially generated data is solving privacy issues and accelerating AI development across industries.</p>
-                        <div class="article-meta">
-                            <span>5 min read</span>
-                            <span>May 3, 2023</span>
-                        </div>
-                        <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Read</button>
-                            <button class="btn btn-preview ripple-btn" data-preview="article6">Preview</button>
                         </div>
                     </div>
                 </div>
@@ -1140,6 +1184,7 @@
         const modalDescription = document.getElementById('modalDescription');
         const modalReadLater = document.getElementById('modalReadLater');
         const modalReadNow = document.getElementById('modalReadNow');
+        const header = document.querySelector('.app-header');
 
         // Preview content data
         const previewData = {
@@ -1170,6 +1215,76 @@
             },
             // Add more preview data for other articles...
         };
+
+        // Initialize GSAP animations
+        function initAnimations() {
+            // Register ScrollTrigger plugin
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate hero section elements
+            gsap.from('.hero-title', {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero-subtitle', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                delay: 0.3,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero-cta', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                delay: 0.6,
+                ease: 'power3.out'
+            });
+            
+            // Animate article cards on scroll
+            gsap.utils.toArray('.article-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    duration: 0.8,
+                    y: 30,
+                    opacity: 0,
+                    ease: 'power2.out'
+                });
+            });
+            
+            // Animate featured article
+            gsap.from('.featured-article', {
+                scrollTrigger: {
+                    trigger: '.featured-article',
+                    start: 'top 70%',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: 'power3.out'
+            });
+            
+            // Header hide/show on scroll
+            let lastScrollY = window.scrollY;
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                    header.classList.add('hidden');
+                } else {
+                    header.classList.remove('hidden');
+                }
+                lastScrollY = window.scrollY;
+            });
+        }
 
         // Theme Toggle
         themeToggle.addEventListener('click', () => {
@@ -1227,55 +1342,72 @@
                         modalImages.appendChild(img);
                     });
                     
-                    // Show modal
+                    // Show modal with GSAP animation
                     modal.style.display = 'flex';
+                    gsap.fromTo(modal.querySelector('.modal-content'), 
+                        { y: -50, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }
+                    );
                 }
             });
         });
 
         // Close modal
         modalClose.addEventListener('click', () => {
-            modal.style.display = 'none';
+            gsap.to(modal.querySelector('.modal-content'), {
+                y: -50,
+                opacity: 0,
+                duration: 0.2,
+                ease: 'power2.in',
+                onComplete: () => {
+                    modal.style.display = 'none';
+                }
+            });
         });
 
         // Close modal when clicking outside
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
-                modal.style.display = 'none';
+                gsap.to(modal.querySelector('.modal-content'), {
+                    y: -50,
+                    opacity: 0,
+                    duration: 0.2,
+                    ease: 'power2.in',
+                    onComplete: () => {
+                        modal.style.display = 'none';
+                    }
+                });
             }
         });
 
         // Modal action buttons
         modalReadLater.addEventListener('click', () => {
-            alert('Article saved to your reading list!');
-            modal.style.display = 'none';
+            // Morph animation for the button
+            gsap.to(modalReadLater, {
+                scale: 0.9,
+                duration: 0.1,
+                yoyo: true,
+                repeat: 1,
+                onComplete: () => {
+                    alert('Article saved to your reading list!');
+                    modal.style.display = 'none';
+                }
+            });
         });
 
         modalReadNow.addEventListener('click', () => {
-            alert('Opening full article...');
-            modal.style.display = 'none';
-        });
-
-        // Add CSS for ripple effect
-        const style = document.createElement('style');
-        style.textContent = `
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.7);
-                transform: scale(0);
-                animation: ripple-animation 0.6s linear;
-                pointer-events: none;
-            }
-            
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
+            // Morph animation for the button
+            gsap.to(modalReadNow, {
+                scale: 0.9,
+                duration: 0.1,
+                yoyo: true,
+                repeat: 1,
+                onComplete: () => {
+                    alert('Opening full article...');
+                    modal.style.display = 'none';
                 }
-            }
-        `;
-        document.head.appendChild(style);
+            });
+        });
 
         // Simple 3D floating elements
         function initFloating3D() {
@@ -1291,34 +1423,14 @@
                 container2.innerHTML = `
                     <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--md-primary-container) 0%, var(--md-surface-variant) 100%); border-radius: 20px; transform: rotate(-10deg); box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
                 `;
-                
-                // Add animation
-                container1.style.animation = 'float 6s ease-in-out infinite';
-                container2.style.animation = 'float 8s ease-in-out infinite 1s';
-                
-                // Add floating animation
-                const floatStyle = document.createElement('style');
-                floatStyle.textContent = `
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0) rotate(15deg); }
-                        50% { transform: translateY(-20px) rotate(15deg); }
-                    }
-                    
-                    #floating3d-2 {
-                        animation-name: float2;
-                    }
-                    
-                    @keyframes float2 {
-                        0%, 100% { transform: translateY(0) rotate(-10deg); }
-                        50% { transform: translateY(-15px) rotate(-10deg); }
-                    }
-                `;
-                document.head.appendChild(floatStyle);
             }
         }
 
-        // Initialize 3D elements
-        document.addEventListener('DOMContentLoaded', initFloating3D);
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initFloating3D();
+            initAnimations();
+        });
     </script>
 </body>
 </html>
