@@ -55,6 +55,7 @@
             --md-radius-medium: 12px;
             --md-radius-large: 16px;
             --md-radius-extra-large: 28px;
+            --md-radius-pill: 9999px;
             
             /* Spacing */
             --md-spacing-xs: 4px;
@@ -293,7 +294,7 @@
             opacity: 1;
             visibility: visible;
             background: var(--md-surface-variant);
-            border-radius: var(--md-radius-medium);
+            border-radius: var(--md-radius-pill);
             border: 1px solid var(--md-outline);
         }
 
@@ -412,38 +413,6 @@
             justify-content: center;
         }
 
-        /* Decorative Elements */
-        .decorative-element {
-            position: absolute;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        .flower {
-            top: 10%;
-            left: 5%;
-            width: 200px;
-            height: 200px;
-            animation: float 15s ease-in-out infinite;
-        }
-
-        .gum {
-            bottom: 10%;
-            right: 5%;
-            width: 150px;
-            height: 150px;
-            animation: float 12s ease-in-out infinite reverse;
-        }
-
-        .star {
-            top: 50%;
-            right: 10%;
-            width: 100px;
-            height: 100px;
-            animation: rotate 20s linear infinite;
-        }
-
         /* SVG Frame Styles */
         .svg-frame {
             position: absolute;
@@ -497,7 +466,7 @@
             justify-content: center;
             gap: var(--md-spacing-sm);
             padding: var(--md-spacing-md) var(--md-spacing-lg);
-            border-radius: var(--md-radius-extra-large);
+            border-radius: var(--md-radius-pill);
             border: none;
             font-family: var(--md-font-heading);
             font-size: var(--md-font-size-body);
@@ -672,7 +641,7 @@
             padding: var(--md-spacing-xs) var(--md-spacing-sm);
             background: var(--md-primary-container);
             color: var(--md-on-primary-container);
-            border-radius: var(--md-radius-small);
+            border-radius: var(--md-radius-pill);
             font-size: var(--md-font-size-label);
             font-weight: 500;
             margin-bottom: var(--md-spacing-md);
@@ -711,7 +680,7 @@
             margin-bottom: var(--md-spacing-md);
             padding: var(--md-spacing-sm);
             background: var(--md-surface-variant);
-            border-radius: var(--md-radius-medium);
+            border-radius: var(--md-radius-pill);
         }
 
         .author-avatar {
@@ -791,7 +760,7 @@
             padding: var(--md-spacing-xs) var(--md-spacing-sm);
             background: var(--md-primary-container);
             color: var(--md-on-primary-container);
-            border-radius: var(--md-radius-small);
+            border-radius: var(--md-radius-pill);
             font-size: var(--md-font-size-label);
             font-weight: 500;
             margin-bottom: var(--md-spacing-md);
@@ -854,7 +823,7 @@
             padding: var(--md-spacing-md);
             background: var(--md-surface);
             border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-medium);
+            border-radius: var(--md-radius-pill);
             font-family: inherit;
             font-size: var(--md-font-size-body);
             color: var(--md-on-surface);
@@ -1081,7 +1050,7 @@
             color: var(--md-on-surface);
             font-family: var(--md-font-heading);
             font-size: 1.125rem;
-            border-radius: 16px;
+            border-radius: var(--md-radius-pill);
             outline: none;
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
         }
@@ -1100,7 +1069,7 @@
             font-size: 1.125rem;
             font-weight: 600;
             cursor: pointer;
-            border-radius: 16px;
+            border-radius: var(--md-radius-pill);
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
             white-space: nowrap;
         }
@@ -1188,7 +1157,7 @@
             justify-content: center;
             width: 48px;
             height: 48px;
-            border-radius: 24px;
+            border-radius: 50%;
             background: var(--md-surface-variant);
             color: var(--md-on-surface-variant);
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
@@ -1542,7 +1511,7 @@
             }
             
             .newsletter-input, .newsletter-button {
-                border-radius: 16px;
+                border-radius: var(--md-radius-pill);
                 width: 100%;
             }
             
