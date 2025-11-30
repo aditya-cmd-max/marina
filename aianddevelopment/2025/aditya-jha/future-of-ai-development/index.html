@@ -17,14 +17,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    
     <style>
         /* Material Design 3 Color System */
         :root {
             /* Primary Colors */
             --md-primary: #1a73e8;
+            --md-primary-light: #5e9af7;
+            --md-primary-dark: #0d47a1;
             --md-on-primary: #FFFFFF;
             --md-primary-container: #d2e3fc;
             --md-on-primary-container: #001d3d;
+            
+            /* Secondary Colors */
+            --md-secondary: #006d6d;
+            --md-secondary-container: #6ff6f6;
+            --md-on-secondary-container: #002020;
             
             /* Surface Colors */
             --md-surface: #FFFFFF;
@@ -80,6 +91,8 @@
             --md-on-background: #E8EAED;
             --md-primary-container: #174ea6;
             --md-on-primary-container: #E8EAED;
+            --md-secondary-container: #005353;
+            --md-on-secondary-container: #E8EAED;
             --md-outline: #3C4043;
             --md-outline-variant: #5F6368;
         }
@@ -104,7 +117,7 @@
             transition: var(--md-transition);
         }
 
-        /* Mesh Background */
+        /* Enhanced Mesh Background */
         .mesh-background {
             position: fixed;
             top: 0;
@@ -112,7 +125,7 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            opacity: 0.03;
+            opacity: 0.08;
             background-image: 
                 linear-gradient(var(--md-primary) 1px, transparent 1px),
                 linear-gradient(90deg, var(--md-primary) 1px, transparent 1px);
@@ -129,18 +142,54 @@
             z-index: -1;
             background: radial-gradient(
                 circle at 20% 80%,
-                rgba(26, 115, 232, 0.05) 0%,
+                rgba(26, 115, 232, 0.15) 0%,
                 transparent 50%
             ), radial-gradient(
                 circle at 80% 20%,
-                rgba(26, 115, 232, 0.05) 0%,
+                rgba(26, 115, 232, 0.15) 0%,
                 transparent 50%
             ), radial-gradient(
                 circle at 40% 40%,
-                rgba(26, 115, 232, 0.03) 0%,
+                rgba(26, 115, 232, 0.1) 0%,
                 transparent 50%
             );
             animation: pulse 8s ease-in-out infinite;
+        }
+
+        /* Floating SVG Elements */
+        .floating-svg {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .svg-1 {
+            top: 10%;
+            left: 5%;
+            width: 150px;
+            animation-delay: 0s;
+        }
+
+        .svg-2 {
+            top: 70%;
+            right: 10%;
+            width: 120px;
+            animation-delay: -5s;
+        }
+
+        .svg-3 {
+            bottom: 20%;
+            left: 15%;
+            width: 100px;
+            animation-delay: -10s;
+        }
+
+        .svg-4 {
+            top: 30%;
+            right: 5%;
+            width: 80px;
+            animation-delay: -15s;
         }
 
         @keyframes meshMove {
@@ -158,6 +207,18 @@
             }
             50% {
                 opacity: 0.7;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(-5deg);
             }
         }
 
@@ -236,6 +297,24 @@
             background: var(--md-surface-variant);
         }
 
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--md-outline);
+            z-index: 99;
+        }
+
+        .reading-progress-bar {
+            height: 100%;
+            background: var(--md-primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
         /* Article Layout */
         .article-container {
             max-width: 900px;
@@ -282,6 +361,14 @@
             display: flex;
             align-items: center;
             gap: var(--md-spacing-sm);
+            cursor: pointer;
+            transition: var(--md-transition);
+            padding: var(--md-spacing-sm);
+            border-radius: var(--md-radius-medium);
+        }
+
+        .author-info:hover {
+            background: var(--md-surface-variant);
         }
 
         .author-avatar {
@@ -324,6 +411,104 @@
             box-shadow: var(--md-elevation-2);
         }
 
+        /* Collapsible Table of Contents */
+        .table-of-contents {
+            background: var(--md-surface-variant);
+            border-radius: var(--md-radius-large);
+            padding: var(--md-spacing-lg);
+            margin-bottom: var(--md-spacing-xl);
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+            transition: var(--md-transition);
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .toc-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: var(--md-spacing-sm) 0;
+        }
+
+        .toc-title {
+            font-family: var(--md-font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--md-on-surface);
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+            margin: 0;
+        }
+
+        .toc-toggle {
+            background: transparent;
+            border: none;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            transition: var(--md-transition);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toc-toggle:hover {
+            background: var(--md-surface);
+        }
+
+        .toc-content {
+            max-height: 300px;
+            overflow-y: auto;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .toc-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .toc-list {
+            list-style: none;
+            margin-top: var(--md-spacing-md);
+        }
+
+        .toc-item {
+            margin-bottom: var(--md-spacing-sm);
+        }
+
+        .toc-link {
+            color: var(--md-on-surface-variant);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--md-transition);
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+            padding: var(--md-spacing-xs) 0;
+        }
+
+        .toc-link:hover {
+            color: var(--md-primary);
+        }
+
+        .toc-link.active {
+            color: var(--md-primary);
+            font-weight: 500;
+        }
+
+        .toc-link::before {
+            content: "•";
+            color: var(--md-primary);
+            font-size: 1.2rem;
+        }
+
         /* Article Content */
         .article-content {
             font-size: 1.125rem;
@@ -338,6 +523,7 @@
             margin: var(--md-spacing-xxl) 0 var(--md-spacing-lg);
             color: var(--md-on-surface);
             line-height: 1.3;
+            scroll-margin-top: 100px;
         }
 
         .article-content h3 {
@@ -346,6 +532,7 @@
             font-weight: 600;
             margin: var(--md-spacing-xl) 0 var(--md-spacing-md);
             color: var(--md-on-surface);
+            scroll-margin-top: 100px;
         }
 
         .article-content p {
@@ -359,6 +546,9 @@
             font-style: italic;
             color: var(--md-on-surface-variant);
             font-size: 1.25rem;
+            background: var(--md-surface-variant);
+            padding: var(--md-spacing-lg);
+            border-radius: 0 var(--md-radius-medium) var(--md-radius-medium) 0;
         }
 
         .article-content ul, .article-content ol {
@@ -386,6 +576,32 @@
             margin: var(--md-spacing-lg) 0;
             font-family: 'Courier New', monospace;
             line-height: 1.5;
+            position: relative;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--md-spacing-md);
+            font-family: var(--md-font-heading);
+            font-size: 0.875rem;
+            color: var(--md-on-surface-variant);
+        }
+
+        .copy-code {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            border: none;
+            padding: var(--md-spacing-xs) var(--md-spacing-sm);
+            border-radius: var(--md-radius-small);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: var(--md-transition);
+        }
+
+        .copy-code:hover {
+            background: var(--md-primary-dark);
         }
 
         .image-caption {
@@ -413,6 +629,15 @@
             color: var(--md-on-surface);
         }
 
+        .info-card-secondary {
+            border-left-color: var(--md-secondary);
+            background: var(--md-secondary-container);
+        }
+
+        .info-card-secondary h4 {
+            color: var(--md-on-secondary-container);
+        }
+
         /* Article Footer */
         .article-footer {
             margin-top: var(--md-spacing-xxl);
@@ -436,6 +661,7 @@
             font-size: 0.875rem;
             font-weight: 500;
             transition: var(--md-transition);
+            cursor: pointer;
         }
 
         .tag:hover {
@@ -495,6 +721,13 @@
             border-radius: var(--md-radius-large);
             padding: var(--md-spacing-xl);
             margin-top: var(--md-spacing-xxl);
+            cursor: pointer;
+            transition: var(--md-transition);
+        }
+
+        .author-bio:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--md-elevation-2);
         }
 
         .author-bio-header {
@@ -527,6 +760,77 @@
         .author-bio-text {
             color: var(--md-on-surface);
             line-height: 1.6;
+            margin-bottom: var(--md-spacing-md);
+        }
+
+        .author-social {
+            display: flex;
+            gap: var(--md-spacing-sm);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            transition: var(--md-transition);
+        }
+
+        .social-link:hover {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Newsletter CTA */
+        .newsletter-cta {
+            background: var(--md-primary-container);
+            border-radius: var(--md-radius-large);
+            padding: var(--md-spacing-xl);
+            margin: var(--md-spacing-xxl) 0;
+            text-align: center;
+        }
+
+        .newsletter-title {
+            font-family: var(--md-font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--md-spacing-sm);
+            color: var(--md-on-primary-container);
+        }
+
+        .newsletter-text {
+            color: var(--md-on-primary-container);
+            margin-bottom: var(--md-spacing-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: var(--md-spacing-sm);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: var(--md-spacing-md);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-pill);
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            font-family: var(--md-font-body);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--md-primary);
         }
 
         /* Related Articles */
@@ -650,6 +954,27 @@
             animation: fadeIn 0.6s ease-out;
         }
 
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            padding: var(--md-spacing-md) var(--md-spacing-lg);
+            border-radius: var(--md-radius-medium);
+            box-shadow: var(--md-elevation-2);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .article-container {
@@ -679,13 +1004,42 @@
                 gap: var(--md-spacing-md);
                 text-align: center;
             }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .table-of-contents {
+                position: static;
+            }
+            
+            .floating-svg {
+                display: none;
+            }
         }
     </style>
 </head>
 <body class="light-theme">
-    <!-- Mesh Background -->
+    <!-- Enhanced Mesh Background -->
     <div class="mesh-background"></div>
     <div class="mesh-overlay"></div>
+    
+    <!-- Floating SVG Elements -->
+    <svg class="floating-svg svg-1" viewBox="0 0 100 100">
+        <path d="M50,10 L90,50 L50,90 L10,50 Z" fill="var(--md-primary)" opacity="0.2"/>
+    </svg>
+    
+    <svg class="floating-svg svg-2" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="var(--md-primary)" opacity="0.2"/>
+    </svg>
+    
+    <svg class="floating-svg svg-3" viewBox="0 0 100 100">
+        <polygon points="50,10 90,90 10,90" fill="var(--md-primary)" opacity="0.2"/>
+    </svg>
+    
+    <svg class="floating-svg svg-4" viewBox="0 0 100 100">
+        <rect x="10" y="10" width="80" height="80" rx="10" fill="var(--md-primary)" opacity="0.2"/>
+    </svg>
     
     <!-- Header -->
     <header class="app-header">
@@ -703,6 +1057,11 @@
         </div>
     </header>
 
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress">
+        <div class="reading-progress-bar" id="reading-progress"></div>
+    </div>
+
     <!-- Article Content -->
     <main class="article-container">
         <article class="fade-in">
@@ -711,7 +1070,7 @@
                 <h1 class="article-title">The Future of AI-Powered Development: How Machine Learning is Reshaping Software Engineering</h1>
                 
                 <div class="article-meta">
-                    <div class="author-info">
+                    <div class="author-info" id="author-info">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Aditya Jha" class="author-avatar">
                         <div class="author-details">
                             <div class="author-name">Aditya Jha</div>
@@ -728,12 +1087,30 @@
                 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="AI Development" class="article-hero-image">
             </header>
 
+            <!-- Collapsible Table of Contents -->
+            <nav class="table-of-contents">
+                <div class="toc-header" id="toc-header">
+                    <h3 class="toc-title">
+                        <span class="material-icons-round">list</span>
+                        Table of Contents
+                    </h3>
+                    <button class="toc-toggle" id="toc-toggle">
+                        <span class="material-icons-round" id="toc-icon">expand_less</span>
+                    </button>
+                </div>
+                <div class="toc-content" id="toc-content">
+                    <ul class="toc-list" id="toc-list">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </div>
+            </nav>
+
             <div class="article-content">
                 <p>In the rapidly evolving landscape of technology, artificial intelligence has emerged as the most transformative force since the advent of the internet. As we stand at the precipice of a new era in software development, AI-powered tools are fundamentally reshaping how we conceive, build, and maintain software systems.</p>
 
                 <p>The integration of machine learning into development workflows is no longer a futuristic concept—it's happening right now, and its implications are profound. From automated code generation to intelligent debugging systems, AI is revolutionizing every aspect of the software development lifecycle.</p>
 
-                <h2>The Rise of Intelligent Code Assistants</h2>
+                <h2 id="rise-of-intelligent-assistants">The Rise of Intelligent Code Assistants</h2>
 
                 <p>Modern development environments have evolved beyond simple syntax highlighting and auto-completion. Today's AI-powered code assistants can understand context, suggest entire functions, and even refactor code based on natural language descriptions.</p>
 
@@ -744,7 +1121,7 @@
 
                 <p>Tools like GitHub Copilot and Amazon CodeWhisperer have demonstrated the potential of large language models in understanding programming patterns and generating contextually relevant code. These systems learn from vast repositories of open-source code, enabling them to suggest everything from simple utility functions to complex architectural patterns.</p>
 
-                <h3>Beyond Code Generation: The Full Spectrum</h3>
+                <h3 id="beyond-code-generation">Beyond Code Generation: The Full Spectrum</h3>
 
                 <p>While code generation captures most of the headlines, AI's impact on development extends much further:</p>
 
@@ -755,7 +1132,7 @@
                     <li><strong>Security Analysis:</strong> AI-powered security tools can detect vulnerabilities and suggest fixes before code reaches production.</li>
                 </ul>
 
-                <h2>The Changing Role of Developers</h2>
+                <h2 id="changing-role-of-developers">The Changing Role of Developers</h2>
 
                 <p>As AI takes over more routine coding tasks, the role of software developers is evolving from code writers to solution architects and system designers. The focus is shifting toward:</p>
 
@@ -770,15 +1147,19 @@
                     "The best developers of the future won't be those who write the most code, but those who can best leverage AI to solve complex problems efficiently and ethically."
                 </blockquote>
 
-                <h2>Real-World Implementation Examples</h2>
+                <h2 id="real-world-implementations">Real-World Implementation Examples</h2>
 
                 <p>Several forward-thinking organizations are already demonstrating the power of AI in development:</p>
 
-                <h3>Case Study: Automated API Development</h3>
+                <h3 id="api-development-case">Case Study: Automated API Development</h3>
 
                 <p>At TechCorp Innovations, developers used AI to automatically generate REST API endpoints from database schemas. The system:</p>
 
-                <pre><code>// AI-generated API endpoint example
+                <div class="code-header">
+                    <span>JavaScript Example</span>
+                    <button class="copy-code" data-target="code-1">Copy</button>
+                </div>
+                <pre id="code-1"><code class="language-javascript">// AI-generated API endpoint example
 app.post('/api/users', async (req, res) => {
     try {
         const user = await User.create(req.body);
@@ -792,7 +1173,7 @@ app.post('/api/users', async (req, res) => {
 
                 <p>This approach reduced development time for new features by 70% while maintaining code quality and consistency across the codebase.</p>
 
-                <h3>Case Study: Intelligent Code Review</h3>
+                <h3 id="code-review-case">Case Study: Intelligent Code Review</h3>
 
                 <p>Global Finance Corp implemented an AI-powered code review system that:</p>
 
@@ -805,22 +1186,22 @@ app.post('/api/users', async (req, res) => {
 
                 <p>The system caught 45% more critical issues than human-only reviews while reducing review time by 60%.</p>
 
-                <h2>Challenges and Considerations</h2>
+                <h2 id="challenges-considerations">Challenges and Considerations</h2>
 
                 <p>Despite the tremendous potential, AI-powered development faces several challenges:</p>
 
-                <div class="info-card">
+                <div class="info-card info-card-secondary">
                     <h4>Important Consideration</h4>
                     <p>AI systems can sometimes generate code that appears correct but contains subtle bugs or security vulnerabilities. Human oversight remains crucial.</p>
                 </div>
 
-                <h3>Technical Challenges</h3>
+                <h3 id="technical-challenges">Technical Challenges</h3>
 
                 <p><strong>Code Quality and Reliability:</strong> AI-generated code may lack the robustness and optimization of human-written code. Ensuring reliability requires comprehensive testing and validation.</p>
 
                 <p><strong>Understanding Context:</strong> While AI systems excel at pattern recognition, they may struggle with business-specific context and requirements that aren't explicitly stated.</p>
 
-                <h3>Ethical and Social Implications</h3>
+                <h3 id="ethical-implications">Ethical and Social Implications</h3>
 
                 <p><strong>Job Displacement Concerns:</strong> While AI automates routine tasks, it also creates new opportunities for developers to focus on higher-value work.</p>
 
@@ -828,7 +1209,7 @@ app.post('/api/users', async (req, res) => {
 
                 <p><strong>Intellectual Property:</strong> Questions around ownership of AI-generated code and potential copyright infringement need clear legal frameworks.</p>
 
-                <h2>The Road Ahead: What's Next for AI in Development</h2>
+                <h2 id="future-roadmap">The Road Ahead: What's Next for AI in Development</h2>
 
                 <p>Looking forward, we can expect several key developments:</p>
 
@@ -839,7 +1220,7 @@ app.post('/api/users', async (req, res) => {
                     <li><strong>Collaborative AI:</strong> AI systems that learn from individual developer preferences and styles</li>
                 </ul>
 
-                <h2>Getting Started with AI-Powered Development</h2>
+                <h2 id="getting-started">Getting Started with AI-Powered Development</h2>
 
                 <p>For developers looking to integrate AI into their workflow, here are practical steps to begin:</p>
 
@@ -856,6 +1237,16 @@ app.post('/api/users', async (req, res) => {
                 <p>As we continue to push the boundaries of what's possible with AI-powered development, one thing remains clear: the most successful teams will be those that combine human creativity and critical thinking with the power and efficiency of artificial intelligence.</p>
             </div>
 
+            <!-- Newsletter CTA -->
+            <div class="newsletter-cta">
+                <h3 class="newsletter-title">Stay Updated on AI Development</h3>
+                <p class="newsletter-text">Get the latest insights, tutorials, and industry news on AI-powered development delivered directly to your inbox.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-filled">Subscribe</button>
+                </form>
+            </div>
+
             <footer class="article-footer">
                 <div class="article-tags">
                     <span class="tag">Artificial Intelligence</span>
@@ -867,21 +1258,21 @@ app.post('/api/users', async (req, res) => {
                 </div>
 
                 <div class="article-actions">
-                    <button class="btn btn-filled">
+                    <button class="btn btn-filled" id="like-btn">
                         <span class="material-icons-round">thumb_up</span>
                         <span>Like Article</span>
                     </button>
-                    <button class="btn btn-outlined">
+                    <button class="btn btn-outlined" id="bookmark-btn">
                         <span class="material-icons-round">bookmark</span>
                         <span>Save for Later</span>
                     </button>
-                    <button class="btn btn-outlined">
+                    <button class="btn btn-outlined" id="share-btn">
                         <span class="material-icons-round">share</span>
                         <span>Share</span>
                     </button>
                 </div>
 
-                <div class="author-bio">
+                <div class="author-bio" id="author-bio">
                     <div class="author-bio-header">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Aditya Jha" class="author-bio-avatar">
                         <div>
@@ -890,6 +1281,17 @@ app.post('/api/users', async (req, res) => {
                         </div>
                     </div>
                     <p class="author-bio-text">Aditya is a technology thought leader with over 8 years of experience in artificial intelligence and software engineering. He specializes in bridging the gap between cutting-edge AI research and practical software development. At Exonova Marina, he leads initiatives to integrate machine learning into development workflows while maintaining focus on ethical AI practices and developer experience.</p>
+                    <div class="author-social">
+                        <a href="#" class="social-link">
+                            <span class="material-icons-round">person</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="material-icons-round">alternate_email</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="material-icons-round">share</span>
+                        </a>
+                    </div>
                 </div>
             </footer>
         </article>
@@ -927,6 +1329,9 @@ app.post('/api/users', async (req, res) => {
         </section>
     </main>
 
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
     <footer class="exo-footer">
         <div class="footer-content">
             <div class="footer-logo">
@@ -936,7 +1341,7 @@ app.post('/api/users', async (req, res) => {
                 <h2 class="app-name">Exonova Marina</h2>
             </div>
             <div class="footer-text">
-                © 2025 Exonova Marina. All rights reserved.
+                © 2023 Exonova Marina. All rights reserved.
             </div>
         </div>
     </footer>
@@ -946,6 +1351,19 @@ app.post('/api/users', async (req, res) => {
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('.material-icons-round');
         const currentDateElement = document.getElementById('current-date');
+        const readingProgress = document.getElementById('reading-progress');
+        const tocList = document.getElementById('toc-list');
+        const tocHeader = document.getElementById('toc-header');
+        const tocContent = document.getElementById('toc-content');
+        const tocToggle = document.getElementById('toc-toggle');
+        const tocIcon = document.getElementById('toc-icon');
+        const likeBtn = document.getElementById('like-btn');
+        const bookmarkBtn = document.getElementById('bookmark-btn');
+        const shareBtn = document.getElementById('share-btn');
+        const newsletterForm = document.getElementById('newsletter-form');
+        const toast = document.getElementById('toast');
+        const authorInfo = document.getElementById('author-info');
+        const authorBio = document.getElementById('author-bio');
 
         // Set current date
         function setCurrentDate() {
@@ -987,6 +1405,194 @@ app.post('/api/users', async (req, res) => {
             }
         }
 
+        // Reading Progress
+        function updateReadingProgress() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const progress = (scrollTop / documentHeight) * 100;
+            readingProgress.style.width = `${progress}%`;
+        }
+
+        // Generate Table of Contents
+        function generateTOC() {
+            const headings = document.querySelectorAll('.article-content h2, .article-content h3');
+            let tocHTML = '';
+            
+            headings.forEach((heading, index) => {
+                const id = heading.id || `heading-${index}`;
+                heading.id = id;
+                
+                const level = heading.tagName === 'H2' ? 0 : 1;
+                const indent = level > 0 ? 'style="margin-left: 16px;"' : '';
+                
+                tocHTML += `
+                    <li class="toc-item" ${indent}>
+                        <a href="#${id}" class="toc-link">${heading.textContent}</a>
+                    </li>
+                `;
+            });
+            
+            tocList.innerHTML = tocHTML;
+            
+            // Highlight active TOC item on scroll
+            const observerOptions = {
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.id;
+                    const tocLink = document.querySelector(`.toc-link[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.toc-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (tocLink) tocLink.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+            
+            headings.forEach(heading => {
+                observer.observe(heading);
+            });
+        }
+
+        // Toggle Table of Contents
+        function initTOC() {
+            let isCollapsed = false;
+            
+            tocHeader.addEventListener('click', () => {
+                isCollapsed = !isCollapsed;
+                
+                if (isCollapsed) {
+                    tocContent.classList.add('collapsed');
+                    tocIcon.textContent = 'expand_more';
+                } else {
+                    tocContent.classList.remove('collapsed');
+                    tocIcon.textContent = 'expand_less';
+                }
+            });
+        }
+
+        // Copy code functionality
+        function initCopyButtons() {
+            const copyButtons = document.querySelectorAll('.copy-code');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const codeElement = document.getElementById(targetId);
+                    const codeText = codeElement.textContent;
+                    
+                    navigator.clipboard.writeText(codeText).then(() => {
+                        showToast('Code copied to clipboard!');
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                        showToast('Failed to copy code');
+                    });
+                });
+            });
+        }
+
+        // Toast notification
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Article actions
+        function initArticleActions() {
+            let isLiked = false;
+            let isBookmarked = false;
+            
+            likeBtn.addEventListener('click', () => {
+                isLiked = !isLiked;
+                likeBtn.innerHTML = isLiked ? 
+                    '<span class="material-icons-round">thumb_up</span><span>Liked</span>' :
+                    '<span class="material-icons-round">thumb_up</span><span>Like Article</span>';
+                
+                if (isLiked) {
+                    likeBtn.classList.add('btn-filled');
+                    likeBtn.classList.remove('btn-outlined');
+                    showToast('Thanks for liking this article!');
+                } else {
+                    likeBtn.classList.remove('btn-filled');
+                    likeBtn.classList.add('btn-outlined');
+                }
+            });
+            
+            bookmarkBtn.addEventListener('click', () => {
+                isBookmarked = !isBookmarked;
+                bookmarkBtn.innerHTML = isBookmarked ? 
+                    '<span class="material-icons-round">bookmark</span><span>Saved</span>' :
+                    '<span class="material-icons-round">bookmark</span><span>Save for Later</span>';
+                
+                if (isBookmarked) {
+                    bookmarkBtn.classList.add('btn-filled');
+                    bookmarkBtn.classList.remove('btn-outlined');
+                    showToast('Article saved to your bookmarks!');
+                } else {
+                    bookmarkBtn.classList.remove('btn-filled');
+                    bookmarkBtn.classList.add('btn-outlined');
+                }
+            });
+            
+            shareBtn.addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        url: window.location.href
+                    }).then(() => {
+                        showToast('Article shared successfully!');
+                    }).catch(err => {
+                        console.error('Error sharing:', err);
+                    });
+                } else {
+                    // Fallback for browsers that don't support Web Share API
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        showToast('Link copied to clipboard!');
+                    }).catch(err => {
+                        console.error('Failed to copy link: ', err);
+                        showToast('Failed to copy link');
+                    });
+                }
+            });
+        }
+
+        // Newsletter form
+        function initNewsletterForm() {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = newsletterForm.querySelector('input[type="email"]').value;
+                
+                // Simulate form submission
+                showToast('Thanks for subscribing!');
+                newsletterForm.reset();
+            });
+        }
+
+        // Author profile click handler
+        function initAuthorProfileLinks() {
+            const authorProfileUrl = 'https://aditya-cmd-max.github.io/marina/profiles/adityajha.html';
+            
+            // Add click event to author info in article header
+            authorInfo.addEventListener('click', () => {
+                window.open(authorProfileUrl, '_blank');
+            });
+            
+            // Add click event to author bio section
+            authorBio.addEventListener('click', () => {
+                window.open(authorProfileUrl, '_blank');
+            });
+        }
+
         // Initialize GSAP animations
         function initAnimations() {
             // Register ScrollTrigger plugin
@@ -1007,6 +1613,22 @@ app.post('/api/users', async (req, res) => {
                         ease: 'power2.out'
                     });
                 });
+                
+                // Animate article cards
+                gsap.utils.toArray('.article-card').forEach((card, i) => {
+                    gsap.from(card, {
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
+                        },
+                        duration: 0.6,
+                        y: 30,
+                        opacity: 0,
+                        delay: i * 0.1,
+                        ease: 'power2.out'
+                    });
+                });
             }
         }
 
@@ -1014,7 +1636,16 @@ app.post('/api/users', async (req, res) => {
         document.addEventListener('DOMContentLoaded', () => {
             setCurrentDate();
             loadThemePreference();
+            generateTOC();
+            initTOC();
+            initCopyButtons();
+            initArticleActions();
+            initNewsletterForm();
+            initAuthorProfileLinks();
             initAnimations();
+            
+            // Add scroll event listener for reading progress
+            window.addEventListener('scroll', updateReadingProgress);
         });
     </script>
 </body>
