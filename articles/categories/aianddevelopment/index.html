@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Development | Exonova Marina</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <style>
+        /* Material Design 3 Color System */
+        :root {
+            /* Primary Colors */
+            --md-primary: #1a73e8;
+            --md-on-primary: #FFFFFF;
+            --md-primary-container: #d2e3fc;
+            --md-on-primary-container: #001d3d;
+            
+            /* Surface Colors */
+            --md-surface: #FFFFFF;
+            --md-on-surface: #202124;
+            --md-surface-variant: #F8F9FA;
+            --md-on-surface-variant: #5f6368;
+            
+            /* Background Colors */
+            --md-background: #FFFFFF;
+            --md-on-background: #202124;
+            
+            /* Outline Colors */
+            --md-outline: #DADCE0;
+            --md-outline-variant: #E8EAED;
+            
+            /* Shadow Elevations */
+            --md-elevation-1: 0 1px 2px rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            --md-elevation-2: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+            --md-elevation-3: 0 1px 3px 1px rgba(60,64,67,0.15), 0 1px 2px rgba(60,64,67,0.3);
+            
+            /* Animation */
+            --md-transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            --md-transition-fast: all 0.15s cubic-bezier(0.2, 0, 0, 1);
+            
+            /* Border Radius */
+            --md-radius-small: 8px;
+            --md-radius-medium: 12px;
+            --md-radius-large: 16px;
+            --md-radius-extra-large: 28px;
+            --md-radius-pill: 9999px;
+            
+            /* Spacing */
+            --md-spacing-xs: 4px;
+            --md-spacing-sm: 8px;
+            --md-spacing-md: 16px;
+            --md-spacing-lg: 24px;
+            --md-spacing-xl: 32px;
+            --md-spacing-xxl: 48px;
+            
+            /* Typography */
+            --md-font-logo: 'Playfair Display', serif;
+            --md-font-heading: 'Inter', sans-serif;
+            --md-font-body: 'Lora', serif;
+        }
+
+        /* Dark Theme */
+        .dark-theme {
+            --md-surface: #202124;
+            --md-on-surface: #E8EAED;
+            --md-surface-variant: #303134;
+            --md-on-surface-variant: #9AA0A6;
+            --md-background: #202124;
+            --md-on-background: #E8EAED;
+            --md-primary-container: #174ea6;
+            --md-on-primary-container: #E8EAED;
+            --md-outline: #3C4043;
+            --md-outline-variant: #5F6368;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--md-font-body);
+            background-color: var(--md-background);
+            color: var(--md-on-surface);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--md-transition);
+        }
+
+        /* Mesh Background */
+        .mesh-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.08;
+            background-image: 
+                linear-gradient(var(--md-primary) 1px, transparent 1px),
+                linear-gradient(90deg, var(--md-primary) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: meshMove 20s linear infinite;
+        }
+
+        .mesh-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(
+                circle at 20% 80%,
+                rgba(26, 115, 232, 0.15) 0%,
+                transparent 50%
+            ), radial-gradient(
+                circle at 80% 20%,
+                rgba(26, 115, 232, 0.15) 0%,
+                transparent 50%
+            ), radial-gradient(
+                circle at 40% 40%,
+                rgba(26, 115, 232, 0.1) 0%,
+                transparent 50%
+            );
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes meshMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Header */
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--md-spacing-xl);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            height: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: var(--md-elevation-1);
+            border-bottom: 1px solid var(--md-outline);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .dark-theme .app-header {
+            background: rgba(32, 33, 36, 0.9);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--md-primary);
+            border-radius: var(--md-radius-medium);
+            color: var(--md-on-primary);
+            overflow: hidden;
+            font-weight: 700;
+        }
+
+        .app-name {
+            font-family: var(--md-font-logo);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--md-on-surface);
+            letter-spacing: -0.5px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+        }
+
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-xl);
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            color: var(--md-on-surface);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--md-transition);
+            position: relative;
+            padding: var(--md-spacing-sm) 0;
+            font-family: var(--md-font-heading);
+            font-size: 1rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--md-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--md-primary);
+            font-weight: 600;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--md-transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--md-surface-variant);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--md-spacing-sm);
+            padding: var(--md-spacing-md) var(--md-spacing-lg);
+            border-radius: var(--md-radius-pill);
+            border: none;
+            font-family: var(--md-font-heading);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--md-transition-fast);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-filled {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .btn-filled:hover {
+            box-shadow: var(--md-elevation-2);
+            transform: translateY(-2px);
+        }
+
+        .btn-outlined {
+            background: transparent;
+            color: var(--md-primary);
+            border: 1px solid var(--md-outline);
+        }
+
+        .btn-outlined:hover {
+            background: var(--md-primary-container);
+            border-color: var(--md-primary);
+        }
+
+        /* Icon Button */
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--md-spacing-sm);
+            padding: var(--md-spacing-md);
+            border-radius: var(--md-radius-pill);
+            border: none;
+            font-family: var(--md-font-heading);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--md-transition-fast);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            min-width: 44px;
+            height: 44px;
+        }
+
+        .btn-icon.btn-filled {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .btn-icon.btn-filled:hover {
+            box-shadow: var(--md-elevation-2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .category-container {
+            max-width: 1200px;
+            margin: 120px auto var(--md-spacing-xxl);
+            padding: 0 var(--md-spacing-xl);
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+            margin-bottom: var(--md-spacing-lg);
+            font-family: var(--md-font-heading);
+            font-size: 0.875rem;
+            color: var(--md-on-surface-variant);
+        }
+
+        .breadcrumb a {
+            color: var(--md-primary);
+            text-decoration: none;
+            transition: var(--md-transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--md-on-primary-container);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: var(--md-on-surface-variant);
+        }
+
+        .breadcrumb-current {
+            color: var(--md-on-surface);
+            font-weight: 500;
+        }
+
+        /* Category Header */
+        .category-header {
+            background: linear-gradient(135deg, var(--md-primary) 0%, var(--md-primary-container) 100%);
+            border-radius: var(--md-radius-large);
+            padding: var(--md-spacing-xxl);
+            margin-bottom: var(--md-spacing-xxl);
+            color: var(--md-on-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--md-radius-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            margin-bottom: var(--md-spacing-lg);
+            font-size: 2rem;
+        }
+
+        .category-title {
+            font-family: var(--md-font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: var(--md-spacing-md);
+            color: var(--md-on-primary);
+        }
+
+        .category-description {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: var(--md-spacing-lg);
+        }
+
+        .category-stats {
+            display: flex;
+            gap: var(--md-spacing-xl);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-family: var(--md-font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--md-on-primary);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            margin-top: var(--md-spacing-xs);
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: var(--md-spacing-sm);
+            margin-bottom: var(--md-spacing-xl);
+            padding: var(--md-spacing-sm);
+            background: var(--md-surface-variant);
+            border-radius: var(--md-radius-pill);
+            width: fit-content;
+        }
+
+        .filter-tab {
+            padding: var(--md-spacing-sm) var(--md-spacing-lg);
+            border: none;
+            background: transparent;
+            color: var(--md-on-surface-variant);
+            font-family: var(--md-font-heading);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: var(--md-radius-pill);
+            cursor: pointer;
+            transition: var(--md-transition);
+            white-space: nowrap;
+        }
+
+        .filter-tab:hover {
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+        }
+
+        .filter-tab.active {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            box-shadow: var(--md-elevation-1);
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--md-spacing-lg);
+            margin-bottom: var(--md-spacing-xxl);
+        }
+
+        .article-card {
+            background: var(--md-surface);
+            border-radius: var(--md-radius-large);
+            overflow: hidden;
+            box-shadow: var(--md-elevation-1);
+            border: 1px solid var(--md-outline);
+            transition: var(--md-transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .article-card:hover {
+            box-shadow: var(--md-elevation-3);
+            transform: translateY(-8px);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--md-surface-variant);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            padding: var(--md-spacing-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: var(--md-spacing-xs) var(--md-spacing-sm);
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+            border-radius: var(--md-radius-pill);
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: var(--md-spacing-md);
+            font-family: var(--md-font-heading);
+        }
+
+        .article-title {
+            font-family: var(--md-font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--md-spacing-sm);
+            color: var(--md-on-surface);
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: var(--md-on-surface-variant);
+            margin-bottom: var(--md-spacing-lg);
+            flex: 1;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: var(--md-on-surface-variant);
+            font-family: var(--md-font-heading);
+        }
+
+        /* Author Section */
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+            margin-bottom: var(--md-spacing-md);
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--md-outline);
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--md-on-surface);
+        }
+
+        .article-date {
+            font-size: 0.75rem;
+            color: var(--md-on-surface-variant);
+        }
+
+        .article-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--md-spacing-md);
+        }
+
+        /* Bookmark Button */
+        .bookmark-btn {
+            background: transparent;
+            border: none;
+            color: var(--md-on-surface-variant);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--md-transition);
+        }
+
+        .bookmark-btn:hover {
+            background: var(--md-surface-variant);
+        }
+
+        .bookmark-btn.bookmarked {
+            color: var(--md-primary);
+        }
+
+        /* Featured Badge */
+        .featured-badge {
+            position: absolute;
+            top: var(--md-spacing-md);
+            right: var(--md-spacing-md);
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            padding: var(--md-spacing-xs) var(--md-spacing-sm);
+            border-radius: var(--md-radius-pill);
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: var(--md-elevation-1);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            padding: var(--md-spacing-md) var(--md-spacing-lg);
+            border-radius: var(--md-radius-medium);
+            box-shadow: var(--md-elevation-2);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        .exo-footer {
+            padding: var(--md-spacing-xxl) var(--md-spacing-xl) var(--md-spacing-xl);
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            border-top: 1px solid var(--md-outline);
+            margin-top: var(--md-spacing-xxl);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--md-spacing-sm);
+        }
+
+        .footer-text {
+            color: var(--md-on-surface-variant);
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .category-container {
+                padding: 0 var(--md-spacing-md);
+                margin-top: 100px;
+            }
+            
+            .category-header {
+                padding: var(--md-spacing-xl);
+            }
+            
+            .category-title {
+                font-size: 2.5rem;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-header {
+                padding: 0 var(--md-spacing-md);
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .filter-tabs {
+                width: 100%;
+                overflow-x: auto;
+                padding: var(--md-spacing-sm);
+            }
+            
+            .filter-tab {
+                white-space: nowrap;
+            }
+            
+            .category-stats {
+                flex-direction: column;
+                gap: var(--md-spacing-md);
+            }
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <!-- Mesh Background -->
+    <div class="mesh-background"></div>
+    <div class="mesh-overlay"></div>
+    
+    <!-- Header -->
+    <header class="app-header">
+        <div class="logo-container">
+            <div class="logo">
+                <span class="material-icons-round">smart_toy</span>
+            </div>
+            <h1 class="app-name">Exonova Marina</h1>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="articles.html" class="nav-link">Articles</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="categories.html" class="btn btn-outlined">All Categories</a>
+            <button class="theme-toggle" id="theme-toggle">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="category-container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="https://aditya-cmd-max.github.io/marina/">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="https://aditya-cmd-max.github.io/marina/articles">Articles</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="https://aditya-cmd-max.github.io/marina/articles/categories">Categories</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">AI & Development</span>
+        </nav>
+
+        <!-- Category Header -->
+        <div class="category-header">
+            <div class="category-icon">
+                <span class="material-icons-round">smart_toy</span>
+            </div>
+            <h1 class="category-title">AI & Development</h1>
+            <p class="category-description">Explore the intersection of artificial intelligence and software development. Discover how AI is transforming coding practices, development workflows, and the future of software engineering.</p>
+            <div class="category-stats">
+                <div class="stat">
+                    <span class="stat-value">8</span>
+                    <span class="stat-label">Articles</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Authors</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">1.8K</span>
+                    <span class="stat-label">Total Reads</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">89</span>
+                    <span class="stat-label">Bookmarks</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All Articles</button>
+            <button class="filter-tab" data-filter="latest">Latest</button>
+            <button class="filter-tab" data-filter="featured">Featured</button>
+        </div>
+        
+        <!-- Articles Grid -->
+        <div class="articles-grid">
+            <!-- Article 1 -->
+            <div class="article-card fade-in" data-id="1" data-featured="true" data-date="2025-11-30">
+                <div class="featured-badge">Featured</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Development">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">AI & Development</span>
+                    <h3 class="article-title">The Future of AI-Powered Development: How Machine Learning is Reshaping Software Engineering</h3>
+                    <p class="article-excerpt">Explore how AI-powered tools are fundamentally reshaping how we conceive, build, and maintain software systems with machine learning integration.</p>
+                    
+                    <!-- Author Section -->
+                    <div class="author-section">
+                        <img src="https://aditya-cmd-max.github.io/exonova-/adityajha.jpg" alt="Aditya Jha" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">Aditya Jha</span>
+                            <span class="article-date">November 30, 2025 • 12 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/ai-powered-development.html" class="btn btn-outlined">Read Article</a>
+                        <button class="bookmark-btn" data-id="1">
+                            <span class="material-icons-round">bookmark_border</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="article-card fade-in" data-id="2" data-featured="false" data-date="2023-11-25">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Coding Tools">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">AI & Development</span>
+                    <h3 class="article-title">Revolutionizing Code Generation: How AI Assistants are Changing Development Workflows</h3>
+                    <p class="article-excerpt">An in-depth look at how AI-powered coding assistants are transforming developer productivity and code quality across the industry.</p>
+                    
+                    <!-- Author Section -->
+                    <div class="author-section">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Sarah Chen" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">Sarah Chen</span>
+                            <span class="article-date">November 25, 2023 • 8 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/ai-coding-tools.html" class="btn btn-outlined">Read Article</a>
+                        <button class="bookmark-btn" data-id="2">
+                            <span class="material-icons-round">bookmark_border</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="article-card fade-in" data-id="3" data-featured="true" data-date="2023-11-20">
+                <div class="featured-badge">Featured</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Testing">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">AI & Development</span>
+                    <h3 class="article-title">Automated Testing with AI: Reducing Bugs and Improving Software Quality</h3>
+                    <p class="article-excerpt">How artificial intelligence is revolutionizing software testing methodologies and helping teams deliver more reliable products faster.</p>
+                    
+                    <!-- Author Section -->
+                    <div class="author-section">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Dr. Alex Thompson" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">Dr. Alex Thompson</span>
+                            <span class="article-date">November 20, 2023 • 15 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/ai-testing.html" class="btn btn-outlined">Read Article</a>
+                        <button class="bookmark-btn" data-id="3">
+                            <span class="material-icons-round">bookmark_border</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 4 -->
+            <div class="article-card fade-in" data-id="4" data-featured="false" data-date="2023-11-18">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1676278109230-91764c8d0b13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Debugging">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">AI & Development</span>
+                    <h3 class="article-title">AI-Powered Debugging: Finding and Fixing Bugs with Machine Learning</h3>
+                    <p class="article-excerpt">Discover how machine learning algorithms are being used to automatically detect, diagnose, and even fix software bugs in real-time.</p>
+                    
+                    <!-- Author Section -->
+                    <div class="author-section">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Maria Rodriguez" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">Maria Rodriguez</span>
+                            <span class="article-date">November 18, 2023 • 10 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/ai-debugging.html" class="btn btn-outlined">Read Article</a>
+                        <button class="bookmark-btn" data-id="4">
+                            <span class="material-icons-round">bookmark_border</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 5 -->
+            <div class="article-card fade-in" data-id="5" data-featured="false" data-date="2023-11-15">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Code Review">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">AI & Development</span>
+                    <h3 class="article-title">Automated Code Review with AI: Enhancing Code Quality and Team Collaboration</h3>
+                    <p class="article-excerpt">How AI systems are revolutionizing code review processes, catching issues early, and improving overall code quality across development teams.</p>
+                    
+                    <!-- Author Section -->
+                    <div class="author-section">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="James Wilson" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">James Wilson</span>
+                            <span class="article-date">November 15, 2023 • 14 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/ai-code-review.html" class="btn btn-outlined">Read Article</a>
+                        <button class="bookmark-btn" data-id="5">
+                            <span class="material-icons-round">bookmark_border</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 6 -->
+            <div class="article-card fade-in" data-id="6" data-featured="true" data-date="2023-11-10">
+                <div class="featured-badge">Featured</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1676299081846-9ad5c90bd1e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Architecture">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">AI & Development</span>
+                    <h3 class="article-title">AI-Driven Software Architecture: Designing Systems with Machine Learning</h3>
+                    <p class="article-excerpt">Exploring how AI is being used to recommend optimal software architectures based on project requirements, team size, and performance needs.</p>
+                    
+                    <!-- Author Section -->
+                    <div class="author-section">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Dr. Lisa Park" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">Dr. Lisa Park</span>
+                            <span class="article-date">November 10, 2023 • 11 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/ai-architecture.html" class="btn btn-outlined">Read Article</a>
+                        <button class="bookmark-btn" data-id="6">
+                            <span class="material-icons-round">bookmark_border</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 7 -->
+            <div class="article-card fade-in" data-id="7" data-featured="false" data-date="2023-11-05">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Documentation">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">AI & Development</span>
+                    <h3 class="article-title">Automated Documentation with AI: Keeping Codebases Well-Documented</h3>
+                    <p class="article-excerpt">How AI tools are automatically generating and maintaining documentation, making it easier for teams to understand and work with complex codebases.</p>
+                    
+                    <!-- Author Section -->
+                    <div class="author-section">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Robert Kim" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">Robert Kim</span>
+                            <span class="article-date">November 5, 2023 • 9 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/ai-documentation.html" class="btn btn-outlined">Read Article</a>
+                        <button class="bookmark-btn" data-id="7">
+                            <span class="material-icons-round">bookmark_border</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 8 -->
+            <div class="article-card fade-in" data-id="8" data-featured="false" data-date="2023-11-01">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI DevOps">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">AI & Development</span>
+                    <h3 class="article-title">AI in DevOps: Automating Deployment and Monitoring with Machine Learning</h3>
+                    <p class="article-excerpt">Discover how AI is transforming DevOps practices by automating deployment pipelines, predicting failures, and optimizing infrastructure management.</p>
+                    
+                    <!-- Author Section -->
+                    <div class="author-section">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Michael Chen" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">Michael Chen</span>
+                            <span class="article-date">November 1, 2023 • 13 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/ai-devops.html" class="btn btn-outlined">Read Article</a>
+                        <button class="bookmark-btn" data-id="8">
+                            <span class="material-icons-round">bookmark_border</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <footer class="exo-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">
+                    <span class="material-icons-round">smart_toy</span>
+                </div>
+                <h2 class="app-name">Exonova Marina</h2>
+            </div>
+            <div class="footer-text">
+                © 2025 Exonova Marina. All rights reserved.Powered By Exonova.
+            </div>
+         <p>Made with Lots of ♥ by Aditya Jha</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('.material-icons-round');
+        const bookmarkBtns = document.querySelectorAll('.bookmark-btn');
+        const toast = document.getElementById('toast');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const articleCards = document.querySelectorAll('.article-card');
+
+        // Bookmarking System
+        let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+        let currentFilter = 'all';
+
+        // Initialize bookmarks
+        function initBookmarks() {
+            bookmarkBtns.forEach(btn => {
+                const articleId = btn.getAttribute('data-id');
+                const isBookmarked = bookmarks.includes(articleId);
+                
+                if (isBookmarked) {
+                    btn.classList.add('bookmarked');
+                    btn.innerHTML = '<span class="material-icons-round">bookmark</span>';
+                } else {
+                    btn.classList.remove('bookmarked');
+                    btn.innerHTML = '<span class="material-icons-round">bookmark_border</span>';
+                }
+            });
+        }
+
+        // Toggle bookmark
+        function toggleBookmark(articleId) {
+            const index = bookmarks.indexOf(articleId);
+            
+            if (index === -1) {
+                // Add to bookmarks
+                bookmarks.push(articleId);
+                showToast('Article bookmarked!');
+            } else {
+                // Remove from bookmarks
+                bookmarks.splice(index, 1);
+                showToast('Bookmark removed');
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            
+            // Update UI
+            initBookmarks();
+        }
+
+        // Filter articles
+        function filterArticles(filterType) {
+            currentFilter = filterType;
+            
+            articleCards.forEach(card => {
+                const isFeatured = card.getAttribute('data-featured') === 'true';
+                const articleDate = new Date(card.getAttribute('data-date'));
+                const currentDate = new Date();
+                const isRecent = (currentDate - articleDate) / (1000 * 60 * 60 * 24) <= 30; // Within 30 days
+                
+                let shouldShow = true;
+                
+                switch(filterType) {
+                    case 'latest':
+                        shouldShow = isRecent;
+                        break;
+                    case 'featured':
+                        shouldShow = isFeatured;
+                        break;
+                    case 'all':
+                    default:
+                        shouldShow = true;
+                        break;
+                }
+                
+                card.style.display = shouldShow ? 'flex' : 'none';
+            });
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            document.body.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.textContent = 'light_mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.textContent = 'dark_mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme preference
+        function loadThemePreference() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                document.body.classList.remove('light-theme');
+                themeIcon.textContent = 'light_mode';
+            } else {
+                document.body.classList.add('light-theme');
+                document.body.classList.remove('dark-theme');
+                themeIcon.textContent = 'dark_mode';
+            }
+        }
+
+        // Bookmark button event listeners
+        bookmarkBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const articleId = btn.getAttribute('data-id');
+                toggleBookmark(articleId);
+            });
+        });
+
+        // Filter tab event listeners
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                // Filter articles
+                const filterType = tab.getAttribute('data-filter');
+                filterArticles(filterType);
+            });
+        });
+
+        // Article card click handlers
+        articleCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't trigger if clicking on bookmark button or links
+                if (!e.target.closest('.bookmark-btn') && !e.target.closest('a')) {
+                    const link = card.querySelector('.btn-outlined');
+                    if (link) {
+                        window.location.href = link.href;
+                    }
+                }
+            });
+        });
+
+        // Simple scroll animation
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all article cards
+            articleCards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadThemePreference();
+            initBookmarks();
+            initScrollAnimations();
+        });
+    </script>
+</body>
+</html>
