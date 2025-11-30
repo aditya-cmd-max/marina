@@ -110,7 +110,7 @@
             transition: var(--md-transition);
         }
 
-        /* Mesh Background */
+        /* Enhanced Mesh Background */
         .mesh-background {
             position: fixed;
             top: 0;
@@ -118,7 +118,7 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            opacity: 0.03;
+            opacity: 0.12;
             background-image: 
                 linear-gradient(var(--md-primary) 1px, transparent 1px),
                 linear-gradient(90deg, var(--md-primary) 1px, transparent 1px);
@@ -135,15 +135,15 @@
             z-index: -1;
             background: radial-gradient(
                 circle at 20% 80%,
-                rgba(26, 115, 232, 0.05) 0%,
+                rgba(26, 115, 232, 0.25) 0%,
                 transparent 50%
             ), radial-gradient(
                 circle at 80% 20%,
-                rgba(26, 115, 232, 0.05) 0%,
+                rgba(26, 115, 232, 0.25) 0%,
                 transparent 50%
             ), radial-gradient(
                 circle at 40% 40%,
-                rgba(26, 115, 232, 0.03) 0%,
+                rgba(26, 115, 232, 0.15) 0%,
                 transparent 50%
             );
             animation: pulse 8s ease-in-out infinite;
@@ -164,6 +164,54 @@
             }
             50% {
                 opacity: 0.7;
+            }
+        }
+
+        /* Floating SVG Elements */
+        .floating-svg {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .svg-1 {
+            top: 10%;
+            left: 5%;
+            width: 150px;
+            animation-delay: 0s;
+        }
+
+        .svg-2 {
+            top: 70%;
+            right: 10%;
+            width: 120px;
+            animation-delay: -5s;
+        }
+
+        .svg-3 {
+            bottom: 20%;
+            left: 15%;
+            width: 100px;
+            animation-delay: -10s;
+        }
+
+        .svg-4 {
+            top: 30%;
+            right: 5%;
+            width: 80px;
+            animation-delay: -15s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(-5deg);
             }
         }
 
@@ -681,6 +729,12 @@
             padding: var(--md-spacing-sm);
             background: var(--md-surface-variant);
             border-radius: var(--md-radius-pill);
+            cursor: pointer;
+            transition: var(--md-transition);
+        }
+
+        .author-section:hover {
+            background: var(--md-primary-container);
         }
 
         .author-avatar {
@@ -854,7 +908,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.03;
+            opacity: 0.05;
         }
 
         .footer-star, .footer-gum, .footer-flower {
@@ -1522,9 +1576,26 @@
     </style>
 </head>
 <body class="light-theme">
-    <!-- Mesh Background -->
+    <!-- Enhanced Mesh Background -->
     <div class="mesh-background"></div>
     <div class="mesh-overlay"></div>
+    
+    <!-- Floating SVG Elements -->
+    <svg class="floating-svg svg-1" viewBox="0 0 100 100">
+        <path d="M50,10 L90,50 L50,90 L10,50 Z" fill="var(--md-primary)" opacity="0.2"/>
+    </svg>
+    
+    <svg class="floating-svg svg-2" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="var(--md-primary)" opacity="0.2"/>
+    </svg>
+    
+    <svg class="floating-svg svg-3" viewBox="0 0 100 100">
+        <polygon points="50,10 90,90 10,90" fill="var(--md-primary)" opacity="0.2"/>
+    </svg>
+    
+    <svg class="floating-svg svg-4" viewBox="0 0 100 100">
+        <rect x="10" y="10" width="80" height="80" rx="10" fill="var(--md-primary)" opacity="0.2"/>
+    </svg>
     
     <!-- Particle Background -->
     <div class="particle-container" id="particles"></div>
@@ -1596,8 +1667,8 @@
             <h1 class="hero-title" id="heroTitle">Exonova Marina</h1>
             <p class="hero-subtitle">Your premier destination for cutting-edge technology insights, industry analysis, and forward-thinking perspectives.</p>
             <div class="hero-cta">
-                <button class="btn btn-filled ripple-btn">Explore Latest Articles</button>
-                <button class="btn btn-outlined ripple-btn">Subscribe to Newsletter</button>
+                <a href="#featured-article" class="btn btn-filled ripple-btn">Explore Latest Articles</a>
+                <a href="#newsletter" class="btn btn-outlined ripple-btn">Subscribe to Newsletter</a>
             </div>
         </div>
     </section>
@@ -1605,7 +1676,7 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Featured Article -->
-        <section class="featured-article card-3d">
+        <section class="featured-article card-3d" id="featured-article">
             <div class="featured-image">
                 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Assistant">
                 <svg width="282" height="281" viewBox="0 0 282 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="article-frame">
@@ -1615,11 +1686,11 @@
             <div class="featured-content">
                 <span class="featured-category">AI & Development</span>
                 <h2 class="featured-title">The Future of AI-Powered Development: How Machine Learning is Reshaping Software Engineering</h2>
-                <p class="featured-excerpt">How conversational AI is evolving to become true digital companions that understand context, emotion, and complex human needs. Discover the breakthroughs in natural language processing and emotional intelligence algorithms.</p>
+                <p class="featured-excerpt">In the rapidly evolving landscape of technology, artificial intelligence has emerged as the most transformative force since the advent of the internet. As we stand at the precipice of a new era in software development, AI-powered tools are fundamentally reshaping how we conceive, build, and maintain software systems.</p>
                 
                 <!-- Author Section -->
-                <div class="author-section">
-                    <img src="" alt="Author" class="author-avatar">
+                <div class="author-section" id="author-profile-link">
+                    <img src="https://aditya-cmd-max.github.io/exonova-/adityajha.jpg" alt="Aditya Jha" class="author-avatar">
                     <div class="author-info">
                         <span class="author-name">Aditya Jha</span>
                         <span class="article-date">November 30, 2025 • 12 min read</span>
@@ -1627,7 +1698,7 @@
                 </div>
                 
                 <div class="article-actions">
-                    <button class="btn btn-filled ripple-btn">Read Full Article</button>
+                    <a href="https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/2025/aditya-jha/future-of-ai-powered-development" class="btn btn-filled ripple-btn">Read Full Article</a>
                     <button class="btn btn-preview ripple-btn" data-preview="featured">Preview</button>
                 </div>
             </div>
@@ -1670,7 +1741,7 @@
                         </div>
                         
                         <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Read</button>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/quantum-cryptography.html" class="btn btn-outlined ripple-btn">Read</a>
                             <button class="btn btn-preview ripple-btn" data-preview="article1">Preview</button>
                         </div>
                     </div>
@@ -1699,7 +1770,7 @@
                         </div>
                         
                         <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Read</button>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/material-design-3.html" class="btn btn-outlined ripple-btn">Read</a>
                             <button class="btn btn-preview ripple-btn" data-preview="article2">Preview</button>
                         </div>
                     </div>
@@ -1728,7 +1799,7 @@
                         </div>
                         
                         <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Read</button>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/edge-computing.html" class="btn btn-outlined ripple-btn">Read</a>
                             <button class="btn btn-preview ripple-btn" data-preview="article3">Preview</button>
                         </div>
                     </div>
@@ -1737,7 +1808,7 @@
         </section>
 
         <!-- Newsletter -->
-        <section class="newsletter-section">
+        <section class="newsletter-section" id="newsletter">
             <h2 class="newsletter-title">Stay Updated with Tech Insights</h2>
             <p class="newsletter-description">Get the latest tech news, in-depth analysis, and exclusive content delivered directly to your inbox. Join our community of technology enthusiasts and professionals.</p>
             <form class="newsletter-form">
@@ -1776,7 +1847,7 @@
                             <span>24 articles</span>
                         </div>
                         <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Explore</button>
+                            <a href="https://aditya-cmd-max.github.io/marina/categories/ai-machine-learning.html" class="btn btn-outlined ripple-btn">Explore</a>
                             <button class="btn btn-preview ripple-btn" data-preview="category1">Preview</button>
                         </div>
                     </div>
@@ -1798,7 +1869,7 @@
                             <span>18 articles</span>
                         </div>
                         <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Explore</button>
+                            <a href="https://aditya-cmd-max.github.io/marina/categories/cybersecurity.html" class="btn btn-outlined ripple-btn">Explore</a>
                             <button class="btn btn-preview ripple-btn" data-preview="category2">Preview</button>
                         </div>
                     </div>
@@ -1820,7 +1891,7 @@
                             <span>32 articles</span>
                         </div>
                         <div class="article-actions">
-                            <button class="btn btn-outlined ripple-btn">Explore</button>
+                            <a href="https://aditya-cmd-max.github.io/marina/categories/web-development.html" class="btn btn-outlined ripple-btn">Explore</a>
                             <button class="btn btn-preview ripple-btn" data-preview="category3">Preview</button>
                         </div>
                     </div>
@@ -1972,12 +2043,13 @@
         const searchBtn = document.getElementById('search-btn');
         const searchInput = document.querySelector('.search-input');
         const particlesContainer = document.getElementById('particles');
+        const authorProfileLink = document.getElementById('author-profile-link');
 
         // Preview content data
         const previewData = {
             featured: {
-                title: "The Next Generation of AI Assistants",
-                description: "This in-depth article explores how conversational AI is evolving beyond simple chatbots to become true digital companions. We examine the latest breakthroughs in natural language processing, emotional intelligence algorithms, and contextual understanding that are enabling AI assistants to handle complex tasks and provide personalized support. The article also discusses the ethical implications and future possibilities of this rapidly advancing technology.",
+                title: "The Future of AI-Powered Development",
+                description: "This in-depth article explores how AI-powered tools are fundamentally reshaping how we conceive, build, and maintain software systems. We examine the latest breakthroughs in machine learning integration, automated code generation, and intelligent debugging systems that are revolutionizing every aspect of the software development lifecycle.",
                 images: [
                     "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
                     "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
@@ -2202,6 +2274,11 @@
             mobileNav.classList.toggle('active');
             hamburger.querySelector('.material-icons-round').textContent = 
                 mobileNav.classList.contains('active') ? 'close' : 'menu';
+        });
+
+        // Author profile link
+        authorProfileLink.addEventListener('click', () => {
+            window.open('https://aditya-cmd-max.github.io/marina/profiles/adityajha.html', '_blank');
         });
 
         // Ripple effect for buttons
