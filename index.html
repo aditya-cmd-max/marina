@@ -304,7 +304,7 @@
         .hamburger-btn { display: flex; }
         @media (min-width:900px){.hamburger-btn{display:none;}}
 
-        /* ===== ENHANCED HAMBURGER MENU with overlay ===== */
+        /* ===== HAMBURGER MENU ===== */
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -784,6 +784,11 @@
             height: 200px;
             object-fit: cover;
             background: var(--md-surface-variant);
+            transition: transform 0.5s;
+        }
+
+        .article-card:hover .article-image {
+            transform: scale(1.05);
         }
 
         .article-content {
@@ -803,6 +808,7 @@
             font-weight: 600;
             margin-bottom: 12px;
             width: fit-content;
+            text-transform: capitalize;
         }
         
         .featured-tag {
@@ -834,6 +840,7 @@
             flex: 1;
         }
 
+        /* Author Section with proper link and avatar */
         .author-section {
             display: flex;
             align-items: center;
@@ -846,11 +853,14 @@
             transition: var(--md-transition);
             text-decoration: none;
             color: inherit;
+            border: 1px solid transparent;
         }
 
         .author-section:hover {
             background: var(--md-primary-container);
-            transform: translateX(4px);
+            border-color: var(--md-primary);
+            transform: translateX(8px);
+            box-shadow: var(--md-elevation-1);
         }
 
         .author-avatar {
@@ -868,6 +878,7 @@
             font-weight: 700;
             font-size: 0.95rem;
             margin-bottom: 2px;
+            color: var(--md-on-surface);
         }
 
         .meta-info {
@@ -941,7 +952,7 @@
             line-height: 1.3;
         }
 
-        /* Categories Section - FIXED visibility */
+        /* Categories Section */
         .categories-section {
             margin-bottom: 40px;
         }
@@ -1411,7 +1422,7 @@
     </style>
 </head>
 <body>
-    <!-- Menu Overlay (for clicking outside) -->
+    <!-- Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
     <div class="mesh-background"></div>
@@ -1494,47 +1505,14 @@
             <div class="articles-grid" id="articlesGrid"></div>
         </section>
 
-        <!-- CATEGORIES SECTION - FIXED WITH VISIBLE CARDS -->
-        <section class="categories-section">
+        <!-- CATEGORIES SECTION - Will be populated dynamically -->
+        <section class="categories-section" id="categoriesSection">
             <div class="section-header">
-                <h2 class="section-title">Explore Categories</h2>
+                <h2 class="section-title">Popular Categories</h2>
                 <a href="/categories" class="section-link"><span>All Categories</span><span class="material-icons-round">arrow_forward</span></a>
             </div>
             
-            <div class="articles-grid">
-                <div class="article-card">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" class="article-image" alt="AI">
-                    <div class="article-content">
-                        <span class="article-category">Artificial Intelligence</span>
-                        <h3 class="article-title">AI & Machine Learning</h3>
-                        <p class="article-excerpt">Explore the cutting edge of artificial intelligence and machine learning technologies.</p>
-                        <div class="meta-info" style="margin-bottom:16px;">24 articles</div>
-                        <a href="/category/ai" class="read-btn">Explore Category →</a>
-                    </div>
-                </div>
-                
-                <div class="article-card">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" class="article-image" alt="Cybersecurity">
-                    <div class="article-content">
-                        <span class="article-category">Cybersecurity</span>
-                        <h3 class="article-title">Digital Protection</h3>
-                        <p class="article-excerpt">Latest threats, defense strategies, and privacy regulations in the digital world.</p>
-                        <div class="meta-info" style="margin-bottom:16px;">18 articles</div>
-                        <a href="/category/cybersecurity" class="read-btn">Explore Category →</a>
-                    </div>
-                </div>
-                
-                <div class="article-card">
-                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" class="article-image" alt="Programming">
-                    <div class="article-content">
-                        <span class="article-category">Programming</span>
-                        <h3 class="article-title">Web Development</h3>
-                        <p class="article-excerpt">Frameworks, tools, and techniques shaping the future of web development.</p>
-                        <div class="meta-info" style="margin-bottom:16px;">32 articles</div>
-                        <a href="/category/web-dev" class="read-btn">Explore Category →</a>
-                    </div>
-                </div>
-            </div>
+            <div class="articles-grid" id="categoriesGrid"></div>
         </section>
 
         <!-- NEWSLETTER SECTION -->
@@ -1636,7 +1614,7 @@
     </footer>
 
     <script>
-        // ===== FETCH ARTICLES =====
+        // ===== FETCH ARTICLES FROM YOUR JSON =====
         async function fetchArticles() {
             try {
                 const response = await fetch('https://aditya-cmd-max.github.io/marina/articlesmarina.json');
@@ -1648,33 +1626,74 @@
             }
         }
 
+        // Format date
         function formatDate(dateString) {
             const date = new Date(dateString);
             return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        function getArticleImage(title) {
-            if (title.includes('AI') || title.includes('Intelligence')) {
+        // Get image based on title
+        function getArticleImage(title, category = '') {
+            if (title.includes('AI') || title.includes('Intelligence') || category.includes('AI')) {
                 return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80';
-            } else if (title.includes('Coding') || title.includes('Developer')) {
+            } else if (title.includes('Coding') || title.includes('Developer') || category.includes('Programming')) {
                 return 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80';
-            } else if (title.includes('Technology')) {
+            } else if (title.includes('Technology') || category.includes('Technology')) {
                 return 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80';
-            } else if (title.includes('Education')) {
+            } else if (title.includes('Education') || category.includes('Education')) {
                 return 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80';
+            } else if (category.includes('Cybersecurity')) {
+                return 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
             } else {
                 return 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
             }
         }
 
-        function getCategoryFromTitle(title) {
-            if (title.includes('AI') || title.includes('Intelligence')) return 'Artificial Intelligence';
-            if (title.includes('Coding') || title.includes('Developer')) return 'Programming';
-            if (title.includes('Technology')) return 'Technology';
-            if (title.includes('Education')) return 'Education';
+        // Extract category from title/content
+        function extractCategory(article) {
+            // If article has category field, use it
+            if (article.category) return article.category;
+            
+            // Otherwise infer from title
+            const title = article.title.toLowerCase();
+            if (title.includes('ai') || title.includes('intelligence')) return 'Artificial Intelligence';
+            if (title.includes('coding') || title.includes('developer')) return 'Programming';
+            if (title.includes('technology')) return 'Technology';
+            if (title.includes('education')) return 'Education';
             return 'Technology';
         }
 
+        // Get most frequent categories
+        function getTopCategories(articles, count = 3) {
+            const categoryCount = {};
+            
+            articles.forEach(article => {
+                const category = extractCategory(article);
+                categoryCount[category] = (categoryCount[category] || 0) + 1;
+            });
+            
+            // Convert to array and sort by count
+            const sorted = Object.entries(categoryCount)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, count)
+                .map(entry => entry[0]);
+            
+            return sorted;
+        }
+
+        // Get category icon
+        function getCategoryIcon(category) {
+            const cat = category.toLowerCase();
+            if (cat.includes('ai') || cat.includes('intelligence')) return 'fa-robot';
+            if (cat.includes('programming') || cat.includes('coding')) return 'fa-code';
+            if (cat.includes('technology')) return 'fa-microchip';
+            if (cat.includes('cyber') || cat.includes('security')) return 'fa-shield-hal';
+            if (cat.includes('education')) return 'fa-graduation-cap';
+            if (cat.includes('web') || cat.includes('development')) return 'fa-laptop-code';
+            return 'fa-folder';
+        }
+
+        // Display articles and categories
         async function displayArticles() {
             const articles = await fetchArticles();
             
@@ -1683,24 +1702,28 @@
                 return;
             }
 
+            // Sort by date
             const sorted = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
             const featured = sorted[0];
             const latest = sorted.slice(0, 3);
 
-            // Featured article
+            // Get top 3 categories
+            const topCategories = getTopCategories(articles, 3);
+
+            // Featured article with author link and avatar
             const featuredEl = document.getElementById('featured');
             featuredEl.innerHTML = `
-                <img src="${getArticleImage(featured.title)}" class="featured-image" alt="${featured.title}">
+                <img src="${getArticleImage(featured.title, extractCategory(featured))}" class="featured-image" alt="${featured.title}">
                 <div class="featured-content">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                        <span class="featured-badge">${getCategoryFromTitle(featured.title)}</span>
+                        <span class="featured-badge">${extractCategory(featured)}</span>
                         <span class="featured-tag">FEATURED</span>
                     </div>
                     <h2 class="featured-title">${featured.title}</h2>
                     <p class="article-excerpt" style="font-size:1.1rem; margin-bottom:20px;">${featured.description}</p>
                     
-                    <div class="author-section">
-                        <img src="https://ui-avatars.com/api/?name=${featured.author}&background=1a73e8&color=fff" class="author-avatar" alt="${featured.author}">
+                    <a href="${featured.authorLink || '#'}" class="author-section" target="_blank">
+                        <img src="${featured.authorAvatar || `https://ui-avatars.com/api/?name=${featured.author}&background=1a73e8&color=fff`}" class="author-avatar" alt="${featured.author}" onerror="this.src='https://ui-avatars.com/api/?name=${featured.author}&background=1a73e8&color=fff'">
                         <div class="author-info">
                             <div class="author-name">${featured.author}</div>
                             <div class="meta-info">
@@ -1709,26 +1732,26 @@
                                 <span>${featured.readTime}</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     
                     <a href="${featured.link}" class="btn btn-primary" style="margin-top:20px;" target="_blank">Read Full Article →</a>
                 </div>
             `;
 
-            // Latest articles
+            // Latest articles grid with author links and avatars
             const grid = document.getElementById('articlesGrid');
             let html = '';
             latest.forEach(article => {
                 html += `
                     <div class="article-card">
-                        <img src="${getArticleImage(article.title)}" class="article-image" alt="${article.title}">
+                        <img src="${getArticleImage(article.title, extractCategory(article))}" class="article-image" alt="${article.title}">
                         <div class="article-content">
-                            <span class="article-category">${getCategoryFromTitle(article.title)}</span>
+                            <span class="article-category">${extractCategory(article)}</span>
                             <h3 class="article-title">${article.title}</h3>
                             <p class="article-excerpt">${article.description.substring(0, 100)}...</p>
                             
-                            <div class="author-section">
-                                <img src="https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff" class="author-avatar" alt="${article.author}">
+                            <a href="${article.authorLink || '#'}" class="author-section" target="_blank">
+                                <img src="${article.authorAvatar || `https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff`}" class="author-avatar" alt="${article.author}" onerror="this.src='https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff'">
                                 <div class="author-info">
                                     <div class="author-name">${article.author}</div>
                                     <div class="meta-info">
@@ -1737,7 +1760,7 @@
                                         <span>${article.readTime}</span>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                             
                             <a href="${article.link}" class="read-btn" target="_blank">
                                 Read Article <span class="material-icons-round" style="font-size:18px;">arrow_forward</span>
@@ -1748,10 +1771,49 @@
             });
             grid.innerHTML = html;
 
+            // Categories grid with top 3 categories
+            const categoriesGrid = document.getElementById('categoriesGrid');
+            let categoriesHtml = '';
+            
+            // Category images
+            const categoryImages = {
+                'Artificial Intelligence': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
+                'Programming': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+                'Technology': 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+                'Cybersecurity': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
+                'Education': 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80'
+            };
+            
+            topCategories.forEach(category => {
+                const count = articles.filter(a => extractCategory(a) === category).length;
+                const image = categoryImages[category] || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
+                const icon = getCategoryIcon(category);
+                
+                categoriesHtml += `
+                    <div class="article-card">
+                        <img src="${image}" class="article-image" alt="${category}">
+                        <div class="article-content">
+                            <span class="article-category">${category}</span>
+                            <h3 class="article-title">${category}</h3>
+                            <p class="article-excerpt">Explore the latest articles and insights in ${category}.</p>
+                            <div class="meta-info" style="margin-bottom:16px;">
+                                <i class="fas ${icon}" style="margin-right:4px;"></i> ${count} articles
+                            </div>
+                            <a href="/category/${category.toLowerCase().replace(/\s+/g, '-')}" class="read-btn">
+                                Explore Category <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            categoriesGrid.innerHTML = categoriesHtml;
+
+            // Setup search
             setupSearch(articles);
         }
 
-        // ===== SEARCH =====
+        // ===== SEARCH FUNCTIONALITY =====
         function setupSearch(articles) {
             const searchInput = document.getElementById('searchInput');
             const searchButton = document.getElementById('searchButton');
@@ -1769,11 +1831,11 @@
                     const titleMatch = article.title.toLowerCase().includes(searchTerm);
                     const descriptionMatch = article.description.toLowerCase().includes(searchTerm);
                     const authorMatch = article.author.toLowerCase().includes(searchTerm);
+                    const categoryMatch = extractCategory(article).toLowerCase().includes(searchTerm);
                     const formattedDate = formatDate(article.date).toLowerCase();
                     const dateMatch = formattedDate.includes(searchTerm);
-                    const readTimeMatch = article.readTime.toLowerCase().includes(searchTerm);
                     
-                    return titleMatch || descriptionMatch || authorMatch || dateMatch || readTimeMatch;
+                    return titleMatch || descriptionMatch || authorMatch || categoryMatch || dateMatch;
                 });
                 
                 if (results.length === 0) {
@@ -1790,12 +1852,9 @@
                             <div class="search-result-meta">
                                 <span><i class="fas fa-user"></i> ${article.author}</span>
                                 <span>•</span>
-                                <span><i class="fas fa-calendar"></i> ${formatDate(article.date)}</span>
+                                <span><i class="fas fa-tag"></i> ${extractCategory(article)}</span>
                                 <span>•</span>
-                                <span><i class="fas fa-clock"></i> ${article.readTime}</span>
-                            </div>
-                            <div style="font-size:0.85rem; color:var(--md-on-surface-variant); margin-top:4px;">
-                                ${article.description.substring(0, 80)}...
+                                <span><i class="fas fa-calendar"></i> ${formatDate(article.date)}</span>
                             </div>
                         </a>
                     `).join('');
@@ -1823,14 +1882,14 @@
         // Initialize articles
         displayArticles();
 
-        // ===== THEME =====
+        // ===== THEME TOGGLE =====
         const body = document.body;
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
             body.classList.add('dark-theme');
         }
 
-        // ===== HAMBURGER MENU with overlay click =====
+        // ===== HAMBURGER MENU =====
         const menuBtn = document.getElementById('menuBtn');
         const menuClose = document.getElementById('menuClose');
         const hamburgerMenu = document.getElementById('hamburgerMenu');
@@ -1851,11 +1910,8 @@
 
         menuBtn.addEventListener('click', openMenu);
         menuClose.addEventListener('click', closeMenu);
-        
-        // Close when clicking on overlay
         menuOverlay.addEventListener('click', closeMenu);
         
-        // Close on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && hamburgerMenu.classList.contains('active')) {
                 closeMenu();
