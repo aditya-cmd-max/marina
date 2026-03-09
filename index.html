@@ -295,6 +295,13 @@
             color: white;
         }
 
+        /* Theme toggle for desktop - NOW VISIBLE */
+        .theme-toggle {
+            display: flex;
+        }
+
+        @media (min-width:900px){.theme-toggle{display:flex;}}
+
         /* Auth avatar */
         #authAvatarContainer {
             display: flex;
@@ -647,6 +654,10 @@
             outline: none;
         }
 
+        .search-wrapper input::placeholder {
+            color: var(--md-on-surface-variant);
+        }
+
         .search-wrapper button {
             width: 52px;
             height: 52px;
@@ -840,7 +851,7 @@
             flex: 1;
         }
 
-        /* Author Section with proper link and avatar */
+        /* Author Section */
         .author-section {
             display: flex;
             align-items: center;
@@ -955,29 +966,6 @@
         /* Categories Section */
         .categories-section {
             margin-bottom: 40px;
-        }
-
-        .categories-section .articles-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        @media (min-width:640px){ 
-            .categories-section .articles-grid{ 
-                grid-template-columns:repeat(2,1fr); 
-            } 
-        }
-        @media (min-width:1024px){ 
-            .categories-section .articles-grid{ 
-                grid-template-columns:repeat(3,1fr); 
-            } 
-        }
-
-        .categories-section .article-card {
-            opacity: 1;
-            visibility: visible;
-            display: flex;
         }
 
         /* Newsletter Section */
@@ -1448,6 +1436,11 @@
             </nav>
             
             <div class="header-actions">
+                <!-- Theme toggle for desktop - NOW VISIBLE -->
+                <button class="icon-btn theme-toggle" id="desktopThemeToggle">
+                    <span class="material-icons-round">dark_mode</span>
+                </button>
+                
                 <!-- Auth.js will inject avatar here -->
                 <div id="authAvatarContainer"></div>
                 
@@ -1493,10 +1486,10 @@
             <div class="search-results" id="searchResults"></div>
         </div>
 
-        <!-- FEATURED ARTICLE -->
+        <!-- FEATURED ARTICLE (Dynamic) -->
         <div id="featured" class="featured-article"></div>
 
-        <!-- LATEST ARTICLES -->
+        <!-- LATEST ARTICLES (Dynamic) -->
         <section>
             <div class="section-header">
                 <h2 class="section-title">Latest Articles</h2>
@@ -1505,7 +1498,7 @@
             <div class="articles-grid" id="articlesGrid"></div>
         </section>
 
-        <!-- CATEGORIES SECTION - Will be populated dynamically -->
+        <!-- CATEGORIES SECTION (Dynamic) -->
         <section class="categories-section" id="categoriesSection">
             <div class="section-header">
                 <h2 class="section-title">Popular Categories</h2>
@@ -1632,35 +1625,53 @@
             return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        // Get image based on title
-        function getArticleImage(title, category = '') {
-            if (title.includes('AI') || title.includes('Intelligence') || category.includes('AI')) {
+        // Get thumbnail - EXTRACTED DIRECTLY FROM JSON
+        function getArticleThumbnail(article) {
+            if (article.thumbnail) {
+                // Check if it's a relative path or full URL
+                if (article.thumbnail.startsWith('http')) {
+                    return article.thumbnail;
+                } else {
+                    // Handle relative paths - you might need to adjust the base URL
+                    return `https://aditya-cmd-max.github.io${article.thumbnail}`;
+                }
+            }
+            
+            // Fallback images based on category
+            const category = article.category || '';
+            if (category.includes('AI') || category.includes('Intelligence')) {
                 return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80';
-            } else if (title.includes('Coding') || title.includes('Developer') || category.includes('Programming')) {
+            } else if (category.includes('Programming')) {
                 return 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80';
-            } else if (title.includes('Technology') || category.includes('Technology')) {
+            } else if (category.includes('Technology')) {
                 return 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80';
-            } else if (title.includes('Education') || category.includes('Education')) {
-                return 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80';
-            } else if (category.includes('Cybersecurity')) {
-                return 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
             } else {
                 return 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
             }
         }
 
-        // Extract category from title/content
-        function extractCategory(article) {
-            // If article has category field, use it
-            if (article.category) return article.category;
-            
-            // Otherwise infer from title
-            const title = article.title.toLowerCase();
-            if (title.includes('ai') || title.includes('intelligence')) return 'Artificial Intelligence';
-            if (title.includes('coding') || title.includes('developer')) return 'Programming';
-            if (title.includes('technology')) return 'Technology';
-            if (title.includes('education')) return 'Education';
-            return 'Technology';
+        // Get author avatar URL
+        function getAuthorAvatar(article) {
+            if (article.authorAvatar) {
+                if (article.authorAvatar.startsWith('http')) {
+                    return article.authorAvatar;
+                } else {
+                    return `https://aditya-cmd-max.github.io${article.authorAvatar}`;
+                }
+            }
+            return `https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff`;
+        }
+
+        // Get author link
+        function getAuthorLink(article) {
+            if (article.authorLink) {
+                if (article.authorLink.startsWith('http')) {
+                    return article.authorLink;
+                } else {
+                    return `https://aditya-cmd-max.github.io${article.authorLink}`;
+                }
+            }
+            return '#';
         }
 
         // Get most frequent categories
@@ -1668,7 +1679,7 @@
             const categoryCount = {};
             
             articles.forEach(article => {
-                const category = extractCategory(article);
+                const category = article.category || 'Technology';
                 categoryCount[category] = (categoryCount[category] || 0) + 1;
             });
             
@@ -1693,7 +1704,7 @@
             return 'fa-folder';
         }
 
-        // Display articles and categories
+        // Display articles
         async function displayArticles() {
             const articles = await fetchArticles();
             
@@ -1710,20 +1721,20 @@
             // Get top 3 categories
             const topCategories = getTopCategories(articles, 3);
 
-            // Featured article with author link and avatar
+            // Featured article with all fields extracted
             const featuredEl = document.getElementById('featured');
             featuredEl.innerHTML = `
-                <img src="${getArticleImage(featured.title, extractCategory(featured))}" class="featured-image" alt="${featured.title}">
+                <img src="${getArticleThumbnail(featured)}" class="featured-image" alt="${featured.title}">
                 <div class="featured-content">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                        <span class="featured-badge">${extractCategory(featured)}</span>
+                        <span class="featured-badge">${featured.category || 'Technology'}</span>
                         <span class="featured-tag">FEATURED</span>
                     </div>
                     <h2 class="featured-title">${featured.title}</h2>
                     <p class="article-excerpt" style="font-size:1.1rem; margin-bottom:20px;">${featured.description}</p>
                     
-                    <a href="${featured.authorLink || '#'}" class="author-section" target="_blank">
-                        <img src="${featured.authorAvatar || `https://ui-avatars.com/api/?name=${featured.author}&background=1a73e8&color=fff`}" class="author-avatar" alt="${featured.author}" onerror="this.src='https://ui-avatars.com/api/?name=${featured.author}&background=1a73e8&color=fff'">
+                    <a href="${getAuthorLink(featured)}" class="author-section" target="_blank">
+                        <img src="${getAuthorAvatar(featured)}" class="author-avatar" alt="${featured.author}" onerror="this.src='https://ui-avatars.com/api/?name=${featured.author}&background=1a73e8&color=fff'">
                         <div class="author-info">
                             <div class="author-name">${featured.author}</div>
                             <div class="meta-info">
@@ -1738,20 +1749,20 @@
                 </div>
             `;
 
-            // Latest articles grid with author links and avatars
+            // Latest articles grid with all fields extracted
             const grid = document.getElementById('articlesGrid');
             let html = '';
             latest.forEach(article => {
                 html += `
                     <div class="article-card">
-                        <img src="${getArticleImage(article.title, extractCategory(article))}" class="article-image" alt="${article.title}">
+                        <img src="${getArticleThumbnail(article)}" class="article-image" alt="${article.title}">
                         <div class="article-content">
-                            <span class="article-category">${extractCategory(article)}</span>
+                            <span class="article-category">${article.category || 'Technology'}</span>
                             <h3 class="article-title">${article.title}</h3>
                             <p class="article-excerpt">${article.description.substring(0, 100)}...</p>
                             
-                            <a href="${article.authorLink || '#'}" class="author-section" target="_blank">
-                                <img src="${article.authorAvatar || `https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff`}" class="author-avatar" alt="${article.author}" onerror="this.src='https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff'">
+                            <a href="${getAuthorLink(article)}" class="author-section" target="_blank">
+                                <img src="${getAuthorAvatar(article)}" class="author-avatar" alt="${article.author}" onerror="this.src='https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff'">
                                 <div class="author-info">
                                     <div class="author-name">${article.author}</div>
                                     <div class="meta-info">
@@ -1771,21 +1782,20 @@
             });
             grid.innerHTML = html;
 
-            // Categories grid with top 3 categories
+            // Categories grid with top categories
             const categoriesGrid = document.getElementById('categoriesGrid');
             let categoriesHtml = '';
             
-            // Category images
+            // Category images mapping
             const categoryImages = {
                 'Artificial Intelligence': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
                 'Programming': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
                 'Technology': 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
-                'Cybersecurity': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
-                'Education': 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80'
+                'AI & Development': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80'
             };
             
             topCategories.forEach(category => {
-                const count = articles.filter(a => extractCategory(a) === category).length;
+                const count = articles.filter(a => a.category === category).length;
                 const image = categoryImages[category] || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
                 const icon = getCategoryIcon(category);
                 
@@ -1831,7 +1841,7 @@
                     const titleMatch = article.title.toLowerCase().includes(searchTerm);
                     const descriptionMatch = article.description.toLowerCase().includes(searchTerm);
                     const authorMatch = article.author.toLowerCase().includes(searchTerm);
-                    const categoryMatch = extractCategory(article).toLowerCase().includes(searchTerm);
+                    const categoryMatch = (article.category || '').toLowerCase().includes(searchTerm);
                     const formattedDate = formatDate(article.date).toLowerCase();
                     const dateMatch = formattedDate.includes(searchTerm);
                     
@@ -1852,7 +1862,7 @@
                             <div class="search-result-meta">
                                 <span><i class="fas fa-user"></i> ${article.author}</span>
                                 <span>•</span>
-                                <span><i class="fas fa-tag"></i> ${extractCategory(article)}</span>
+                                <span><i class="fas fa-tag"></i> ${article.category || 'Technology'}</span>
                                 <span>•</span>
                                 <span><i class="fas fa-calendar"></i> ${formatDate(article.date)}</span>
                             </div>
@@ -1882,12 +1892,32 @@
         // Initialize articles
         displayArticles();
 
-        // ===== THEME TOGGLE =====
+        // ===== THEME TOGGLE (Both Desktop and Mobile) =====
         const body = document.body;
+        const desktopThemeToggle = document.getElementById('desktopThemeToggle');
+        const desktopThemeIcon = desktopThemeToggle.querySelector('.material-icons-round');
+        
+        // Load saved theme
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
             body.classList.add('dark-theme');
+            desktopThemeIcon.textContent = 'light_mode';
         }
+
+        function toggleTheme() {
+            body.classList.toggle('dark-theme');
+            const isDark = body.classList.contains('dark-theme');
+            desktopThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Update mobile theme toggle if it exists
+            const menuThemeIcon = document.getElementById('menuThemeIcon');
+            if (menuThemeIcon) {
+                menuThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            }
+        }
+
+        desktopThemeToggle.addEventListener('click', toggleTheme);
 
         // ===== HAMBURGER MENU =====
         const menuBtn = document.getElementById('menuBtn');
@@ -1944,7 +1974,7 @@
                             <i class="fas fa-moon"></i>
                             <span>Dark Mode</span>
                         </div>
-                        <span class="material-icons-round">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
                     </div>
                     
                     <a href="#" class="menu-link signin-btn" onclick="window.ReverbitAuth?.logout(); return false;">
@@ -1966,7 +1996,7 @@
                             <i class="fas fa-moon"></i>
                             <span>Dark Mode</span>
                         </div>
-                        <span class="material-icons-round">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
                     </div>
                     
                     <a href="https://aditya-cmd-max.github.io/signin" class="menu-link signin-btn">
@@ -1975,14 +2005,9 @@
                 `;
             }
 
-            const themeToggle = document.getElementById('menuThemeToggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    body.classList.toggle('dark-theme');
-                    const isDark = body.classList.contains('dark-theme');
-                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                    themeToggle.querySelector('.material-icons-round').textContent = isDark ? 'light_mode' : 'dark_mode';
-                });
+            const menuThemeToggle = document.getElementById('menuThemeToggle');
+            if (menuThemeToggle) {
+                menuThemeToggle.addEventListener('click', toggleTheme);
             }
         }
 
