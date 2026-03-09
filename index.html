@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Reverbit Marina | Tech News & Articles</title>
     
     <!-- Google Fonts -->
@@ -19,6 +19,14 @@
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Firebase (required for auth) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Auth.js -->
+    <script src="https://aditya-cmd-max.github.io/js/auth.js"></script>
     
     <style>
         /* ===== ORIGINAL BEAUTIFUL COLOR SYSTEM (RESTORED) ===== */
@@ -106,7 +114,7 @@
             transition: var(--md-transition);
         }
 
-        /* ===== RESTORED MESH BACKGROUND ===== */
+        /* ===== BACKGROUND ===== */
         .mesh-background {
             position: fixed;
             top: 0;
@@ -155,13 +163,14 @@
             50% { opacity: 0.7; }
         }
 
-        /* ===== RESTORED FLOATING SVGS (Repositioned) ===== */
+        /* ===== FLOATING SVGS ===== */
         .floating-svg {
             position: fixed;
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.3;
             animation: float 20s infinite ease-in-out;
             pointer-events: none;
+            fill: var(--md-primary);
         }
 
         .svg-1 {
@@ -169,31 +178,20 @@
             left: 5%;
             width: 150px;
             animation-delay: 0s;
-            fill: var(--md-primary);
         }
 
         .svg-2 {
-            top: 30%;
-            right: 3%;
+            top: 20%;
+            right: 5%;
             width: 120px;
             animation-delay: -5s;
-            fill: var(--md-primary);
         }
 
         .svg-3 {
-            bottom: 20%;
+            bottom: 30%;
             right: 15%;
             width: 100px;
             animation-delay: -10s;
-            fill: var(--md-primary);
-        }
-
-        .svg-4 {
-            top: 70%;
-            left: 10%;
-            width: 80px;
-            animation-delay: -15s;
-            fill: var(--md-primary);
         }
 
         @keyframes float {
@@ -202,49 +200,43 @@
             66% { transform: translateY(15px) rotate(-3deg); }
         }
 
-        /* ===== HEADER (Mobile Optimized - Reduced Size) ===== */
+        /* ===== HEADER (Pill-shaped) ===== */
         .app-header {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 95%;
+        }
+
+        .header-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-pill);
+            padding: 8px 20px 8px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 var(--space-md);
-            height: 64px;
-            background: rgba(var(--md-surface-rgb), 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--md-outline);
+            box-shadow: var(--md-elevation-2);
         }
 
-        /* For RGB support */
-        .light-theme {
-            --md-surface-rgb: 255, 255, 255;
-        }
-        
-        .dark-theme {
-            --md-surface-rgb: 32, 33, 36;
+        .dark-theme .header-container {
+            background: rgba(32, 33, 36, 0.9);
         }
 
-        .logo-container {
+        .logo-wrapper {
             display: flex;
             align-items: center;
-            gap: var(--space-xs);
         }
 
-        /* Reduced logo sizes for mobile */
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: url('https://aditya-cmd-max.github.io/logo-insvg.svg') no-repeat center/contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-            flex-shrink: 0;
-        }
-
+        /* Only text logo - no icon */
         .logo-text {
-            width: 130px;
-            height: 28px;
+            width: 160px;
+            height: 36px;
             background: url('https://aditya-cmd-max.github.io/Reverbit.svg') no-repeat left/contain;
             transition: filter 0.3s;
         }
@@ -253,11 +245,48 @@
             filter: brightness(0) invert(1);
         }
 
-        /* Header actions - only auth and hamburger on mobile */
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+            align-items: center;
+            gap: 4px;
+            background: var(--md-surface-variant);
+            padding: 4px;
+            border-radius: var(--md-radius-pill);
+        }
+
+        @media (min-width: 900px) {
+            .desktop-nav {
+                display: flex;
+            }
+        }
+
+        .nav-item {
+            padding: 8px 20px;
+            border-radius: var(--md-radius-pill);
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--md-on-surface);
+            text-decoration: none;
+            transition: var(--md-transition);
+        }
+
+        .nav-item:hover {
+            background: var(--md-surface);
+            color: var(--md-primary);
+        }
+
+        .nav-item.active {
+            background: var(--md-primary);
+            color: white;
+        }
+
+        /* Header Actions */
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 8px;
         }
 
         .icon-btn {
@@ -265,38 +294,70 @@
             height: 42px;
             border-radius: 50%;
             border: none;
-            background: transparent;
+            background: var(--md-surface-variant);
             color: var(--md-on-surface);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s;
-            flex-shrink: 0;
+            transition: var(--md-transition);
         }
 
         .icon-btn:hover {
-            background: var(--md-surface-variant);
+            background: var(--md-primary);
+            color: white;
         }
 
-        /* Auth profile avatar (from auth.js) */
-        .reverbit-profile-avatar {
-            width: 42px !important;
-            height: 42px !important;
-        }
-
-        /* Hide theme toggle and search from header on mobile */
-        .theme-toggle, .search-container {
+        /* Theme toggle for desktop */
+        .theme-toggle {
             display: none;
         }
 
-        /* ===== HAMBURGER MENU (Right Side with Close Button) ===== */
+        @media (min-width: 900px) {
+            .theme-toggle {
+                display: flex;
+            }
+        }
+
+        /* Auth avatar */
+        .auth-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--md-transition);
+        }
+
+        .auth-avatar:hover {
+            border-color: var(--md-primary);
+        }
+
+        .auth-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hamburger button */
+        .hamburger-btn {
+            display: flex;
+        }
+
+        @media (min-width: 900px) {
+            .hamburger-btn {
+                display: none;
+            }
+        }
+
+        /* ===== HAMBURGER MENU ===== */
         .hamburger-menu {
             position: fixed;
             top: 0;
             right: -100%;
             width: 85%;
-            max-width: 340px;
+            max-width: 360px;
             height: 100vh;
             background: var(--md-surface);
             backdrop-filter: blur(20px);
@@ -306,18 +367,17 @@
             border-left: 1px solid var(--md-outline);
             box-shadow: var(--md-elevation-3);
             overflow-y: auto;
-            padding: 70px var(--space-lg) var(--space-xl);
+            padding: 80px 24px 40px;
         }
 
         .hamburger-menu.active {
             right: 0;
         }
 
-        /* Close button */
         .menu-close {
             position: absolute;
-            top: 16px;
-            right: 16px;
+            top: 20px;
+            right: 20px;
             width: 44px;
             height: 44px;
             border-radius: 50%;
@@ -329,139 +389,255 @@
             justify-content: center;
             cursor: pointer;
             font-size: 24px;
-            transition: background 0.2s;
-            z-index: 10;
+            transition: var(--md-transition);
         }
 
         .menu-close:hover {
-            background: var(--md-primary-container);
+            background: var(--md-primary);
+            color: white;
+            transform: rotate(90deg);
         }
 
-        /* Theme toggle inside hamburger (for mobile) */
-        .menu-theme-toggle {
+        .menu-user {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--md-surface-variant);
+            border-radius: var(--md-radius-large);
+            margin-bottom: 30px;
+        }
+
+        .menu-user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--md-primary);
+        }
+
+        .menu-user-info h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .menu-user-info p {
+            font-size: 0.85rem;
+            color: var(--md-on-surface-variant);
+        }
+
+        .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-link {
+            padding: 14px 20px;
+            border-radius: var(--md-radius-pill);
+            color: var(--md-on-surface);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            transition: var(--md-transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-link i {
+            width: 24px;
+            color: var(--md-primary);
+        }
+
+        .menu-link:hover {
+            background: var(--md-surface-variant);
+            transform: translateX(8px);
+        }
+
+        .menu-link.active {
+            background: var(--md-primary);
+            color: white;
+        }
+
+        .menu-link.active i {
+            color: white;
+        }
+
+        .menu-theme {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 20px;
+            padding: 14px 20px;
             background: var(--md-surface-variant);
             border-radius: var(--md-radius-pill);
             margin: 20px 0;
             cursor: pointer;
         }
 
-        .menu-theme-toggle span {
-            font-family: var(--font-heading);
-            font-weight: 500;
-        }
-
-        .menu-theme-toggle .material-icons-round {
-            color: var(--md-primary);
-        }
-
-        .menu-links {
+        .menu-theme-left {
             display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .menu-link {
-            padding: 16px 20px;
-            border-radius: var(--md-radius-pill);
-            color: var(--md-on-surface);
-            text-decoration: none;
+            align-items: center;
+            gap: 12px;
             font-family: var(--font-heading);
             font-weight: 500;
-            font-size: 1.1rem;
-            transition: all 0.2s;
         }
 
-        .menu-link:hover {
-            background: var(--md-surface-variant);
-        }
-
-        .menu-link.active {
+        .menu-theme-left i {
             color: var(--md-primary);
-            background: var(--md-primary-container);
         }
 
-        /* Highlighted sign-in button */
-        .signin-btn {
-            background: linear-gradient(135deg, var(--md-primary), #0d47a1);
+        .menu-signin {
+            background: var(--md-primary);
             color: white !important;
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
             font-weight: 600;
-            font-size: 1.2rem;
-            padding: 18px;
+            padding: 16px;
             border-radius: var(--md-radius-pill);
-            box-shadow: var(--md-elevation-2);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
 
-        .signin-btn i {
-            font-size: 1.2rem;
+        .menu-signin i {
+            color: white !important;
         }
 
-        /* User profile in menu */
-        .user-profile-item {
+        .menu-signin:hover {
+            background: var(--md-primary-dark, #0d47a1);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 16px;
-            background: var(--md-surface-variant);
-            border-radius: var(--md-radius-extra-large);
-            margin-bottom: 20px;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px 60px;
+            position: relative;
         }
 
-        .user-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--md-primary);
+        .hero-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--md-primary-container) 0%, transparent 100%);
+            opacity: 0.5;
+            z-index: -1;
         }
 
-        .user-info {
-            flex: 1;
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        .user-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 4px;
+        .hero-title {
+            font-family: var(--font-logo);
+            font-size: clamp(3rem, 12vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--md-on-surface);
+            line-height: 1;
+            letter-spacing: -2px;
         }
 
-        .user-email {
-            font-size: 0.85rem;
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-size: clamp(1rem, 4vw, 1.4rem);
             color: var(--md-on-surface-variant);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* ===== SEARCH BAR (Moved above Latest Articles) ===== */
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ===== BUTTONS (FULLY VISIBLE) ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: var(--md-radius-pill);
+            border: none;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--md-transition);
+            text-decoration: none;
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .btn-primary {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+        }
+
+        .btn-primary:hover {
+            background: #0d47a1;
+            transform: translateY(-2px);
+            box-shadow: var(--md-elevation-3);
+        }
+
+        .btn-outline {
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            border: 2px solid var(--md-outline);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--md-primary);
+            background: var(--md-surface-variant);
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* ===== SEARCH ===== */
         .search-section {
             margin: 40px 0 20px;
         }
 
-        .search-bar {
+        .search-wrapper {
             display: flex;
             align-items: center;
             background: var(--md-surface);
-            border: 1px solid var(--md-outline);
+            border: 2px solid var(--md-outline);
             border-radius: var(--md-radius-pill);
-            padding: 4px 4px 4px 20px;
-            max-width: 600px;
+            padding: 4px 4px 4px 24px;
+            max-width: 700px;
             margin: 0 auto;
             transition: var(--md-transition);
         }
 
-        .search-bar:focus-within {
+        .search-wrapper:focus-within {
             border-color: var(--md-primary);
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+            box-shadow: 0 0 0 3px rgba(26,115,232,0.2);
         }
 
-        .search-bar input {
+        .search-wrapper input {
             flex: 1;
             border: none;
             background: transparent;
@@ -472,12 +648,11 @@
             outline: none;
         }
 
-        .search-bar input::placeholder {
+        .search-wrapper input::placeholder {
             color: var(--md-on-surface-variant);
-            opacity: 0.7;
         }
 
-        .search-bar button {
+        .search-wrapper button {
             width: 52px;
             height: 52px;
             border-radius: 50%;
@@ -485,132 +660,70 @@
             background: var(--md-primary);
             color: white;
             cursor: pointer;
+            transition: var(--md-transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--md-transition);
-            flex-shrink: 0;
         }
 
-        .search-bar button:hover {
-            background: var(--md-primary-dark);
+        .search-wrapper button:hover {
+            background: #0d47a1;
             transform: scale(1.05);
         }
 
-        /* ===== HERO SECTION ===== */
-        .hero-section {
-            padding: 60px var(--space-md) 80px;
-            position: relative;
-            overflow: hidden;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--md-primary-container) 0%, var(--md-surface) 100%);
-            z-index: -2;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-family: var(--font-logo);
-            font-size: clamp(3rem, 12vw, 6rem);
-            font-weight: 800;
-            margin-bottom: var(--space-md);
-            color: var(--md-on-surface);
-            line-height: 1;
-            letter-spacing: -2px;
-            animation: titleGlow 3s infinite alternate;
-        }
-
-        @keyframes titleGlow {
-            0% { text-shadow: 0 0 20px rgba(26,115,232,0.2); }
-            100% { text-shadow: 0 0 40px rgba(26,115,232,0.4); }
-        }
-
-        .hero-subtitle {
-            font-family: var(--font-heading);
-            font-size: clamp(1rem, 4vw, 1.5rem);
-            color: var(--md-on-surface-variant);
-            margin-bottom: var(--space-xl);
+        .search-results {
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 10px auto 0;
+            background: var(--md-surface);
+            border-radius: var(--md-radius-large);
+            border: 1px solid var(--md-outline);
+            overflow: hidden;
+            box-shadow: var(--md-elevation-2);
+            display: none;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: var(--space-md);
-            flex-wrap: wrap;
-            justify-content: center;
+        .search-results.active {
+            display: block;
         }
 
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border-radius: var(--md-radius-pill);
-            border: none;
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 600;
+        .search-result-item {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--md-outline);
             cursor: pointer;
             transition: var(--md-transition);
+            display: block;
             text-decoration: none;
+            color: inherit;
         }
 
-        .btn-filled {
-            background: var(--md-primary);
-            color: var(--md-on-primary);
-            box-shadow: var(--md-elevation-1);
+        .search-result-item:last-child {
+            border-bottom: none;
         }
 
-        .btn-filled:hover {
-            box-shadow: var(--md-elevation-2);
-            transform: translateY(-2px);
+        .search-result-item:hover {
+            background: var(--md-primary-container);
         }
 
-        .btn-outlined {
-            background: transparent;
+        .search-result-title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            margin-bottom: 4px;
             color: var(--md-on-surface);
-            border: 1px solid var(--md-outline);
         }
 
-        .btn-outlined:hover {
-            background: var(--md-surface-variant);
-            border-color: var(--md-primary);
+        .search-result-meta {
+            font-size: 0.85rem;
+            color: var(--md-on-surface-variant);
+            display: flex;
+            gap: 12px;
         }
 
-        /* ===== MAIN CONTENT ===== */
-        .main-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 var(--space-md) var(--space-2xl);
-        }
-
-        /* Section header with arrow */
+        /* ===== SECTION HEADER ===== */
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin: 50px 0 30px;
+            margin: 60px 0 30px;
             padding-bottom: 12px;
             border-bottom: 1px solid var(--md-outline);
         }
@@ -641,19 +754,17 @@
             text-decoration: none;
             font-weight: 500;
             transition: gap 0.2s;
-            font-family: var(--font-heading);
         }
 
         .section-link:hover {
             gap: 8px;
         }
 
-        /* ===== ARTICLE CARDS (BEAUTIFUL) ===== */
+        /* ===== ARTICLE CARDS ===== */
         .articles-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
-            margin-bottom: 40px;
         }
 
         @media (min-width: 640px) {
@@ -670,7 +781,7 @@
 
         .article-card {
             background: var(--md-surface);
-            border-radius: var(--md-radius-extra-large);
+            border-radius: var(--md-radius-large);
             overflow: hidden;
             box-shadow: var(--md-elevation-1);
             border: 1px solid var(--md-outline);
@@ -681,23 +792,18 @@
 
         .article-card:hover {
             box-shadow: var(--md-elevation-3);
-            transform: translateY(-6px);
+            transform: translateY(-4px);
         }
 
         .article-image {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
             background: var(--md-surface-variant);
-            transition: transform 0.5s;
-        }
-
-        .article-card:hover .article-image {
-            transform: scale(1.05);
         }
 
         .article-content {
-            padding: var(--space-lg);
+            padding: 24px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -713,7 +819,6 @@
             font-weight: 600;
             margin-bottom: 12px;
             width: fit-content;
-            font-family: var(--font-heading);
         }
 
         .article-title {
@@ -728,11 +833,9 @@
             color: var(--md-on-surface-variant);
             margin-bottom: 20px;
             font-size: 0.95rem;
-            line-height: 1.6;
             flex: 1;
         }
 
-        /* Clickable author section */
         .author-section {
             display: flex;
             align-items: center;
@@ -742,7 +845,7 @@
             border-radius: var(--md-radius-pill);
             margin: 16px 0;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: var(--md-transition);
             text-decoration: none;
             color: inherit;
         }
@@ -753,8 +856,8 @@
         }
 
         .author-avatar {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--md-primary);
@@ -782,7 +885,7 @@
             margin-top: 16px;
             padding: 12px 20px;
             background: transparent;
-            border: 1.5px solid var(--md-outline);
+            border: 1px solid var(--md-outline);
             border-radius: var(--md-radius-pill);
             color: var(--md-on-surface);
             font-weight: 500;
@@ -792,8 +895,7 @@
             justify-content: center;
             gap: 8px;
             transition: var(--md-transition);
-            width: fit-content;
-            font-family: var(--font-heading);
+            width: 100%;
         }
 
         .read-btn:hover {
@@ -807,7 +909,7 @@
             display: grid;
             grid-template-columns: 1fr;
             background: var(--md-surface);
-            border-radius: var(--md-radius-extra-large);
+            border-radius: var(--md-radius-large);
             overflow: hidden;
             box-shadow: var(--md-elevation-2);
             border: 1px solid var(--md-outline);
@@ -827,7 +929,7 @@
         }
 
         .featured-content {
-            padding: var(--space-xl);
+            padding: 32px;
         }
 
         .featured-badge {
@@ -838,43 +940,38 @@
             border-radius: var(--md-radius-pill);
             font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .featured-title {
             font-family: var(--font-heading);
             font-size: 2rem;
             font-weight: 700;
-            margin: 20px 0;
+            margin: 16px 0;
             line-height: 1.3;
         }
 
-        /* ===== NEWSLETTER SECTION ===== */
-        .newsletter-section {
+        /* ===== NEWSLETTER ===== */
+        .newsletter {
             background: var(--md-surface-variant);
-            border-radius: var(--md-radius-extra-large);
-            padding: var(--space-2xl) var(--space-xl);
+            border-radius: var(--md-radius-large);
+            padding: 48px 32px;
             margin: 60px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
             border: 1px solid var(--md-outline);
         }
 
-        .newsletter-title {
+        .newsletter h2 {
             font-family: var(--font-heading);
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: var(--space-md);
-            color: var(--md-on-surface);
+            margin-bottom: 16px;
         }
 
-        .newsletter-description {
+        .newsletter p {
             color: var(--md-on-surface-variant);
-            margin-bottom: var(--space-lg);
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 30px;
             font-size: 1.1rem;
         }
 
@@ -894,90 +991,69 @@
 
         .newsletter-input {
             flex: 1;
-            padding: 16px 24px;
-            background: var(--md-surface);
-            border: 1px solid var(--md-outline);
+            padding: 14px 20px;
             border-radius: var(--md-radius-pill);
-            font-family: inherit;
-            font-size: 1rem;
+            border: 1px solid var(--md-outline);
+            background: var(--md-surface);
             color: var(--md-on-surface);
-            transition: var(--md-transition);
+            font-size: 1rem;
             outline: none;
         }
 
         .newsletter-input:focus {
             border-color: var(--md-primary);
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
         }
 
-        /* ===== BEAUTIFUL FOOTER (with Reverbit logo) ===== */
-        .reverbit-footer {
+        /* ===== FOOTER ===== */
+        .footer {
             background: var(--md-surface);
             border-top: 1px solid var(--md-outline);
-            padding: 80px var(--space-md) 40px;
+            padding: 60px 20px 30px;
             position: relative;
             overflow: hidden;
             margin-top: 60px;
         }
 
-        /* Footer background SVGs */
         .footer-svgs {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
+            opacity: 0.05;
             pointer-events: none;
-            z-index: 0;
-            opacity: 0.1;
         }
 
         .footer-svg {
             position: absolute;
-            animation: footerFloat 25s infinite linear;
+            animation: footerFloat 20s infinite linear;
             fill: var(--md-primary);
         }
 
         .footer-svg-1 {
             top: 10%;
             left: 5%;
-            width: 150px;
+            width: 120px;
         }
         .footer-svg-2 {
             bottom: 20%;
             right: 10%;
-            width: 120px;
-            animation-delay: -8s;
+            width: 100px;
+            animation-delay: -7s;
         }
         .footer-svg-3 {
             top: 40%;
             right: 15%;
-            width: 100px;
-            animation-delay: -15s;
-        }
-        .footer-svg-4 {
-            bottom: 10%;
-            left: 20%;
             width: 80px;
-            animation-delay: -22s;
+            animation-delay: -14s;
         }
 
         @keyframes footerFloat {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(5deg); }
-            66% { transform: translateY(15px) rotate(-5deg); }
+            33% { transform: translateY(-15px) rotate(3deg); }
+            66% { transform: translateY(10px) rotate(-3deg); }
         }
 
-        /* Brand section */
         .footer-brand {
-            position: relative;
-            z-index: 2;
-            margin-bottom: 60px;
-        }
-
-        .brand-big {
             font-family: var(--font-logo);
-            font-size: clamp(100px, 20vw, 220px);
+            font-size: clamp(80px, 20vw, 180px);
             font-weight: 900;
             line-height: 0.8;
             margin-bottom: 20px;
@@ -988,36 +1064,32 @@
             word-break: break-word;
         }
 
-        .brand-tagline {
-            font-size: 1.3rem;
+        .footer-tagline {
+            font-size: 1.2rem;
             color: var(--md-on-surface-variant);
-            max-width: 700px;
-            line-height: 1.4;
+            max-width: 600px;
+            margin-bottom: 50px;
         }
 
-        /* Footer grid */
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 50px;
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 2;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         @media (min-width: 700px) {
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 80px;
             }
         }
 
         .footer-col h4 {
             font-family: var(--font-heading);
-            font-size: 1.4rem;
-            margin-bottom: 24px;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             position: relative;
-            padding-bottom: 12px;
+            padding-bottom: 10px;
         }
 
         .footer-col h4::after {
@@ -1028,15 +1100,14 @@
             width: 40px;
             height: 3px;
             background: var(--md-primary);
-            border-radius: 1.5px;
         }
 
         .footer-col a {
             display: block;
             color: var(--md-on-surface-variant);
             text-decoration: none;
-            margin-bottom: 12px;
-            transition: all 0.2s;
+            margin-bottom: 10px;
+            transition: var(--md-transition);
         }
 
         .footer-col a:hover {
@@ -1044,17 +1115,14 @@
             transform: translateX(4px);
         }
 
-        /* Footer bottom */
         .footer-bottom {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            padding-top: 40px;
+            gap: 20px;
+            padding-top: 30px;
             border-top: 1px solid var(--md-outline);
             align-items: center;
             text-align: center;
-            position: relative;
-            z-index: 2;
         }
 
         @media (min-width: 700px) {
@@ -1066,40 +1134,18 @@
         }
 
         .footer-logo {
-            height: 40px;
+            height: 35px;
             object-fit: contain;
-        }
-
-        .copyright {
-            color: var(--md-on-surface-variant);
-            font-size: 0.95rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .footer-links a {
-            color: var(--md-on-surface-variant);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--md-primary);
         }
 
         .social-links {
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
         .social-link {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--md-surface-variant);
             display: flex;
@@ -1107,14 +1153,13 @@
             justify-content: center;
             color: var(--md-on-surface);
             text-decoration: none;
-            transition: all 0.3s;
-            font-size: 1.2rem;
+            transition: var(--md-transition);
         }
 
         .social-link:hover {
             background: var(--md-primary);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         /* Loading spinner */
@@ -1127,8 +1172,8 @@
         }
 
         .spinner {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border: 3px solid var(--md-outline);
             border-top-color: var(--md-primary);
             border-radius: 50%;
@@ -1141,13 +1186,21 @@
 
         /* Mobile optimizations */
         @media (max-width: 480px) {
-            .hero-section {
-                padding: 40px var(--space-md) 60px;
+            .hero {
                 min-height: 70vh;
             }
             
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
             .featured-content {
-                padding: var(--space-lg);
+                padding: 24px;
             }
             
             .featured-title {
@@ -1157,111 +1210,100 @@
             .section-title {
                 font-size: 1.6rem;
             }
-            
-            .hero-cta {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .hero-cta .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .brand-big {
-                font-size: clamp(80px, 18vw, 150px);
-            }
-            
-            .brand-tagline {
-                font-size: 1.1rem;
-            }
         }
     </style>
 </head>
-<body class="light-theme">
-    <!-- RESTORED MESH BACKGROUND -->
+<body>
+    <!-- Background -->
     <div class="mesh-background"></div>
     <div class="mesh-overlay"></div>
     
-    <!-- RESTORED FLOATING SVGS (Repositioned) -->
+    <!-- Floating SVGs -->
     <svg class="floating-svg svg-1" viewBox="0 0 100 100">
-        <path d="M50,10 L90,50 L50,90 L10,50 Z" fill="var(--md-primary)" opacity="0.2"/>
+        <path d="M50,10 L90,50 L50,90 L10,50 Z"/>
     </svg>
     <svg class="floating-svg svg-2" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="40" fill="var(--md-primary)" opacity="0.2"/>
+        <circle cx="50" cy="50" r="40"/>
     </svg>
     <svg class="floating-svg svg-3" viewBox="0 0 100 100">
-        <polygon points="50,10 90,90 10,90" fill="var(--md-primary)" opacity="0.2"/>
-    </svg>
-    <svg class="floating-svg svg-4" viewBox="0 0 100 100">
-        <rect x="10" y="10" width="80" height="80" rx="10" fill="var(--md-primary)" opacity="0.2"/>
+        <polygon points="50,10 90,90 10,90"/>
     </svg>
 
-    <!-- HEADER (Mobile Optimized - Only Auth + Hamburger) -->
+    <!-- HEADER -->
     <header class="app-header">
-        <div class="logo-container">
-            <div class="logo-icon"></div>
-            <div class="logo-text"></div>
-        </div>
-        
-        <div class="header-actions">
-            <!-- Auth.js profile avatar will be injected here -->
-            <div id="auth-avatar-container"></div>
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <div class="logo-text"></div>
+            </div>
             
-            <!-- Hamburger menu button -->
-            <button class="icon-btn" id="menuBtn">
-                <span class="material-icons-round">menu</span>
-            </button>
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="#" class="nav-item active">Home</a>
+                <a href="#" class="nav-item">Articles</a>
+                <a href="#" class="nav-item">Categories</a>
+                <a href="#" class="nav-item">About</a>
+                <a href="#" class="nav-item">Contact</a>
+            </nav>
+            
+            <div class="header-actions">
+                <!-- Theme toggle (desktop) -->
+                <button class="icon-btn theme-toggle" id="desktopThemeToggle">
+                    <span class="material-icons-round">dark_mode</span>
+                </button>
+                
+                <!-- Auth avatar (desktop) -->
+                <div id="authAvatarDesktop" style="display: none;">
+                    <div class="auth-avatar">
+                        <img src="" alt="User">
+                    </div>
+                </div>
+                
+                <!-- Hamburger button -->
+                <button class="icon-btn hamburger-btn" id="menuBtn">
+                    <span class="material-icons-round">menu</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- HAMBURGER MENU (Right side with close button) -->
+    <!-- HAMBURGER MENU -->
     <div class="hamburger-menu" id="hamburgerMenu">
         <button class="menu-close" id="menuClose">
             <span class="material-icons-round">close</span>
         </button>
-        
-        <!-- Theme toggle inside hamburger (for mobile) -->
-        <div class="menu-theme-toggle" id="menuThemeToggle">
-            <span>Dark Mode</span>
-            <span class="material-icons-round" id="menuThemeIcon">dark_mode</span>
-        </div>
-        
-        <div class="menu-links" id="menuContent">
-            <!-- Dynamically populated by auth state -->
-        </div>
+        <div id="menuContent"></div>
     </div>
 
     <!-- HERO SECTION -->
-    <section class="hero-section">
-        <div class="hero-background"></div>
-        
+    <section class="hero">
+        <div class="hero-backdrop"></div>
         <div class="hero-content">
-            <h1 class="hero-title" id="heroTitle">Reverbit Marina</h1>
+            <h1 class="hero-title">Reverbit Marina</h1>
             <p class="hero-subtitle">Your premier destination for cutting-edge technology insights, industry analysis, and forward-thinking perspectives.</p>
-            <div class="hero-cta">
-                <a href="#featured" class="btn btn-filled">Explore Latest</a>
-                <a href="#newsletter" class="btn btn-outlined">Subscribe</a>
+            <div class="hero-buttons">
+                <a href="#featured" class="btn btn-primary">Explore Latest</a>
+                <a href="#newsletter" class="btn btn-outline">Subscribe to Newsletter</a>
             </div>
         </div>
     </section>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-        <!-- SEARCH BAR (Moved above Latest Articles) -->
+        <!-- SEARCH -->
         <div class="search-section">
-            <div class="search-bar">
-                <input type="text" placeholder="Search articles, topics, or authors...">
-                <button>
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Search articles, topics, or authors...">
+                <button id="searchButton">
                     <span class="material-icons-round">search</span>
                 </button>
             </div>
+            <div class="search-results" id="searchResults"></div>
         </div>
 
-        <!-- FEATURED ARTICLE (from JSON) -->
-        <div id="featured" class="featured-article" id="featuredArticle"></div>
+        <!-- FEATURED ARTICLE -->
+        <div id="featured" class="featured-article"></div>
 
-        <!-- LATEST ARTICLES SECTION -->
+        <!-- LATEST ARTICLES -->
         <section>
             <div class="section-header">
                 <h2 class="section-title">Latest Articles</h2>
@@ -1271,24 +1313,20 @@
                 </a>
             </div>
             
-            <div class="articles-grid" id="articlesGrid">
-                <div class="loading-spinner">
-                    <div class="spinner"></div>
-                </div>
-            </div>
+            <div class="articles-grid" id="articlesGrid"></div>
         </section>
 
-        <!-- NEWSLETTER SECTION (Beautiful) -->
-        <section class="newsletter-section" id="newsletter">
-            <h2 class="newsletter-title">Stay Updated with Tech Insights</h2>
-            <p class="newsletter-description">Get the latest tech news, in-depth analysis, and exclusive content delivered directly to your inbox. Join our community of technology enthusiasts and professionals.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed! (demo)');">
+        <!-- NEWSLETTER -->
+        <section class="newsletter" id="newsletter">
+            <h2>Stay Updated with Tech Insights</h2>
+            <p>Get the latest tech news, in-depth analysis, and exclusive content delivered directly to your inbox. Join our community of technology enthusiasts and professionals.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('🎉 Thanks for subscribing!');">
                 <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                <button type="submit" class="btn btn-filled">Subscribe Now</button>
+                <button type="submit" class="btn btn-primary">Subscribe Now</button>
             </form>
         </section>
 
-        <!-- CATEGORIES SECTION -->
+        <!-- CATEGORIES -->
         <section>
             <div class="section-header">
                 <h2 class="section-title">Explore Categories</h2>
@@ -1302,9 +1340,9 @@
                 <div class="article-card">
                     <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" class="article-image" alt="AI">
                     <div class="article-content">
-                        <span class="article-category">AI & Machine Learning</span>
-                        <h3 class="article-title">Artificial Intelligence</h3>
-                        <p class="article-excerpt">From GPT-4 to computer vision breakthroughs, stay updated on the AI revolution.</p>
+                        <span class="article-category">Artificial Intelligence</span>
+                        <h3 class="article-title">AI & Machine Learning</h3>
+                        <p class="article-excerpt">Explore the cutting edge of artificial intelligence and machine learning technologies.</p>
                         <div class="meta-info" style="margin-bottom:16px;">24 articles</div>
                         <a href="#" class="read-btn">Explore Category →</a>
                     </div>
@@ -1314,18 +1352,18 @@
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" class="article-image" alt="Cybersecurity">
                     <div class="article-content">
                         <span class="article-category">Cybersecurity</span>
-                        <h3 class="article-title">Digital Protection & Privacy</h3>
-                        <p class="article-excerpt">Latest threats, defense strategies, and privacy regulations.</p>
+                        <h3 class="article-title">Digital Protection</h3>
+                        <p class="article-excerpt">Latest threats, defense strategies, and privacy regulations in the digital world.</p>
                         <div class="meta-info" style="margin-bottom:16px;">18 articles</div>
                         <a href="#" class="read-btn">Explore Category →</a>
                     </div>
                 </div>
                 
                 <div class="article-card">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" class="article-image" alt="Web Dev">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" class="article-image" alt="Programming">
                     <div class="article-content">
-                        <span class="article-category">Web Development</span>
-                        <h3 class="article-title">Frontend & Backend Trends</h3>
+                        <span class="article-category">Programming</span>
+                        <h3 class="article-title">Web Development</h3>
                         <p class="article-excerpt">Frameworks, tools, and techniques shaping the future of web development.</p>
                         <div class="meta-info" style="margin-bottom:16px;">32 articles</div>
                         <a href="#" class="read-btn">Explore Category →</a>
@@ -1335,28 +1373,22 @@
         </section>
     </main>
 
-    <!-- BEAUTIFUL FOOTER (with Reverbit logo) -->
-    <footer class="reverbit-footer">
-        <!-- Footer background SVGs -->
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="footer-svgs">
             <svg class="footer-svg footer-svg-1" viewBox="0 0 100 100">
-                <path d="M50,10 L90,50 L50,90 L10,50 Z" fill="currentColor"/>
+                <path d="M50,10 L90,50 L50,90 L10,50 Z"/>
             </svg>
             <svg class="footer-svg footer-svg-2" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40" fill="currentColor"/>
+                <circle cx="50" cy="50" r="40"/>
             </svg>
             <svg class="footer-svg footer-svg-3" viewBox="0 0 100 100">
-                <polygon points="50,10 90,90 10,90" fill="currentColor"/>
-            </svg>
-            <svg class="footer-svg footer-svg-4" viewBox="0 0 100 100">
-                <rect x="10" y="10" width="80" height="80" rx="10" fill="currentColor"/>
+                <polygon points="50,10 90,90 10,90"/>
             </svg>
         </div>
         
-        <div class="footer-brand">
-            <div class="brand-big">Reverbit Marina</div>
-            <p class="brand-tagline">Pioneering the future through innovative research and cutting-edge technology solutions that transform industries.</p>
-        </div>
+        <div class="footer-brand">Reverbit Marina</div>
+        <p class="footer-tagline">Pioneering the future through innovative research and cutting-edge technology solutions that transform industries.</p>
         
         <div class="footer-grid">
             <div class="footer-col">
@@ -1366,49 +1398,36 @@
                 <a href="#">Sessions</a>
                 <a href="#">Community</a>
                 <a href="#">Careers</a>
-                <a href="#">Contact</a>
             </div>
             
             <div class="footer-col">
-                <h4>Teams & Areas</h4>
+                <h4>Teams</h4>
                 <a href="#">Clover AI</a>
                 <a href="#">Mindscribe</a>
                 <a href="#">Clover Studio</a>
                 <a href="#">Peo-TTS</a>
                 <a href="#">Skycast Pro</a>
-                <a href="#">Popout Pro</a>
             </div>
             
             <div class="footer-col">
-                <h4>Resources</h4>
+                <h4>Connect</h4>
                 <a href="#">Documentation</a>
-                <a href="#">API Reference</a>
-                <a href="#">Tutorials</a>
+                <a href="#">API</a>
                 <a href="#">Blog</a>
-                <a href="#">Case Studies</a>
-                <a href="#">White Papers</a>
-                
-                <div style="margin-top:30px;">
-                    <p style="margin-bottom:16px; font-weight:600;">Subscribe to updates</p>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <input type="email" placeholder="Your email" style="flex:1; min-width:140px; padding:12px 16px; border-radius:60px; border:1px solid var(--md-outline); background:var(--md-surface); color:var(--md-on-surface);">
-                        <button class="btn btn-filled" style="padding:12px 24px;">Join</button>
-                    </div>
-                </div>
+                <a href="#">GitHub</a>
             </div>
         </div>
         
         <div class="footer-bottom">
             <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
-                <img src="https://aditya-cmd-max.github.io/reverbit/logo-nobg.png" class="footer-logo" alt="Reverbit Logo">
-                <span class="copyright">© 2025 Reverbit Marina. All rights reserved.</span>
+                <img src="https://aditya-cmd-max.github.io/reverbit/logo-nobg.png" class="footer-logo" alt="Reverbit">
+                <span>© 2025 Reverbit Marina. All rights reserved.</span>
             </div>
             
-            <div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center;">
-                <div class="footer-links">
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
-                    <a href="#">Help</a>
+            <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
+                <div style="display:flex; gap:20px;">
+                    <a href="#" style="color:var(--md-on-surface-variant); text-decoration:none;">Privacy</a>
+                    <a href="#" style="color:var(--md-on-surface-variant); text-decoration:none;">Terms</a>
                 </div>
                 
                 <div class="social-links">
@@ -1422,7 +1441,7 @@
     </footer>
 
     <script>
-        // ===== ARTICLES DATA (from JSON) =====
+        // ===== ARTICLES DATA =====
         const articles = [
             {
                 "title": "10 Coding Skills Every Future Developer Should Learn",
@@ -1431,6 +1450,7 @@
                 "author": "Adi",
                 "authorLink": "/author/adi.html",
                 "authorAvatar": "https://ui-avatars.com/api/?name=Adi&background=1a73e8&color=fff&bold=true",
+                "category": "Programming",
                 "readTime": "6 min",
                 "link": "/blogs/future-coding-skills.html"
             },
@@ -1441,6 +1461,7 @@
                 "author": "Adi",
                 "authorLink": "/author/adi.html",
                 "authorAvatar": "https://ui-avatars.com/api/?name=Adi&background=1a73e8&color=fff&bold=true",
+                "category": "Artificial Intelligence",
                 "readTime": "4 min",
                 "link": "/blogs/ai-beginner-guide.html"
             },
@@ -1451,6 +1472,7 @@
                 "author": "Adi",
                 "authorLink": "/author/adi.html",
                 "authorAvatar": "https://ui-avatars.com/api/?name=Adi&background=1a73e8&color=fff&bold=true",
+                "category": "Technology",
                 "readTime": "7 min",
                 "link": "/blogs/future-tech-trends.html"
             },
@@ -1461,12 +1483,13 @@
                 "author": "Aditya Jha",
                 "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
                 "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
+                "category": "Artificial Intelligence",
                 "readTime": "5 min",
                 "link": "https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development/"
             }
         ];
 
-        // Sort by date (newest first)
+        // Sort by date
         const sortedArticles = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
         const latestArticles = sortedArticles.slice(0, 3);
         const featuredArticle = sortedArticles[0];
@@ -1477,13 +1500,13 @@
             return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        // Get image based on title
-        function getArticleImage(title) {
-            if (title.includes('AI') || title.includes('Intelligence')) {
+        // Get image based on category
+        function getArticleImage(category) {
+            if (category.includes('AI') || category.includes('Intelligence')) {
                 return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80';
-            } else if (title.includes('Coding') || title.includes('Developer')) {
+            } else if (category.includes('Programming')) {
                 return 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80';
-            } else if (title.includes('Technology')) {
+            } else if (category.includes('Technology')) {
                 return 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80';
             } else {
                 return 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
@@ -1492,14 +1515,14 @@
 
         // Display featured article
         function displayFeatured() {
-            const featuredEl = document.getElementById('featuredArticle');
+            const featuredEl = document.getElementById('featured');
             if (!featuredEl) return;
             
             const article = featuredArticle;
             featuredEl.innerHTML = `
-                <img src="${getArticleImage(article.title)}" class="featured-image" alt="${article.title}">
+                <img src="${getArticleImage(article.category)}" class="featured-image" alt="${article.title}">
                 <div class="featured-content">
-                    <span class="featured-badge">Featured</span>
+                    <span class="featured-badge">${article.category}</span>
                     <h2 class="featured-title">${article.title}</h2>
                     <p class="article-excerpt" style="font-size:1.1rem; margin-bottom:20px;">${article.description}</p>
                     
@@ -1515,12 +1538,12 @@
                         </div>
                     </a>
                     
-                    <a href="${article.link}" class="btn btn-filled" style="margin-top:20px;" target="_blank">Read Full Article →</a>
+                    <a href="${article.link}" class="btn btn-primary" style="margin-top:20px;" target="_blank">Read Full Article →</a>
                 </div>
             `;
         }
 
-        // Display latest articles grid
+        // Display latest articles
         function displayLatest() {
             const grid = document.getElementById('articlesGrid');
             if (!grid) return;
@@ -1529,9 +1552,9 @@
             latestArticles.forEach(article => {
                 html += `
                     <div class="article-card">
-                        <img src="${getArticleImage(article.title)}" class="article-image" alt="${article.title}">
+                        <img src="${getArticleImage(article.category)}" class="article-image" alt="${article.title}">
                         <div class="article-content">
-                            <span class="article-category">Latest</span>
+                            <span class="article-category">${article.category}</span>
                             <h3 class="article-title">${article.title}</h3>
                             <p class="article-excerpt">${article.description.substring(0, 100)}...</p>
                             
@@ -1562,32 +1585,80 @@
         displayFeatured();
         displayLatest();
 
-        // ===== UI INTERACTIONS =====
-        
-        // Theme toggle (main and menu)
+        // ===== SEARCH =====
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const searchResults = document.getElementById('searchResults');
+
+        function performSearch(query) {
+            if (!query.trim()) {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            const results = articles.filter(article => 
+                article.title.toLowerCase().includes(query.toLowerCase()) ||
+                article.description.toLowerCase().includes(query.toLowerCase()) ||
+                article.category.toLowerCase().includes(query.toLowerCase()) ||
+                article.author.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = `
+                    <div class="search-result-item">
+                        <div class="search-result-title">No results found</div>
+                        <div class="search-result-meta">Try different keywords</div>
+                    </div>
+                `;
+            } else {
+                searchResults.innerHTML = results.slice(0, 5).map(article => `
+                    <a href="${article.link}" class="search-result-item" target="_blank">
+                        <div class="search-result-title">${article.title}</div>
+                        <div class="search-result-meta">
+                            <span>${article.category}</span>
+                            <span>•</span>
+                            <span>${article.author}</span>
+                            <span>•</span>
+                            <span>${article.readTime}</span>
+                        </div>
+                    </a>
+                `).join('');
+            }
+            
+            searchResults.classList.add('active');
+        }
+
+        searchInput.addEventListener('input', (e) => performSearch(e.target.value));
+        searchButton.addEventListener('click', () => performSearch(searchInput.value));
+
+        // Close search results
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target) && e.target !== searchButton) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // ===== THEME TOGGLE =====
         const body = document.body;
-        const menuThemeToggle = document.getElementById('menuThemeToggle');
-        const menuThemeIcon = document.getElementById('menuThemeIcon');
+        const desktopThemeToggle = document.getElementById('desktopThemeToggle');
+        const desktopThemeIcon = desktopThemeToggle.querySelector('.material-icons-round');
         
-        // Load saved theme
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
             body.classList.add('dark-theme');
-            menuThemeIcon.textContent = 'light_mode';
-        } else {
-            menuThemeIcon.textContent = 'dark_mode';
+            desktopThemeIcon.textContent = 'light_mode';
         }
-        
+
         function toggleTheme() {
             body.classList.toggle('dark-theme');
             const isDark = body.classList.contains('dark-theme');
-            menuThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            desktopThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
-        
-        menuThemeToggle.addEventListener('click', toggleTheme);
 
-        // Hamburger menu
+        desktopThemeToggle.addEventListener('click', toggleTheme);
+
+        // ===== HAMBURGER MENU =====
         const menuBtn = document.getElementById('menuBtn');
         const menuClose = document.getElementById('menuClose');
         const hamburgerMenu = document.getElementById('hamburgerMenu');
@@ -1606,100 +1677,128 @@
         menuBtn.addEventListener('click', openMenu);
         menuClose.addEventListener('click', closeMenu);
 
-        // Close on backdrop click
         hamburgerMenu.addEventListener('click', (e) => {
-            if (e.target === hamburgerMenu) {
-                closeMenu();
-            }
+            if (e.target === hamburgerMenu) closeMenu();
         });
 
-        // Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && hamburgerMenu.classList.contains('active')) {
-                closeMenu();
-            }
+            if (e.key === 'Escape' && hamburgerMenu.classList.contains('active')) closeMenu();
         });
 
-        // Simulate auth state (for demo - change to true to test logged-in state)
-        const isLoggedIn = false;
-
-        if (isLoggedIn) {
-            // Show auth avatar
-            document.getElementById('auth-avatar-container').innerHTML = `
-                <div class="reverbit-profile-avatar icon-btn" style="padding:0;">
-                    <img src="https://ui-avatars.com/api/?name=Aditya+Jha&background=1a73e8&color=fff" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
-                </div>
-            `;
-            
-            // Menu content for logged-in user
-            menuContent.innerHTML = `
-                <div class="user-profile-item">
-                    <img src="https://ui-avatars.com/api/?name=Aditya+Jha&background=1a73e8&color=fff" class="user-avatar">
-                    <div class="user-info">
-                        <div class="user-name">Aditya Jha</div>
-                        <div class="user-email">aditya@reverbit.com</div>
+        // ===== AUTH =====
+        async function initAuth() {
+            try {
+                await window.ReverbitAuth.init();
+                
+                window.ReverbitAuth.addAuthListener((user, profile) => {
+                    const authAvatarDesktop = document.getElementById('authAvatarDesktop');
+                    const menuContent = document.getElementById('menuContent');
+                    
+                    if (user && profile) {
+                        // Show auth avatar
+                        authAvatarDesktop.style.display = 'block';
+                        authAvatarDesktop.querySelector('img').src = profile.photoURL || `https://ui-avatars.com/api/?name=${profile.displayName}&background=1a73e8&color=fff`;
+                        
+                        // Menu content for logged in user
+                        menuContent.innerHTML = `
+                            <div class="menu-user">
+                                <img src="${profile.photoURL || `https://ui-avatars.com/api/?name=${profile.displayName}&background=1a73e8&color=fff`}" class="menu-user-avatar">
+                                <div class="menu-user-info">
+                                    <h4>${profile.displayName}</h4>
+                                    <p>${profile.email}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-links">
+                                <a href="#" class="menu-link active"><i class="fas fa-home"></i> Home</a>
+                                <a href="#" class="menu-link"><i class="fas fa-newspaper"></i> Articles</a>
+                                <a href="#" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                                <a href="#" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                                <a href="#" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
+                                <a href="#" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
+                            </div>
+                            
+                            <div class="menu-theme" id="menuThemeToggle">
+                                <div class="menu-theme-left">
+                                    <i class="fas fa-moon"></i>
+                                    <span>Dark Mode</span>
+                                </div>
+                                <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                            </div>
+                            
+                            <a href="#" class="menu-link menu-signin" onclick="window.ReverbitAuth.logout(); return false;">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
+                            </a>
+                        `;
+                        
+                        document.getElementById('menuThemeToggle').addEventListener('click', toggleTheme);
+                        
+                    } else {
+                        // Hide auth avatar
+                        authAvatarDesktop.style.display = 'none';
+                        
+                        // Menu content for signed out user
+                        menuContent.innerHTML = `
+                            <div class="menu-links">
+                                <a href="#" class="menu-link active"><i class="fas fa-home"></i> Home</a>
+                                <a href="#" class="menu-link"><i class="fas fa-newspaper"></i> Articles</a>
+                                <a href="#" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                                <a href="#" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                                <a href="#" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
+                            </div>
+                            
+                            <div class="menu-theme" id="menuThemeToggle">
+                                <div class="menu-theme-left">
+                                    <i class="fas fa-moon"></i>
+                                    <span>Dark Mode</span>
+                                </div>
+                                <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                            </div>
+                            
+                            <a href="https://aditya-cmd-max.github.io/signin" class="menu-link menu-signin">
+                                <i class="fas fa-sign-in-alt"></i> Sign In
+                            </a>
+                        `;
+                        
+                        document.getElementById('menuThemeToggle').addEventListener('click', toggleTheme);
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Auth error:', error);
+                // Fallback
+                document.getElementById('menuContent').innerHTML = `
+                    <div class="menu-links">
+                        <a href="#" class="menu-link active"><i class="fas fa-home"></i> Home</a>
+                        <a href="#" class="menu-link"><i class="fas fa-newspaper"></i> Articles</a>
+                        <a href="#" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                        <a href="#" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                        <a href="#" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
                     </div>
-                </div>
-                <a href="#" class="menu-link active">Home</a>
-                <a href="#" class="menu-link">Articles</a>
-                <a href="#" class="menu-link">Categories</a>
-                <a href="#" class="menu-link">About</a>
-                <a href="#" class="menu-link">Contact</a>
-                <a href="#" class="menu-link">Dashboard</a>
-                <a href="#" class="menu-link" onclick="alert('Signed out'); location.reload();">Sign Out</a>
-            `;
-        } else {
-            // No auth avatar
-            document.getElementById('auth-avatar-container').innerHTML = '';
-            
-            // Menu content for signed-out user
-            menuContent.innerHTML = `
-                <a href="#" class="menu-link active">Home</a>
-                <a href="#" class="menu-link">Articles</a>
-                <a href="#" class="menu-link">Categories</a>
-                <a href="#" class="menu-link">About</a>
-                <a href="#" class="menu-link">Contact</a>
-                <a href="#" class="signin-btn menu-link">
-                    <i class="fas fa-sign-in-alt"></i> Sign In
-                </a>
-            `;
+                    
+                    <div class="menu-theme" id="menuThemeToggle">
+                        <div class="menu-theme-left">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark Mode</span>
+                        </div>
+                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                    </div>
+                    
+                    <a href="https://aditya-cmd-max.github.io/signin" class="menu-link menu-signin">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </a>
+                `;
+                document.getElementById('menuThemeToggle').addEventListener('click', toggleTheme);
+            }
         }
+
+        initAuth();
 
         // GSAP Animations
         if (typeof gsap !== 'undefined') {
-            gsap.from('.hero-title', { 
-                duration: 1.2, 
-                y: 60, 
-                opacity: 0, 
-                ease: 'power4.out' 
-            });
-            
-            gsap.from('.hero-subtitle', { 
-                duration: 1, 
-                y: 30, 
-                opacity: 0, 
-                delay: 0.3,
-                ease: 'power3.out' 
-            });
-            
-            gsap.from('.hero-cta .btn', { 
-                duration: 0.8, 
-                y: 20, 
-                opacity: 0, 
-                stagger: 0.15,
-                delay: 0.6,
-                ease: 'back.out(1.2)' 
-            });
-            
-            gsap.from('.search-section', {
-                scrollTrigger: {
-                    trigger: '.search-section',
-                    start: 'top 80%',
-                },
-                y: 30,
-                opacity: 0,
-                duration: 0.8
-            });
+            gsap.from('.hero-title', { duration: 1, y: 50, opacity: 0, ease: 'power3.out' });
+            gsap.from('.hero-subtitle', { duration: 1, y: 30, opacity: 0, delay: 0.3, ease: 'power3.out' });
+            gsap.from('.hero-buttons .btn', { duration: 1, y: 30, opacity: 0, stagger: 0.2, delay: 0.6, ease: 'power3.out' });
         }
     </script>
 </body>
