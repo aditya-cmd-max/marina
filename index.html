@@ -219,6 +219,7 @@
             align-items: center;
         }
 
+        /* Logo size - reduced on mobile only */
         .logo-text {
             width: 160px;
             height: 36px;
@@ -226,10 +227,17 @@
             transition: filter 0.3s;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .logo-text {
                 width: 130px;
                 height: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                width: 110px;
+                height: 28px;
             }
         }
 
@@ -295,9 +303,9 @@
             color: white;
         }
 
-        /* Theme toggle for desktop - NOW VISIBLE */
+        /* Theme toggle for desktop ONLY - hidden on mobile */
         .theme-toggle {
-            display: flex;
+            display: none;
         }
 
         @media (min-width:900px){.theme-toggle{display:flex;}}
@@ -1436,7 +1444,7 @@
             </nav>
             
             <div class="header-actions">
-                <!-- Theme toggle for desktop - NOW VISIBLE -->
+                <!-- Theme toggle for desktop ONLY - visible on PC, hidden on mobile -->
                 <button class="icon-btn theme-toggle" id="desktopThemeToggle">
                     <span class="material-icons-round">dark_mode</span>
                 </button>
@@ -1452,7 +1460,7 @@
         </div>
     </header>
 
-    <!-- HAMBURGER MENU -->
+    <!-- HAMBURGER MENU (Theme toggle is inside here for mobile) -->
     <div class="hamburger-menu" id="hamburgerMenu">
         <button class="menu-close" id="menuClose">
             <span class="material-icons-round">close</span>
@@ -1632,7 +1640,7 @@
                 if (article.thumbnail.startsWith('http')) {
                     return article.thumbnail;
                 } else {
-                    // Handle relative paths - you might need to adjust the base URL
+                    // Handle relative paths
                     return `https://aditya-cmd-max.github.io${article.thumbnail}`;
                 }
             }
@@ -1892,7 +1900,7 @@
         // Initialize articles
         displayArticles();
 
-        // ===== THEME TOGGLE (Both Desktop and Mobile) =====
+        // ===== THEME TOGGLE (Desktop only - mobile toggle is in hamburger menu) =====
         const body = document.body;
         const desktopThemeToggle = document.getElementById('desktopThemeToggle');
         const desktopThemeIcon = desktopThemeToggle.querySelector('.material-icons-round');
@@ -1948,7 +1956,7 @@
             }
         });
 
-        // ===== POPULATE MENU =====
+        // ===== POPULATE MENU (with theme toggle inside) =====
         function updateMenu(isLoggedIn = false, userData = null) {
             if (isLoggedIn && userData) {
                 menuContent.innerHTML = `
@@ -1969,6 +1977,7 @@
                         <a href="/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
                     </div>
                     
+                    <!-- Theme toggle inside hamburger menu for mobile -->
                     <div class="menu-theme" id="menuThemeToggle">
                         <div class="menu-theme-left">
                             <i class="fas fa-moon"></i>
@@ -1991,6 +2000,7 @@
                         <a href="/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
                     </div>
                     
+                    <!-- Theme toggle inside hamburger menu for mobile -->
                     <div class="menu-theme" id="menuThemeToggle">
                         <div class="menu-theme-left">
                             <i class="fas fa-moon"></i>
