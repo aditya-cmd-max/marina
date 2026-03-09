@@ -2,75 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Jha | Exonova Marina</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Aditya Jha | Reverbit Marina</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Product Sans and Playfair Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Auth.js -->
+    <script src="https://aditya-cmd-max.github.io/js/auth.js"></script>
+    
     <style>
-        /* Material Design 3 Color System */
+        /* ===== ORIGINAL BEAUTIFUL COLOR SYSTEM ===== */
         :root {
-            /* Primary Colors */
             --md-primary: #1a73e8;
             --md-on-primary: #FFFFFF;
             --md-primary-container: #d2e3fc;
             --md-on-primary-container: #001d3d;
             
-            /* Surface Colors */
             --md-surface: #FFFFFF;
             --md-on-surface: #202124;
             --md-surface-variant: #F8F9FA;
             --md-on-surface-variant: #5f6368;
             
-            /* Background Colors */
             --md-background: #FFFFFF;
             --md-on-background: #202124;
             
-            /* Outline Colors */
             --md-outline: #DADCE0;
             --md-outline-variant: #E8EAED;
             
-            /* Shadow Elevations */
             --md-elevation-1: 0 1px 2px rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
             --md-elevation-2: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
             --md-elevation-3: 0 1px 3px 1px rgba(60,64,67,0.15), 0 1px 2px rgba(60,64,67,0.3);
             
-            /* Animation */
             --md-transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            --md-transition-fast: all 0.15s cubic-bezier(0.2, 0, 0, 1);
             
-            /* Border Radius */
             --md-radius-small: 8px;
             --md-radius-medium: 12px;
             --md-radius-large: 16px;
-            --md-radius-extra-large: 28px;
+            --md-radius-extra-large: 24px;
             --md-radius-pill: 9999px;
             
-            /* Spacing */
-            --md-spacing-xs: 4px;
-            --md-spacing-sm: 8px;
-            --md-spacing-md: 16px;
-            --md-spacing-lg: 24px;
-            --md-spacing-xl: 32px;
-            --md-spacing-xxl: 48px;
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
             
-            /* Typography */
-            --md-font-logo: 'Product Sans', sans-serif;
-            --md-font-heading: 'Product Sans', sans-serif;
-            --md-font-body: 'Lora', serif;
+            --font-logo: 'Playfair Display', serif;
+            --font-heading: 'Inter', sans-serif;
+            --font-body: 'Lora', serif;
+            --font-product: 'Product Sans', sans-serif;
         }
 
-        /* Dark Theme */
         .dark-theme {
             --md-surface: #202124;
             --md-on-surface: #E8EAED;
@@ -84,7 +85,6 @@
             --md-outline-variant: #5F6368;
         }
 
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -96,7 +96,7 @@
         }
 
         body {
-            font-family: var(--md-font-body);
+            font-family: var(--font-body);
             background-color: var(--md-background);
             color: var(--md-on-surface);
             line-height: 1.6;
@@ -104,7 +104,7 @@
             transition: var(--md-transition);
         }
 
-        /* Enhanced Mesh Background */
+        /* ===== SIMPLE BACKGROUND (CLEAN) ===== */
         .mesh-background {
             position: fixed;
             top: 0;
@@ -112,12 +112,12 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            opacity: 0.05;
+            opacity: 0.08;
             background-image: 
                 linear-gradient(var(--md-primary) 1px, transparent 1px),
                 linear-gradient(90deg, var(--md-primary) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: meshMove 30s linear infinite;
+            background-size: 60px 60px;
+            animation: meshMove 25s linear infinite;
         }
 
         .mesh-overlay {
@@ -127,159 +127,367 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: 
-                radial-gradient(
-                    circle at 20% 80%,
-                    rgba(26, 115, 232, 0.08) 0%,
-                    transparent 40%
-                ), 
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(26, 115, 232, 0.08) 0%,
-                    transparent 40%
-                ), 
-                radial-gradient(
-                    circle at 40% 40%,
-                    rgba(26, 115, 232, 0.05) 0%,
-                    transparent 40%
-                );
+            background: radial-gradient(
+                circle at 30% 70%,
+                rgba(26, 115, 232, 0.12) 0%,
+                transparent 50%
+            ), radial-gradient(
+                circle at 70% 30%,
+                rgba(26, 115, 232, 0.08) 0%,
+                transparent 50%
+            );
             animation: pulse 10s ease-in-out infinite;
         }
 
-        .mesh-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -3;
-            background-image: 
-                linear-gradient(45deg, var(--md-primary) 25%, transparent 25%),
-                linear-gradient(-45deg, var(--md-primary) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, var(--md-primary) 75%),
-                linear-gradient(-45deg, transparent 75%, var(--md-primary) 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-            opacity: 0.03;
-            animation: patternMove 20s linear infinite;
-        }
-
         @keyframes meshMove {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(40px, 40px);
-            }
-        }
-
-        @keyframes patternMove {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(20px, 20px);
-            }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
         }
 
         @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.8;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
-        /* Header */
+        /* ===== HEADER (Full Navbar) ===== */
         .app-header {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 95%;
+        }
+
+        .header-container {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-pill);
+            padding: 8px 16px 8px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 var(--md-spacing-xl);
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            height: 80px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            box-shadow: var(--md-elevation-1);
-            border-bottom: 1px solid var(--md-outline);
-            transform: translateY(0);
-            transition: transform 0.3s ease;
+            box-shadow: var(--md-elevation-2);
         }
 
-        .dark-theme .app-header {
-            background: rgba(32, 33, 36, 0.9);
+        .dark-theme .header-container {
+            background: rgba(32,33,36,0.95);
         }
 
-        .logo-container {
+        .logo-wrapper {
             display: flex;
             align-items: center;
-            gap: var(--md-spacing-sm);
         }
 
-        .logo {
-            width: 48px;
-            height: 48px;
-            display: flex;
+        .logo-text {
+            width: 160px;
+            height: 36px;
+            background: url('https://aditya-cmd-max.github.io/Reverbit.svg') no-repeat left/contain;
+            transition: filter 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                width: 130px;
+                height: 32px;
+            }
+        }
+
+        .dark-theme .logo-text {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Desktop Nav */
+        .desktop-nav {
+            display: none;
             align-items: center;
-            justify-content: center;
-            background: var(--md-primary);
-            border-radius: var(--md-radius-medium);
-            color: var(--md-on-primary);
-            overflow: hidden;
-            font-weight: 700;
+            gap: 4px;
+            background: var(--md-surface-variant);
+            padding: 4px;
+            border-radius: var(--md-radius-pill);
         }
 
-        .app-name {
-            font-family: var(--md-font-logo);
-            font-size: 1.5rem;
-            font-weight: 700;
+        @media (min-width:900px){.desktop-nav{display:flex;}}
+
+        .nav-item {
+            padding: 8px 20px;
+            border-radius: var(--md-radius-pill);
+            font-family: var(--font-heading);
+            font-weight: 500;
             color: var(--md-on-surface);
-            letter-spacing: -0.5px;
+            text-decoration: none;
+            transition: var(--md-transition);
         }
 
+        .nav-item:hover {
+            background: var(--md-surface);
+            color: var(--md-primary);
+        }
+
+        .nav-item.active {
+            background: var(--md-primary);
+            color: white;
+        }
+
+        /* Header Actions */
         .header-actions {
             display: flex;
             align-items: center;
-            gap: var(--md-spacing-sm);
+            gap: 8px;
         }
 
-        .theme-toggle {
-            background: transparent;
+        .icon-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
             border: none;
+            background: var(--md-surface-variant);
             color: var(--md-on-surface);
             cursor: pointer;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--md-transition);
         }
 
-        .theme-toggle:hover {
-            background: var(--md-surface-variant);
+        .icon-btn:hover {
+            background: var(--md-primary);
+            color: white;
         }
 
-        /* Profile Container */
+        /* Theme toggle */
+        .theme-toggle {
+            display: flex;
+        }
+
+        /* Auth avatar */
+        #authAvatarContainer {
+            display: flex;
+            align-items: center;
+        }
+
+        .hamburger-btn { display: flex; }
+        @media (min-width:900px){.hamburger-btn{display:none;}}
+
+        /* ===== HAMBURGER MENU ===== */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 199;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hamburger-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 360px;
+            height: 100vh;
+            background: var(--md-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 200;
+            transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+            border-left: 1px solid var(--md-outline);
+            box-shadow: var(--md-elevation-3);
+            overflow-y: auto;
+            padding: 80px 24px 40px;
+        }
+
+        .hamburger-menu.active { 
+            right: 0; 
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--md-surface-variant);
+            color: var(--md-on-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: var(--md-transition);
+            z-index: 10;
+        }
+
+        .menu-close:hover {
+            background: var(--md-primary);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .menu-link {
+            padding: 14px 20px;
+            border-radius: var(--md-radius-pill);
+            color: var(--md-on-surface);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            transition: var(--md-transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-link i {
+            width: 24px;
+            color: var(--md-primary);
+        }
+
+        .menu-link:hover {
+            background: var(--md-surface-variant);
+            transform: translateX(8px);
+        }
+
+        .menu-link.active {
+            background: var(--md-primary);
+            color: white;
+        }
+
+        .menu-link.active i {
+            color: white;
+        }
+
+        .menu-theme {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            background: var(--md-surface-variant);
+            border-radius: var(--md-radius-pill);
+            margin: 20px 0;
+            cursor: pointer;
+            transition: var(--md-transition);
+        }
+
+        .menu-theme:hover {
+            background: var(--md-primary-container);
+        }
+
+        .menu-theme-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+
+        .menu-theme-left i {
+            color: var(--md-primary);
+        }
+
+        .signin-btn {
+            background: linear-gradient(135deg, var(--md-primary), #0d47a1);
+            color: white !important;
+            margin-top: 30px;
+            text-align: center;
+            font-weight: 600;
+            padding: 16px;
+            border-radius: var(--md-radius-pill);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: var(--md-elevation-2);
+            border: none;
+            transition: var(--md-transition);
+        }
+
+        .signin-btn i {
+            color: white !important;
+            font-size: 1.2rem;
+        }
+
+        .signin-btn:hover {
+            background: linear-gradient(135deg, #0d47a1, #0a336b);
+            transform: translateY(-2px);
+            box-shadow: var(--md-elevation-3);
+        }
+
+        .menu-user {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--md-surface-variant);
+            border-radius: var(--md-radius-large);
+            margin-bottom: 30px;
+            border: 1px solid var(--md-outline);
+        }
+
+        .menu-user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--md-primary);
+        }
+
+        .menu-user-info h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .menu-user-info p {
+            font-size: 0.85rem;
+            color: var(--md-on-surface-variant);
+        }
+
+        /* ===== PROFILE CONTAINER ===== */
         .profile-container {
             max-width: 1200px;
-            margin: 120px auto var(--md-spacing-xxl);
-            padding: 0 var(--md-spacing-xl);
+            margin: 40px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Hero Section */
+        /* ===== HERO SECTION ===== */
         .profile-hero {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: var(--md-spacing-xxl);
-            margin-bottom: var(--md-spacing-xxl);
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
             align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .profile-hero {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+                text-align: center;
+            }
         }
 
         .profile-image-container {
@@ -290,8 +498,9 @@
 
         .profile-image-wrapper {
             position: relative;
-            width: 282px;
-            height: 281px;
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1/1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -307,85 +516,101 @@
             -webkit-mask-position: center;
             -webkit-mask-size: contain;
             filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+            border: 3px solid var(--md-primary);
+            border-radius: 0;
+        }
+
+        /* SVG Frames (subtle, not noisy) */
+        .svg-frame {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            fill: var(--md-primary);
+            opacity: 0.2;
+        }
+
+        .frame-1 {
+            top: -15px;
+            left: -15px;
+            width: 100px;
+            height: 100px;
+            opacity: 0.25;
+        }
+
+        .frame-2 {
+            bottom: -20px;
+            right: -10px;
+            width: 80px;
+            height: 80px;
+            opacity: 0.2;
+        }
+
+        .frame-3 {
+            top: 40%;
+            left: 5%;
+            width: 60px;
+            height: 60px;
+            opacity: 0.15;
+        }
+
+        @keyframes frameFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
         }
 
         .profile-info {
             display: flex;
             flex-direction: column;
-            gap: var(--md-spacing-md);
+            gap: var(--space-md);
         }
 
         .profile-name {
-            font-family: var(--md-font-heading);
-            font-size: clamp(4rem, 6vw, 6rem);
+            font-family: var(--font-product);
+            font-size: clamp(4.5rem, 10vw, 7rem);
             font-weight: 700;
             color: var(--md-on-surface);
             line-height: 1;
             letter-spacing: -2px;
-            margin-bottom: var(--md-spacing-sm);
+            margin-bottom: var(--space-sm);
         }
 
         .profile-salutation {
-            font-family: var(--md-font-heading);
-            font-size: 1.75rem;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
             font-weight: 500;
             color: var(--md-primary);
-            margin-bottom: var(--md-spacing-md);
+            margin-bottom: var(--space-md);
         }
 
         .profile-since {
             display: inline-flex;
             align-items: center;
-            gap: var(--md-spacing-sm);
-            padding: var(--md-spacing-sm) var(--md-spacing-md);
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
             background: var(--md-surface-variant);
             color: var(--md-on-surface-variant);
             border-radius: var(--md-radius-pill);
             font-size: 0.875rem;
             font-weight: 500;
+            width: fit-content;
         }
 
-        /* SVG Frame Styles */
-        .svg-frame {
-            position: absolute;
-            pointer-events: none;
-            z-index: 1;
+        @media (max-width: 768px) {
+            .profile-since {
+                margin: 0 auto;
+            }
         }
 
-        .frame-1 {
-            top: -20px;
-            left: -20px;
-            width: 120px;
-            height: 120px;
-            opacity: 0.7;
-        }
-
-        .frame-2 {
-            bottom: -30px;
-            right: -10px;
-            width: 100px;
-            height: 100px;
-            opacity: 0.5;
-        }
-
-        .frame-3 {
-            top: 50%;
-            left: 10%;
-            width: 80px;
-            height: 80px;
-            opacity: 0.4;
-        }
-
-        /* About Section */
+        /* ===== ABOUT SECTION ===== */
         .about-section {
-            margin-bottom: var(--md-spacing-xxl);
+            margin-bottom: var(--space-2xl);
         }
 
         .section-title {
-            font-family: var(--md-font-heading);
-            font-size: 2.5rem;
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: var(--md-spacing-xl);
+            margin-bottom: var(--space-xl);
             color: var(--md-on-surface);
             position: relative;
         }
@@ -395,61 +620,196 @@
             position: absolute;
             bottom: -12px;
             left: 0;
-            width: 60px;
+            width: 80px;
             height: 4px;
-            background: var(--md-primary);
+            background: linear-gradient(90deg, var(--md-primary), transparent);
             border-radius: 2px;
         }
 
         .about-content {
-            font-size: 1.125rem;
+            font-size: 1.1rem;
             line-height: 1.8;
             color: var(--md-on-surface);
         }
 
         .about-content p {
-            margin-bottom: var(--md-spacing-lg);
+            margin-bottom: var(--space-lg);
         }
 
-        /* Cards Section */
-        .cards-section {
-            margin-top: var(--md-spacing-xxl);
+        /* ===== ARTICLES GRID ===== */
+        .articles-section {
+            margin: var(--space-2xl) 0;
         }
 
-        .cards-grid {
+        .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--md-spacing-xl);
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 30px;
         }
 
-        .profile-card {
+        @media (min-width:640px){ .articles-grid{ grid-template-columns:repeat(2,1fr); } }
+        @media (min-width:1024px){ .articles-grid{ grid-template-columns:repeat(3,1fr); } }
+
+        .article-card {
             background: var(--md-surface);
             border-radius: var(--md-radius-large);
-            padding: var(--md-spacing-xl);
-            box-shadow: var(--md-elevation-1);
+            overflow: hidden;
+            box-shadow: var(--md-elevation-2);
             border: 1px solid var(--md-outline);
             transition: var(--md-transition);
             display: flex;
             flex-direction: column;
-            gap: var(--md-spacing-lg);
+            position: relative;
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .article-card:hover {
+            box-shadow: var(--md-elevation-3);
+            transform: translateY(-6px);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: var(--md-surface-variant);
+            transition: transform 0.5s;
+        }
+
+        .article-card:hover .article-image {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+            border-radius: var(--md-radius-pill);
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+        
+        .article-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4; 
+            color: var(--md-on-surface);
+        }
+
+        .article-excerpt {
+            color: var(--md-on-surface-variant);
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .author-mini {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .author-mini-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--md-primary);
+        }
+
+        .author-mini-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .meta-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: var(--md-on-surface-variant);
+        }
+
+        .read-btn {
+            margin-top: 12px;
+            padding: 10px 16px;
+            background: transparent;
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-pill);
+            color: var(--md-on-surface);
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: var(--md-transition);
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .read-btn:hover {
+            background: var(--md-primary);
+            border-color: var(--md-primary);
+            color: white;
+        }
+
+        /* ===== CARDS GRID ===== */
+        .cards-section {
+            margin-top: var(--space-2xl);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width:640px){ .cards-grid{ grid-template-columns:repeat(2,1fr); } }
+
+        .profile-card {
+            background: var(--md-surface);
+            border-radius: var(--md-radius-large);
+            padding: var(--space-xl);
+            box-shadow: var(--md-elevation-2);
+            border: 1px solid var(--md-outline);
+            transition: var(--md-transition);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
             position: relative;
             overflow: hidden;
         }
 
         .profile-card:hover {
             box-shadow: var(--md-elevation-3);
-            transform: translateY(-8px);
+            transform: translateY(-6px);
         }
 
         .card-header {
             display: flex;
             align-items: center;
-            gap: var(--md-spacing-md);
+            gap: var(--space-md);
         }
 
         .card-icon {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             border-radius: var(--md-radius-medium);
             display: flex;
             align-items: center;
@@ -458,9 +818,13 @@
             color: var(--md-on-primary-container);
         }
 
+        .card-icon i {
+            font-size: 26px;
+        }
+
         .card-title {
-            font-family: var(--md-font-heading);
-            font-size: 1.25rem;
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--md-on-surface);
         }
@@ -468,13 +832,13 @@
         .card-content {
             display: flex;
             flex-direction: column;
-            gap: var(--md-spacing-md);
+            gap: var(--space-md);
         }
 
         .card-stats {
             display: flex;
             align-items: center;
-            gap: var(--md-spacing-lg);
+            gap: var(--space-lg);
         }
 
         .stat {
@@ -483,10 +847,10 @@
         }
 
         .stat-value {
-            font-family: var(--md-font-heading);
-            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--md-on-surface);
+            color: var(--md-primary);
         }
 
         .stat-label {
@@ -497,12 +861,12 @@
         .card-since {
             display: inline-flex;
             align-items: center;
-            gap: var(--md-spacing-sm);
-            padding: var(--md-spacing-xs) var(--md-spacing-md);
+            gap: var(--space-sm);
+            padding: var(--space-xs) var(--space-md);
             background: var(--md-surface-variant);
             color: var(--md-on-surface-variant);
             border-radius: var(--md-radius-pill);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 500;
             width: fit-content;
         }
@@ -510,137 +874,310 @@
         .card-link {
             display: inline-flex;
             align-items: center;
-            gap: var(--md-spacing-sm);
-            padding: var(--md-spacing-md) var(--md-spacing-lg);
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-lg);
             background: var(--md-primary);
-            color: var(--md-on-primary);
+            color: white;
             border-radius: var(--md-radius-pill);
             text-decoration: none;
             font-weight: 500;
             transition: var(--md-transition);
             width: fit-content;
+            margin-top: var(--space-sm);
         }
 
         .card-link:hover {
-            background: var(--md-primary-container);
-            color: var(--md-on-primary-container);
+            background: #0d47a1;
             transform: translateY(-2px);
+            box-shadow: var(--md-elevation-2);
         }
 
-        /* Footer */
-        .exo-footer {
-            padding: var(--md-spacing-xxl) var(--md-spacing-xl) var(--md-spacing-xl);
+        /* ===== FOOTER ===== */
+        .footer {
             background: var(--md-surface);
-            color: var(--md-on-surface);
             border-top: 1px solid var(--md-outline);
-            margin-top: var(--md-spacing-xxl);
+            padding: 60px 20px 30px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-svgs {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .footer-svg {
+            position: absolute;
+            animation: footerFloat 20s infinite linear;
+            fill: var(--md-primary);
+        }
+
+        .footer-svg-1 {
+            top: 10%;
+            left: 5%;
+            width: 120px;
+        }
+        .footer-svg-2 {
+            bottom: 20%;
+            right: 10%;
+            width: 100px;
+            animation-delay: -7s;
+        }
+        .footer-svg-3 {
+            top: 40%;
+            right: 15%;
+            width: 80px;
+            animation-delay: -14s;
+        }
+
+        @keyframes footerFloat {
+            0%,100%{transform:translateY(0)rotate(0deg)}
+            33%{transform:translateY(-15px)rotate(3deg)}
+            66%{transform:translateY(10px)rotate(-3deg)}
+        }
+
+        .footer-brand {
+            font-family: var(--font-logo);
+            font-size: clamp(80px, 20vw, 180px);
+            font-weight: 900;
+            line-height: 0.8;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--md-primary), #4a90e2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            word-break: break-word;
+        }
+
+        .footer-tagline {
+            font-size: 1.2rem;
+            color: var(--md-on-surface-variant);
+            max-width: 600px;
+            margin-bottom: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width:700px){ .footer-grid{ grid-template-columns:repeat(3,1fr); } }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--md-primary);
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--md-on-surface-variant);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: var(--md-transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--md-primary);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid var(--md-outline);
             align-items: center;
+            text-align: center;
+        }
+
+        @media (min-width:700px){ 
+            .footer-bottom{ 
+                flex-direction: row; 
+                justify-content: space-between; 
+                text-align: left; 
+                align-items: center;
+            }
+        }
+
+        .footer-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 699px) {
+            .footer-logo-wrapper {
+                justify-content: center;
+                width: 100%;
+            }
         }
 
         .footer-logo {
+            width: 160px;
+            height: 36px;
+            background: url('https://aditya-cmd-max.github.io/Reverbit.svg') no-repeat left/contain;
+            transition: filter 0.3s;
+            display: inline-block;
+        }
+
+        .dark-theme .footer-logo {
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-attribution {
+            font-size: 0.9rem;
+            color: var(--md-on-surface-variant);
+            margin-top: 10px;
+        }
+
+        .footer-attribution i {
+            color: #ff4d4d;
+            animation: heartbeat 1.5s ease infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--md-surface-variant);
             display: flex;
             align-items: center;
-            gap: var(--md-spacing-sm);
+            justify-content: center;
+            color: var(--md-on-surface);
+            text-decoration: none;
+            transition: var(--md-transition);
+            font-size: 1.2rem;
         }
 
-        .footer-text {
-            color: var(--md-on-surface-variant);
-            font-size: 0.875rem;
+        .social-link:hover {
+            background: var(--md-primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
-        /* Animations */
+        /* Loading Spinner */
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            grid-column: 1 / -1;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--md-outline);
+            border-top-color: var(--md-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { to{ transform: rotate(360deg); } }
+
+        @media (max-width:480px){
+            .section-title{ font-size: 1.8rem; }
+            .profile-name{ font-size: 3.5rem; }
+            .profile-salutation{ font-size: 1.1rem; }
+        }
+
+        /* Animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .profile-hero {
-                grid-template-columns: 1fr;
-                gap: var(--md-spacing-xl);
-                text-align: center;
-            }
-            
-            .profile-image-wrapper {
-                width: 240px;
-                height: 240px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .profile-container {
-                padding: 0 var(--md-spacing-md);
-                margin-top: 100px;
-            }
-            
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: var(--md-spacing-md);
-                text-align: center;
-            }
-            
-            .profile-image-wrapper {
-                width: 200px;
-                height: 200px;
-            }
+            animation: fadeIn 0.6s ease forwards;
         }
     </style>
 </head>
 <body class="light-theme">
-    <!-- Enhanced Mesh Background -->
-    <div class="mesh-pattern"></div>
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Clean Background (only mesh, no extra floating shapes) -->
     <div class="mesh-background"></div>
     <div class="mesh-overlay"></div>
-    
-    <!-- Header -->
+
+    <!-- HEADER (Full Navbar) -->
     <header class="app-header">
-        <div class="logo-container">
-            <div class="logo">
-                <span class="material-icons-round">person</span>
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <div class="logo-text"></div>
             </div>
-            <h1 class="app-name">Exonova Marina</h1>
-        </div>
-        
-        <div class="header-actions">
-            <button class="theme-toggle" id="theme-toggle">
-                <span class="material-icons-round">dark_mode</span>
-            </button>
+            
+            <nav class="desktop-nav">
+                <a href="https://aditya-cmd-max.github.io/marina/" class="nav-item">Home</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles" class="nav-item">Articles</a>
+                <a href="#" class="nav-item active">Profile</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/" class="nav-item">Categories</a>
+                <a href="https://aditya-cmd-max.github.io/marina/about" class="nav-item">About</a>
+            </nav>
+            
+            <div class="header-actions">
+                <!-- Theme toggle -->
+                <button class="icon-btn theme-toggle" id="desktopThemeToggle">
+                    <span class="material-icons-round">dark_mode</span>
+                </button>
+                
+                <!-- Auth avatar -->
+                <div id="authAvatarContainer"></div>
+                
+                <!-- Hamburger button -->
+                <button class="icon-btn hamburger-btn" id="menuBtn">
+                    <span class="material-icons-round">menu</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Profile Content -->
+    <!-- HAMBURGER MENU -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <button class="menu-close" id="menuClose">
+            <span class="material-icons-round">close</span>
+        </button>
+        <div id="menuContent"></div>
+    </div>
+
+    <!-- PROFILE CONTENT -->
     <main class="profile-container">
-        <!-- Hero Section -->
+        <!-- Hero Section with SVG Mask -->
         <section class="profile-hero fade-in">
             <div class="profile-image-container">
                 <div class="profile-image-wrapper">
                     <!-- SVG Mask Definition -->
-                    <svg width="0" height="0">
+                    <svg width="0" height="0" style="position: absolute;">
                         <defs>
                             <mask id="flower-mask">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="white"/>
@@ -649,29 +1186,26 @@
                     </svg>
                     
                     <!-- Profile Image with SVG Mask -->
-                    <img src="https://aditya-cmd-max.github.io/exonova-/adityajha.jpg" alt="Aditya Jha" class="profile-image">
+                    <img src="https://aditya-cmd-max.github.io/adityajha.jpg" alt="Aditya Jha" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=Aditya+Jha&background=1a73e8&color=fff&size=300'">
                 </div>
                 
-                <!-- SVG Frames -->
-                <svg width="282" height="281" viewBox="0 0 282 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-frame frame-1 floating">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="currentColor"></path>
+                <!-- Subtle SVG Frames (not noisy) -->
+                <svg width="282" height="281" viewBox="0 0 282 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-frame frame-1">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="currentColor"/>
                 </svg>
                 
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 249 247" xml:space="preserve" class="svg-frame frame-2 floating" style="enable-background: new 0 0 249 247; animation-delay: 2s;">
-                    <path d="M245.7,56.1l0-9.9c0-22.7-18.4-41-41-41l-160.2,0c-22.7,0-41,18.4-41,41l0,9.9c0,11,4.3,21,11.4,28.4
-                    c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4l0,9.9c0,11,4.3,21,11.4,28.4c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4
-                    l0,10.1c0,22.7,18.4,41,41,41l160.2,0c22.7,0,41-18.4,41-41l0-10.1c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5
-                    c7.1-7.4,11.4-17.4,11.4-28.4l0-9.9c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5C241.3,77.1,245.7,67.1,245.7,56.1z" fill="currentColor"></path>
+                <svg version="1.1" viewBox="0 0 249 247" class="svg-frame frame-2">
+                    <path d="M245.7,56.1l0-9.9c0-22.7-18.4-41-41-41l-160.2,0c-22.7,0-41,18.4-41,41l0,9.9c0,11,4.3,21,11.4,28.4c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4l0,9.9c0,11,4.3,21,11.4,28.4c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4l0,10.1c0,22.7,18.4,41,41,41l160.2,0c22.7,0,41-18.4,41-41l0-10.1c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5c7.1-7.4,11.4-17.4,11.4-28.4l0-9.9c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5C241.3,77.1,245.7,67.1,245.7,56.1z" fill="currentColor"/>
                 </svg>
                 
-                <svg width="401" height="401" viewBox="0 0 401 401" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-frame frame-3 floating" style="animation-delay: 4s;">
-                    <path d="M184.218 4.26754C194.176 -1.31835 206.324 -1.31835 216.282 4.26754L240.677 17.9521C245.454 20.6316 250.826 22.0711 256.302 22.139L284.272 22.4854C295.688 22.6268 306.208 28.7005 312.039 38.517L326.324 62.5657C329.121 67.2747 333.053 71.2075 337.762 74.0045L361.811 88.2891C371.628 94.1199 377.701 104.64 377.843 116.057L378.189 144.026C378.257 149.502 379.697 154.875 382.376 159.651L396.061 184.047C401.646 194.004 401.646 206.152 396.061 216.11L382.376 240.505C379.697 245.282 378.257 250.654 378.189 256.131L377.843 284.1C377.701 295.516 371.628 306.036 361.811 311.867L337.762 326.152C333.053 328.949 329.121 332.882 326.324 337.591L312.039 361.639C306.208 371.456 295.688 377.529 284.272 377.671L256.302 378.017C250.826 378.085 245.454 379.525 240.677 382.204L216.282 395.889C206.324 401.475 194.176 401.475 184.218 395.889L159.823 382.204C155.046 379.525 149.674 378.085 144.198 378.017L116.228 377.671C104.812 377.529 94.2918 371.456 88.461 361.639L74.1764 337.591C71.3794 332.882 67.4466 328.949 62.7376 326.152L38.6888 311.867C28.8724 306.036 22.7987 295.516 22.6573 284.1L22.3109 256.131C22.243 250.654 20.8035 245.282 18.124 240.505L4.43942 216.11C-1.14647 206.152 -1.14647 194.004 4.43941 184.047L18.124 159.651C20.8035 154.875 22.243 149.502 22.3109 144.026L22.6573 116.057C22.7987 104.64 28.8724 94.1199 38.6888 88.2891L62.7376 74.0045C67.4466 71.2075 71.3793 67.2747 74.1764 62.5657L88.461 38.517C94.2918 28.7005 104.812 22.6268 116.228 22.4854L144.198 22.139C149.674 22.0711 155.046 20.6316 159.823 17.9521L184.218 4.26754Z" fill="currentColor"></path>
+                <svg width="401" height="401" viewBox="0 0 401 401" class="svg-frame frame-3">
+                    <path d="M184.218 4.26754C194.176 -1.31835 206.324 -1.31835 216.282 4.26754L240.677 17.9521C245.454 20.6316 250.826 22.0711 256.302 22.139L284.272 22.4854C295.688 22.6268 306.208 28.7005 312.039 38.517L326.324 62.5657C329.121 67.2747 333.053 71.2075 337.762 74.0045L361.811 88.2891C371.628 94.1199 377.701 104.64 377.843 116.057L378.189 144.026C378.257 149.502 379.697 154.875 382.376 159.651L396.061 184.047C401.646 194.004 401.646 206.152 396.061 216.11L382.376 240.505C379.697 245.282 378.257 250.654 378.189 256.131L377.843 284.1C377.701 295.516 371.628 306.036 361.811 311.867L337.762 326.152C333.053 328.949 329.121 332.882 326.324 337.591L312.039 361.639C306.208 371.456 295.688 377.529 284.272 377.671L256.302 378.017C250.826 378.085 245.454 379.525 240.677 382.204L216.282 395.889C206.324 401.475 194.176 401.475 184.218 395.889L159.823 382.204C155.046 379.525 149.674 378.085 144.198 378.017L116.228 377.671C104.812 377.529 94.2918 371.456 88.461 361.639L74.1764 337.591C71.3794 332.882 67.4466 328.949 62.7376 326.152L38.6888 311.867C28.8724 306.036 22.7987 295.516 22.6573 284.1L22.3109 256.131C22.243 250.654 20.8035 245.282 18.124 240.505L4.43942 216.11C-1.14647 206.152 -1.14647 194.004 4.43941 184.047L18.124 159.651C20.8035 154.875 22.243 149.502 22.3109 144.026L22.6573 116.057C22.7987 104.64 28.8724 94.1199 38.6888 88.2891L62.7376 74.0045C67.4466 71.2075 71.3793 67.2747 74.1764 62.5657L88.461 38.517C94.2918 28.7005 104.812 22.6268 116.228 22.4854L144.198 22.139C149.674 22.0711 155.046 20.6316 159.823 17.9521L184.218 4.26754Z" fill="currentColor"/>
                 </svg>
             </div>
             
             <div class="profile-info">
                 <h1 class="profile-name">Aditya Jha</h1>
-                <p class="profile-salutation">Founder at Exonova| Blogger in 'The Circuit' by Exonova | Student</p>
+                <p class="profile-salutation">Founder at Reverbit | Student | AI Researcher</p>
                 <div class="profile-since">
                     <span class="material-icons-round">calendar_today</span>
                     <span>Since: April 2025</span>
@@ -683,17 +1217,25 @@
         <section class="about-section fade-in">
             <h2 class="section-title">About Aditya</h2>
             <div class="about-content">
-                <p>Aditya Jha is a student and visionary technology reasercher specializing in artificial intelligence research and development. With a passion for pushing the boundaries of what's possible, he combines deep technical expertise with creative problem-solving to drive innovation in the tech industry.</p>
+                <p>Aditya Jha is a student and visionary technology researcher specializing in artificial intelligence research and development. With a passion for pushing the boundaries of what's possible, he combines deep technical expertise with creative problem-solving to drive innovation in the tech industry.</p>
                 
-                <p>Currently serving as a founder at Exonova Marina, Aditya leads groundbreaking projects that bridge the gap between theoretical AI research and practical applications. His work focuses on developing intelligent systems that can understand, learn, and adapt to complex real-world scenarios.</p>
+                <p>Currently serving as a founder at Reverbit Marina, Aditya leads groundbreaking projects that bridge the gap between theoretical AI research and practical applications. His work focuses on developing intelligent systems that can understand, learn, and adapt to complex real-world scenarios.</p>
                 
                 <p>Beyond his technical contributions, Aditya is committed to knowledge sharing and community building. He actively participates in tech conferences, writes extensively about emerging technologies, and mentors aspiring developers and researchers in the field of artificial intelligence.</p>
-                
-                <p>His interdisciplinary approach combines insights from computer science, cognitive psychology, and systems engineering to create AI solutions that are not only technically sophisticated but also ethically sound and human-centered.</p>
             </div>
         </section>
 
-        <!-- Cards Section -->
+        <!-- Latest Articles Section (will be populated from JSON) -->
+        <section class="articles-section fade-in" id="articlesSection">
+            <h2 class="section-title">Latest Articles by Aditya</h2>
+            <div class="articles-grid" id="articlesGrid">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Cards Section -->
         <section class="cards-section fade-in">
             <h2 class="section-title">Connect & Explore</h2>
             <div class="cards-grid">
@@ -701,16 +1243,14 @@
                 <div class="profile-card">
                     <div class="card-header">
                         <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                            </svg>
+                            <i class="fab fa-youtube"></i>
                         </div>
                         <h3 class="card-title">YouTube Channel</h3>
                     </div>
                     <div class="card-content">
                         <div class="card-stats">
                             <div class="stat">
-                                <span class="stat-value">27</span>
+                                <span class="stat-value">40+</span>
                                 <span class="stat-label">Subscribers</span>
                             </div>
                         </div>
@@ -718,28 +1258,26 @@
                             <span class="material-icons-round">calendar_today</span>
                             <span>Since: 2024</span>
                         </div>
-                        <a href="https://www.youtube.com/@Exonovaaditya-1104" class="card-link">
-                            <span class="material-icons-round">play_arrow</span>
+                        <a href="https://www.youtube.com/@Reverbit" class="card-link" target="_blank">
+                            <i class="fab fa-youtube"></i>
                             <span>Checkout Channel</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Exonova Blog Card -->
+                <!-- Reverbit Blog Card -->
                 <div class="profile-card">
                     <div class="card-header">
                         <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                            </svg>
+                            <i class="fas fa-blog"></i>
                         </div>
-                        <h3 class="card-title">The Circuit by Exonova</h3>
+                        <h3 class="card-title">Reverbit</h3>
                     </div>
                     <div class="card-content">
-                        <p>Aditya also writes blogs at The Circuit by Exonova, sharing insights on AI, technology trends, and innovative solutions.</p>
-                        <a href="https://aditya-cmd-max.github.io/exonova-/circuit/" class="card-link">
+                        <p>Aditya is trying to build more innovative solutions with AI in the project Reverbit.</p>
+                        <a href="https://aditya-cmd-max.github.io/" class="card-link" target="_blank">
                             <span class="material-icons-round">article</span>
-                            <span>Checkout Blogs</span>
+                            <span>Checkout Reverbit</span>
                         </a>
                     </div>
                 </div>
@@ -747,81 +1285,331 @@
         </section>
     </main>
 
-    <footer class="exo-footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo">
-                    <span class="material-icons-round">person</span>
-                </div>
-                <h2 class="app-name">Exonova Marina</h2>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-svgs">
+            <svg class="footer-svg footer-svg-1" viewBox="0 0 100 100"><path d="M50,10 L90,50 L50,90 L10,50Z"/></svg>
+            <svg class="footer-svg footer-svg-2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/></svg>
+            <svg class="footer-svg footer-svg-3" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90"/></svg>
+        </div>
+        
+        <div class="footer-brand">Reverbit Marina</div>
+        <p class="footer-tagline">A part of Reverbit Innovations</p>
+        
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <a href="https://aditya-cmd-max.github.io/marina/">Home</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles">Articles</a>
+                <a href="#">Profile</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/categories">Categories</a>
             </div>
-            <div class="footer-text">
-                © 2025 Exonova Marina. All rights reserved.
+            <div class="footer-col">
+                <h4>Teams</h4>
+                <a href="https://aditya-cmd-max.github.io/ekatvaai">Ekatva AI</a>
+                <a href="https://aditya-cmd-max.github.io/mindscribe">Mindscribe</a>
+                <a href="https://aditya-cmd-max.github.io/clover">Clover Studio</a>
+                <a href="https://aditya-cmd-max.github.io/Peo">Peo-TTS</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://github.com/aditya-cmd-max">GitHub</a>
+                <a href="https://www.linkedin.com/in/aditya-jha-2b0860399/">LinkedIn</a>
+                <a href="https://youtube.com/@Reverbit">YouTube</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-logo-wrapper">
+                <div class="footer-logo"></div>
+                <span>© 2026 Reverbit Marina. All rights reserved.</span>
+            </div>
+            
+            <div class="footer-attribution">
+                Made with <i class="fas fa-heart"></i> by Aditya Jha
+            </div>
+            
+            <div class="social-links">
+                <a href="https://youtube.com/@Reverbit" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/aditya-jha-2b0860399/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/aditya-cmd-max" class="social-link"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
 
     <script>
-        // DOM Elements
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('.material-icons-round');
+        // ===== FETCH ARTICLES FROM JSON =====
+        async function fetchArticles() {
+            try {
+                const response = await fetch('https://aditya-cmd-max.github.io/marina/articlesmarina.json');
+                const articles = await response.json();
+                return articles;
+            } catch (error) {
+                console.error('Error fetching articles:', error);
+                return [];
+            }
+        }
 
-        // Theme Toggle
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            document.body.classList.toggle('dark-theme');
+        // Helper: Get thumbnail URL
+        function getThumbnailUrl(article) {
+            if (article.thumbnail) {
+                if (article.thumbnail.startsWith('http')) {
+                    return article.thumbnail;
+                } else {
+                    return `https://aditya-cmd-max.github.io${article.thumbnail}`;
+                }
+            }
+            // Fallback images based on category
+            const category = article.category || '';
+            if (category.includes('AI') || category.includes('Intelligence')) {
+                return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80';
+            } else if (category.includes('Programming')) {
+                return 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80';
+            } else if (category.includes('Technology')) {
+                return 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80';
+            } else {
+                return 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
+            }
+        }
+
+        // Helper: Get author avatar URL
+        function getAuthorAvatar(article) {
+            if (article.authorAvatar) {
+                if (article.authorAvatar.startsWith('http')) {
+                    return article.authorAvatar;
+                } else {
+                    return `https://aditya-cmd-max.github.io${article.authorAvatar}`;
+                }
+            }
+            return `https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff`;
+        }
+
+        // Helper: Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // Display articles by Aditya
+        async function displayAdityaArticles() {
+            const articles = await fetchArticles();
+            const articlesGrid = document.getElementById('articlesGrid');
             
-            if (document.body.classList.contains('dark-theme')) {
-                themeIcon.textContent = 'light_mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.textContent = 'dark_mode';
-                localStorage.setItem('theme', 'light');
+            if (!articles || articles.length === 0) {
+                articlesGrid.innerHTML = '<div class="no-results">Failed to load articles</div>';
+                return;
             }
-        });
 
-        // Load saved theme preference
-        function loadThemePreference() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
-                document.body.classList.remove('light-theme');
-                themeIcon.textContent = 'light_mode';
-            } else {
-                document.body.classList.add('light-theme');
-                document.body.classList.remove('dark-theme');
-                themeIcon.textContent = 'dark_mode';
+            // Filter articles by Aditya Jha (case insensitive)
+            const adityaArticles = articles.filter(article => 
+                article.author.toLowerCase().includes('aditya')
+            );
+
+            if (adityaArticles.length === 0) {
+                articlesGrid.innerHTML = `
+                    <div class="no-results">
+                        <p>No articles found by Aditya</p>
+                    </div>
+                `;
+                return;
             }
-        }
 
-        // Initialize GSAP animations
-        function initAnimations() {
-            // Register ScrollTrigger plugin
-            if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
-                gsap.registerPlugin(ScrollTrigger);
-                
-                // Animate profile cards on scroll
-                gsap.utils.toArray('.profile-card').forEach(card => {
-                    gsap.from(card, {
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 80%',
-                            toggleActions: 'play none none reverse'
-                        },
-                        duration: 0.8,
-                        y: 30,
-                        opacity: 0,
-                        ease: 'power2.out'
-                    });
+            // Sort by date (newest first) and take latest 3
+            const latestArticles = adityaArticles
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 3);
+
+            let html = '';
+            latestArticles.forEach(article => {
+                html += `
+                    <div class="article-card">
+                        <img src="${getThumbnailUrl(article)}" class="article-image" alt="${article.title}" loading="lazy">
+                        <div class="article-content">
+                            <span class="article-category">${article.category || 'Technology'}</span>
+                            <h3 class="article-title">${article.title}</h3>
+                            <p class="article-excerpt">${article.description.substring(0, 80)}...</p>
+                            
+                            <div class="author-mini">
+                                <img src="${getAuthorAvatar(article)}" class="author-mini-avatar" alt="${article.author}">
+                                <span class="author-mini-name">${article.author}</span>
+                            </div>
+                            
+                            <div class="meta-info">
+                                <span>${formatDate(article.date)}</span>
+                                <span>•</span>
+                                <span>${article.readTime || '5 min'}</span>
+                            </div>
+                            
+                            <a href="${article.link}" class="read-btn" target="_blank">
+                                Read Article <span class="material-icons-round" style="font-size:16px;">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            articlesGrid.innerHTML = html;
+
+            // Add card click listeners
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('a')) {
+                        const link = card.querySelector('.read-btn');
+                        if (link) window.location.href = link.href;
+                    }
                 });
+            });
+        }
+
+        // Initialize articles
+        displayAdityaArticles();
+
+        // ===== THEME TOGGLE =====
+        const body = document.body;
+        const desktopThemeToggle = document.getElementById('desktopThemeToggle');
+        const desktopThemeIcon = desktopThemeToggle.querySelector('.material-icons-round');
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-theme');
+            desktopThemeIcon.textContent = 'light_mode';
+        }
+
+        function toggleTheme() {
+            body.classList.toggle('dark-theme');
+            const isDark = body.classList.contains('dark-theme');
+            desktopThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            const menuThemeIcon = document.getElementById('menuThemeIcon');
+            if (menuThemeIcon) {
+                menuThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
             }
         }
 
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            loadThemePreference();
-            initAnimations();
+        desktopThemeToggle.addEventListener('click', toggleTheme);
+
+        // ===== HAMBURGER MENU =====
+        const menuBtn = document.getElementById('menuBtn');
+        const menuClose = document.getElementById('menuClose');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuContent = document.getElementById('menuContent');
+
+        function openMenu() { 
+            hamburgerMenu.classList.add('active'); 
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+        
+        function closeMenu() { 
+            hamburgerMenu.classList.remove('active'); 
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = ''; 
+        }
+
+        menuBtn.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && hamburgerMenu.classList.contains('active')) {
+                closeMenu();
+            }
         });
+
+        // ===== POPULATE MENU =====
+        function updateMenu(isLoggedIn = false, userData = null) {
+            if (isLoggedIn && userData) {
+                menuContent.innerHTML = `
+                    <div class="menu-user">
+                        <img src="${userData.photoURL || `https://ui-avatars.com/api/?name=${userData.displayName}&background=1a73e8&color=fff`}" class="menu-user-avatar">
+                        <div class="menu-user-info">
+                            <h4>${userData.displayName}</h4>
+                            <p>${userData.email}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-links">
+                        <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
+                        <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link"><i class="fas fa-newspaper"></i> Articles</a>
+                        <a href="#" class="menu-link active"><i class="fas fa-user"></i> Profile</a>
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                        <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                        <a href="https://aditya-cmd-max.github.io/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
+                    </div>
+                    
+                    <div class="menu-theme" id="menuThemeToggle">
+                        <div class="menu-theme-left">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark Mode</span>
+                        </div>
+                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                    </div>
+                    
+                    <a href="#" class="menu-link signin-btn" onclick="window.ReverbitAuth?.logout(); return false;">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </a>
+                `;
+            } else {
+                menuContent.innerHTML = `
+                    <div class="menu-links">
+                        <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
+                        <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link"><i class="fas fa-newspaper"></i> Articles</a>
+                        <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                        <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                    </div>
+                    
+                    <div class="menu-theme" id="menuThemeToggle">
+                        <div class="menu-theme-left">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark Mode</span>
+                        </div>
+                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                    </div>
+                    
+                    <a href="https://aditya-cmd-max.github.io/signin" class="menu-link signin-btn">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </a>
+                `;
+            }
+
+            const menuThemeToggle = document.getElementById('menuThemeToggle');
+            if (menuThemeToggle) {
+                menuThemeToggle.addEventListener('click', toggleTheme);
+            }
+        }
+
+        updateMenu(false);
+
+        // ===== AUTH =====
+        async function initAuth() {
+            try {
+                await window.ReverbitAuth.init();
+                
+                window.ReverbitAuth.addAuthListener((user, profile) => {
+                    if (user && profile) {
+                        updateMenu(true, profile);
+                    } else {
+                        updateMenu(false);
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Auth error:', error);
+                updateMenu(false);
+            }
+        }
+
+        initAuth();
+
+        // GSAP Animations
+        if (typeof gsap !== 'undefined') {
+            gsap.from('.profile-hero', { duration: 1, y: 30, opacity: 0, ease: 'power3.out' });
+            gsap.from('.about-section', { duration: 1, y: 30, opacity: 0, delay: 0.2, ease: 'power3.out' });
+            gsap.from('.articles-section', { duration: 1, y: 30, opacity: 0, delay: 0.4, ease: 'power3.out' });
+            gsap.from('.cards-section', { duration: 1, y: 30, opacity: 0, delay: 0.6, ease: 'power3.out' });
+        }
     </script>
 </body>
 </html>
