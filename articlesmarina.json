@@ -1,5 +1,6 @@
 [
   {
+    "id": "coding-skills-future-developers",
     "title": "10 Coding Skills Every Future Developer Should Learn",
     "description": "Programming is evolving fast. These essential coding skills will help developers stay relevant and build powerful software in the coming decade.",
     "date": "2026-03-03",
@@ -12,6 +13,7 @@
     "link": "/blogs/future-coding-skills.html"
   },
   {
+    "id": "ai-beginner-guide",
     "title": "What Is Artificial Intelligence? A Simple Guide for Beginners",
     "description": "AI is everywhere today, but what does it actually mean? This beginner-friendly guide explains artificial intelligence in a simple and practical way.",
     "date": "2026-03-05",
@@ -24,6 +26,7 @@
     "link": "/blogs/ai-beginner-guide.html"
   },
   {
+    "id": "future-tech-trends",
     "title": "The Future of Technology: 7 Trends That Will Change the World",
     "description": "From AI to quantum computing, the next decade will bring massive technological shifts. Discover the key trends shaping our future.",
     "date": "2026-03-07",
@@ -36,6 +39,7 @@
     "link": "/blogs/future-tech-trends.html"
   },
   {
+    "id": "future-ai-powered-development",
     "title": "The Future of AI-Powered Development",
     "description": "The future of AI development focuses on shifting AI from a specialized tool to an integrated teammate that automates the entire software development lifecycle.",
     "date": "2026-03-09",
