@@ -1251,7 +1251,7 @@
             let html = '';
             tags.forEach((tag, index) => {
                 html += `
-                    <div class="tag-card fade-in" style="animation-delay: ${index * 0.05}s;" onclick="window.location.href='/marina/tags/${tag.slug}'">
+                    <div class="tag-card fade-in" style="animation-delay: ${index * 0.05}s;" onclick="window.location.href='/marina/tags/?tag=${tag.slug}'">
                         <div class="tag-header">
                             <div class="tag-icon" style="--tag-color: ${tag.displayColor}; background: linear-gradient(135deg, ${tag.displayColor}, ${adjustColor(tag.displayColor, -20)})">
                                 <span>${tag.icon || '🏷️'}</span>
@@ -1278,7 +1278,7 @@
                                 </div>
                                 ` : ''}
                             </div>
-                            <a href="/marina/tags/${tag.slug}" class="tag-link">
+                            <a href="/marina/tags/?tag=${tag.slug}" class="tag-link">
                                 Explore <span class="material-icons-round" style="font-size: 18px;">arrow_forward</span>
                             </a>
                         </div>
