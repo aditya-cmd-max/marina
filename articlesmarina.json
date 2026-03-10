@@ -8,6 +8,7 @@
     "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
     "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
     "category": "Programming",
+    "tags": ["programming", "coding-skills", "software-development"],
     "thumbnail": "https://engineering.salesforce.com/wp-content/uploads/2022/03/1yAcGCSUO-eka80U0NszIVw.jpeg?w=600&h=400&crop=1",
     "readTime": "6 min",
     "link": "/blogs/future-coding-skills.html"
@@ -21,6 +22,7 @@
     "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
     "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
     "category": "Artificial Intelligence",
+    "tags": ["artificial-intelligence", "machine-learning", "future-technology"],
     "thumbnail": "https://awesmai.com/wp-content/uploads/2025/05/What-is-Artificial-Intelligence-.webp",
     "readTime": "4 min",
     "link": "/blogs/ai-beginner-guide.html"
@@ -34,6 +36,7 @@
     "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
     "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
     "category": "Technology",
+    "tags": ["future-technology", "artificial-intelligence", "machine-learning", "software-development"],
     "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
     "readTime": "10 min",
     "link": "https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/"
@@ -47,6 +50,7 @@
     "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
     "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
     "category": "AI & Development",
+    "tags": ["artificial-intelligence", "machine-learning", "software-development", "future-technology"],
     "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
     "readTime": "5 min",
     "link": "https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development/"
