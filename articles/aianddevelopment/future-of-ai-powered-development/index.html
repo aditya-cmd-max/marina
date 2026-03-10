@@ -2660,78 +2660,83 @@ app.post('/api/users', async (req, res) => {
             relatedArticlesGrid.innerHTML = html;
         }
 
-        // ===== ENHANCED ARTICLE NAVIGATION =====
-        async function setupArticleNavigation() {
-            const articles = await fetchArticles();
-            
-            // Sort articles by date
-            const sortedArticles = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // Find current article index
-            const currentIndex = sortedArticles.findIndex(a => a.id === currentArticleId);
-            
-            if (currentIndex === -1) return;
+       // ===== ENHANCED ARTICLE NAVIGATION =====
+async function setupArticleNavigation() {
+    const articles = await fetchArticles();
+    
+    // Sort articles by date (newest first)
+    const sortedArticles = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    // Find current article index
+    const currentIndex = sortedArticles.findIndex(a => a.id === currentArticleId);
+    
+    if (currentIndex === -1) return;
 
-            const prevArticle = currentIndex > 0 ? sortedArticles[currentIndex - 1] : null;
-            const nextArticle = currentIndex < sortedArticles.length - 1 ? sortedArticles[currentIndex + 1] : null;
+    // Previous article is OLDER (higher index in newest-first array)
+    const prevArticle = currentIndex < sortedArticles.length - 1 ? sortedArticles[currentIndex + 1] : null;
+    
+    // Next article is NEWER (lower index in newest-first array)
+    const nextArticle = currentIndex > 0 ? sortedArticles[currentIndex - 1] : null;
 
-            let navHtml = '<div class="article-navigation">';
+    let navHtml = '<div class="article-navigation">';
 
-            if (prevArticle) {
-                navHtml += `
-                    <a href="${prevArticle.link}" class="nav-button prev">
-                        <div class="nav-icon">
-                            <span class="material-icons-round">arrow_back</span>
-                        </div>
-                        <div class="nav-content">
-                            <div class="nav-label">Previous Article</div>
-                            <div class="nav-title">${prevArticle.title}</div>
-                        </div>
-                    </a>
-                `;
-            } else {
-                navHtml += `
-                    <div class="nav-button prev disabled">
-                        <div class="nav-icon">
-                            <span class="material-icons-round">arrow_back</span>
-                        </div>
-                        <div class="nav-content">
-                            <div class="nav-label">Previous Article</div>
-                            <div class="nav-title">No older articles</div>
-                        </div>
-                    </div>
-                `;
-            }
+    // Previous Article Button (Older)
+    if (prevArticle) {
+        navHtml += `
+            <a href="${prevArticle.link}" class="nav-button prev">
+                <div class="nav-icon">
+                    <span class="material-icons-round">arrow_back</span>
+                </div>
+                <div class="nav-content">
+                    <div class="nav-label">Previous Article</div>
+                    <div class="nav-title">${prevArticle.title}</div>
+                </div>
+            </a>
+        `;
+    } else {
+        navHtml += `
+            <div class="nav-button prev disabled">
+                <div class="nav-icon">
+                    <span class="material-icons-round">arrow_back</span>
+                </div>
+                <div class="nav-content">
+                    <div class="nav-label">Previous Article</div>
+                    <div class="nav-title">No older articles</div>
+                </div>
+            </div>
+        `;
+    }
 
-            if (nextArticle) {
-                navHtml += `
-                    <a href="${nextArticle.link}" class="nav-button next">
-                        <div class="nav-content">
-                            <div class="nav-label">Next Article</div>
-                            <div class="nav-title">${nextArticle.title}</div>
-                        </div>
-                        <div class="nav-icon">
-                            <span class="material-icons-round">arrow_forward</span>
-                        </div>
-                    </a>
-                `;
-            } else {
-                navHtml += `
-                    <div class="nav-button next disabled">
-                        <div class="nav-content">
-                            <div class="nav-label">Next Article</div>
-                            <div class="nav-title">No newer articles</div>
-                        </div>
-                        <div class="nav-icon">
-                            <span class="material-icons-round">arrow_forward</span>
-                        </div>
-                    </div>
-                `;
-            }
+    // Next Article Button (Newer)
+    if (nextArticle) {
+        navHtml += `
+            <a href="${nextArticle.link}" class="nav-button next">
+                <div class="nav-content">
+                    <div class="nav-label">Next Article (Newer)</div>
+                    <div class="nav-title">${nextArticle.title}</div>
+                </div>
+                <div class="nav-icon">
+                    <span class="material-icons-round">arrow_forward</span>
+                </div>
+            </a>
+        `;
+    } else {
+        navHtml += `
+            <div class="nav-button next disabled">
+                <div class="nav-content">
+                    <div class="nav-label">Next Article</div>
+                    <div class="nav-title">No newer articles</div>
+                </div>
+                <div class="nav-icon">
+                    <span class="material-icons-round">arrow_forward</span>
+                </div>
+            </div>
+        `;
+    }
 
-            navHtml += '</div>';
-            articleNavigation.innerHTML = navHtml;
-        }
+    navHtml += '</div>';
+    articleNavigation.innerHTML = navHtml;
+}
 
         // ===== SCROLL ANIMATIONS =====
         function initScrollAnimations() {
