@@ -1,0 +1,104 @@
+[
+  {
+    "id": "artificial-intelligence",
+    "name": "Artificial Intelligence",
+    "slug": "ai",
+    "description": "Explore the latest developments, tools, and concepts in artificial intelligence and machine learning.",
+    "metaDescription": "AI articles covering machine learning, neural networks, and the future of intelligent systems.",
+    "featured": true,
+    "count": 0,
+    "icon": "🤖",
+    "color": "#34a853",
+    "relatedCategories": ["ai-development", "technology"],
+    "relatedTags": ["machine-learning", "future-technology"],
+    "seo": {
+      "title": "Artificial Intelligence Articles | Reverbit Marina",
+      "keywords": ["AI", "Artificial Intelligence", "Machine Learning", "Deep Learning"]
+    }
+  },
+  {
+    "id": "programming",
+    "name": "Programming",
+    "slug": "programming",
+    "description": "Coding tutorials, development practices, and insights into modern programming languages.",
+    "metaDescription": "Programming guides and coding tutorials for developers and students.",
+    "featured": true,
+    "count": 0,
+    "icon": "💻",
+    "color": "#4285f4",
+    "relatedCategories": ["programming", "education"],
+    "relatedTags": ["coding-skills", "software-development"],
+    "seo": {
+      "title": "Programming Guides | Reverbit Marina",
+      "keywords": ["Programming", "Coding", "Software Development", "Developer Skills"]
+    }
+  },
+  {
+    "id": "machine-learning",
+    "name": "Machine Learning",
+    "slug": "machine-learning",
+    "description": "Learn about machine learning algorithms, models, and practical AI applications.",
+    "metaDescription": "Machine learning guides, concepts, and practical applications in AI.",
+    "featured": false,
+    "count": 0,
+    "icon": "🧠",
+    "color": "#ea4335",
+    "relatedCategories": ["ai-development", "technology"],
+    "relatedTags": ["artificial-intelligence", "future-technology"],
+    "seo": {
+      "title": "Machine Learning Articles | Reverbit Marina",
+      "keywords": ["Machine Learning", "ML", "AI Models", "Data Science"]
+    }
+  },
+  {
+    "id": "future-technology",
+    "name": "Future Technology",
+    "slug": "future-tech",
+    "description": "Discover emerging technologies that will shape the future of humanity and innovation.",
+    "metaDescription": "Future tech trends including AI, quantum computing, and next-generation innovation.",
+    "featured": true,
+    "count": 0,
+    "icon": "🚀",
+    "color": "#fbbc05",
+    "relatedCategories": ["technology"],
+    "relatedTags": ["artificial-intelligence", "machine-learning"],
+    "seo": {
+      "title": "Future Technology Trends | Reverbit Marina",
+      "keywords": ["Future Tech", "Innovation", "Technology Trends", "AI Future"]
+    }
+  },
+  {
+    "id": "software-development",
+    "name": "Software Development",
+    "slug": "software-development",
+    "description": "Explore modern software development workflows, tools, and engineering practices.",
+    "metaDescription": "Software engineering, development workflows, and coding practices.",
+    "featured": false,
+    "count": 0,
+    "icon": "⚙️",
+    "color": "#673ab7",
+    "relatedCategories": ["ai-development", "programming"],
+    "relatedTags": ["programming", "coding-skills"],
+    "seo": {
+      "title": "Software Development Guides | Reverbit Marina",
+      "keywords": ["Software Development", "Engineering", "Coding", "Developer Tools"]
+    }
+  },
+  {
+    "id": "coding-skills",
+    "name": "Coding Skills",
+    "slug": "coding-skills",
+    "description": "Essential coding skills that every developer should learn to succeed in the tech industry.",
+    "metaDescription": "Learn the most important coding skills for modern developers.",
+    "featured": false,
+    "count": 0,
+    "icon": "📚",
+    "color": "#00acc1",
+    "relatedCategories": ["education", "programming"],
+    "relatedTags": ["programming", "software-development"],
+    "seo": {
+      "title": "Developer Coding Skills | Reverbit Marina",
+      "keywords": ["Coding Skills", "Programming Skills", "Developer Learning"]
+    }
+  }
+]
