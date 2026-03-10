@@ -1,31 +1,17 @@
 [
   {
-    "id": "coding-skills-future-developers",
-    "title": "10 Coding Skills Every Future Developer Should Learn",
-    "description": "Programming is evolving fast. These essential coding skills will help developers stay relevant and build powerful software in the coming decade.",
-    "date": "2026-03-03",
+    "id": "future-ai-powered-development",
+    "title": "The Future of AI-Powered Development",
+    "description": "The future of AI development focuses on shifting AI from a specialized tool to an integrated teammate that automates the entire software development lifecycle.",
+    "date": "2026-03-09",
     "author": "Aditya Jha",
     "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
     "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
-    "category": "Programming",
-    "tags": ["programming", "coding-skills", "software-development"],
-    "thumbnail": "https://engineering.salesforce.com/wp-content/uploads/2022/03/1yAcGCSUO-eka80U0NszIVw.jpeg?w=600&h=400&crop=1",
-    "readTime": "6 min",
-    "link": "/blogs/future-coding-skills.html"
-  },
-  {
-    "id": "ai-beginner-guide",
-    "title": "What Is Artificial Intelligence? A Simple Guide for Beginners",
-    "description": "AI is everywhere today, but what does it actually mean? This beginner-friendly guide explains artificial intelligence in a simple and practical way.",
-    "date": "2026-03-05",
-    "author": "Aditya Jha",
-    "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
-    "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
-    "category": "Artificial Intelligence",
-    "tags": ["artificial-intelligence", "machine-learning", "future-technology"],
-    "thumbnail": "https://awesmai.com/wp-content/uploads/2025/05/What-is-Artificial-Intelligence-.webp",
-    "readTime": "4 min",
-    "link": "/blogs/ai-beginner-guide.html"
+    "category": "AI & Development",
+    "tags": ["artificial-intelligence", "machine-learning", "software-development", "future-technology"],
+    "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+    "readTime": "5 min",
+    "link": "https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development/"
   },
   {
     "id": "future-tech-trends",
@@ -42,17 +28,31 @@
     "link": "https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/"
   },
   {
-    "id": "future-ai-powered-development",
-    "title": "The Future of AI-Powered Development",
-    "description": "The future of AI development focuses on shifting AI from a specialized tool to an integrated teammate that automates the entire software development lifecycle.",
-    "date": "2026-03-09",
+    "id": "ai-beginner-guide",
+    "title": "What Is Artificial Intelligence? A Simple Guide for Beginners",
+    "description": "AI is everywhere today, but what does it actually mean? This beginner-friendly guide explains artificial intelligence in a simple and practical way.",
+    "date": "2026-03-05",
     "author": "Aditya Jha",
     "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
     "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
-    "category": "AI & Development",
-    "tags": ["artificial-intelligence", "machine-learning", "software-development", "future-technology"],
-    "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
-    "readTime": "5 min",
-    "link": "https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development/"
+    "category": "Artificial Intelligence",
+    "tags": ["artificial-intelligence", "machine-learning", "future-technology"],
+    "thumbnail": "https://awesmai.com/wp-content/uploads/2025/05/What-is-Artificial-Intelligence-.webp",
+    "readTime": "4 min",
+    "link": "/blogs/ai-beginner-guide.html"
+  },
+  {
+    "id": "coding-skills-future-developers",
+    "title": "10 Coding Skills Every Future Developer Should Learn",
+    "description": "Programming is evolving fast. These essential coding skills will help developers stay relevant and build powerful software in the coming decade.",
+    "date": "2026-03-03",
+    "author": "Aditya Jha",
+    "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
+    "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
+    "category": "Programming",
+    "tags": ["programming", "coding-skills", "software-development"],
+    "thumbnail": "https://engineering.salesforce.com/wp-content/uploads/2022/03/1yAcGCSUO-eka80U0NszIVw.jpeg?w=600&h=400&crop=1",
+    "readTime": "6 min",
+    "link": "/blogs/future-coding-skills.html"
   }
 ]
