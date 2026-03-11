@@ -548,6 +548,8 @@
             margin-bottom: 32px;
             padding-bottom: 16px;
             border-bottom: 2px solid var(--md-outline);
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .page-title {
@@ -579,11 +581,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
         }
 
-        /* Filter Tabs */
-        .filter-tabs {
-            display: flex;
+        /* ===== FILTER SYSTEM (Desktop tabs + Mobile modal) ===== */
+        .filter-tabs-desktop {
+            display: none;
             gap: 8px;
             margin-bottom: 32px;
             flex-wrap: wrap;
@@ -591,6 +594,12 @@
             padding: 6px;
             border-radius: var(--md-radius-pill);
             width: fit-content;
+        }
+
+        @media (min-width: 768px) {
+            .filter-tabs-desktop {
+                display: flex;
+            }
         }
 
         .filter-tab {
@@ -618,6 +627,149 @@
             box-shadow: var(--md-elevation-1);
         }
 
+        .mobile-filter-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px 20px;
+            margin-bottom: 24px;
+            background: var(--md-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-pill);
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            transition: var(--md-transition);
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-filter-btn {
+                display: none;
+            }
+        }
+
+        .mobile-filter-btn:hover {
+            background: var(--md-surface-variant);
+            border-color: var(--md-primary);
+        }
+
+        .mobile-filter-btn i {
+            color: var(--md-primary);
+        }
+
+        .filter-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 300;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .filter-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .filter-modal {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: var(--md-surface);
+            border-top-left-radius: var(--md-radius-extra-large);
+            border-top-right-radius: var(--md-radius-extra-large);
+            padding: 24px 20px 30px;
+            z-index: 301;
+            transition: bottom 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+            box-shadow: var(--md-elevation-3);
+        }
+
+        .filter-modal.active {
+            bottom: 0;
+        }
+
+        .filter-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--md-outline);
+        }
+
+        .filter-modal-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .filter-modal-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--md-surface-variant);
+            color: var(--md-on-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--md-transition);
+        }
+
+        .filter-modal-close:hover {
+            background: var(--md-primary);
+            color: white;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-option {
+            padding: 16px 20px;
+            border-radius: var(--md-radius-pill);
+            background: var(--md-surface-variant);
+            border: 1px solid transparent;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            transition: var(--md-transition);
+            text-align: left;
+        }
+
+        .filter-option:hover {
+            background: var(--md-primary-container);
+        }
+
+        .filter-option.active {
+            background: var(--md-primary);
+            color: white;
+            border-color: var(--md-primary);
+        }
+
+        .filter-option i {
+            margin-right: 12px;
+            width: 20px;
+            color: var(--md-primary);
+        }
+
+        .filter-option.active i {
+            color: white;
+        }
+
         /* Tags Grid */
         .tags-grid {
             display: grid;
@@ -635,17 +787,24 @@
             padding: 24px;
             box-shadow: var(--md-elevation-2);
             border: 1px solid var(--md-outline);
-            transition: var(--md-transition);
+            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
             display: flex;
             flex-direction: column;
             position: relative;
             cursor: pointer;
             height: 100%;
+            animation: cardGlideIn 0.5s ease forwards;
+        }
+
+        @keyframes cardGlideIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .tag-card:hover {
             box-shadow: var(--md-elevation-3);
-            transform: translateY(-4px);
+            transform: translateY(-6px) scale(1.02);
+            border-color: var(--md-primary);
         }
 
         .tag-header {
@@ -666,6 +825,11 @@
             font-size: 28px;
             color: white;
             box-shadow: var(--md-elevation-1);
+            transition: transform 0.3s ease;
+        }
+
+        .tag-card:hover .tag-icon {
+            transform: scale(1.05) rotate(5deg);
         }
 
         .tag-info {
@@ -686,6 +850,7 @@
             gap: 8px;
             font-size: 0.9rem;
             color: var(--md-on-surface-variant);
+            flex-wrap: wrap;
         }
 
         .tag-badge {
@@ -703,6 +868,10 @@
             line-height: 1.6;
             margin-bottom: 20px;
             flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .tag-footer {
@@ -743,13 +912,22 @@
             color: var(--md-on-surface);
             font-weight: 500;
             text-decoration: none;
-            transition: var(--md-transition);
+            transition: all 0.3s ease;
         }
 
         .tag-link:hover {
             background: var(--md-primary);
             border-color: var(--md-primary);
             color: white;
+            transform: translateY(-2px);
+        }
+
+        .tag-link .material-icons-round {
+            transition: transform 0.3s ease;
+        }
+
+        .tag-link:hover .material-icons-round {
+            transform: translateX(4px);
         }
 
         /* Featured Tags Section */
@@ -1014,22 +1192,14 @@
 
         @media (max-width:480px){
             .page-title{ font-size: 2rem; }
+            .page-title::after { bottom: -12px; }
             .page-header{ flex-direction: column; align-items: flex-start; gap: 16px; }
+            .tag-count { align-self: flex-start; }
             .filter-tabs{ width: 100%; overflow-x: auto; }
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease forwards;
         }
     </style>
 </head>
-<body class="light-theme">
+<body>
     <!-- Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
@@ -1100,11 +1270,40 @@
             </div>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="filter-tabs">
+        <!-- FILTER SYSTEM (Desktop Tabs) -->
+        <div class="filter-tabs-desktop" id="filterTabsDesktop">
             <button class="filter-tab active" data-filter="all">All Tags</button>
             <button class="filter-tab" data-filter="featured">Featured</button>
             <button class="filter-tab" data-filter="popular">Most Popular</button>
+        </div>
+
+        <!-- Mobile Filter Button -->
+        <button class="mobile-filter-btn" id="mobileFilterBtn">
+            <i class="fas fa-filter"></i>
+            <span>Filter Tags</span>
+            <span class="material-icons-round" style="margin-left: auto;">arrow_drop_down</span>
+        </button>
+
+        <!-- Filter Modal (Mobile) -->
+        <div class="filter-modal-overlay" id="filterModalOverlay"></div>
+        <div class="filter-modal" id="filterModal">
+            <div class="filter-modal-header">
+                <h3 class="filter-modal-title">Filter Tags</h3>
+                <button class="filter-modal-close" id="filterModalClose">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="filter-options">
+                <button class="filter-option active" data-filter="all">
+                    <i class="fas fa-tags"></i> All Tags
+                </button>
+                <button class="filter-option" data-filter="featured">
+                    <i class="fas fa-star"></i> Featured
+                </button>
+                <button class="filter-option" data-filter="popular">
+                    <i class="fas fa-fire"></i> Most Popular
+                </button>
+            </div>
         </div>
 
         <!-- Tags Grid -->
@@ -1192,14 +1391,22 @@
             }
         }
 
+        // ===== FILTER SYSTEM =====
+        let currentFilter = 'all';
+        let allTags = [];
+        let allArticles = [];
+
         // DOM Elements
         const tagsGrid = document.getElementById('tagsGrid');
         const totalTagsSpan = document.getElementById('totalTags');
-        const filterTabs = document.querySelectorAll('.filter-tab');
-
-        let allTags = [];
-        let allArticles = [];
-        let currentFilter = 'all';
+        
+        // Filter elements
+        const desktopFilterTabs = document.querySelectorAll('#filterTabsDesktop .filter-tab');
+        const mobileFilterBtn = document.getElementById('mobileFilterBtn');
+        const filterModal = document.getElementById('filterModal');
+        const filterModalOverlay = document.getElementById('filterModalOverlay');
+        const filterModalClose = document.getElementById('filterModalClose');
+        const filterOptions = document.querySelectorAll('.filter-option');
 
         // Process tags with article counts
         function processTagsWithCounts(tags, articles) {
@@ -1212,7 +1419,6 @@
                 return {
                     ...tag,
                     count: count,
-                    // Generate a color based on the tag's color property or use a default
                     displayColor: tag.color || getDefaultColor(tag.id)
                 };
             }).filter(tag => tag.count > 0); // Hide tags with 0 articles
@@ -1235,6 +1441,30 @@
             return tags;
         }
 
+        // Update active filter UI
+        function updateActiveFilter(filter) {
+            desktopFilterTabs.forEach(tab => {
+                if (tab.dataset.filter === filter) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            filterOptions.forEach(option => {
+                if (option.dataset.filter === filter) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+        }
+
+        // Helper to adjust color brightness (simplified)
+        function adjustColor(hex, percent) {
+            return hex; // For simplicity, returning same color
+        }
+
         // Render tags
         function renderTags(tags) {
             if (tags.length === 0) {
@@ -1245,13 +1475,14 @@
                         <p>There are no active tags at the moment</p>
                     </div>
                 `;
+                totalTagsSpan.textContent = '0';
                 return;
             }
 
             let html = '';
             tags.forEach((tag, index) => {
                 html += `
-                    <div class="tag-card fade-in" style="animation-delay: ${index * 0.05}s;" onclick="window.location.href='/marina/tags/?tag=${tag.slug}'">
+                    <div class="tag-card" style="animation-delay: ${index * 0.05}s;" onclick="window.location.href='/marina/tags/?tag=${tag.slug}'">
                         <div class="tag-header">
                             <div class="tag-icon" style="--tag-color: ${tag.displayColor}; background: linear-gradient(135deg, ${tag.displayColor}, ${adjustColor(tag.displayColor, -20)})">
                                 <span>${tag.icon || '🏷️'}</span>
@@ -1264,7 +1495,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="tag-description">${tag.description}</p>
+                        <p class="tag-description">${tag.description || 'Explore articles with this tag'}</p>
                         <div class="tag-footer">
                             <div class="tag-stats">
                                 <div class="tag-stat">
@@ -1290,12 +1521,6 @@
             totalTagsSpan.textContent = tags.length;
         }
 
-        // Helper to adjust color brightness
-        function adjustColor(hex, percent) {
-            // Simple color adjustment for gradient
-            return hex; // For simplicity, returning same color
-        }
-
         // Initialize tags page
         async function initTagsPage() {
             try {
@@ -1316,18 +1541,53 @@
                         <p>Please try again later</p>
                     </div>
                 `;
+                totalTagsSpan.textContent = '0';
             }
+        }
+
+        // ===== FILTER MODAL FUNCTIONS =====
+        function openFilterModal() {
+            filterModal.classList.add('active');
+            filterModalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFilterModal() {
+            filterModal.classList.remove('active');
+            filterModalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         // ===== EVENT LISTENERS =====
         
-        // Filter tabs
-        filterTabs.forEach(tab => {
+        // Desktop filter tabs
+        desktopFilterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                filterTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                currentFilter = tab.getAttribute('data-filter');
+                const filter = tab.dataset.filter;
+                currentFilter = filter;
+                
+                updateActiveFilter(filter);
                 renderTags(filterTags(allTags));
+            });
+        });
+
+        // Mobile filter button
+        mobileFilterBtn.addEventListener('click', openFilterModal);
+
+        // Filter modal close
+        filterModalClose.addEventListener('click', closeFilterModal);
+        filterModalOverlay.addEventListener('click', closeFilterModal);
+
+        // Filter options in modal
+        filterOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const filter = option.dataset.filter;
+                currentFilter = filter;
+                
+                updateActiveFilter(filter);
+                renderTags(filterTags(allTags));
+                
+                closeFilterModal();
             });
         });
 
@@ -1383,8 +1643,13 @@
         menuOverlay.addEventListener('click', closeMenu);
         
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && hamburgerMenu.classList.contains('active')) {
-                closeMenu();
+            if (e.key === 'Escape') {
+                if (hamburgerMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+                if (filterModal.classList.contains('active')) {
+                    closeFilterModal();
+                }
             }
         });
 
@@ -1477,7 +1742,7 @@
         // GSAP Animations
         if (typeof gsap !== 'undefined') {
             gsap.from('.page-header', { duration: 0.8, y: 30, opacity: 0, ease: 'power3.out' });
-            gsap.from('.filter-tabs', { duration: 0.8, y: 30, opacity: 0, delay: 0.2, ease: 'power3.out' });
+            gsap.from('.filter-tabs-desktop, .mobile-filter-btn', { duration: 0.8, y: 30, opacity: 0, delay: 0.2, ease: 'power3.out' });
         }
     </script>
 </body>
