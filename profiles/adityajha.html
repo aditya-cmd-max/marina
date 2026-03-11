@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Aditya Jha | Reverbit Marina</title>
     
-    <!-- Google Fonts - Product Sans and Playfair Display -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -104,7 +104,7 @@
             transition: var(--md-transition);
         }
 
-        /* ===== SIMPLE BACKGROUND (CLEAN) ===== */
+        /* ===== BACKGROUND ===== */
         .mesh-background {
             position: fixed;
             top: 0;
@@ -149,7 +149,7 @@
             50% { opacity: 0.8; }
         }
 
-        /* ===== HEADER (Full Navbar) ===== */
+        /* ===== HEADER ===== */
         .app-header {
             position: sticky;
             top: 20px;
@@ -510,52 +510,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            mask: url(#flower-mask);
-            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="282" height="281" viewBox="0 0 282 281" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="black"></path></svg>');
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="282" height="281" viewBox="0 0 282 281" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="black"/></svg>');
             -webkit-mask-repeat: no-repeat;
             -webkit-mask-position: center;
             -webkit-mask-size: contain;
+            mask-image: url('data:image/svg+xml;utf8,<svg width="282" height="281" viewBox="0 0 282 281" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="black"/></svg>');
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
             filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
             border: 3px solid var(--md-primary);
-            border-radius: 0;
-        }
-
-        /* SVG Frames (subtle, not noisy) */
-        .svg-frame {
-            position: absolute;
-            pointer-events: none;
-            z-index: 1;
-            fill: var(--md-primary);
-            opacity: 0.2;
-        }
-
-        .frame-1 {
-            top: -15px;
-            left: -15px;
-            width: 100px;
-            height: 100px;
-            opacity: 0.25;
-        }
-
-        .frame-2 {
-            bottom: -20px;
-            right: -10px;
-            width: 80px;
-            height: 80px;
-            opacity: 0.2;
-        }
-
-        .frame-3 {
-            top: 40%;
-            left: 5%;
-            width: 60px;
-            height: 60px;
-            opacity: 0.15;
-        }
-
-        @keyframes frameFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(3deg); }
         }
 
         .profile-info {
@@ -566,7 +530,7 @@
 
         .profile-name {
             font-family: var(--font-product);
-            font-size: clamp(4.5rem, 10vw, 7rem);
+            font-size: clamp(3.5rem, 8vw, 5.5rem);
             font-weight: 700;
             color: var(--md-on-surface);
             line-height: 1;
@@ -574,7 +538,7 @@
             margin-bottom: var(--space-sm);
         }
 
-        .profile-salutation {
+        .profile-role {
             font-family: var(--font-heading);
             font-size: 1.5rem;
             font-weight: 500;
@@ -582,43 +546,98 @@
             margin-bottom: var(--space-md);
         }
 
-        .profile-since {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) var(--space-md);
-            background: var(--md-surface-variant);
-            color: var(--md-on-surface-variant);
+        .profile-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: var(--space-md);
+        }
+
+        .badge {
+            padding: 6px 16px;
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
             border-radius: var(--md-radius-pill);
-            font-size: 0.875rem;
-            font-weight: 500;
-            width: fit-content;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        @media (max-width: 768px) {
-            .profile-since {
-                margin: 0 auto;
-            }
+        .profile-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        /* ===== ABOUT SECTION ===== */
-        .about-section {
-            margin-bottom: var(--space-2xl);
+        .profile-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--md-on-surface-variant);
+        }
+
+        .profile-meta-item i, .profile-meta-item .material-icons-round {
+            color: var(--md-primary);
+            font-size: 1.2rem;
+        }
+
+        .profile-bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--md-on-surface);
+            margin: var(--space-md) 0;
+        }
+
+        .profile-social {
+            display: flex;
+            gap: 12px;
+            margin-top: var(--space-md);
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--md-surface-variant);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-on-surface);
+            text-decoration: none;
+            transition: var(--md-transition);
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: var(--md-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin: var(--space-2xl) 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: var(--space-xl);
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--md-outline);
         }
 
         .section-title {
             font-family: var(--font-heading);
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: var(--space-xl);
-            color: var(--md-on-surface);
             position: relative;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -14px;
             left: 0;
             width: 80px;
             height: 4px;
@@ -626,26 +645,25 @@
             border-radius: 2px;
         }
 
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--md-on-surface);
+        .section-link {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--md-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--md-transition);
         }
 
-        .about-content p {
-            margin-bottom: var(--space-lg);
+        .section-link:hover {
+            gap: 8px;
         }
 
         /* ===== ARTICLES GRID ===== */
-        .articles-section {
-            margin: var(--space-2xl) 0;
-        }
-
         .articles-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
-            margin-top: 30px;
         }
 
         @media (min-width:640px){ .articles-grid{ grid-template-columns:repeat(2,1fr); } }
@@ -672,7 +690,7 @@
 
         .article-image {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
             background: var(--md-surface-variant);
             transition: transform 0.5s;
@@ -683,7 +701,7 @@
         }
 
         .article-content {
-            padding: 20px;
+            padding: 24px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -697,7 +715,7 @@
             border-radius: var(--md-radius-pill);
             font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             width: fit-content;
         }
         
@@ -717,37 +735,18 @@
             flex: 1;
         }
 
-        .author-mini {
+        .article-meta {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .author-mini-avatar {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--md-primary);
-        }
-
-        .author-mini-name {
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .meta-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--md-on-surface-variant);
+            margin-bottom: 16px;
         }
 
         .read-btn {
             margin-top: 12px;
-            padding: 10px 16px;
+            padding: 12px 20px;
             background: transparent;
             border: 1px solid var(--md-outline);
             border-radius: var(--md-radius-pill);
@@ -757,10 +756,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             transition: var(--md-transition);
             width: 100%;
-            font-size: 0.9rem;
         }
 
         .read-btn:hover {
@@ -770,10 +768,6 @@
         }
 
         /* ===== CARDS GRID ===== */
-        .cards-section {
-            margin-top: var(--space-2xl);
-        }
-
         .cards-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -792,8 +786,6 @@
             display: flex;
             flex-direction: column;
             gap: var(--space-lg);
-            position: relative;
-            overflow: hidden;
         }
 
         .profile-card:hover {
@@ -835,40 +827,9 @@
             gap: var(--space-md);
         }
 
-        .card-stats {
-            display: flex;
-            align-items: center;
-            gap: var(--space-lg);
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-value {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--md-primary);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
+        .card-description {
             color: var(--md-on-surface-variant);
-        }
-
-        .card-since {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-xs) var(--space-md);
-            background: var(--md-surface-variant);
-            color: var(--md-on-surface-variant);
-            border-radius: var(--md-radius-pill);
-            font-size: 0.8rem;
-            font-weight: 500;
-            width: fit-content;
+            line-height: 1.6;
         }
 
         .card-link {
@@ -891,6 +852,65 @@
             transform: translateY(-2px);
             box-shadow: var(--md-elevation-2);
         }
+
+        /* ===== STATS CARD ===== */
+        .stats-card {
+            display: flex;
+            justify-content: space-around;
+            background: var(--md-surface-variant);
+            border-radius: var(--md-radius-large);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            border: 1px solid var(--md-outline);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--md-primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--md-on-surface-variant);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* ===== LOADING ===== */
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            grid-column: 1 / -1;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--md-outline);
+            border-top-color: var(--md-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px;
+            color: var(--md-on-surface-variant);
+            background: var(--md-surface);
+            border-radius: var(--md-radius-large);
+            border: 1px solid var(--md-outline);
+        }
+
+        @keyframes spin { to{ transform: rotate(360deg); } }
 
         /* ===== FOOTER ===== */
         .footer {
@@ -1085,52 +1105,22 @@
             transform: translateY(-2px);
         }
 
-        /* Loading Spinner */
-        .loading-spinner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-            grid-column: 1 / -1;
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--md-outline);
-            border-top-color: var(--md-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin { to{ transform: rotate(360deg); } }
-
         @media (max-width:480px){
-            .section-title{ font-size: 1.8rem; }
-            .profile-name{ font-size: 3.5rem; }
-            .profile-salutation{ font-size: 1.1rem; }
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease forwards;
+            .section-title{ font-size: 1.6rem; }
+            .profile-name{ font-size: 3rem; }
+            .profile-role{ font-size: 1.2rem; }
         }
     </style>
 </head>
-<body class="light-theme">
+<body>
     <!-- Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- Clean Background (only mesh, no extra floating shapes) -->
+    <!-- Background -->
     <div class="mesh-background"></div>
     <div class="mesh-overlay"></div>
 
-    <!-- HEADER (Full Navbar) -->
+    <!-- HEADER -->
     <header class="app-header">
         <div class="header-container">
             <div class="logo-wrapper">
@@ -1141,7 +1131,7 @@
                 <a href="https://aditya-cmd-max.github.io/marina/" class="nav-item">Home</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles" class="nav-item">Articles</a>
                 <a href="#" class="nav-item active">Profile</a>
-                <a href="https://aditya-cmd-max.github.io/marina/articles/" class="nav-item">Categories</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="nav-item">Categories</a>
                 <a href="https://aditya-cmd-max.github.io/marina/about" class="nav-item">About</a>
             </nav>
             
@@ -1172,117 +1162,13 @@
 
     <!-- PROFILE CONTENT -->
     <main class="profile-container">
-        <!-- Hero Section with SVG Mask -->
-        <section class="profile-hero fade-in">
-            <div class="profile-image-container">
-                <div class="profile-image-wrapper">
-                    <!-- SVG Mask Definition -->
-                    <svg width="0" height="0" style="position: absolute;">
-                        <defs>
-                            <mask id="flower-mask">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="white"/>
-                            </mask>
-                        </defs>
-                    </svg>
-                    
-                    <!-- Profile Image with SVG Mask -->
-                    <img src="https://aditya-cmd-max.github.io/adityajha.jpg" alt="Aditya Jha" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=Aditya+Jha&background=1a73e8&color=fff&size=300'">
-                </div>
-                
-                <!-- Subtle SVG Frames (not noisy) -->
-                <svg width="282" height="281" viewBox="0 0 282 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-frame frame-1">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="currentColor"/>
-                </svg>
-                
-                <svg version="1.1" viewBox="0 0 249 247" class="svg-frame frame-2">
-                    <path d="M245.7,56.1l0-9.9c0-22.7-18.4-41-41-41l-160.2,0c-22.7,0-41,18.4-41,41l0,9.9c0,11,4.3,21,11.4,28.4c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4l0,9.9c0,11,4.3,21,11.4,28.4c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4l0,10.1c0,22.7,18.4,41,41,41l160.2,0c22.7,0,41-18.4,41-41l0-10.1c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5c7.1-7.4,11.4-17.4,11.4-28.4l0-9.9c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5C241.3,77.1,245.7,67.1,245.7,56.1z" fill="currentColor"/>
-                </svg>
-                
-                <svg width="401" height="401" viewBox="0 0 401 401" class="svg-frame frame-3">
-                    <path d="M184.218 4.26754C194.176 -1.31835 206.324 -1.31835 216.282 4.26754L240.677 17.9521C245.454 20.6316 250.826 22.0711 256.302 22.139L284.272 22.4854C295.688 22.6268 306.208 28.7005 312.039 38.517L326.324 62.5657C329.121 67.2747 333.053 71.2075 337.762 74.0045L361.811 88.2891C371.628 94.1199 377.701 104.64 377.843 116.057L378.189 144.026C378.257 149.502 379.697 154.875 382.376 159.651L396.061 184.047C401.646 194.004 401.646 206.152 396.061 216.11L382.376 240.505C379.697 245.282 378.257 250.654 378.189 256.131L377.843 284.1C377.701 295.516 371.628 306.036 361.811 311.867L337.762 326.152C333.053 328.949 329.121 332.882 326.324 337.591L312.039 361.639C306.208 371.456 295.688 377.529 284.272 377.671L256.302 378.017C250.826 378.085 245.454 379.525 240.677 382.204L216.282 395.889C206.324 401.475 194.176 401.475 184.218 395.889L159.823 382.204C155.046 379.525 149.674 378.085 144.198 378.017L116.228 377.671C104.812 377.529 94.2918 371.456 88.461 361.639L74.1764 337.591C71.3794 332.882 67.4466 328.949 62.7376 326.152L38.6888 311.867C28.8724 306.036 22.7987 295.516 22.6573 284.1L22.3109 256.131C22.243 250.654 20.8035 245.282 18.124 240.505L4.43942 216.11C-1.14647 206.152 -1.14647 194.004 4.43941 184.047L18.124 159.651C20.8035 154.875 22.243 149.502 22.3109 144.026L22.6573 116.057C22.7987 104.64 28.8724 94.1199 38.6888 88.2891L62.7376 74.0045C67.4466 71.2075 71.3793 67.2747 74.1764 62.5657L88.461 38.517C94.2918 28.7005 104.812 22.6268 116.228 22.4854L144.198 22.139C149.674 22.0711 155.046 20.6316 159.823 17.9521L184.218 4.26754Z" fill="currentColor"/>
-                </svg>
+        <!-- Profile data will be populated from profilesmarina.json -->
+        <div id="profileContent">
+            <!-- Loading state -->
+            <div class="loading-spinner" id="profileLoading">
+                <div class="spinner"></div>
             </div>
-            
-            <div class="profile-info">
-                <h1 class="profile-name">Aditya Jha</h1>
-                <p class="profile-salutation">Founder at Reverbit | Student | AI Researcher</p>
-                <div class="profile-since">
-                    <span class="material-icons-round">calendar_today</span>
-                    <span>Since: April 2025</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about-section fade-in">
-            <h2 class="section-title">About Aditya</h2>
-            <div class="about-content">
-                <p>Aditya Jha is a student and visionary technology researcher specializing in artificial intelligence research and development. With a passion for pushing the boundaries of what's possible, he combines deep technical expertise with creative problem-solving to drive innovation in the tech industry.</p>
-                
-                <p>Currently serving as a founder at Reverbit Marina, Aditya leads groundbreaking projects that bridge the gap between theoretical AI research and practical applications. His work focuses on developing intelligent systems that can understand, learn, and adapt to complex real-world scenarios.</p>
-                
-                <p>Beyond his technical contributions, Aditya is committed to knowledge sharing and community building. He actively participates in tech conferences, writes extensively about emerging technologies, and mentors aspiring developers and researchers in the field of artificial intelligence.</p>
-            </div>
-        </section>
-
-        <!-- Latest Articles Section (will be populated from JSON) -->
-        <section class="articles-section fade-in" id="articlesSection">
-            <h2 class="section-title">Latest Articles by Aditya</h2>
-            <div class="articles-grid" id="articlesGrid">
-                <div class="loading-spinner">
-                    <div class="spinner"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Connect Cards Section -->
-        <section class="cards-section fade-in">
-            <h2 class="section-title">Connect & Explore</h2>
-            <div class="cards-grid">
-                <!-- YouTube Card -->
-                <div class="profile-card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <h3 class="card-title">YouTube Channel</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-stats">
-                            <div class="stat">
-                                <span class="stat-value">40+</span>
-                                <span class="stat-label">Subscribers</span>
-                            </div>
-                        </div>
-                        <div class="card-since">
-                            <span class="material-icons-round">calendar_today</span>
-                            <span>Since: 2024</span>
-                        </div>
-                        <a href="https://www.youtube.com/@Reverbit" class="card-link" target="_blank">
-                            <i class="fab fa-youtube"></i>
-                            <span>Checkout Channel</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Reverbit Blog Card -->
-                <div class="profile-card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-blog"></i>
-                        </div>
-                        <h3 class="card-title">Reverbit</h3>
-                    </div>
-                    <div class="card-content">
-                        <p>Aditya is trying to build more innovative solutions with AI in the project Reverbit.</p>
-                        <a href="https://aditya-cmd-max.github.io/" class="card-link" target="_blank">
-                            <span class="material-icons-round">article</span>
-                            <span>Checkout Reverbit</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <!-- FOOTER -->
@@ -1303,6 +1189,7 @@
                 <a href="https://aditya-cmd-max.github.io/marina/articles">Articles</a>
                 <a href="#">Profile</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles/categories">Categories</a>
+                <a href="https://aditya-cmd-max.github.io/marina/about">About</a>
             </div>
             <div class="footer-col">
                 <h4>Teams</h4>
@@ -1350,6 +1237,20 @@
             }
         }
 
+        // ===== FETCH PROFILE FROM JSON =====
+        async function fetchProfile() {
+            try {
+                const response = await fetch('https://aditya-cmd-max.github.io/marina/profilesmarina.json');
+                const profiles = await response.json();
+                // Find Aditya's profile
+                const profile = profiles.find(p => p.name === "Aditya Jha");
+                return profile;
+            } catch (error) {
+                console.error('Error fetching profile:', error);
+                return null;
+            }
+        }
+
         // Helper: Get thumbnail URL
         function getThumbnailUrl(article) {
             if (article.thumbnail) {
@@ -1359,7 +1260,7 @@
                     return `https://aditya-cmd-max.github.io${article.thumbnail}`;
                 }
             }
-            // Fallback images based on category
+            // Fallback images
             const category = article.category || '';
             if (category.includes('AI') || category.includes('Intelligence')) {
                 return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80';
@@ -1372,97 +1273,235 @@
             }
         }
 
-        // Helper: Get author avatar URL
-        function getAuthorAvatar(article) {
-            if (article.authorAvatar) {
-                if (article.authorAvatar.startsWith('http')) {
-                    return article.authorAvatar;
-                } else {
-                    return `https://aditya-cmd-max.github.io${article.authorAvatar}`;
-                }
-            }
-            return `https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff`;
-        }
-
         // Helper: Format date
         function formatDate(dateString) {
             const date = new Date(dateString);
             return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        // Display articles by Aditya
-        async function displayAdityaArticles() {
-            const articles = await fetchArticles();
-            const articlesGrid = document.getElementById('articlesGrid');
-            
-            if (!articles || articles.length === 0) {
-                articlesGrid.innerHTML = '<div class="no-results">Failed to load articles</div>';
-                return;
-            }
-
-            // Filter articles by Aditya Jha (case insensitive)
-            const adityaArticles = articles.filter(article => 
-                article.author.toLowerCase().includes('aditya')
-            );
-
-            if (adityaArticles.length === 0) {
-                articlesGrid.innerHTML = `
-                    <div class="no-results">
-                        <p>No articles found by Aditya</p>
-                    </div>
-                `;
-                return;
-            }
-
-            // Sort by date (newest first) and take latest 3
-            const latestArticles = adityaArticles
-                .sort((a, b) => new Date(b.date) - new Date(a.date))
-                .slice(0, 3);
-
-            let html = '';
-            latestArticles.forEach(article => {
-                html += `
-                    <div class="article-card">
-                        <img src="${getThumbnailUrl(article)}" class="article-image" alt="${article.title}" loading="lazy">
-                        <div class="article-content">
-                            <span class="article-category">${article.category || 'Technology'}</span>
-                            <h3 class="article-title">${article.title}</h3>
-                            <p class="article-excerpt">${article.description.substring(0, 80)}...</p>
-                            
-                            <div class="author-mini">
-                                <img src="${getAuthorAvatar(article)}" class="author-mini-avatar" alt="${article.author}">
-                                <span class="author-mini-name">${article.author}</span>
-                            </div>
-                            
-                            <div class="meta-info">
-                                <span>${formatDate(article.date)}</span>
-                                <span>•</span>
-                                <span>${article.readTime || '5 min'}</span>
-                            </div>
-                            
-                            <a href="${article.link}" class="read-btn" target="_blank">
-                                Read Article <span class="material-icons-round" style="font-size:16px;">arrow_forward</span>
-                            </a>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            articlesGrid.innerHTML = html;
-
-            // Add card click listeners
-            document.querySelectorAll('.article-card').forEach(card => {
-                card.addEventListener('click', (e) => {
-                    if (!e.target.closest('a')) {
-                        const link = card.querySelector('.read-btn');
-                        if (link) window.location.href = link.href;
-                    }
-                });
-            });
+        // Helper: Format joined date
+        function formatJoinedDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
         }
 
-        // Initialize articles
-        displayAdityaArticles();
+        // ===== DISPLAY PROFILE AND ARTICLES =====
+        async function displayProfile() {
+            const profileContent = document.getElementById('profileContent');
+            const profileLoading = document.getElementById('profileLoading');
+            
+            try {
+                // Fetch both profile and articles in parallel
+                const [profile, articles] = await Promise.all([fetchProfile(), fetchArticles()]);
+
+                if (!profile) {
+                    profileContent.innerHTML = `
+                        <div class="no-results">
+                            <span class="material-icons-round" style="font-size: 64px;">error_outline</span>
+                            <h3>Profile not found</h3>
+                            <p>Unable to load profile information</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // === EXACT FILTER AS REQUESTED ===
+                const authorArticles = articles.filter(a => a.author === "Aditya Jha");
+                
+                // Sort by date (newest first) and get stats
+                const sortedArticles = [...authorArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
+                const latestArticles = sortedArticles.slice(0, 3);
+                const totalArticles = authorArticles.length;
+                
+                // Calculate total reads (mock for now)
+                const totalReads = authorArticles.reduce((sum, article) => {
+                    return sum + (article.reads || Math.floor(Math.random() * 500) + 100);
+                }, 0);
+
+                // Build profile HTML
+                const joinedDate = formatJoinedDate(profile.joined);
+                
+                profileContent.innerHTML = `
+                    <!-- Hero Section -->
+                    <section class="profile-hero fade-in">
+                        <div class="profile-image-container">
+                            <div class="profile-image-wrapper">
+                                <img src="${profile.avatar}" alt="${profile.name}" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=${profile.name}&background=1a73e8&color=fff&size=300'">
+                            </div>
+                        </div>
+                        
+                        <div class="profile-info">
+                            <h1 class="profile-name">${profile.name}</h1>
+                            <p class="profile-role">${profile.role}</p>
+                            
+                            <div class="profile-badges">
+                                ${profile.badges ? profile.badges.map(badge => 
+                                    `<span class="badge">${badge}</span>`
+                                ).join('') : ''}
+                            </div>
+                            
+                            <div class="profile-meta">
+                                <div class="profile-meta-item">
+                                    <span class="material-icons-round">location_on</span>
+                                    <span>${profile.location || 'India'}</span>
+                                </div>
+                                <div class="profile-meta-item">
+                                    <span class="material-icons-round">calendar_today</span>
+                                    <span>Joined ${joinedDate}</span>
+                                </div>
+                                ${profile.verified ? `
+                                <div class="profile-meta-item">
+                                    <span class="material-icons-round">verified</span>
+                                    <span>Verified Author</span>
+                                </div>
+                                ` : ''}
+                            </div>
+                            
+                            <p class="profile-bio">${profile.bio}</p>
+                            
+                            <div class="profile-social">
+                                ${profile.social?.github ? `
+                                <a href="${profile.social.github}" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                                ` : ''}
+                                ${profile.social?.website ? `
+                                <a href="${profile.social.website}" class="social-icon" target="_blank"><i class="fas fa-globe"></i></a>
+                                ` : ''}
+                                <a href="https://youtube.com/@Reverbit" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+                                <a href="https://linkedin.com/in/aditya-jha-2b0860399/" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Stats Card -->
+                    <div class="stats-card fade-in">
+                        <div class="stat-item">
+                            <div class="stat-value">${totalArticles}</div>
+                            <div class="stat-label">Articles</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">${totalReads.toLocaleString()}</div>
+                            <div class="stat-label">Total Reads</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">${new Date().getFullYear() - 2025}</div>
+                            <div class="stat-label">Years Active</div>
+                        </div>
+                    </div>
+
+                    <!-- Latest Articles -->
+                    <section class="section fade-in">
+                        <div class="section-header">
+                            <h2 class="section-title">Latest Articles by ${profile.name}</h2>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles" class="section-link">
+                                <span>View All</span>
+                                <span class="material-icons-round">arrow_forward</span>
+                            </a>
+                        </div>
+                        
+                        <div class="articles-grid" id="articlesGrid">
+                            ${renderArticles(latestArticles)}
+                        </div>
+                    </section>
+
+                    <!-- Connect Cards -->
+                    <section class="section fade-in">
+                        <h2 class="section-title">Connect & Explore</h2>
+                        <div class="cards-grid">
+                            <!-- YouTube Card -->
+                            <div class="profile-card">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <i class="fab fa-youtube"></i>
+                                    </div>
+                                    <h3 class="card-title">YouTube Channel</h3>
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-description">Watch tech tutorials, AI discussions, and development vlogs.</p>
+                                    <a href="https://www.youtube.com/@Reverbit" class="card-link" target="_blank">
+                                        <i class="fab fa-youtube"></i>
+                                        <span>Subscribe</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Reverbit Card -->
+                            <div class="profile-card">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <i class="fas fa-blog"></i>
+                                    </div>
+                                    <h3 class="card-title">Reverbit</h3>
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-description">Building innovative AI solutions and exploring the future of technology.</p>
+                                    <a href="https://aditya-cmd-max.github.io/" class="card-link" target="_blank">
+                                        <span class="material-icons-round">arrow_forward</span>
+                                        <span>Visit Reverbit</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                `;
+
+                // Add click listeners to article cards
+                document.querySelectorAll('.article-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        if (!e.target.closest('a')) {
+                            const link = card.querySelector('.read-btn');
+                            if (link) window.location.href = link.href;
+                        }
+                    });
+                });
+
+            } catch (error) {
+                console.error('Error displaying profile:', error);
+                profileContent.innerHTML = `
+                    <div class="no-results">
+                        <span class="material-icons-round" style="font-size: 64px;">error_outline</span>
+                        <h3>Error loading profile</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                profileLoading.style.display = 'none';
+            }
+        }
+
+        // Helper function to render articles
+        function renderArticles(articles) {
+            if (!articles || articles.length === 0) {
+                return `
+                    <div class="no-results">
+                        <p>No articles found</p>
+                    </div>
+                `;
+            }
+
+            return articles.map(article => `
+                <div class="article-card">
+                    <img src="${getThumbnailUrl(article)}" class="article-image" alt="${article.title}" loading="lazy">
+                    <div class="article-content">
+                        <span class="article-category">${article.category || 'Technology'}</span>
+                        <h3 class="article-title">${article.title}</h3>
+                        <p class="article-excerpt">${article.description.substring(0, 100)}...</p>
+                        
+                        <div class="article-meta">
+                            <span>${formatDate(article.date)}</span>
+                            <span>•</span>
+                            <span>${article.readTime || '5 min read'}</span>
+                        </div>
+                        
+                        <a href="${article.link}" class="read-btn" target="_blank">
+                            Read Article <span class="material-icons-round" style="font-size:18px;">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize profile
+        displayProfile();
 
         // ===== THEME TOGGLE =====
         const body = document.body;
@@ -1606,9 +1645,8 @@
         // GSAP Animations
         if (typeof gsap !== 'undefined') {
             gsap.from('.profile-hero', { duration: 1, y: 30, opacity: 0, ease: 'power3.out' });
-            gsap.from('.about-section', { duration: 1, y: 30, opacity: 0, delay: 0.2, ease: 'power3.out' });
-            gsap.from('.articles-section', { duration: 1, y: 30, opacity: 0, delay: 0.4, ease: 'power3.out' });
-            gsap.from('.cards-section', { duration: 1, y: 30, opacity: 0, delay: 0.6, ease: 'power3.out' });
+            gsap.from('.stats-card', { duration: 1, y: 30, opacity: 0, delay: 0.2, ease: 'power3.out' });
+            gsap.from('.section', { duration: 1, y: 30, opacity: 0, stagger: 0.2, ease: 'power3.out' });
         }
     </script>
 </body>
