@@ -548,6 +548,8 @@
             margin-bottom: 32px;
             padding-bottom: 16px;
             border-bottom: 2px solid var(--md-outline);
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .page-title {
@@ -579,6 +581,193 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
+        }
+
+        /* ===== FILTER SYSTEM (copied from articles page) ===== */
+        .filter-tabs-desktop {
+            display: none;
+            gap: 8px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            background: var(--md-surface-variant);
+            padding: 6px;
+            border-radius: var(--md-radius-pill);
+            width: fit-content;
+        }
+
+        @media (min-width: 768px) {
+            .filter-tabs-desktop {
+                display: flex;
+            }
+        }
+
+        .filter-tab {
+            padding: 10px 24px;
+            border: none;
+            background: transparent;
+            border-radius: var(--md-radius-pill);
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--md-on-surface-variant);
+            cursor: pointer;
+            transition: var(--md-transition);
+            white-space: nowrap;
+        }
+
+        .filter-tab:hover {
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+        }
+
+        .filter-tab.active {
+            background: var(--md-primary);
+            color: white;
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .mobile-filter-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px 20px;
+            margin-bottom: 24px;
+            background: var(--md-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-pill);
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            transition: var(--md-transition);
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-filter-btn {
+                display: none;
+            }
+        }
+
+        .mobile-filter-btn:hover {
+            background: var(--md-surface-variant);
+            border-color: var(--md-primary);
+        }
+
+        .mobile-filter-btn i {
+            color: var(--md-primary);
+        }
+
+        .filter-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 300;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .filter-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .filter-modal {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: var(--md-surface);
+            border-top-left-radius: var(--md-radius-extra-large);
+            border-top-right-radius: var(--md-radius-extra-large);
+            padding: 24px 20px 30px;
+            z-index: 301;
+            transition: bottom 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+            box-shadow: var(--md-elevation-3);
+        }
+
+        .filter-modal.active {
+            bottom: 0;
+        }
+
+        .filter-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--md-outline);
+        }
+
+        .filter-modal-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .filter-modal-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--md-surface-variant);
+            color: var(--md-on-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--md-transition);
+        }
+
+        .filter-modal-close:hover {
+            background: var(--md-primary);
+            color: white;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-option {
+            padding: 16px 20px;
+            border-radius: var(--md-radius-pill);
+            background: var(--md-surface-variant);
+            border: 1px solid transparent;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            transition: var(--md-transition);
+            text-align: left;
+        }
+
+        .filter-option:hover {
+            background: var(--md-primary-container);
+        }
+
+        .filter-option.active {
+            background: var(--md-primary);
+            color: white;
+            border-color: var(--md-primary);
+        }
+
+        .filter-option i {
+            margin-right: 12px;
+            width: 20px;
+            color: var(--md-primary);
+        }
+
+        .filter-option.active i {
+            color: white;
         }
 
         /* Categories Grid */
@@ -598,25 +787,34 @@
             overflow: hidden;
             box-shadow: var(--md-elevation-2);
             border: 1px solid var(--md-outline);
-            transition: var(--md-transition);
+            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
             display: flex;
             flex-direction: column;
             position: relative;
             cursor: pointer;
             height: 100%;
+            animation: cardGlideIn 0.6s ease forwards;
+            will-change: transform, box-shadow;
+        }
+
+        @keyframes cardGlideIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .category-card:hover {
             box-shadow: var(--md-elevation-3);
-            transform: translateY(-6px);
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--md-primary);
         }
 
         .category-header {
             padding: 24px;
-            background: linear-gradient(135deg, var(--md-primary), var(--md-primary-dark, #0d47a1));
+            background: linear-gradient(135deg, var(--md-primary), #0d47a1);
             color: white;
             position: relative;
             overflow: hidden;
+            transition: background 0.3s ease;
         }
 
         .category-header::before {
@@ -643,6 +841,11 @@
             margin-bottom: 16px;
             font-size: 24px;
             color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.05) rotate(5deg);
         }
 
         .category-icon img {
@@ -665,6 +868,10 @@
             opacity: 0.9;
             line-height: 1.5;
             color: white;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .category-content {
@@ -672,6 +879,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            background: var(--md-surface);
         }
 
         .category-stats {
@@ -716,13 +924,22 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: var(--md-transition);
+            transition: all 0.3s ease;
         }
 
         .category-link:hover {
             background: var(--md-primary);
             border-color: var(--md-primary);
             color: white;
+            transform: translateY(-2px);
+        }
+
+        .category-link .material-icons-round {
+            transition: transform 0.3s ease;
+        }
+
+        .category-link:hover .material-icons-round {
+            transform: translateX(4px);
         }
 
         /* Loading Spinner */
@@ -959,21 +1176,13 @@
 
         @media (max-width:480px){
             .page-title{ font-size: 2rem; }
+            .page-title::after { bottom: -12px; }
             .page-header{ flex-direction: column; align-items: flex-start; gap: 16px; }
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease forwards;
+            .category-count { align-self: flex-start; }
         }
     </style>
 </head>
-<body class="light-theme">
+<body>
     <!-- Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
@@ -1043,6 +1252,46 @@
             <div class="category-count" id="categoryCount">
                 <span class="material-icons-round">category</span>
                 <span id="totalCategories">0</span> Categories
+            </div>
+        </div>
+
+        <!-- FILTER SYSTEM (Desktop + Mobile) -->
+        <div class="filter-tabs-desktop" id="filterTabsDesktop">
+            <button class="filter-tab active" data-filter="all">All Categories</button>
+            <button class="filter-tab" data-filter="popular">Most Popular</button>
+            <button class="filter-tab" data-filter="az">A-Z</button>
+            <button class="filter-tab" data-filter="za">Z-A</button>
+        </div>
+
+        <!-- Mobile Filter Button -->
+        <button class="mobile-filter-btn" id="mobileFilterBtn">
+            <i class="fas fa-filter"></i>
+            <span>Filter Categories</span>
+            <span class="material-icons-round" style="margin-left: auto;">arrow_drop_down</span>
+        </button>
+
+        <!-- Filter Modal (Mobile) -->
+        <div class="filter-modal-overlay" id="filterModalOverlay"></div>
+        <div class="filter-modal" id="filterModal">
+            <div class="filter-modal-header">
+                <h3 class="filter-modal-title">Filter Categories</h3>
+                <button class="filter-modal-close" id="filterModalClose">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="filter-options">
+                <button class="filter-option active" data-filter="all">
+                    <i class="fas fa-list-ul"></i> All Categories
+                </button>
+                <button class="filter-option" data-filter="popular">
+                    <i class="fas fa-fire"></i> Most Popular
+                </button>
+                <button class="filter-option" data-filter="az">
+                    <i class="fas fa-sort-alpha-down"></i> A-Z
+                </button>
+                <button class="filter-option" data-filter="za">
+                    <i class="fas fa-sort-alpha-up"></i> Z-A
+                </button>
             </div>
         </div>
 
@@ -1124,7 +1373,6 @@
 
         async function fetchCategories() {
             try {
-                // Using the correct URL for categoriesmarina.json
                 const response = await fetch('https://aditya-cmd-max.github.io/marina/categoriesmarina.json');
                 
                 if (!response.ok) {
@@ -1135,19 +1383,82 @@
                 return categories;
             } catch (error) {
                 console.error('Error fetching categories:', error);
-                // Return empty array instead of fallback to force showing error state
                 return [];
             }
         }
 
+        // ===== FILTER SYSTEM =====
+        let currentFilter = 'all';
+        let originalCategories = [];
+        let originalArticles = [];
+
+        // DOM Elements
+        const categoriesGrid = document.getElementById('categoriesGrid');
+        const totalCategoriesSpan = document.getElementById('totalCategories');
+        
+        // Filter elements
+        const desktopFilterTabs = document.querySelectorAll('#filterTabsDesktop .filter-tab');
+        const mobileFilterBtn = document.getElementById('mobileFilterBtn');
+        const filterModal = document.getElementById('filterModal');
+        const filterModalOverlay = document.getElementById('filterModalOverlay');
+        const filterModalClose = document.getElementById('filterModalClose');
+        const filterOptions = document.querySelectorAll('.filter-option');
+
+        // Filter functions
+        function filterCategories(categories, articles) {
+            if (currentFilter === 'all') return categories;
+            
+            // Count articles per category for popularity
+            const categoryCounts = {};
+            articles.forEach(article => {
+                const cat = article.category || 'Uncategorized';
+                categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+            });
+            
+            if (currentFilter === 'popular') {
+                return [...categories].sort((a, b) => {
+                    const countA = categoryCounts[a.name] || 0;
+                    const countB = categoryCounts[b.name] || 0;
+                    return countB - countA;
+                });
+            }
+            
+            if (currentFilter === 'az') {
+                return [...categories].sort((a, b) => a.name.localeCompare(b.name));
+            }
+            
+            if (currentFilter === 'za') {
+                return [...categories].sort((a, b) => b.name.localeCompare(a.name));
+            }
+            
+            return categories;
+        }
+
+        // Update active filter UI
+        function updateActiveFilter(filter) {
+            desktopFilterTabs.forEach(tab => {
+                if (tab.dataset.filter === filter) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            filterOptions.forEach(option => {
+                if (option.dataset.filter === filter) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+        }
+
         // Helper: Get icon for category
         function getCategoryIcon(category) {
-            // If icon is a URL (like from icons8), use it as an image
             if (category.icon && category.icon.startsWith('http')) {
                 return `<img src="${category.icon}" alt="${category.name}" style="width: 28px; height: 28px; object-fit: contain; filter: brightness(0) invert(1);">`;
             }
             
-            // Otherwise use Material Icon based on name
             const iconMap = {
                 'Programming': 'code',
                 'Artificial Intelligence': 'smart_toy',
@@ -1163,11 +1474,11 @@
         // Helper: Get color for category header based on name
         function getCategoryColor(categoryName) {
             const colorMap = {
-                'Programming': 'linear-gradient(135deg, #1a73e8, #0d47a1)', // Blue
-                'Artificial Intelligence': 'linear-gradient(135deg, #34a853, #0b5e2e)', // Green
-                'Technology': 'linear-gradient(135deg, #fbbc04, #ea8600)', // Yellow/Orange
-                'Education': 'linear-gradient(135deg, #ea4335, #b31412)', // Red
-                'AI & Development': 'linear-gradient(135deg, #8e44ad, #5e2a7c)' // Purple
+                'Programming': 'linear-gradient(135deg, #1a73e8, #0d47a1)',
+                'Artificial Intelligence': 'linear-gradient(135deg, #34a853, #0b5e2e)',
+                'Technology': 'linear-gradient(135deg, #fbbc04, #ea8600)',
+                'Education': 'linear-gradient(135deg, #ea4335, #b31412)',
+                'AI & Development': 'linear-gradient(135deg, #8e44ad, #5e2a7c)'
             };
             
             return colorMap[categoryName] || 'linear-gradient(135deg, #1a73e8, #0d47a1)';
@@ -1175,12 +1486,11 @@
 
         // Display categories
         async function displayCategories() {
-            const categoriesGrid = document.getElementById('categoriesGrid');
-            const totalCategoriesSpan = document.getElementById('totalCategories');
-            
             try {
-                // Fetch both articles and categories
                 const [articles, categories] = await Promise.all([fetchArticles(), fetchCategories()]);
+                
+                originalArticles = articles;
+                originalCategories = categories;
                 
                 if (!categories || categories.length === 0) {
                     categoriesGrid.innerHTML = `
@@ -1188,15 +1498,15 @@
                             <span class="material-icons-round">error_outline</span>
                             <h3>Could not load categories</h3>
                             <p>Please check that categoriesmarina.json exists at the correct location</p>
-                            <p style="font-size: 0.9rem; margin-top: 16px; color: var(--md-on-surface-variant);">
-                                Expected URL: https://aditya-cmd-max.github.io/marina/categoriesmarina.json
-                            </p>
                         </div>
                     `;
                     totalCategoriesSpan.textContent = '0';
                     return;
                 }
 
+                // Apply current filter
+                const filteredCategories = filterCategories(categories, articles);
+                
                 // Update total categories count
                 totalCategoriesSpan.textContent = categories.length;
 
@@ -1207,7 +1517,7 @@
                     categoryCounts[category] = (categoryCounts[category] || 0) + 1;
                 });
 
-                // Count unique authors per category (simulated)
+                // Count unique authors per category
                 const authorCounts = {};
                 const authorSet = new Set();
                 articles.forEach(article => {
@@ -1215,18 +1525,16 @@
                 });
                 const totalAuthors = authorSet.size;
                 
-                // Distribute authors roughly across categories
-                categories.forEach((category, index) => {
+                filteredCategories.forEach((category, index) => {
                     authorCounts[category.name] = Math.max(1, Math.floor(totalAuthors / categories.length) + (index % 2));
                 });
 
                 let html = '';
-                categories.forEach((category, index) => {
+                filteredCategories.forEach((category, index) => {
                     const articleCount = categoryCounts[category.name] || 0;
                     const authorCount = authorCounts[category.name] || Math.floor(Math.random() * 5) + 2;
                     const totalReads = articleCount * (Math.floor(Math.random() * 200) + 100);
                     
-                    // Fix the link - if it's a relative path, make it absolute
                     let categoryLink = category.link;
                     if (categoryLink && !categoryLink.startsWith('http')) {
                         categoryLink = `https://aditya-cmd-max.github.io${categoryLink}`;
@@ -1236,13 +1544,13 @@
                     const iconHtml = getCategoryIcon(category);
                     
                     html += `
-                        <div class="category-card fade-in" style="animation-delay: ${index * 0.1}s;">
+                        <div class="category-card" style="animation-delay: ${index * 0.1}s;">
                             <div class="category-header" style="background: ${gradientColor};">
                                 <div class="category-icon">
                                     ${iconHtml}
                                 </div>
                                 <h3 class="category-name">${category.name}</h3>
-                                <p class="category-description">${category.description}</p>
+                                <p class="category-description">${category.description || 'Explore articles in this category'}</p>
                             </div>
                             <div class="category-content">
                                 <div class="category-stats">
@@ -1307,6 +1615,144 @@
             }
         }
 
+        // ===== FILTER MODAL FUNCTIONS =====
+        function openFilterModal() {
+            filterModal.classList.add('active');
+            filterModalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFilterModal() {
+            filterModal.classList.remove('active');
+            filterModalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ===== EVENT LISTENERS =====
+        
+        // Desktop filter tabs
+        desktopFilterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const filter = tab.dataset.filter;
+                currentFilter = filter;
+                
+                updateActiveFilter(filter);
+                
+                if (originalCategories.length > 0) {
+                    const filtered = filterCategories(originalCategories, originalArticles);
+                    // Re-render with filtered categories
+                    renderFilteredCategories(filtered);
+                }
+            });
+        });
+
+        // Mobile filter button
+        mobileFilterBtn.addEventListener('click', openFilterModal);
+
+        // Filter modal close
+        filterModalClose.addEventListener('click', closeFilterModal);
+        filterModalOverlay.addEventListener('click', closeFilterModal);
+
+        // Filter options in modal
+        filterOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const filter = option.dataset.filter;
+                currentFilter = filter;
+                
+                updateActiveFilter(filter);
+                
+                if (originalCategories.length > 0) {
+                    const filtered = filterCategories(originalCategories, originalArticles);
+                    renderFilteredCategories(filtered);
+                }
+                
+                closeFilterModal();
+            });
+        });
+
+        // Helper to re-render with filtered categories
+        function renderFilteredCategories(filteredCategories) {
+            // Update total categories count (showing filtered count)
+            totalCategoriesSpan.textContent = originalCategories.length;
+            
+            // Count articles per category
+            const categoryCounts = {};
+            originalArticles.forEach(article => {
+                const category = article.category || 'Uncategorized';
+                categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+            });
+
+            // Count unique authors per category
+            const authorCounts = {};
+            const authorSet = new Set();
+            originalArticles.forEach(article => {
+                authorSet.add(article.author);
+            });
+            const totalAuthors = authorSet.size;
+            
+            filteredCategories.forEach((category, index) => {
+                authorCounts[category.name] = Math.max(1, Math.floor(totalAuthors / originalCategories.length) + (index % 2));
+            });
+
+            let html = '';
+            filteredCategories.forEach((category, index) => {
+                const articleCount = categoryCounts[category.name] || 0;
+                const authorCount = authorCounts[category.name] || Math.floor(Math.random() * 5) + 2;
+                const totalReads = articleCount * (Math.floor(Math.random() * 200) + 100);
+                
+                let categoryLink = category.link;
+                if (categoryLink && !categoryLink.startsWith('http')) {
+                    categoryLink = `https://aditya-cmd-max.github.io${categoryLink}`;
+                }
+                
+                const gradientColor = getCategoryColor(category.name);
+                const iconHtml = getCategoryIcon(category);
+                
+                html += `
+                    <div class="category-card" style="animation-delay: ${index * 0.1}s;">
+                        <div class="category-header" style="background: ${gradientColor};">
+                            <div class="category-icon">
+                                ${iconHtml}
+                            </div>
+                            <h3 class="category-name">${category.name}</h3>
+                            <p class="category-description">${category.description || 'Explore articles in this category'}</p>
+                        </div>
+                        <div class="category-content">
+                            <div class="category-stats">
+                                <div class="stat">
+                                    <span class="stat-value">${articleCount}</span>
+                                    <span class="stat-label">Articles</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">${authorCount}</span>
+                                    <span class="stat-label">Authors</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">${totalReads.toLocaleString()}</span>
+                                    <span class="stat-label">Reads</span>
+                                </div>
+                            </div>
+                            <a href="${categoryLink}" class="category-link" target="_blank">
+                                Explore Category <span class="material-icons-round" style="font-size: 18px;">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            categoriesGrid.innerHTML = html;
+
+            // Add card click listeners
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('a')) {
+                        const link = card.querySelector('.category-link');
+                        if (link) window.location.href = link.href;
+                    }
+                });
+            });
+        }
+
         // Initialize categories
         displayCategories();
 
@@ -1359,8 +1805,13 @@
         menuOverlay.addEventListener('click', closeMenu);
         
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && hamburgerMenu.classList.contains('active')) {
-                closeMenu();
+            if (e.key === 'Escape') {
+                if (hamburgerMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+                if (filterModal.classList.contains('active')) {
+                    closeFilterModal();
+                }
             }
         });
 
