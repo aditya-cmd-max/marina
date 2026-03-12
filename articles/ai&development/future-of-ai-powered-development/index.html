@@ -38,20 +38,11 @@
     <meta property="article:tag" content="Future Technology">
     <meta property="article:tag" content="AI Tools">
     <meta property="article:tag" content="Code Generation">
-    
-    <!-- ===== TWITTER CARD META TAGS ===== -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Reverbit">
-    <meta name="twitter:creator" content="@adityajha">
-    <meta name="twitter:title" content="The Future of AI-Powered Development: How Machine Learning is Reshaping Software Engineering">
-    <meta name="twitter:description" content="Discover how AI-powered tools are transforming software development. From automated code generation to intelligent debugging systems.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&h=630&q=80">
-    <meta name="twitter:image:alt" content="AI Development - Machine Learning and Software Engineering">
-    
+      
     <!-- ===== ADDITIONAL SOCIAL META ===== -->
     <meta name="linkedin:owner" content="Aditya Jha">
     
-    <!-- ===== SECURITY HEADERS ===== -->
+    <!-- ===== SECURITY HEADERS (via meta for static sites) ===== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
@@ -91,135 +82,137 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
     
-    <!-- Firebase SDK (loaded normally, not deferred for auth) -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <!-- Firebase (defer) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
+    
+    <!-- Auth.js (defer) -->
+    <script src="https://aditya-cmd-max.github.io/js/auth.js" defer></script>
     
     <!-- ===== SCHEMA.ORG / STRUCTURED DATA ===== -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph":[
     {
-      "@context": "https://schema.org",
-      "@graph":[
+      "@type":"Organization",
+      "@id":"https://aditya-cmd-max.github.io/marina/#organization",
+      "name":"Reverbit Marina",
+      "url":"https://aditya-cmd-max.github.io/marina",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"https://aditya-cmd-max.github.io/Reverbit.svg",
+        "width":160,
+        "height":36
+      },
+      "sameAs":[
+        "https://github.com/aditya-cmd-max",
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/",
+        "https://youtube.com/@Reverbit",
+        "https://twitter.com/Reverbit"
+      ]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://aditya-cmd-max.github.io/marina/profiles/adityajha#person",
+      "name":"Aditya Jha",
+      "url":"https://aditya-cmd-max.github.io/marina/profiles/adityajha",
+      "image":"https://aditya-cmd-max.github.io/adityajha.jpg",
+      "jobTitle":"AI Researcher & Technology Writer",
+      "sameAs":[
+        "https://github.com/aditya-cmd-max",
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/",
+        "https://youtube.com/@Reverbit",
+        "https://twitter.com/adityajha"
+      ],
+      "worksFor":{
+        "@id":"https://aditya-cmd-max.github.io/marina/#organization"
+      }
+    },
+    {
+      "@type":"NewsArticle",
+      "@id":"https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development#article",
+      "headline":"The Future of AI-Powered Development: How Machine Learning is Reshaping Software Engineering",
+      "alternativeHeadline":"How Machine Learning is Reshaping Software Engineering",
+      "description":"Discover how AI-powered tools are transforming software development. From automated code generation to intelligent debugging systems, this comprehensive guide explores the future of software engineering.",
+      "image":[
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995",
+        "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb",
+        "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e"
+      ],
+      "datePublished":"2026-03-09T10:00:00+00:00",
+      "dateModified":"2026-03-12T09:00:00+00:00",
+      "author":{
+        "@id":"https://aditya-cmd-max.github.io/marina/profiles/adityajha#person"
+      },
+      "publisher":{
+        "@id":"https://aditya-cmd-max.github.io/marina/#organization"
+      },
+      "mainEntityOfPage":{
+        "@type":"WebPage",
+        "@id":"https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development"
+      },
+      "articleSection":"AI & Development",
+      "keywords":[
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Software Development",
+        "AI Tools",
+        "Programming",
+        "Code Generation",
+        "Future Technology"
+      ],
+      "inLanguage":"en-US",
+      "isAccessibleForFree":true,
+      "wordCount":2450,
+      "timeRequired":"PT8M",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "The Rise of Intelligent Code Assistants"},
+          {"@type": "ListItem", "position": 2, "name": "Beyond Code Generation: The Full Spectrum"},
+          {"@type": "ListItem", "position": 3, "name": "The Changing Role of Developers"},
+          {"@type": "ListItem", "position": 4, "name": "Real-World Implementation Examples"},
+          {"@type": "ListItem", "position": 5, "name": "Challenges and Considerations"},
+          {"@type": "ListItem", "position": 6, "name": "The Road Ahead: What's Next for AI in Development"},
+          {"@type": "ListItem", "position": 7, "name": "Getting Started with AI-Powered Development"}
+        ]
+      }
+    },
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development#breadcrumb",
+      "itemListElement":[
         {
-          "@type":"Organization",
-          "@id":"https://aditya-cmd-max.github.io/marina/#organization",
-          "name":"Reverbit Marina",
-          "url":"https://aditya-cmd-max.github.io/marina",
-          "logo":{
-            "@type":"ImageObject",
-            "url":"https://aditya-cmd-max.github.io/Reverbit.svg",
-            "width":160,
-            "height":36
-          },
-          "sameAs":[
-            "https://github.com/aditya-cmd-max",
-            "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-            "https://youtube.com/@Reverbit",
-            "https://twitter.com/Reverbit"
-          ]
+          "@type":"ListItem",
+          "position":1,
+          "name":"Home",
+          "item":"https://aditya-cmd-max.github.io/marina/"
         },
         {
-          "@type":"Person",
-          "@id":"https://aditya-cmd-max.github.io/marina/profiles/adityajha#person",
-          "name":"Aditya Jha",
-          "url":"https://aditya-cmd-max.github.io/marina/profiles/adityajha",
-          "image":"https://aditya-cmd-max.github.io/adityajha.jpg",
-          "jobTitle":"AI Researcher & Technology Writer",
-          "sameAs":[
-            "https://github.com/aditya-cmd-max",
-            "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-            "https://youtube.com/@Reverbit",
-            "https://twitter.com/adityajha"
-          ],
-          "worksFor":{
-            "@id":"https://aditya-cmd-max.github.io/marina/#organization"
-          }
+          "@type":"ListItem",
+          "position":2,
+          "name":"Articles",
+          "item":"https://aditya-cmd-max.github.io/marina/articles"
         },
         {
-          "@type":"NewsArticle",
-          "@id":"https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development#article",
-          "headline":"The Future of AI-Powered Development: How Machine Learning is Reshaping Software Engineering",
-          "alternativeHeadline":"How Machine Learning is Reshaping Software Engineering",
-          "description":"Discover how AI-powered tools are transforming software development. From automated code generation to intelligent debugging systems, this comprehensive guide explores the future of software engineering.",
-          "image":[
-            "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-            "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb",
-            "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e"
-          ],
-          "datePublished":"2026-03-09T10:00:00+00:00",
-          "dateModified":"2026-03-12T09:00:00+00:00",
-          "author":{
-            "@id":"https://aditya-cmd-max.github.io/marina/profiles/adityajha#person"
-          },
-          "publisher":{
-            "@id":"https://aditya-cmd-max.github.io/marina/#organization"
-          },
-          "mainEntityOfPage":{
-            "@type":"WebPage",
-            "@id":"https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development"
-          },
-          "articleSection":"AI & Development",
-          "keywords":[
-            "Artificial Intelligence",
-            "Machine Learning",
-            "Software Development",
-            "AI Tools",
-            "Programming",
-            "Code Generation",
-            "Future Technology"
-          ],
-          "inLanguage":"en-US",
-          "isAccessibleForFree":true,
-          "wordCount":2450,
-          "timeRequired":"PT8M",
-          "mainEntity": {
-            "@type": "ItemList",
-            "itemListElement": [
-              {"@type": "ListItem", "position": 1, "name": "The Rise of Intelligent Code Assistants"},
-              {"@type": "ListItem", "position": 2, "name": "Beyond Code Generation: The Full Spectrum"},
-              {"@type": "ListItem", "position": 3, "name": "The Changing Role of Developers"},
-              {"@type": "ListItem", "position": 4, "name": "Real-World Implementation Examples"},
-              {"@type": "ListItem", "position": 5, "name": "Challenges and Considerations"},
-              {"@type": "ListItem", "position": 6, "name": "The Road Ahead: What's Next for AI in Development"},
-              {"@type": "ListItem", "position": 7, "name": "Getting Started with AI-Powered Development"}
-            ]
-          }
+          "@type":"ListItem",
+          "position":3,
+          "name":"AI & Development",
+          "item":"https://aditya-cmd-max.github.io/marina/articles/categories/ai-and-development"
         },
         {
-          "@type":"BreadcrumbList",
-          "@id":"https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development#breadcrumb",
-          "itemListElement":[
-            {
-              "@type":"ListItem",
-              "position":1,
-              "name":"Home",
-              "item":"https://aditya-cmd-max.github.io/marina/"
-            },
-            {
-              "@type":"ListItem",
-              "position":2,
-              "name":"Articles",
-              "item":"https://aditya-cmd-max.github.io/marina/articles"
-            },
-            {
-              "@type":"ListItem",
-              "position":3,
-              "name":"AI & Development",
-              "item":"https://aditya-cmd-max.github.io/marina/articles/categories/ai-and-development"
-            },
-            {
-              "@type":"ListItem",
-              "position":4,
-              "name":"The Future of AI-Powered Development",
-              "item":"https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development"
-            }
-          ]
+          "@type":"ListItem",
+          "position":4,
+          "name":"The Future of AI-Powered Development",
+          "item":"https://aditya-cmd-max.github.io/marina/articles/aianddevelopment/future-of-ai-powered-development"
         }
       ]
     }
-    </script>
+  ]
+}
+</script>
     
     <style>
         /* ===== PROFESSIONAL COLOR SYSTEM WITH DARK MODE ===== */
@@ -259,14 +252,6 @@
             --md-elevation-2: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
             --md-elevation-3: 0 4px 8px 3px rgba(60,64,67,0.15), 0 1px 3px rgba(60,64,67,0.3);
             --md-elevation-4: 0 6px 12px 5px rgba(60,64,67,0.2), 0 2px 6px rgba(60,64,67,0.15);
-            
-            /* Comment system colors */
-            --comment-bg: #ffffff;
-            --comment-border: #e0e0e0;
-            --comment-hover: #f5f5f5;
-            --comment-pinned: #fff9e6;
-            --comment-pinned-border: #ffd700;
-            --comment-like-active: #ff4d4d;
             
             /* Transitions */
             --md-transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
@@ -315,13 +300,6 @@
             --md-outline: #3c4043;
             --md-outline-variant: #5f6368;
             --md-primary-light: #1e2a3a;
-            
-            /* Comment system dark mode */
-            --comment-bg: #2d2d2d;
-            --comment-border: #404040;
-            --comment-hover: #353535;
-            --comment-pinned: #3d3d1a;
-            --comment-pinned-border: #ffd700;
         }
 
         html {
@@ -478,7 +456,7 @@
         }
 
         .header-container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(var(--md-surface-rgb, 255,255,255), 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--md-outline);
@@ -490,14 +468,14 @@
             box-shadow: var(--md-elevation-2);
         }
 
-        .dark-theme .header-container {
-            background: rgba(32, 33, 36, 0.95);
-        }
-
         @media (min-width: 768px) {
             .header-container {
                 padding: 8px 16px 8px 24px;
             }
+        }
+
+        .dark-theme .header-container {
+            background: rgba(32, 33, 36, 0.95);
         }
 
         .logo-wrapper {
@@ -971,6 +949,8 @@
             font-weight: 500;
             color: var(--md-primary);
         }
+
+      
 
         .reading-time {
             display: flex;
@@ -1946,381 +1926,6 @@
             object-fit: cover;
         }
 
-        /* ===== COMMENT SYSTEM STYLES ===== */
-        .comments-section {
-            margin-top: var(--space-2xl);
-            padding-top: var(--space-xl);
-            border-top: 1px solid var(--md-outline);
-        }
-
-        .comments-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--space-xl);
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-
-        .comments-title {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-
-        @media (min-width: 768px) {
-            .comments-title {
-                font-size: 1.8rem;
-            }
-        }
-
-        .comment-count {
-            background: var(--md-surface-variant);
-            padding: 4px 12px;
-            border-radius: var(--md-radius-pill);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Auth Prompt */
-        .auth-prompt {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: var(--space-md) var(--space-lg);
-            background: var(--md-surface-variant);
-            border-radius: var(--md-radius-large);
-            margin-bottom: var(--space-xl);
-            border: 1px solid var(--md-outline);
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--md-primary);
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: var(--space-sm);
-            flex-wrap: wrap;
-        }
-
-        .auth-btn {
-            padding: 8px 16px;
-            background: var(--md-primary);
-            color: white;
-            border: none;
-            border-radius: var(--md-radius-pill);
-            font-family: var(--font-heading);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--md-transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .auth-btn-outline {
-            background: transparent;
-            border: 1px solid var(--md-outline);
-            color: var(--md-on-surface);
-        }
-
-        .auth-btn-outline:hover {
-            background: var(--md-surface);
-        }
-
-        .auth-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--md-elevation-2);
-        }
-
-        .sign-out-btn {
-            padding: 8px 16px;
-            background: transparent;
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-pill);
-            color: var(--md-on-surface);
-            cursor: pointer;
-            transition: var(--md-transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sign-out-btn:hover {
-            background: var(--md-surface-variant);
-        }
-
-        /* Comment Form */
-        .comment-form {
-            margin-bottom: var(--space-xl);
-        }
-
-        .comment-form textarea {
-            width: 100%;
-            min-height: 120px;
-            padding: var(--space-md);
-            background: var(--md-surface);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-large);
-            color: var(--md-on-surface);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            resize: vertical;
-            transition: border-color 0.2s;
-        }
-
-        .comment-form textarea:focus {
-            outline: none;
-            border-color: var(--md-primary);
-            box-shadow: 0 0 0 3px rgba(26,115,232,0.1);
-        }
-
-        .comment-form-footer {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: var(--space-sm);
-            gap: var(--space-sm);
-        }
-
-        /* Comments List */
-        .comments-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-lg);
-        }
-
-        .comment {
-            background: var(--comment-bg);
-            border: 1px solid var(--comment-border);
-            border-radius: var(--radius-large);
-            padding: var(--space-lg);
-            transition: var(--md-transition);
-        }
-
-        .comment.pinned {
-            background: var(--comment-pinned);
-            border-left: 4px solid var(--comment-pinned-border);
-        }
-
-        .comment.reply {
-            margin-left: 40px;
-            border-left: 2px solid var(--md-outline);
-        }
-
-        .comment-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-sm);
-        }
-
-        .comment-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--md-primary);
-        }
-
-        .comment-author-info {
-            flex: 1;
-        }
-
-        .comment-author {
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .pinned-badge {
-            background: var(--comment-pinned-border);
-            color: #000;
-            padding: 2px 8px;
-            border-radius: var(--md-radius-pill);
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-        .comment-time {
-            font-size: 0.8rem;
-            color: var(--md-on-surface-variant);
-        }
-
-        .comment-text {
-            margin-bottom: var(--space-sm);
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-
-        .comment-actions {
-            display: flex;
-            gap: var(--space-sm);
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .comment-action {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 6px 12px;
-            background: var(--md-surface);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-pill);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: var(--md-transition);
-            color: var(--md-on-surface);
-        }
-
-        .comment-action:hover {
-            background: var(--md-primary);
-            color: white;
-            border-color: var(--md-primary);
-        }
-
-        .comment-action.liked {
-            background: var(--comment-like-active);
-            color: white;
-            border-color: var(--comment-like-active);
-        }
-
-        .comment-action.liked i {
-            color: white;
-        }
-
-        .comment-action i {
-            font-size: 1rem;
-        }
-
-        .reply-form {
-            margin-top: var(--space-md);
-            padding-left: 40px;
-        }
-
-        .reply-form textarea {
-            width: 100%;
-            min-height: 80px;
-            padding: var(--space-sm);
-            background: var(--md-surface);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-medium);
-            color: var(--md-on-surface);
-            font-family: var(--font-body);
-            resize: vertical;
-        }
-
-        .reply-form-footer {
-            display: flex;
-            justify-content: flex-end;
-            gap: var(--space-sm);
-            margin-top: var(--space-sm);
-        }
-
-        .replies-count {
-            cursor: pointer;
-            color: var(--md-primary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-left: 40px;
-        }
-
-        .replies-count:hover {
-            text-decoration: underline;
-        }
-
-        .edit-form {
-            margin-top: var(--space-sm);
-        }
-
-        .edit-form textarea {
-            width: 100%;
-            min-height: 80px;
-            padding: var(--space-sm);
-            background: var(--md-surface);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-medium);
-            color: var(--md-on-surface);
-            margin-bottom: var(--space-sm);
-        }
-
-        .load-more {
-            text-align: center;
-            margin-top: var(--space-xl);
-        }
-
-        .load-more-btn {
-            padding: 12px 32px;
-            background: var(--md-surface-variant);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-pill);
-            color: var(--md-on-surface);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--md-transition);
-        }
-
-        .load-more-btn:hover {
-            background: var(--md-primary);
-            color: white;
-        }
-
-        /* Modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: var(--z-modal);
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--md-surface);
-            border-radius: var(--md-radius-large);
-            padding: var(--space-xl);
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-lg);
-            justify-content: center;
-        }
-
         /* ===== FOOTER ===== */
         .footer {
             background: var(--md-surface);
@@ -2768,8 +2373,7 @@
             .menu-overlay,
             .hamburger-menu,
             .mesh-background,
-            .mesh-overlay,
-            .comments-section {
+            .mesh-overlay {
                 display: none !important;
             }
             
@@ -2873,6 +2477,9 @@
                     <span class="material-icons-round" aria-hidden="true">dark_mode</span>
                 </button>
                 
+                <!-- Auth avatar -->
+                <div id="authAvatarContainer"></div>
+                
                 <!-- Hamburger button -->
                 <button class="icon-btn hamburger-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
                     <span class="material-icons-round" aria-hidden="true">menu</span>
@@ -2918,6 +2525,7 @@
                             </span>
                         </div>
                     </div>
+                   
                 </div>
                 
                 <div class="hero-image-container">
@@ -3181,48 +2789,6 @@ app.post('/api/users', async (req, res) => {
                 </div>
             </div>
         </section>
-
-        <!-- ===== COMMENT SYSTEM ===== -->
-        <section class="comments-section" id="comments-section" aria-labelledby="comments-title">
-            <div class="comments-header">
-                <h2 id="comments-title" class="comments-title">
-                    <i class="fas fa-comments" aria-hidden="true"></i>
-                    Discussion
-                    <span class="comment-count" id="comment-count">0</span>
-                </h2>
-                <button class="icon-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <span class="material-icons-round" aria-hidden="true">dark_mode</span>
-                </button>
-            </div>
-
-            <!-- Authentication Section -->
-            <div class="auth-prompt" id="authPrompt">
-                <!-- Will be populated by JavaScript -->
-            </div>
-
-            <!-- Comment Form (hidden when not logged in) -->
-            <div class="comment-form" id="commentForm" style="display: none;">
-                <textarea id="commentInput" placeholder="Share your thoughts..." aria-label="Comment text"></textarea>
-                <div class="comment-form-footer">
-                    <button class="btn btn-outlined" onclick="clearCommentForm()">Cancel</button>
-                    <button class="btn btn-filled" onclick="submitComment()">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Post Comment
-                    </button>
-                </div>
-            </div>
-
-            <!-- Comments List -->
-            <div id="commentsList" class="comments-list">
-                <div class="loading-spinner" aria-label="Loading comments">
-                    <div class="spinner"></div>
-                </div>
-            </div>
-
-            <!-- Load More Comments -->
-            <div class="load-more" id="loadMore">
-                <button class="load-more-btn" onclick="loadMoreComments()">Load More Comments</button>
-            </div>
-        </section>
     </main>
 
     <!-- Back to Top Button -->
@@ -3269,18 +2835,6 @@ app.post('/api/users', async (req, res) => {
                 <label for="shareLink" class="visually-hidden">Article link</label>
                 <input type="text" class="share-link-input" id="shareLink" value="" readonly>
                 <button class="share-link-copy" id="shareLinkCopy" aria-label="Copy link to clipboard">Copy</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Delete Confirmation Modal -->
-    <div class="modal" id="deleteModal">
-        <div class="modal-content">
-            <h3 style="margin-bottom: var(--space-md);">Delete Comment</h3>
-            <p>Are you sure you want to delete this comment? This action cannot be undone.</p>
-            <div class="modal-buttons">
-                <button class="btn btn-outlined" onclick="closeDeleteModal()">Cancel</button>
-                <button class="btn btn-danger" style="background: var(--error); color: white;" onclick="confirmDelete()">Delete</button>
             </div>
         </div>
     </div>
@@ -3346,51 +2900,7 @@ app.post('/api/users', async (req, res) => {
         (function() {
             'use strict';
 
-            // ===== FIREBASE CONFIGURATION =====
-            const firebaseConfig = {
-                apiKey: "AIzaSyDE0eix0uVHuUS5P5DbuPA-SZt6pD8ob8A",
-                authDomain: "reverbit11.firebaseapp.com",
-                databaseURL: "https://reverbit11-default-rtdb.firebaseio.com",
-                projectId: "reverbit11",
-                storageBucket: "reverbit11.firebasestorage.app",
-                messagingSenderId: "607495314412",
-                appId: "1:607495314412:web:8c098f88b0d3b4620f7ec9",
-                measurementId: "G-DMWMRM1M47"
-            };
-
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            const auth = firebase.auth();
-            const database = firebase.database();
-            const db = firebase.firestore();
-
-            // ===== CONSTANTS =====
-            const ARTICLE_ID = 'future-ai-powered-development-2026';
-            const COMMENTS_PER_PAGE = 10;
-            const ADMIN_EMAIL = 'adityajha1104@gmail.com';
-            const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
-            const ARTICLES_CACHE_KEY = 'marina_articles_cache';
-            const TAGS_CACHE_KEY = 'marina_tags_cache';
-            const BOOKMARKS_KEY = 'articleBookmarks';
-
-            // ===== STATE =====
-            let currentUser = null;
-            let comments = {};
-            let replies = {};
-            let commentLikes = {};
-            let currentPage = 1;
-            let hasMoreComments = true;
-            let deleteTargetId = null;
-            let currentEditId = null;
-            let currentReplyId = null;
-            let loading = false;
-            let isTocCollapsed = false;
-            let isLiked = false;
-            let isBookmarked = false;
-            let articles = [];
-            let tags = [];
-
-            // ===== DOM ELEMENTS =====
+            // DOM Elements
             const themeToggle = document.getElementById('desktopThemeToggle');
             const themeIcon = themeToggle?.querySelector('.material-icons-round');
             const readingProgress = document.getElementById('reading-progress');
@@ -3421,14 +2931,19 @@ app.post('/api/users', async (req, res) => {
             const menuOverlay = document.getElementById('menuOverlay');
             const menuContent = document.getElementById('menuContent');
 
-            // Comment system DOM elements
-            const commentForm = document.getElementById('commentForm');
-            const commentInput = document.getElementById('commentInput');
-            const commentsList = document.getElementById('commentsList');
-            const commentCount = document.getElementById('comment-count');
-            const loadMoreBtn = document.querySelector('.load-more-btn');
-            const authPrompt = document.getElementById('authPrompt');
-            const deleteModal = document.getElementById('deleteModal');
+            // Constants
+            const CURRENT_ARTICLE_ID = 'future-ai-powered-development';
+            const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+            const ARTICLES_CACHE_KEY = 'marina_articles_cache';
+            const TAGS_CACHE_KEY = 'marina_tags_cache';
+            const BOOKMARKS_KEY = 'articleBookmarks';
+
+            // State
+            let isTocCollapsed = false;
+            let isLiked = false;
+            let isBookmarked = false;
+            let articles = [];
+            let tags = [];
 
             // ===== UTILITY FUNCTIONS =====
             function debounce(func, wait) {
@@ -3455,637 +2970,10 @@ app.post('/api/users', async (req, res) => {
             }
 
             function sanitizeHTML(str) {
-                if (!str) return '';
                 const div = document.createElement('div');
                 div.textContent = str;
                 return div.innerHTML;
             }
-
-            function formatDate(timestamp) {
-                if (!timestamp) return 'Just now';
-                const date = new Date(timestamp);
-                const now = new Date();
-                const diff = now - date;
-                
-                if (diff < 60000) return 'Just now';
-                if (diff < 3600000) return `${Math.floor(diff / 60000)} minutes ago`;
-                if (diff < 86400000) return `${Math.floor(diff / 3600000)} hours ago`;
-                if (diff < 604800000) return `${Math.floor(diff / 86400000)} days ago`;
-                
-                return date.toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'short', 
-                    day: 'numeric' 
-                });
-            }
-
-            // ===== AUTHENTICATION =====
-            function setupAuthListener() {
-                auth.onAuthStateChanged(user => {
-                    currentUser = user;
-                    updateAuthUI();
-                    
-                    if (user) {
-                        loadUserLikes();
-                    }
-                    
-                    // Reload comments to update UI (edit/delete permissions)
-                    loadComments(true);
-                });
-            }
-
-            function updateAuthUI() {
-                if (!authPrompt) return;
-
-                if (currentUser) {
-                    const photoURL = currentUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentUser.displayName || 'User')}&background=1a73e8&color=fff`;
-                    
-                    authPrompt.innerHTML = `
-                        <div class="user-info">
-                            <img src="${photoURL}" alt="${sanitizeHTML(currentUser.displayName || 'User')}" class="user-avatar">
-                            <span>${sanitizeHTML(currentUser.displayName || 'User')}</span>
-                        </div>
-                        <div>
-                            <button class="sign-out-btn" onclick="signOut()">
-                                <i class="fas fa-sign-out-alt"></i> Sign Out
-                            </button>
-                        </div>
-                    `;
-                    
-                    if (commentForm) commentForm.style.display = 'block';
-                } else {
-                    authPrompt.innerHTML = `
-                        <div class="user-info">
-                            <i class="fas fa-user-circle" style="font-size: 2rem; color: var(--md-primary);"></i>
-                            <span>Sign in to join the discussion</span>
-                        </div>
-                        <div class="auth-buttons">
-                            <button class="auth-btn" onclick="signInWithGoogle()">
-                                <i class="fab fa-google"></i> Google
-                            </button>
-                            <button class="auth-btn auth-btn-outline" onclick="signInAnonymously()">
-                                <i class="fas fa-user"></i> Guest
-                            </button>
-                        </div>
-                    `;
-                    
-                    if (commentForm) commentForm.style.display = 'none';
-                }
-            }
-
-            window.signInWithGoogle = () => {
-                const provider = new firebase.auth.GoogleAuthProvider();
-                auth.signInWithPopup(provider).catch(error => {
-                    console.error('Sign in error:', error);
-                    showToast('Error signing in: ' + error.message, 'error');
-                });
-            };
-
-            window.signInAnonymously = () => {
-                auth.signInAnonymously().catch(error => {
-                    console.error('Sign in error:', error);
-                    showToast('Error signing in: ' + error.message, 'error');
-                });
-            };
-
-            window.signOut = () => {
-                auth.signOut().catch(error => {
-                    console.error('Sign out error:', error);
-                    showToast('Error signing out: ' + error.message, 'error');
-                });
-            };
-
-            // ===== COMMENT FUNCTIONS =====
-            window.submitComment = async () => {
-                if (!currentUser) {
-                    showToast('Please sign in to comment', 'error');
-                    return;
-                }
-
-                const text = commentInput?.value.trim();
-                if (!text) {
-                    showToast('Please enter a comment', 'error');
-                    return;
-                }
-
-                if (text.length > 1000) {
-                    showToast('Comment must be less than 1000 characters', 'error');
-                    return;
-                }
-
-                const commentId = database.ref().child('comments').push().key;
-                const comment = {
-                    text: text,
-                    userId: currentUser.uid,
-                    username: currentUser.displayName || 'Guest User',
-                    userPhoto: currentUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentUser.displayName || 'Guest')}&background=1a73e8&color=fff`,
-                    createdAt: firebase.database.ServerValue.TIMESTAMP,
-                    parentId: null,
-                    likesCount: 0,
-                    pinned: false
-                };
-
-                try {
-                    await database.ref(`comments/${ARTICLE_ID}/${commentId}`).set(comment);
-                    if (commentInput) commentInput.value = '';
-                    showToast('Comment posted successfully!');
-                    loadComments(true);
-                } catch (error) {
-                    console.error('Error posting comment:', error);
-                    showToast('Error posting comment: ' + error.message, 'error');
-                }
-            };
-
-            window.clearCommentForm = () => {
-                if (commentInput) commentInput.value = '';
-            };
-
-            window.replyToComment = (parentId) => {
-                if (!currentUser) {
-                    showToast('Please sign in to reply', 'error');
-                    return;
-                }
-
-                currentReplyId = parentId;
-                const replyForm = document.getElementById(`reply-form-${parentId}`);
-                
-                if (replyForm) {
-                    replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
-                } else {
-                    const commentElement = document.getElementById(`comment-${parentId}`);
-                    if (commentElement) {
-                        const formHtml = `
-                            <div class="reply-form" id="reply-form-${parentId}">
-                                <textarea id="reply-input-${parentId}" placeholder="Write your reply..." aria-label="Reply text"></textarea>
-                                <div class="reply-form-footer">
-                                    <button class="btn btn-outlined" onclick="cancelReply('${parentId}')">Cancel</button>
-                                    <button class="btn btn-filled" onclick="submitReply('${parentId}')">Post Reply</button>
-                                </div>
-                            </div>
-                        `;
-                        commentElement.insertAdjacentHTML('afterend', formHtml);
-                    }
-                }
-            };
-
-            window.cancelReply = (parentId) => {
-                const replyForm = document.getElementById(`reply-form-${parentId}`);
-                if (replyForm) {
-                    replyForm.remove();
-                }
-                currentReplyId = null;
-            };
-
-            window.submitReply = async (parentId) => {
-                if (!currentUser) return;
-
-                const text = document.getElementById(`reply-input-${parentId}`)?.value.trim();
-                if (!text) {
-                    showToast('Please enter a reply', 'error');
-                    return;
-                }
-
-                if (text.length > 1000) {
-                    showToast('Reply must be less than 1000 characters', 'error');
-                    return;
-                }
-
-                const commentId = database.ref().child('comments').push().key;
-                const reply = {
-                    text: text,
-                    userId: currentUser.uid,
-                    username: currentUser.displayName || 'Guest User',
-                    userPhoto: currentUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentUser.displayName || 'Guest')}&background=1a73e8&color=fff`,
-                    createdAt: firebase.database.ServerValue.TIMESTAMP,
-                    parentId: parentId,
-                    likesCount: 0,
-                    pinned: false
-                };
-
-                try {
-                    await database.ref(`comments/${ARTICLE_ID}/${commentId}`).set(reply);
-                    showToast('Reply posted successfully!');
-                    cancelReply(parentId);
-                    loadComments(true);
-                } catch (error) {
-                    console.error('Error posting reply:', error);
-                    showToast('Error posting reply: ' + error.message, 'error');
-                }
-            };
-
-            window.likeComment = async (commentId) => {
-                if (!currentUser) {
-                    showToast('Please sign in to like comments', 'error');
-                    return;
-                }
-
-                const likeRef = database.ref(`commentLikes/${commentId}/${currentUser.uid}`);
-                const commentRef = database.ref(`comments/${ARTICLE_ID}/${commentId}`);
-
-                try {
-                    const snapshot = await likeRef.once('value');
-                    const hasLiked = snapshot.exists();
-
-                    if (hasLiked) {
-                        await likeRef.remove();
-                        await commentRef.child('likesCount').transaction(current => Math.max(0, (current || 1) - 1));
-                    } else {
-                        await likeRef.set(true);
-                        await commentRef.child('likesCount').transaction(current => (current || 0) + 1);
-                    }
-
-                    // Update UI
-                    const likeBtn = document.getElementById(`like-btn-${commentId}`);
-                    const likesSpan = document.getElementById(`likes-${commentId}`);
-                    
-                    if (likeBtn) {
-                        if (hasLiked) {
-                            likeBtn.classList.remove('liked');
-                        } else {
-                            likeBtn.classList.add('liked');
-                        }
-                    }
-                    
-                    if (likesSpan) {
-                        const current = parseInt(likesSpan.textContent) || 0;
-                        likesSpan.textContent = hasLiked ? current - 1 : current + 1;
-                    }
-                } catch (error) {
-                    console.error('Error updating like:', error);
-                    showToast('Error updating like', 'error');
-                }
-            };
-
-            window.editComment = (commentId) => {
-                if (currentEditId === commentId) {
-                    const editForm = document.getElementById(`edit-form-${commentId}`);
-                    if (editForm) editForm.remove();
-                    currentEditId = null;
-                    return;
-                }
-
-                if (currentEditId) {
-                    const oldEdit = document.getElementById(`edit-form-${currentEditId}`);
-                    if (oldEdit) oldEdit.remove();
-                }
-
-                currentEditId = commentId;
-                const comment = comments[commentId];
-                
-                if (!comment) return;
-
-                const commentElement = document.getElementById(`comment-${commentId}`);
-                const editHtml = `
-                    <div class="edit-form" id="edit-form-${commentId}">
-                        <textarea id="edit-input-${commentId}">${sanitizeHTML(comment.text)}</textarea>
-                        <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                            <button class="btn btn-outlined" onclick="editComment('${commentId}')">Cancel</button>
-                            <button class="btn btn-filled" onclick="saveEdit('${commentId}')">Save</button>
-                        </div>
-                    </div>
-                `;
-
-                commentElement.insertAdjacentHTML('beforeend', editHtml);
-            };
-
-            window.saveEdit = async (commentId) => {
-                const newText = document.getElementById(`edit-input-${commentId}`)?.value.trim();
-                
-                if (!newText) {
-                    showToast('Comment cannot be empty', 'error');
-                    return;
-                }
-
-                if (newText.length > 1000) {
-                    showToast('Comment must be less than 1000 characters', 'error');
-                    return;
-                }
-
-                try {
-                    await database.ref(`comments/${ARTICLE_ID}/${commentId}/text`).set(newText);
-                    showToast('Comment updated successfully!');
-                    
-                    const editForm = document.getElementById(`edit-form-${commentId}`);
-                    if (editForm) editForm.remove();
-                    currentEditId = null;
-                    
-                    // Update UI
-                    const commentText = document.querySelector(`#comment-${commentId} .comment-text`);
-                    if (commentText) {
-                        commentText.textContent = newText;
-                    }
-                } catch (error) {
-                    console.error('Error updating comment:', error);
-                    showToast('Error updating comment', 'error');
-                }
-            };
-
-            window.deleteComment = (commentId) => {
-                deleteTargetId = commentId;
-                deleteModal?.classList.add('active');
-            };
-
-            window.closeDeleteModal = () => {
-                deleteTargetId = null;
-                deleteModal?.classList.remove('active');
-            };
-
-            window.confirmDelete = async () => {
-                if (!deleteTargetId) return;
-
-                try {
-                    await database.ref(`comments/${ARTICLE_ID}/${deleteTargetId}`).remove();
-                    showToast('Comment deleted successfully!');
-                    closeDeleteModal();
-                    loadComments(true);
-                } catch (error) {
-                    console.error('Error deleting comment:', error);
-                    showToast('Error deleting comment', 'error');
-                }
-            };
-
-            window.pinComment = async (commentId) => {
-                if (!currentUser || currentUser.email !== ADMIN_EMAIL) {
-                    showToast('Only admins can pin comments', 'error');
-                    return;
-                }
-
-                try {
-                    const commentRef = database.ref(`comments/${ARTICLE_ID}/${commentId}`);
-                    const snapshot = await commentRef.once('value');
-                    const comment = snapshot.val();
-                    
-                    await commentRef.child('pinned').set(!comment.pinned);
-                    showToast(comment.pinned ? 'Comment unpinned' : 'Comment pinned');
-                    loadComments(true);
-                } catch (error) {
-                    console.error('Error pinning comment:', error);
-                    showToast('Error pinning comment', 'error');
-                }
-            };
-
-            window.toggleReplies = (commentId) => {
-                const repliesContainer = document.getElementById(`replies-${commentId}`);
-                const toggleText = document.getElementById(`toggle-text-${commentId}`);
-                
-                if (repliesContainer) {
-                    const isHidden = repliesContainer.style.display === 'none';
-                    repliesContainer.style.display = isHidden ? 'block' : 'none';
-                    if (toggleText) {
-                        toggleText.textContent = isHidden ? 'Hide replies' : 'Show replies';
-                    }
-                }
-            };
-
-            // ===== LOAD COMMENTS =====
-            async function loadComments(reset = false) {
-                if (loading) return;
-                loading = true;
-
-                if (reset) {
-                    currentPage = 1;
-                    hasMoreComments = true;
-                    if (commentsList) {
-                        commentsList.innerHTML = '<div class="loading-spinner" aria-label="Loading comments"><div class="spinner"></div></div>';
-                    }
-                }
-
-                try {
-                    const commentsRef = database.ref(`comments/${ARTICLE_ID}`);
-                    const snapshot = await commentsRef.orderByChild('createdAt').once('value');
-                    
-                    if (!commentsList) return;
-
-                    if (!snapshot.exists()) {
-                        commentsList.innerHTML = '<p style="text-align: center; color: var(--md-on-surface-variant); padding: 40px;">No comments yet. Be the first to share your thoughts!</p>';
-                        if (commentCount) commentCount.textContent = '0';
-                        if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-                        loading = false;
-                        return;
-                    }
-
-                    const allComments = [];
-                    snapshot.forEach(child => {
-                        allComments.push({
-                            id: child.key,
-                            ...child.val()
-                        });
-                    });
-
-                    // Separate main comments and replies
-                    const mainComments = allComments.filter(c => !c.parentId);
-                    const repliesMap = {};
-                    
-                    allComments.forEach(c => {
-                        if (c.parentId) {
-                            if (!repliesMap[c.parentId]) {
-                                repliesMap[c.parentId] = [];
-                            }
-                            repliesMap[c.parentId].push(c);
-                        }
-                    });
-
-                    // Sort replies by date
-                    Object.keys(repliesMap).forEach(key => {
-                        repliesMap[key].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
-                    });
-
-                    // Store in global
-                    comments = {};
-                    allComments.forEach(c => { comments[c.id] = c; });
-                    replies = repliesMap;
-
-                    // Update count
-                    if (commentCount) {
-                        commentCount.textContent = allComments.length;
-                    }
-
-                    // Sort main comments: pinned first, then by date
-                    mainComments.sort((a, b) => {
-                        if (a.pinned && !b.pinned) return -1;
-                        if (!a.pinned && b.pinned) return 1;
-                        return (b.createdAt || 0) - (a.createdAt || 0);
-                    });
-
-                    // Paginate
-                    const start = (currentPage - 1) * COMMENTS_PER_PAGE;
-                    const end = start + COMMENTS_PER_PAGE;
-                    const pageComments = mainComments.slice(start, end);
-                    
-                    hasMoreComments = end < mainComments.length;
-
-                    // Render comments
-                    if (reset) {
-                        commentsList.innerHTML = '';
-                    }
-
-                    for (const comment of pageComments) {
-                        commentsList.appendChild(createCommentElement(comment));
-                    }
-
-                    if (loadMoreBtn) {
-                        loadMoreBtn.style.display = hasMoreComments ? 'inline-block' : 'none';
-                    }
-                } catch (error) {
-                    console.error('Error loading comments:', error);
-                    if (commentsList) {
-                        commentsList.innerHTML = '<p style="text-align: center; color: var(--error); padding: 40px;">Error loading comments. Please refresh the page.</p>';
-                    }
-                }
-
-                loading = false;
-            }
-
-            function createCommentElement(comment) {
-                const div = document.createElement('div');
-                div.className = `comment${comment.pinned ? ' pinned' : ''}`;
-                div.id = `comment-${comment.id}`;
-
-                const time = formatDate(comment.createdAt);
-                const isAdmin = currentUser && currentUser.email === ADMIN_EMAIL;
-                const isOwner = currentUser && currentUser.uid === comment.userId;
-                const canModify = isOwner || isAdmin;
-
-                let actionsHtml = `
-                    <div class="comment-actions">
-                        <button class="comment-action" onclick="likeComment('${comment.id}')" id="like-btn-${comment.id}">
-                            <i class="fas fa-heart"></i>
-                            <span id="likes-${comment.id}">${comment.likesCount || 0}</span>
-                        </button>
-                        <button class="comment-action" onclick="replyToComment('${comment.id}')">
-                            <i class="fas fa-reply"></i> Reply
-                        </button>
-                `;
-
-                if (canModify) {
-                    actionsHtml += `
-                        <button class="comment-action" onclick="editComment('${comment.id}')">
-                            <i class="fas fa-edit"></i> Edit
-                        </button>
-                        <button class="comment-action" onclick="deleteComment('${comment.id}')" style="color: var(--error);">
-                            <i class="fas fa-trash"></i> Delete
-                        </button>
-                    `;
-                }
-
-                if (isAdmin) {
-                    actionsHtml += `
-                        <button class="comment-action" onclick="pinComment('${comment.id}')">
-                            <i class="fas fa-thumbtack"></i> ${comment.pinned ? 'Unpin' : 'Pin'}
-                        </button>
-                    `;
-                }
-
-                actionsHtml += `</div>`;
-
-                const repliesCount = replies[comment.id]?.length || 0;
-                const repliesHtml = repliesCount > 0 ? `
-                    <div class="replies-count" onclick="toggleReplies('${comment.id}')">
-                        <i class="fas fa-comment-dots"></i>
-                        <span id="toggle-text-${comment.id}">Show replies</span> (${repliesCount})
-                    </div>
-                    <div id="replies-${comment.id}" style="display: none;">
-                        ${replies[comment.id]?.map(reply => createReplyElement(reply)).join('')}
-                    </div>
-                ` : '';
-
-                div.innerHTML = `
-                    <div class="comment-header">
-                        <img src="${comment.userPhoto}" alt="${sanitizeHTML(comment.username)}" class="comment-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(comment.username)}&background=1a73e8&color=fff'">
-                        <div class="comment-author-info">
-                            <div class="comment-author">
-                                <span class="username">${sanitizeHTML(comment.username)}</span>
-                                ${comment.pinned ? '<span class="pinned-badge"><i class="fas fa-thumbtack"></i> Pinned</span>' : ''}
-                            </div>
-                            <div class="comment-time">${time}</div>
-                        </div>
-                    </div>
-                    <div class="comment-text">${sanitizeHTML(comment.text)}</div>
-                    ${actionsHtml}
-                    ${repliesHtml}
-                `;
-
-                // Update like button state if user has liked
-                if (currentUser && commentLikes[comment.id] && commentLikes[comment.id][currentUser.uid]) {
-                    const likeBtn = div.querySelector(`#like-btn-${comment.id}`);
-                    if (likeBtn) {
-                        likeBtn.classList.add('liked');
-                    }
-                }
-
-                return div;
-            }
-
-            function createReplyElement(reply) {
-                const time = formatDate(reply.createdAt);
-                const isAdmin = currentUser && currentUser.email === ADMIN_EMAIL;
-                const isOwner = currentUser && currentUser.uid === reply.userId;
-                const canModify = isOwner || isAdmin;
-
-                let actionsHtml = `
-                    <div class="comment-actions">
-                        <button class="comment-action" onclick="likeComment('${reply.id}')" id="like-btn-${reply.id}">
-                            <i class="fas fa-heart"></i>
-                            <span id="likes-${reply.id}">${reply.likesCount || 0}</span>
-                        </button>
-                `;
-
-                if (canModify) {
-                    actionsHtml += `
-                        <button class="comment-action" onclick="editComment('${reply.id}')">
-                            <i class="fas fa-edit"></i> Edit
-                        </button>
-                        <button class="comment-action" onclick="deleteComment('${reply.id}')" style="color: var(--error);">
-                            <i class="fas fa-trash"></i> Delete
-                        </button>
-                    `;
-                }
-
-                if (isAdmin) {
-                    actionsHtml += `
-                        <button class="comment-action" onclick="pinComment('${reply.id}')">
-                            <i class="fas fa-thumbtack"></i> ${reply.pinned ? 'Unpin' : 'Pin'}
-                        </button>
-                    `;
-                }
-
-                actionsHtml += `</div>`;
-
-                return `
-                    <div class="comment reply" id="comment-${reply.id}">
-                        <div class="comment-header">
-                            <img src="${reply.userPhoto}" alt="${sanitizeHTML(reply.username)}" class="comment-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(reply.username)}&background=1a73e8&color=fff'">
-                            <div class="comment-author-info">
-                                <div class="comment-author">
-                                    <span class="username">${sanitizeHTML(reply.username)}</span>
-                                    ${reply.pinned ? '<span class="pinned-badge"><i class="fas fa-thumbtack"></i> Pinned</span>' : ''}
-                                </div>
-                                <div class="comment-time">${time}</div>
-                            </div>
-                        </div>
-                        <div class="comment-text">${sanitizeHTML(reply.text)}</div>
-                        ${actionsHtml}
-                    </div>
-                `;
-            }
-
-            async function loadUserLikes() {
-                if (!currentUser) return;
-
-                try {
-                    const snapshot = await database.ref('commentLikes').once('value');
-                    if (snapshot.exists()) {
-                        commentLikes = snapshot.val();
-                    }
-                } catch (error) {
-                    console.error('Error loading likes:', error);
-                }
-            }
-
-            window.loadMoreComments = () => {
-                currentPage++;
-                loadComments();
-            };
 
             // ===== THEME MANAGEMENT =====
             function initTheme() {
@@ -4093,29 +2981,21 @@ app.post('/api/users', async (req, res) => {
                 if (savedTheme === 'dark') {
                     document.body.classList.add('dark-theme');
                     if (themeIcon) themeIcon.textContent = 'light_mode';
-                    updateThemeToggleButtons('light_mode');
-                } else {
-                    updateThemeToggleButtons('dark_mode');
                 }
             }
 
-            function updateThemeToggleButtons(icon) {
-                const themeIcons = document.querySelectorAll('.theme-toggle .material-icons-round, #menuThemeToggle .material-icons-round');
-                themeIcons.forEach(el => {
-                    if (el) el.textContent = icon;
-                });
-            }
-
-            window.toggleTheme = function() {
+            function toggleTheme() {
                 document.body.classList.toggle('dark-theme');
                 const isDark = document.body.classList.contains('dark-theme');
-                const icon = isDark ? 'light_mode' : 'dark_mode';
-                
-                if (themeIcon) themeIcon.textContent = icon;
-                updateThemeToggleButtons(icon);
-                
+                if (themeIcon) themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            };
+                
+                // Update menu theme toggle if exists
+                const menuThemeIcon = document.querySelector('#menuThemeToggle .material-icons-round');
+                if (menuThemeIcon) {
+                    menuThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+                }
+            }
 
             // ===== READING PROGRESS =====
             function updateReadingProgress() {
@@ -4207,24 +3087,6 @@ app.post('/api/users', async (req, res) => {
                 });
             }
 
-            // ===== TOC TOGGLE =====
-            function initTocToggle() {
-                if (!tocHeader || !tocContent || !tocToggle || !tocIcon) return;
-
-                tocHeader.addEventListener('click', toggleToc);
-                tocToggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    toggleToc();
-                });
-
-                function toggleToc() {
-                    isTocCollapsed = !isTocCollapsed;
-                    tocContent.classList.toggle('collapsed', isTocCollapsed);
-                    tocIcon.textContent = isTocCollapsed ? 'expand_more' : 'expand_less';
-                    tocHeader.setAttribute('aria-expanded', !isTocCollapsed);
-                }
-            }
-
             // ===== FETCH DATA WITH CACHE =====
             async function fetchWithCache(url, cacheKey, duration) {
                 const cached = localStorage.getItem(cacheKey);
@@ -4253,6 +3115,7 @@ app.post('/api/users', async (req, res) => {
                     return data;
                 } catch (error) {
                     console.error(`Error fetching ${url}:`, error);
+                    showToast('Failed to load data. Please refresh the page.', 'error');
                     return [];
                 }
             }
@@ -4282,7 +3145,7 @@ app.post('/api/users', async (req, res) => {
                     tags = tagsData;
                     articles = articlesData;
                     
-                    const currentArticle = articles.find(a => a.id === 'future-ai-powered-development');
+                    const currentArticle = articles.find(a => a.id === CURRENT_ARTICLE_ID);
                     
                     if (!currentArticle?.tags?.length) {
                         articleTags.innerHTML = '';
@@ -4322,7 +3185,7 @@ app.post('/api/users', async (req, res) => {
                 return `https://ui-avatars.com/api/?name=${encodeURIComponent(article.author || 'Author')}&background=1a73e8&color=fff`;
             }
 
-            function formatDateString(dateString) {
+            function formatDate(dateString) {
                 try {
                     const date = new Date(dateString);
                     return date.toLocaleDateString('en-US', { 
@@ -4347,7 +3210,7 @@ app.post('/api/users', async (req, res) => {
                 articles.forEach(article => {
                     const thumbnail = getThumbnailUrl(article);
                     const authorAvatar = getAuthorAvatar(article);
-                    const formattedDate = formatDateString(article.date);
+                    const formattedDate = formatDate(article.date);
                     
                     html += `
                         <div class="article-card" onclick="window.open('${article.link || '#'}', '_blank')" role="button" tabindex="0" aria-label="Read article: ${sanitizeHTML(article.title)}">
@@ -4380,7 +3243,7 @@ app.post('/api/users', async (req, res) => {
                     const related = articlesData
                         .filter(article => 
                             article.category === 'AI & Development' && 
-                            article.id !== 'future-ai-powered-development'
+                            article.id !== CURRENT_ARTICLE_ID
                         )
                         .slice(0, 3);
                     
@@ -4403,7 +3266,7 @@ app.post('/api/users', async (req, res) => {
                         new Date(b.date) - new Date(a.date)
                     );
                     
-                    const currentIndex = sorted.findIndex(a => a.id === 'future-ai-powered-development');
+                    const currentIndex = sorted.findIndex(a => a.id === CURRENT_ARTICLE_ID);
                     
                     if (currentIndex === -1) return;
 
@@ -4489,7 +3352,7 @@ app.post('/api/users', async (req, res) => {
                     // Check initial bookmark state
                     try {
                         const bookmarks = JSON.parse(localStorage.getItem(BOOKMARKS_KEY)) || [];
-                        if (bookmarks.includes('future-ai-powered-development')) {
+                        if (bookmarks.includes(CURRENT_ARTICLE_ID)) {
                             isBookmarked = true;
                             bookmarkBtn.innerHTML = '<span class="material-icons-round">bookmark</span><span>Saved</span>';
                             bookmarkBtn.classList.add('btn-filled');
@@ -4509,12 +3372,12 @@ app.post('/api/users', async (req, res) => {
                             const bookmarks = JSON.parse(localStorage.getItem(BOOKMARKS_KEY)) || [];
                             
                             if (isBookmarked) {
-                                if (!bookmarks.includes('future-ai-powered-development')) {
-                                    bookmarks.push('future-ai-powered-development');
+                                if (!bookmarks.includes(CURRENT_ARTICLE_ID)) {
+                                    bookmarks.push(CURRENT_ARTICLE_ID);
                                     showToast('Article saved to bookmarks!');
                                 }
                             } else {
-                                const index = bookmarks.indexOf('future-ai-powered-development');
+                                const index = bookmarks.indexOf(CURRENT_ARTICLE_ID);
                                 if (index > -1) bookmarks.splice(index, 1);
                                 showToast('Bookmark removed');
                             }
@@ -4595,6 +3458,7 @@ app.post('/api/users', async (req, res) => {
                         closeShareModal();
                     });
                     
+                    // Keyboard support
                     option.addEventListener('keydown', (e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
@@ -4701,7 +3565,6 @@ app.post('/api/users', async (req, res) => {
                 if (!menuContent) return;
                 
                 const isDark = document.body.classList.contains('dark-theme');
-                const icon = isDark ? 'light_mode' : 'dark_mode';
                 
                 if (isLoggedIn && userData) {
                     const avatarUrl = userData.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(userData.displayName || 'User')}&background=1a73e8&color=fff`;
@@ -4729,7 +3592,7 @@ app.post('/api/users', async (req, res) => {
                                 <i class="fas fa-moon"></i>
                                 <span>Dark Mode</span>
                             </div>
-                            <span class="material-icons-round">${icon}</span>
+                            <span class="material-icons-round">${isDark ? 'light_mode' : 'dark_mode'}</span>
                         </div>
                         
                         <a href="#" class="menu-link signin-btn" id="menuSignOut">
@@ -4751,10 +3614,10 @@ app.post('/api/users', async (req, res) => {
                                 <i class="fas fa-moon"></i>
                                 <span>Dark Mode</span>
                             </div>
-                            <span class="material-icons-round">${icon}</span>
+                            <span class="material-icons-round">${isDark ? 'light_mode' : 'dark_mode'}</span>
                         </div>
                         
-                        <a href="#" class="menu-link signin-btn" onclick="signInWithGoogle()">
+                        <a href="https://aditya-cmd-max.github.io/signin" class="menu-link signin-btn">
                             <i class="fas fa-sign-in-alt"></i> Sign In
                         </a>
                     `;
@@ -4777,7 +3640,9 @@ app.post('/api/users', async (req, res) => {
                 if (signOutBtn) {
                     signOutBtn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        signOut();
+                        if (window.ReverbitAuth?.logout) {
+                            window.ReverbitAuth.logout();
+                        }
                     });
                 }
             }
@@ -4799,6 +3664,24 @@ app.post('/api/users', async (req, res) => {
                         }
                     });
                 });
+            }
+
+            // ===== TOC TOGGLE =====
+            function initTocToggle() {
+                if (!tocHeader || !tocContent || !tocToggle || !tocIcon) return;
+
+                tocHeader.addEventListener('click', toggleToc);
+                tocToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleToc();
+                });
+
+                function toggleToc() {
+                    isTocCollapsed = !isTocCollapsed;
+                    tocContent.classList.toggle('collapsed', isTocCollapsed);
+                    tocIcon.textContent = isTocCollapsed ? 'expand_more' : 'expand_less';
+                    tocHeader.setAttribute('aria-expanded', !isTocCollapsed);
+                }
             }
 
             // ===== INITIALIZATION =====
@@ -4833,9 +3716,6 @@ app.post('/api/users', async (req, res) => {
                     });
                 }
 
-                // Setup auth listener
-                setupAuthListener();
-
                 // Load async data
                 try {
                     await Promise.all([
@@ -4845,13 +3725,23 @@ app.post('/api/users', async (req, res) => {
                     ]);
                 } catch (error) {
                     console.error('Error loading data:', error);
+                    showToast('Some content failed to load', 'error');
                 }
 
-                // Load comments
-                loadComments();
-
-                // Update menu with initial state
-                updateMenu(false);
+                // Initialize auth if available
+                if (window.ReverbitAuth) {
+                    try {
+                        await window.ReverbitAuth.init();
+                        window.ReverbitAuth.addAuthListener((user, profile) => {
+                            updateMenu(!!user, profile);
+                        });
+                    } catch (error) {
+                        console.error('Auth error:', error);
+                        updateMenu(false);
+                    }
+                } else {
+                    updateMenu(false);
+                }
             }
 
             // Start when DOM is ready
