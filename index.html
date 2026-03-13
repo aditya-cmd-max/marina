@@ -2254,5 +2254,19 @@
             gsap.from('.hero-buttons .btn', { duration:0.8, y:20, opacity:0, stagger:0.15, delay:0.4, ease:'power3.out' });
         }
     </script>
+
+<script async type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAow_OnFDA:openaccess",
+      clientOptions: { theme: "light", lang: "en-GB" },
+    });
+  });
+</script>
+    
 </body>
 </html>
