@@ -1,5 +1,19 @@
 [
   {
+    "id": "windows12-arrival-1",
+    "title": "When is windows 12 going to arrive? What are the features expected?",
+    "description": "Everything you need to know about Windows 12—from AI-powered features and modular architecture to release dates, hardware requirements, and whether your PC will survive the upgrade.",
+    "date": "2026-03-15",
+    "author": "Aditya Jha",
+    "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
+    "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
+    "category": "Product Launch",
+    "tags": ["artificial-intelligence", "Microsoft Copilot", "AI PC", "AI PC"],
+    "thumbnail": "https://i.pcmag.com/imagery/articles/01ccsJ3P3iJPBB89vh1Mtrn-1..v1768146828.jpg",
+    "readTime": "12 min",
+    "link": "https://aditya-cmd-max.github.io/marina/articles/product-lanch/windows-12-arrival-and-features/"
+  },
+  {
     "id": "future-ai-powered-development",
     "title": "The Future of AI-Powered Development",
     "description": "The future of AI development focuses on shifting AI from a specialized tool to an integrated teammate that automates the entire software development lifecycle.",
@@ -27,32 +41,5 @@
     "readTime": "10 min",
     "link": "https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/"
   },
-  {
-    "id": "ai-beginner-guide",
-    "title": "What Is Artificial Intelligence? A Simple Guide for Beginners",
-    "description": "AI is everywhere today, but what does it actually mean? This beginner-friendly guide explains artificial intelligence in a simple and practical way.",
-    "date": "2026-03-05",
-    "author": "Aditya Jha",
-    "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
-    "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
-    "category": "Artificial Intelligence",
-    "tags": ["artificial-intelligence", "machine-learning", "future-technology"],
-    "thumbnail": "https://awesmai.com/wp-content/uploads/2025/05/What-is-Artificial-Intelligence-.webp",
-    "readTime": "4 min",
-    "link": "/blogs/ai-beginner-guide.html"
-  },
-  {
-    "id": "coding-skills-future-developers",
-    "title": "10 Coding Skills Every Future Developer Should Learn",
-    "description": "Programming is evolving fast. These essential coding skills will help developers stay relevant and build powerful software in the coming decade.",
-    "date": "2026-03-03",
-    "author": "Aditya Jha",
-    "authorLink": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
-    "authorAvatar": "https://aditya-cmd-max.github.io/adityajha.jpg",
-    "category": "Programming",
-    "tags": ["programming", "coding-skills", "software-development"],
-    "thumbnail": "https://engineering.salesforce.com/wp-content/uploads/2022/03/1yAcGCSUO-eka80U0NszIVw.jpeg?w=600&h=400&crop=1",
-    "readTime": "6 min",
-    "link": "/blogs/future-coding-skills.html"
-  }
+
 ]
