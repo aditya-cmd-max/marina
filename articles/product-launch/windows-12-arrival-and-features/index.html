@@ -3603,7 +3603,7 @@
                     const articlesData = await fetchArticles();
                     const related = articlesData
                         .filter(article => 
-                            article.category === 'Technology' && 
+                            article.category === 'Product Launch' && 
                             article.id !== CURRENT_ARTICLE_ID
                         )
                         .slice(0, 3);
