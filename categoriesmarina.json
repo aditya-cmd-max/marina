@@ -9,9 +9,9 @@
   {
     "name": "Programming",
     "slug": "programming",
-    "link": "/category/programming.html",
+    "link": "https://aditya-cmd-max.github.io/marina/articles/categories/programming",
     "description": "Guides, tutorials, and insights about coding, software development, and programming languages.",
-    "icon": "/images/categories/programming.svg"
+    "icon": "https://img.icons8.com/?size=100&id=116826&format=png&color=000000"
   },
   {
     "name": "Artificial Intelligence",
