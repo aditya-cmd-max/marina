@@ -993,6 +993,7 @@
             transition: var(--md-transition);
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         .article-card:hover {
@@ -1710,7 +1711,7 @@
             <div class="articles-grid" id="articlesGrid"></div>
         </section>
 
-        <!-- CATEGORIES SECTION (Dynamic) -->
+        <!-- CATEGORIES SECTION (Dynamic from categoriesmarina.json) -->
         <section class="categories-section" id="categoriesSection">
             <div class="section-header">
                 <h2 class="section-title">Popular Categories</h2>
@@ -1818,14 +1819,27 @@
     </footer>
 
     <script>
-        // ===== FETCH ARTICLES FROM YOUR JSON =====
+        // ===== FETCH ARTICLES AND CATEGORIES FROM JSON =====
         async function fetchArticles() {
             try {
                 const response = await fetch('https://aditya-cmd-max.github.io/marina/articlesmarina.json');
+                if (!response.ok) throw new Error('Failed to fetch articles');
                 const articles = await response.json();
                 return articles;
             } catch (error) {
                 console.error('Error fetching articles:', error);
+                return [];
+            }
+        }
+
+        async function fetchCategories() {
+            try {
+                const response = await fetch('https://aditya-cmd-max.github.io/marina/categoriesmarina.json');
+                if (!response.ok) throw new Error('Failed to fetch categories');
+                const categories = await response.json();
+                return categories;
+            } catch (error) {
+                console.error('Error fetching categories:', error);
                 return [];
             }
         }
@@ -1885,153 +1899,216 @@
             return '#';
         }
 
-        // Get most frequent categories
-        function getTopCategories(articles, count = 3) {
-            const categoryCount = {};
-            
+        // Get most popular categories based on article count
+        function getTopCategories(articles, categories, count = 3) {
+            // Count articles per category
+            const categoryCounts = {};
             articles.forEach(article => {
-                const category = article.category || 'Technology';
-                categoryCount[category] = (categoryCount[category] || 0) + 1;
+                const cat = article.category || 'Technology';
+                categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
             });
             
-            // Convert to array and sort by count
-            const sorted = Object.entries(categoryCount)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, count)
-                .map(entry => entry[0]);
+            // Filter categories that exist in categories.json and have articles
+            const validCategories = categories.filter(cat => categoryCounts[cat.name] > 0);
             
-            return sorted;
+            // Sort by article count
+            const sorted = validCategories.sort((a, b) => {
+                const countA = categoryCounts[a.name] || 0;
+                const countB = categoryCounts[b.name] || 0;
+                return countB - countA;
+            });
+            
+            // Return top 'count' categories
+            return sorted.slice(0, count);
         }
 
-        // Get category icon
-        function getCategoryIcon(category) {
-            const cat = category.toLowerCase();
-            if (cat.includes('ai') || cat.includes('intelligence')) return 'fa-robot';
-            if (cat.includes('programming') || cat.includes('coding')) return 'fa-code';
-            if (cat.includes('technology')) return 'fa-microchip';
-            if (cat.includes('cyber') || cat.includes('security')) return 'fa-shield-hal';
-            if (cat.includes('education')) return 'fa-graduation-cap';
-            if (cat.includes('web') || cat.includes('development')) return 'fa-laptop-code';
+        // Get icon for category from categories.json
+        function getCategoryIconFromJSON(category) {
+            if (category.icon) {
+                // Extract icon class from URL or return appropriate Font Awesome class
+                if (category.icon.includes('code')) return 'fa-code';
+                if (category.icon.includes('ai')) return 'fa-robot';
+                if (category.icon.includes('boxes')) return 'fa-cubes';
+                if (category.icon.includes('education')) return 'fa-graduation-cap';
+                if (category.icon.includes('technology')) return 'fa-microchip';
+            }
+            
+            // Fallback based on name
+            const name = category.name.toLowerCase();
+            if (name.includes('programming')) return 'fa-code';
+            if (name.includes('ai') || name.includes('intelligence')) return 'fa-robot';
+            if (name.includes('technology')) return 'fa-microchip';
+            if (name.includes('education')) return 'fa-graduation-cap';
+            if (name.includes('launch')) return 'fa-rocket';
+            if (name.includes('development')) return 'fa-laptop-code';
+            
             return 'fa-folder';
         }
 
-        // Display articles
-        async function displayArticles() {
-            const articles = await fetchArticles();
+        // Get color for category based on name
+        function getCategoryColor(categoryName) {
+            const colorMap = {
+                'Programming': 'linear-gradient(135deg, #1a73e8, #0d47a1)',
+                'Artificial Intelligence': 'linear-gradient(135deg, #34a853, #0b5e2e)',
+                'Technology': 'linear-gradient(135deg, #fbbc04, #ea8600)',
+                'Education': 'linear-gradient(135deg, #ea4335, #b31412)',
+                'AI & Development': 'linear-gradient(135deg, #8e44ad, #5e2a7c)',
+                'Product Launch': 'linear-gradient(135deg, #ff6d00, #e65100)'
+            };
             
-            if (!articles || articles.length === 0) {
-                document.getElementById('articlesGrid').innerHTML = '<div class="loading-spinner">Failed to load articles</div>';
-                return;
+            return colorMap[categoryName] || 'linear-gradient(135deg, #1a73e8, #0d47a1)';
+        }
+
+        // Get category link from categories.json
+        function getCategoryLink(category) {
+            if (category.link) {
+                if (category.link.startsWith('http')) {
+                    return category.link;
+                } else {
+                    return `https://aditya-cmd-max.github.io${category.link}`;
+                }
             }
+            return `https://aditya-cmd-max.github.io/marina/articles/categories/${category.slug || category.name.toLowerCase().replace(/\s+/g, '-')}`;
+        }
 
-            // Sort by date
-            const sorted = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
-            const featured = sorted[0];
-            const latest = sorted.slice(0, 3);
-
-            // Get top 3 categories
-            const topCategories = getTopCategories(articles, 3);
-
-            // Featured article with all fields extracted
-            const featuredEl = document.getElementById('featured');
-            featuredEl.innerHTML = `
-                <img src="${getArticleThumbnail(featured)}" class="featured-image" alt="${featured.title}">
-                <div class="featured-content">
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                        <span class="featured-badge">${featured.category || 'Technology'}</span>
-                        <span class="featured-tag">FEATURED</span>
-                    </div>
-                    <h2 class="featured-title">${featured.title}</h2>
-                    <p class="article-excerpt" style="font-size:1.1rem; margin-bottom:20px;">${featured.description}</p>
-                    
-                    <a href="${getAuthorLink(featured)}" class="author-section" target="_blank">
-                        <img src="${getAuthorAvatar(featured)}" class="author-avatar" alt="${featured.author}" onerror="this.src='https://ui-avatars.com/api/?name=${featured.author}&background=1a73e8&color=fff'">
-                        <div class="author-info">
-                            <div class="author-name">${featured.author}</div>
-                            <div class="meta-info">
-                                <span>${formatDate(featured.date)}</span>
-                                <span>•</span>
-                                <span>${featured.readTime}</span>
-                            </div>
-                        </div>
-                    </a>
-                    
-                    <a href="${featured.link}" class="btn btn-primary" style="margin-top:20px;" target="_blank">Read Full Article →</a>
-                </div>
-            `;
-
-            // Latest articles grid with all fields extracted
-            const grid = document.getElementById('articlesGrid');
-            let html = '';
-            latest.forEach(article => {
-                html += `
-                    <div class="article-card">
-                        <img src="${getArticleThumbnail(article)}" class="article-image" alt="${article.title}">
-                        <div class="article-content">
-                            <span class="article-category">${article.category || 'Technology'}</span>
-                            <h3 class="article-title">${article.title}</h3>
-                            <p class="article-excerpt">${article.description.substring(0, 100)}...</p>
-                            
-                            <a href="${getAuthorLink(article)}" class="author-section" target="_blank">
-                                <img src="${getAuthorAvatar(article)}" class="author-avatar" alt="${article.author}" onerror="this.src='https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff'">
-                                <div class="author-info">
-                                    <div class="author-name">${article.author}</div>
-                                    <div class="meta-info">
-                                        <span>${formatDate(article.date)}</span>
-                                        <span>•</span>
-                                        <span>${article.readTime}</span>
-                                    </div>
-                                </div>
-                            </a>
-                            
-                            <a href="${article.link}" class="read-btn" target="_blank">
-                                Read Article <span class="material-icons-round" style="font-size:18px;">arrow_forward</span>
-                            </a>
-                        </div>
-                    </div>
-                `;
-            });
-            grid.innerHTML = html;
-
-            // Categories grid with top categories
-            const categoriesGrid = document.getElementById('categoriesGrid');
-            let categoriesHtml = '';
-            
-            // Category images mapping
-            const categoryImages = {
+        // Get category image from unsplash or use default
+        function getCategoryImage(categoryName) {
+            const imageMap = {
                 'Artificial Intelligence': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
                 'Programming': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
                 'Technology': 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
-                'AI & Development': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80'
+                'AI & Development': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
+                'Education': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+                'Product Launch': 'https://images.unsplash.com/photo-1624706495492-c7d8a2b1c6b5?auto=format&fit=crop&w=800&q=80'
             };
             
-            topCategories.forEach(category => {
-                const count = articles.filter(a => a.category === category).length;
-                const image = categoryImages[category] || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
-                const icon = getCategoryIcon(category);
+            return imageMap[categoryName] || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
+        }
+
+        // Display articles and categories
+        async function displayArticles() {
+            try {
+                const [articles, categories] = await Promise.all([fetchArticles(), fetchCategories()]);
                 
-                categoriesHtml += `
-                    <div class="article-card">
-                        <img src="${image}" class="article-image" alt="${category}">
-                        <div class="article-content">
-                            <span class="article-category">${category}</span>
-                            <h3 class="article-title">${category}</h3>
-                            <p class="article-excerpt">Explore the latest articles and insights in ${category}.</p>
-                            <div class="meta-info" style="margin-bottom:16px;">
-                                <i class="fas ${icon}" style="margin-right:4px;"></i> ${count} articles
-                            </div>
-                            <a href="/category/${category.toLowerCase().replace(/\s+/g, '-')}" class="read-btn">
-                                Explore Category <i class="fas fa-arrow-right"></i>
-                            </a>
+                if (!articles || articles.length === 0) {
+                    document.getElementById('articlesGrid').innerHTML = '<div class="loading-spinner">Failed to load articles</div>';
+                    return;
+                }
+
+                // Sort by date
+                const sorted = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
+                const featured = sorted[0];
+                const latest = sorted.slice(0, 3);
+
+                // Get top 3 popular categories from categories.json based on article count
+                const topCategories = getTopCategories(articles, categories, 3);
+
+                // Featured article with all fields extracted
+                const featuredEl = document.getElementById('featured');
+                featuredEl.innerHTML = `
+                    <img src="${getArticleThumbnail(featured)}" class="featured-image" alt="${featured.title}">
+                    <div class="featured-content">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                            <span class="featured-badge">${featured.category || 'Technology'}</span>
+                            <span class="featured-tag">FEATURED</span>
                         </div>
+                        <h2 class="featured-title">${featured.title}</h2>
+                        <p class="article-excerpt" style="font-size:1.1rem; margin-bottom:20px;">${featured.description}</p>
+                        
+                        <a href="${getAuthorLink(featured)}" class="author-section" target="_blank">
+                            <img src="${getAuthorAvatar(featured)}" class="author-avatar" alt="${featured.author}" onerror="this.src='https://ui-avatars.com/api/?name=${featured.author}&background=1a73e8&color=fff'">
+                            <div class="author-info">
+                                <div class="author-name">${featured.author}</div>
+                                <div class="meta-info">
+                                    <span>${formatDate(featured.date)}</span>
+                                    <span>•</span>
+                                    <span>${featured.readTime}</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="${featured.link}" class="btn btn-primary" style="margin-top:20px;" target="_blank">Read Full Article →</a>
                     </div>
                 `;
-            });
-            
-            categoriesGrid.innerHTML = categoriesHtml;
 
-            // Setup search
-            setupSearch(articles);
+                // Latest articles grid with all fields extracted
+                const grid = document.getElementById('articlesGrid');
+                let html = '';
+                latest.forEach(article => {
+                    html += `
+                        <div class="article-card">
+                            <img src="${getArticleThumbnail(article)}" class="article-image" alt="${article.title}">
+                            <div class="article-content">
+                                <span class="article-category">${article.category || 'Technology'}</span>
+                                <h3 class="article-title">${article.title}</h3>
+                                <p class="article-excerpt">${article.description.substring(0, 100)}...</p>
+                                
+                                <a href="${getAuthorLink(article)}" class="author-section" target="_blank">
+                                    <img src="${getAuthorAvatar(article)}" class="author-avatar" alt="${article.author}" onerror="this.src='https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff'">
+                                    <div class="author-info">
+                                        <div class="author-name">${article.author}</div>
+                                        <div class="meta-info">
+                                            <span>${formatDate(article.date)}</span>
+                                            <span>•</span>
+                                            <span>${article.readTime}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a href="${article.link}" class="read-btn" target="_blank">
+                                    Read Article <span class="material-icons-round" style="font-size:18px;">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                });
+                grid.innerHTML = html;
+
+                // Categories grid with top categories from categories.json
+                const categoriesGrid = document.getElementById('categoriesGrid');
+                let categoriesHtml = '';
+                
+                // Count articles per category for display
+                const categoryCounts = {};
+                articles.forEach(article => {
+                    const cat = article.category || 'Technology';
+                    categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+                });
+                
+                topCategories.forEach(category => {
+                    const count = categoryCounts[category.name] || 0;
+                    const image = getCategoryImage(category.name);
+                    const icon = getCategoryIconFromJSON(category);
+                    const color = getCategoryColor(category.name);
+                    const link = getCategoryLink(category);
+                    
+                    categoriesHtml += `
+                        <div class="article-card">
+                            <img src="${image}" class="article-image" alt="${category.name}">
+                            <div class="article-content">
+                                <span class="article-category">${category.name}</span>
+                                <h3 class="article-title">${category.name}</h3>
+                                <p class="article-excerpt">${category.description || 'Explore articles in this category'}</p>
+                                <div class="meta-info" style="margin-bottom:16px;">
+                                    <i class="fas ${icon}" style="margin-right:4px; color:var(--md-primary);"></i> ${count} articles
+                                </div>
+                                <a href="${link}" class="read-btn">
+                                    Explore Category <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                categoriesGrid.innerHTML = categoriesHtml;
+
+                // Setup search
+                setupSearch(articles);
+                
+            } catch (error) {
+                console.error('Error in displayArticles:', error);
+                document.getElementById('articlesGrid').innerHTML = '<div class="loading-spinner">Error loading content</div>';
+            }
         }
 
         // ===== SEARCH FUNCTIONALITY =====
