@@ -30,7 +30,7 @@
   {
     "name": "Education",
     "slug": "education",
-    "link": "/category/education.html",
+    "link": "https://aditya-cmd-max.github.io/marina/articles/categories/education/",
     "description": "Learning resources, study guides, and tips for students exploring tech and programming.",
     "icon": "/images/categories/education.svg"
   },
