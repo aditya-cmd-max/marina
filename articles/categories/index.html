@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS6V9ZCN0K"></script>
     <script>
@@ -15,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     
     <!-- ===== PRIMARY SEO TITLE (55-60 chars) ===== -->
-    <title>Categories | Reverbit Marina - Browse Tech & AI Article Topics </title>
+    <title>Categories | Reverbit Marina - Browse Tech & AI Article Topics</title>
     
     <!-- ===== PRIMARY META TAGS ===== -->
     <meta name="description" content="Browse all article categories at Reverbit Marina. Explore topics like Artificial Intelligence, Programming, Web Development, and Technology Innovation - curated by a Class 11 Indian student.">
@@ -39,7 +38,6 @@
     <meta property="og:image:alt" content="Reverbit Marina Categories - Student Tech Blog">
     <meta property="og:site_name" content="Reverbit Marina">
     <meta property="og:locale" content="en_IN">
-    
     
     <!-- ===== LINKEDIN META TAGS ===== -->
     <meta property="linkedin:owner" content="Aditya Jha">
@@ -133,42 +131,7 @@
             "@type": "Blog",
             "@id": "https://aditya-cmd-max.github.io/marina/articles"
           },
-          "inLanguage": "en-IN",
-          "mainEntity": {
-            "@type": "ItemList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "item": {
-                  "@type": "DefinedTerm",
-                  "name": "Artificial Intelligence",
-                  "description": "Articles about AI, machine learning, and intelligent systems",
-                  "url": "https://aditya-cmd-max.github.io/marina/category/artificial-intelligence"
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                  "@type": "DefinedTerm",
-                  "name": "Programming",
-                  "description": "Coding tutorials, best practices, and programming insights",
-                  "url": "https://aditya-cmd-max.github.io/marina/category/programming"
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "item": {
-                  "@type": "DefinedTerm",
-                  "name": "Technology",
-                  "description": "Latest tech trends, innovations, and digital transformation",
-                  "url": "https://aditya-cmd-max.github.io/marina/category/technology"
-                }
-              }
-            ]
-          }
+          "inLanguage": "en-IN"
         },
         {
           "@type": "BreadcrumbList",
@@ -222,35 +185,6 @@
       ]
     }
     </script>
-    
-    <!-- ===== ADDITIONAL SCHEMA FOR CATEGORY LISTING ===== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Reverbit Marina Article Categories",
-      "description": "Complete list of article categories available on Reverbit Marina tech blog",
-      "url": "https://aditya-cmd-max.github.io/marina/articles/categories",
-      "numberOfItems": "{{categories_count}}",
-      "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "mainEntityOfPage": {
-        "@type": "CollectionPage",
-        "@id": "https://aditya-cmd-max.github.io/marina/articles/categories"
-      }
-    }
-    </script>
-    
-    <!-- ===== GSAP (deferred) ===== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    
-    <!-- ===== FIREBASE (deferred) ===== -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
-    
-    <!-- ===== AUTH.JS (deferred, loads after Firebase) ===== -->
-    <script src="https://aditya-cmd-max.github.io/js/auth.js" defer></script>
     
     <style>
         /* ===== ORIGINAL BEAUTIFUL COLOR SYSTEM ===== */
@@ -744,6 +678,7 @@
             margin-bottom: 24px;
             font-family: var(--font-heading);
             font-size: 0.9rem;
+            flex-wrap: wrap;
         }
 
         .breadcrumb a {
@@ -808,7 +743,7 @@
             white-space: nowrap;
         }
 
-        /* ===== FILTER SYSTEM (copied from articles page) ===== */
+        /* ===== FILTER SYSTEM ===== */
         .filter-tabs-desktop {
             display: none;
             gap: 8px;
@@ -972,6 +907,9 @@
             cursor: pointer;
             transition: var(--md-transition);
             text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .filter-option:hover {
@@ -985,7 +923,6 @@
         }
 
         .filter-option i {
-            margin-right: 12px;
             width: 20px;
             color: var(--md-primary);
         }
@@ -1176,9 +1113,9 @@
         }
 
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--md-outline);
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--md-outline);
             border-top-color: var(--md-primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
@@ -1199,7 +1136,7 @@
         }
 
         .no-results .material-icons-round {
-            font-size: 48px;
+            font-size: 64px;
             margin-bottom: 16px;
             color: var(--md-primary);
             opacity: 0.5;
@@ -1587,6 +1524,7 @@
         async function fetchArticles() {
             try {
                 const response = await fetch('https://aditya-cmd-max.github.io/marina/articlesmarina.json');
+                if (!response.ok) throw new Error('Failed to fetch articles');
                 const articles = await response.json();
                 return articles;
             } catch (error) {
@@ -1598,11 +1536,7 @@
         async function fetchCategories() {
             try {
                 const response = await fetch('https://aditya-cmd-max.github.io/marina/categoriesmarina.json');
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
+                if (!response.ok) throw new Error('Failed to fetch categories');
                 const categories = await response.json();
                 return categories;
             } catch (error) {
@@ -1688,7 +1622,8 @@
                 'Artificial Intelligence': 'smart_toy',
                 'Technology': 'devices',
                 'Education': 'school',
-                'AI & Development': 'psychology'
+                'AI & Development': 'psychology',
+                'Product Launch': 'rocket_launch'
             };
             
             const iconName = iconMap[category.name] || 'category';
@@ -1702,10 +1637,22 @@
                 'Artificial Intelligence': 'linear-gradient(135deg, #34a853, #0b5e2e)',
                 'Technology': 'linear-gradient(135deg, #fbbc04, #ea8600)',
                 'Education': 'linear-gradient(135deg, #ea4335, #b31412)',
-                'AI & Development': 'linear-gradient(135deg, #8e44ad, #5e2a7c)'
+                'AI & Development': 'linear-gradient(135deg, #8e44ad, #5e2a7c)',
+                'Product Launch': 'linear-gradient(135deg, #ff6d00, #e65100)'
             };
             
             return colorMap[categoryName] || 'linear-gradient(135deg, #1a73e8, #0d47a1)';
+        }
+
+        // Get unique authors per category (REAL DATA)
+        function getAuthorsPerCategory(articles, categoryName) {
+            const authors = new Set();
+            articles.forEach(article => {
+                if (article.category === categoryName && article.author) {
+                    authors.add(article.author);
+                }
+            });
+            return authors.size;
         }
 
         // Display categories
@@ -1734,30 +1681,17 @@
                 // Update total categories count
                 totalCategoriesSpan.textContent = categories.length;
 
-                // Count articles per category
+                // Count articles per category (REAL DATA)
                 const categoryCounts = {};
                 articles.forEach(article => {
                     const category = article.category || 'Uncategorized';
                     categoryCounts[category] = (categoryCounts[category] || 0) + 1;
                 });
 
-                // Count unique authors per category
-                const authorCounts = {};
-                const authorSet = new Set();
-                articles.forEach(article => {
-                    authorSet.add(article.author);
-                });
-                const totalAuthors = authorSet.size;
-                
-                filteredCategories.forEach((category, index) => {
-                    authorCounts[category.name] = Math.max(1, Math.floor(totalAuthors / categories.length) + (index % 2));
-                });
-
                 let html = '';
                 filteredCategories.forEach((category, index) => {
                     const articleCount = categoryCounts[category.name] || 0;
-                    const authorCount = authorCounts[category.name] || Math.floor(Math.random() * 5) + 2;
-                    const totalReads = articleCount * (Math.floor(Math.random() * 200) + 100);
+                    const authorCount = getAuthorsPerCategory(articles, category.name);
                     
                     let categoryLink = category.link;
                     if (categoryLink && !categoryLink.startsWith('http')) {
@@ -1785,10 +1719,6 @@
                                     <div class="stat">
                                         <span class="stat-value">${authorCount}</span>
                                         <span class="stat-label">Authors</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="stat-value">${totalReads.toLocaleString()}</span>
-                                        <span class="stat-label">Reads</span>
                                     </div>
                                 </div>
                                 <a href="${categoryLink}" class="category-link" target="_blank">
@@ -1864,7 +1794,6 @@
                 
                 if (originalCategories.length > 0) {
                     const filtered = filterCategories(originalCategories, originalArticles);
-                    // Re-render with filtered categories
                     renderFilteredCategories(filtered);
                 }
             });
@@ -1894,35 +1823,22 @@
             });
         });
 
-        // Helper to re-render with filtered categories
+        // Helper to re-render with filtered categories (NO FAKE DATA)
         function renderFilteredCategories(filteredCategories) {
-            // Update total categories count (showing filtered count)
+            // Update total categories count
             totalCategoriesSpan.textContent = originalCategories.length;
             
-            // Count articles per category
+            // Count articles per category (REAL DATA)
             const categoryCounts = {};
             originalArticles.forEach(article => {
                 const category = article.category || 'Uncategorized';
                 categoryCounts[category] = (categoryCounts[category] || 0) + 1;
             });
 
-            // Count unique authors per category
-            const authorCounts = {};
-            const authorSet = new Set();
-            originalArticles.forEach(article => {
-                authorSet.add(article.author);
-            });
-            const totalAuthors = authorSet.size;
-            
-            filteredCategories.forEach((category, index) => {
-                authorCounts[category.name] = Math.max(1, Math.floor(totalAuthors / originalCategories.length) + (index % 2));
-            });
-
             let html = '';
             filteredCategories.forEach((category, index) => {
                 const articleCount = categoryCounts[category.name] || 0;
-                const authorCount = authorCounts[category.name] || Math.floor(Math.random() * 5) + 2;
-                const totalReads = articleCount * (Math.floor(Math.random() * 200) + 100);
+                const authorCount = getAuthorsPerCategory(originalArticles, category.name);
                 
                 let categoryLink = category.link;
                 if (categoryLink && !categoryLink.startsWith('http')) {
@@ -1950,10 +1866,6 @@
                                 <div class="stat">
                                     <span class="stat-value">${authorCount}</span>
                                     <span class="stat-label">Authors</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">${totalReads.toLocaleString()}</span>
-                                    <span class="stat-label">Reads</span>
                                 </div>
                             </div>
                             <a href="${categoryLink}" class="category-link" target="_blank">
@@ -2041,6 +1953,8 @@
 
         // ===== POPULATE MENU =====
         function updateMenu(isLoggedIn = false, userData = null) {
+            const isDark = body.classList.contains('dark-theme');
+            
             if (isLoggedIn && userData) {
                 menuContent.innerHTML = `
                     <div class="menu-user">
@@ -2065,7 +1979,7 @@
                             <i class="fas fa-moon"></i>
                             <span>Dark Mode</span>
                         </div>
-                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                        <span class="material-icons-round" id="menuThemeIcon">${isDark ? 'light_mode' : 'dark_mode'}</span>
                     </div>
                     
                     <a href="#" class="menu-link signin-btn" onclick="window.ReverbitAuth?.logout(); return false;">
@@ -2087,7 +2001,7 @@
                             <i class="fas fa-moon"></i>
                             <span>Dark Mode</span>
                         </div>
-                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                        <span class="material-icons-round" id="menuThemeIcon">${isDark ? 'light_mode' : 'dark_mode'}</span>
                     </div>
                     
                     <a href="https://aditya-cmd-max.github.io/signin" class="menu-link signin-btn">
