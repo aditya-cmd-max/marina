@@ -3,38 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>AI & Development | Reverbit Marina</title>
     
-    <!-- Google Fonts -->
+    <!-- ===== PRIMARY SEO TITLE ===== -->
+    <title>AI & Development Articles | Machine Learning, AI Tools & Software Engineering | Reverbit Marina</title>
+    
+    <!-- ===== PRIMARY META TAGS ===== -->
+    <meta name="description" content="Explore cutting-edge articles on AI development, machine learning, intelligent code assistants, and how artificial intelligence is reshaping software engineering. Expert insights and practical guides.">
+    <meta name="author" content="Aditya Jha">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="keywords" content="AI development, machine learning, artificial intelligence, software engineering, AI tools, code generation, intelligent debugging, GitHub Copilot, AI programming, ML tutorials, AI in software development, machine learning engineering">
+    
+    <!-- ===== CANONICAL URL ===== -->
+    <link rel="canonical" href="https://aditya-cmd-max.github.io/marina/articles/categories/ai-development">
+    
+    <!-- ===== OPEN GRAPH / FACEBOOK META TAGS ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aditya-cmd-max.github.io/marina/articles/categories/ai-development">
+    <meta property="og:title" content="AI & Development - Machine Learning & Software Engineering | Reverbit Marina">
+    <meta property="og:description" content="Discover how artificial intelligence is transforming software development. Expert articles on machine learning, AI tools, and intelligent coding assistants.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="AI & Development Category - Machine Learning and Software Engineering">
+    <meta property="og:site_name" content="Reverbit Marina">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- ===== TWITTER CARD META TAGS ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Reverbit">
+    <meta name="twitter:creator" content="@adityajha">
+    <meta name="twitter:title" content="AI & Development | Machine Learning & Software Engineering">
+    <meta name="twitter:description" content="Explore AI development, machine learning, and intelligent tools reshaping software engineering.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&h=630&q=80">
+    
+    <!-- ===== SECURITY HEADERS ===== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- ===== FAVICONS ===== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://aditya-cmd-max.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://aditya-cmd-max.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://aditya-cmd-max.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://aditya-cmd-max.github.io/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#1a73e8">
+    <meta name="theme-color" content="#1a73e8">
+    
+    <!-- ===== RESOURCE HINTS & PRECONNECT ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
+    <link rel="preconnect" href="https://aditya-cmd-max.github.io">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- ===== GOOGLE FONTS ===== -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Material Icons -->
+    <!-- ===== MATERIAL ICONS ===== -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- ===== FONT AWESOME ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- ===== GSAP ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <!-- ===== FIREBASE ===== -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
     
-    <!-- Auth.js -->
-    <script src="https://aditya-cmd-max.github.io/js/auth.js"></script>
+    <!-- ===== AUTH.JS ===== -->
+    <script src="https://aditya-cmd-max.github.io/js/auth.js" defer></script>
+    
+    <!-- ===== SCHEMA.ORG STRUCTURED DATA ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://aditya-cmd-max.github.io/marina/articles/categories/ai-development",
+          "name": "AI & Development Articles",
+          "description": "In-depth articles about artificial intelligence in software development, machine learning tutorials, and AI-powered development tools",
+          "url": "https://aditya-cmd-max.github.io/marina/articles/categories/ai-development",
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": []
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Reverbit Marina",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://aditya-cmd-max.github.io/Reverbit.svg"
+            }
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://aditya-cmd-max.github.io/marina/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Articles",
+              "item": "https://aditya-cmd-max.github.io/marina/articles"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Categories",
+              "item": "https://aditya-cmd-max.github.io/marina/articles/categories"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "AI & Development"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
+    <!-- ===== ADDITIONAL SCHEMA FOR AI TOPIC ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "AI & Development Category",
+      "description": "Articles about artificial intelligence in software development, machine learning, and AI tools",
+      "keywords": "artificial intelligence, machine learning, software development, AI tools",
+      "inLanguage": "en-US",
+      "isAccessibleForFree": true
+    }
+    </script>
     
     <style>
-        /* ===== ORIGINAL BEAUTIFUL COLOR SYSTEM ===== */
+        /* ===== PROFESSIONAL COLOR SYSTEM ===== */
         :root {
-            --md-primary: #1a73e8;
+            --md-primary: #8B5CF6; /* Purple for AI theme */
+            --md-primary-dark: #6D28D9;
+            --md-primary-light: #EDE9FE;
             --md-on-primary: #FFFFFF;
-            --md-primary-container: #d2e3fc;
-            --md-on-primary-container: #001d3d;
+            --md-primary-container: #EDE9FE;
+            --md-on-primary-container: #2D1B4E;
             
             --md-surface: #FFFFFF;
             --md-on-surface: #202124;
@@ -49,7 +173,7 @@
             
             --md-elevation-1: 0 1px 2px rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
             --md-elevation-2: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
-            --md-elevation-3: 0 1px 3px 1px rgba(60,64,67,0.15), 0 1px 2px rgba(60,64,67,0.3);
+            --md-elevation-3: 0 4px 8px 3px rgba(60,64,67,0.15), 0 1px 3px rgba(60,64,67,0.3);
             
             --md-transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
             
@@ -69,6 +193,7 @@
             --font-logo: 'Playfair Display', serif;
             --font-heading: 'Inter', sans-serif;
             --font-body: 'Lora', serif;
+            --font-code: 'Fira Code', monospace;
         }
 
         .dark-theme {
@@ -78,8 +203,8 @@
             --md-on-surface-variant: #9AA0A6;
             --md-background: #202124;
             --md-on-background: #E8EAED;
-            --md-primary-container: #174ea6;
-            --md-on-primary-container: #E8EAED;
+            --md-primary-container: #2D1B4E;
+            --md-on-primary-container: #EDE9FE;
             --md-outline: #3C4043;
             --md-outline-variant: #5F6368;
         }
@@ -103,7 +228,7 @@
             transition: var(--md-transition);
         }
 
-        /* ===== BACKGROUND ===== */
+        /* Background */
         .mesh-background {
             position: fixed;
             top: 0;
@@ -128,15 +253,11 @@
             z-index: -1;
             background: radial-gradient(
                 circle at 20% 80%,
-                rgba(26, 115, 232, 0.25) 0%,
+                rgba(139, 92, 246, 0.25) 0%,
                 transparent 50%
             ), radial-gradient(
                 circle at 80% 20%,
-                rgba(26, 115, 232, 0.25) 0%,
-                transparent 50%
-            ), radial-gradient(
-                circle at 40% 40%,
-                rgba(26, 115, 232, 0.15) 0%,
+                rgba(139, 92, 246, 0.25) 0%,
                 transparent 50%
             );
             animation: pulse 8s ease-in-out infinite;
@@ -152,11 +273,11 @@
             50% { opacity: 0.7; }
         }
 
-        /* ===== FLOATING SVGS ===== */
+        /* Floating SVGs - AI themed */
         .floating-svg {
             position: fixed;
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.2;
             animation: float 20s infinite ease-in-out;
             pointer-events: none;
             fill: var(--md-primary);
@@ -166,6 +287,7 @@
             bottom: 10%;
             left: 5%;
             width: 150px;
+            transform-origin: center;
         }
         .svg-2 {
             top: 20%;
@@ -181,12 +303,37 @@
         }
 
         @keyframes float {
-            0%,100%{transform:translateY(0)rotate(0deg)}
-            33%{transform:translateY(-20px)rotate(3deg)}
-            66%{transform:translateY(15px)rotate(-3deg)}
+            0%,100%{transform:translateY(0)rotate(0deg) scale(1)}
+            33%{transform:translateY(-20px)rotate(3deg) scale(1.05)}
+            66%{transform:translateY(15px)rotate(-3deg) scale(0.95)}
         }
 
-        /* ===== HEADER (Pill-shaped) ===== */
+        /* Neural network animation lines */
+        .neural-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .neural-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--md-primary), transparent);
+            height: 1px;
+            width: 100%;
+            animation: neuralMove 15s linear infinite;
+        }
+
+        @keyframes neuralMove {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* ===== HEADER (same as before) ===== */
         .app-header {
             position: sticky;
             top: 20px;
@@ -233,11 +380,17 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .logo-text {
+                width: 110px;
+                height: 28px;
+            }
+        }
+
         .dark-theme .logo-text {
             filter: brightness(0) invert(1);
         }
 
-        /* Desktop Nav */
         .desktop-nav {
             display: none;
             align-items: center;
@@ -269,7 +422,6 @@
             color: white;
         }
 
-        /* Header Actions */
         .header-actions {
             display: flex;
             align-items: center;
@@ -295,14 +447,12 @@
             color: white;
         }
 
-        /* Theme toggle for desktop */
         .theme-toggle {
             display: none;
         }
 
         @media (min-width:900px){.theme-toggle{display:flex;}}
 
-        /* Auth avatar */
         #authAvatarContainer {
             display: flex;
             align-items: center;
@@ -369,7 +519,6 @@
             cursor: pointer;
             font-size: 24px;
             transition: var(--md-transition);
-            z-index: 10;
         }
 
         .menu-close:hover {
@@ -446,7 +595,7 @@
         }
 
         .signin-btn {
-            background: linear-gradient(135deg, var(--md-primary), #0d47a1);
+            background: linear-gradient(135deg, var(--md-primary), var(--md-primary-dark));
             color: white !important;
             margin-top: 30px;
             text-align: center;
@@ -458,17 +607,11 @@
             justify-content: center;
             gap: 10px;
             box-shadow: var(--md-elevation-2);
-            border: none;
             transition: var(--md-transition);
         }
 
-        .signin-btn i {
-            color: white !important;
-            font-size: 1.2rem;
-        }
-
         .signin-btn:hover {
-            background: linear-gradient(135deg, #0d47a1, #0a336b);
+            background: linear-gradient(135deg, var(--md-primary-dark), #4C1D95);
             transform: translateY(-2px);
             box-shadow: var(--md-elevation-3);
         }
@@ -520,6 +663,7 @@
             margin-bottom: 24px;
             font-family: var(--font-heading);
             font-size: 0.9rem;
+            flex-wrap: wrap;
         }
 
         .breadcrumb a {
@@ -540,90 +684,178 @@
             font-weight: 500;
         }
 
-        /* Category Header */
-        .category-header {
-            background: linear-gradient(135deg, var(--md-primary), var(--md-primary-dark, #0d47a1));
+        /* Category Hero - AI Themed */
+        .category-hero {
+            background: linear-gradient(135deg, var(--md-primary-container), var(--md-surface-variant));
             border-radius: var(--md-radius-large);
-            padding: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
-            color: white;
+            padding: 48px 32px;
+            margin-bottom: 40px;
+            border: 1px solid var(--md-outline);
             position: relative;
             overflow: hidden;
-            box-shadow: var(--md-elevation-2);
         }
 
-        .category-header::before {
+        .category-hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(45deg);
-            pointer-events: none;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: var(--md-primary);
+            opacity: 0.1;
+            border-radius: 50%;
+            animation: pulse 5s ease-in-out infinite;
+        }
+
+        .category-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 250px;
+            height: 250px;
+            background: var(--md-primary);
+            opacity: 0.1;
+            border-radius: 50%;
+            animation: pulse 7s ease-in-out infinite reverse;
         }
 
         .category-icon {
             width: 80px;
             height: 80px;
-            border-radius: var(--md-radius-medium);
+            border-radius: 50%;
+            background: var(--md-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            margin-bottom: var(--space-lg);
-            font-size: 2.5rem;
+            margin-bottom: 24px;
             color: white;
+            font-size: 40px;
+            box-shadow: var(--md-elevation-3);
+            position: relative;
+            z-index: 2;
+            animation: iconPulse 3s ease-in-out infinite;
         }
 
-        .category-title {
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .category-hero h1 {
             font-family: var(--font-heading);
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: var(--space-md);
-            color: white;
-            line-height: 1.2;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, var(--md-primary), var(--md-primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .category-description {
             font-size: 1.2rem;
-            opacity: 0.9;
-            line-height: 1.6;
+            color: var(--md-on-surface-variant);
             max-width: 800px;
-            margin-bottom: var(--space-lg);
-            color: white;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
         }
 
         .category-stats {
             display: flex;
-            gap: var(--space-xl);
+            gap: 24px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
         }
 
-        .stat {
+        .stat-item {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--md-on-surface);
+            font-weight: 500;
+            background: rgba(139, 92, 246, 0.1);
+            padding: 8px 16px;
+            border-radius: var(--md-radius-pill);
+            backdrop-filter: blur(5px);
         }
 
-        .stat-value {
+        .stat-item i {
+            color: var(--md-primary);
+        }
+
+        /* Tech tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .tech-tag {
+            padding: 6px 14px;
+            background: var(--md-surface);
+            border-radius: var(--md-radius-pill);
+            font-size: 0.85rem;
+            color: var(--md-on-surface);
+            border: 1px solid var(--md-outline);
+            transition: var(--md-transition);
+        }
+
+        .tech-tag:hover {
+            background: var(--md-primary);
+            color: white;
+            border-color: var(--md-primary);
+            transform: translateY(-2px);
+        }
+
+        .tech-tag i {
+            margin-right: 4px;
+            color: var(--md-primary);
+        }
+
+        .tech-tag:hover i {
+            color: white;
+        }
+
+        /* Page Header */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--md-outline);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
             font-family: var(--font-heading);
             font-size: 2rem;
             font-weight: 700;
-            color: white;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            opacity: 0.8;
-            margin-top: 4px;
-            color: white;
-        }
-
-        /* Filter Tabs */
-        .filter-tabs {
             display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .article-count {
+            font-size: 1rem;
+            color: var(--md-on-surface-variant);
+            font-weight: normal;
+            background: var(--md-surface-variant);
+            padding: 4px 12px;
+            border-radius: var(--md-radius-pill);
+        }
+
+        /* Desktop Filter Tabs */
+        .filter-tabs-desktop {
+            display: none;
             gap: 8px;
             margin-bottom: 32px;
             flex-wrap: wrap;
@@ -631,6 +863,12 @@
             padding: 6px;
             border-radius: var(--md-radius-pill);
             width: fit-content;
+        }
+
+        @media (min-width: 768px) {
+            .filter-tabs-desktop {
+                display: flex;
+            }
         }
 
         .filter-tab {
@@ -658,6 +896,138 @@
             box-shadow: var(--md-elevation-1);
         }
 
+        /* Mobile Filter Button */
+        .mobile-filter-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px 20px;
+            margin-bottom: 24px;
+            background: var(--md-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-pill);
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            transition: var(--md-transition);
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-filter-btn {
+                display: none;
+            }
+        }
+
+        .mobile-filter-btn:hover {
+            background: var(--md-surface-variant);
+            border-color: var(--md-primary);
+        }
+
+        /* Filter Modal */
+        .filter-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 300;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .filter-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .filter-modal {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: var(--md-surface);
+            border-top-left-radius: var(--md-radius-extra-large);
+            border-top-right-radius: var(--md-radius-extra-large);
+            padding: 24px 20px 30px;
+            z-index: 301;
+            transition: bottom 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+            box-shadow: var(--md-elevation-3);
+        }
+
+        .filter-modal.active {
+            bottom: 0;
+        }
+
+        .filter-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--md-outline);
+        }
+
+        .filter-modal-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .filter-modal-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--md-surface-variant);
+            color: var(--md-on-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--md-transition);
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-option {
+            padding: 16px 20px;
+            border-radius: var(--md-radius-pill);
+            background: var(--md-surface-variant);
+            border: none;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--md-on-surface);
+            cursor: pointer;
+            transition: var(--md-transition);
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .filter-option:hover {
+            background: var(--md-primary-container);
+        }
+
+        .filter-option.active {
+            background: var(--md-primary);
+            color: white;
+        }
+
+        .filter-option i {
+            width: 20px;
+        }
+
         /* Articles Grid */
         .articles-grid {
             display: grid;
@@ -666,58 +1036,87 @@
             margin-bottom: 40px;
         }
 
-        @media (min-width:640px){ .articles-grid{ grid-template-columns:repeat(2,1fr); } }
-        @media (min-width:1024px){ .articles-grid{ grid-template-columns:repeat(3,1fr); } }
+        @media (min-width:640px){ 
+            .articles-grid{ 
+                grid-template-columns:repeat(2,1fr); 
+            } 
+        }
+        
+        @media (min-width:1024px){ 
+            .articles-grid{ 
+                grid-template-columns:repeat(3,1fr); 
+            } 
+        }
 
+        /* Article Cards - AI themed */
         .article-card {
             background: var(--md-surface);
             border-radius: var(--md-radius-large);
             overflow: hidden;
             box-shadow: var(--md-elevation-2);
             border: 1px solid var(--md-outline);
-            transition: var(--md-transition);
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
-            position: relative;
             cursor: pointer;
             height: 100%;
+            animation: cardFadeIn 0.6s ease forwards;
+            position: relative;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--md-primary), var(--md-primary-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .article-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        @keyframes cardFadeIn {
+            0% { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
 
         .article-card:hover {
             box-shadow: var(--md-elevation-3);
-            transform: translateY(-6px);
+            transform: translateY(-8px);
+            border-color: var(--md-primary);
         }
 
-        .featured-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: linear-gradient(135deg, #f57c00, #ff9800);
-            color: white;
-            padding: 6px 14px;
-            border-radius: var(--md-radius-pill);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 10;
-            box-shadow: var(--md-elevation-2);
+        .article-image-container {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: var(--md-surface-variant);
         }
 
         .article-image {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
-            background: var(--md-surface-variant);
-            transition: transform 0.5s;
+            transition: transform 0.6s ease;
         }
 
         .article-card:hover .article-image {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .article-content {
-            padding: 24px;
+            padding: 20px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -725,7 +1124,7 @@
 
         .article-category {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 6px 14px;
             background: var(--md-primary-container);
             color: var(--md-on-primary-container);
             border-radius: var(--md-radius-pill);
@@ -733,32 +1132,69 @@
             font-weight: 600;
             margin-bottom: 12px;
             width: fit-content;
+            text-decoration: none;
+            transition: var(--md-transition);
         }
 
+        .article-category:hover {
+            background: var(--md-primary);
+            color: white;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #f57c00, #ff9800);
+            color: white;
+            padding: 4px 12px;
+            border-radius: var(--md-radius-pill);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            box-shadow: var(--md-elevation-2);
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.05); }
+        }
+        
         .article-title {
             font-family: var(--font-heading);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             line-height: 1.4;
             color: var(--md-on-surface);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .article-excerpt {
             color: var(--md-on-surface-variant);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             font-size: 0.95rem;
             flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .author-section {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 12px;
+            padding: 8px 12px;
             background: var(--md-surface-variant);
             border-radius: var(--md-radius-pill);
-            margin: 16px 0;
+            margin: 8px 0 12px;
             cursor: pointer;
             transition: var(--md-transition);
             text-decoration: none;
@@ -769,40 +1205,39 @@
         .author-section:hover {
             background: var(--md-primary-container);
             border-color: var(--md-primary);
-            transform: translateX(8px);
+            transform: translateX(4px);
         }
 
         .author-avatar {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--md-primary);
-            background: var(--md-surface-variant);
         }
 
-        .author-info { flex: 1; }
+        .author-info { 
+            flex: 1; 
+            min-width: 0;
+        }
 
         .author-name {
             font-weight: 700;
             font-size: 0.95rem;
             margin-bottom: 2px;
             color: var(--md-on-surface);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .meta-info {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
+            gap: 6px;
+            font-size: 0.75rem;
             color: var(--md-on-surface-variant);
-        }
-
-        .article-actions {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 16px;
+            flex-wrap: wrap;
         }
 
         .read-btn {
@@ -813,44 +1248,195 @@
             color: var(--md-on-surface);
             font-weight: 500;
             text-decoration: none;
-            display: inline-flex;
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             transition: var(--md-transition);
+            margin-top: 12px;
         }
 
         .read-btn:hover {
             background: var(--md-primary);
             border-color: var(--md-primary);
             color: white;
+            transform: scale(1.02);
         }
 
-        .bookmark-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--md-outline);
+        .read-btn:hover .material-icons-round {
+            transform: translateX(4px);
+        }
+
+        .read-btn .material-icons-round {
+            transition: transform 0.3s ease;
+        }
+
+        /* Code snippet preview */
+        .code-preview {
+            background: #1e1e1e;
+            border-radius: var(--md-radius-medium);
+            padding: 8px 12px;
+            margin: 8px 0;
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+            color: #d4d4d4;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .dark-theme .code-preview {
+            background: #2d2d2d;
+        }
+
+        /* Other Categories Section */
+        .other-categories {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--md-outline);
+        }
+
+        .other-categories h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .other-categories h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--md-primary), transparent);
+            border-radius: 2px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 640px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .category-card {
             background: var(--md-surface);
-            color: var(--md-on-surface-variant);
-            cursor: pointer;
+            border-radius: var(--md-radius-large);
+            padding: 24px;
+            border: 1px solid var(--md-outline);
+            transition: var(--md-transition);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--md-elevation-3);
+            border-color: var(--md-primary);
+        }
+
+        .category-card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--md-primary-container);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--md-transition);
-            margin-left: 8px;
-            flex-shrink: 0;
-        }
-
-        .bookmark-btn:hover {
-            background: var(--md-surface-variant);
             color: var(--md-primary);
-            border-color: var(--md-primary);
+            font-size: 24px;
+            transition: var(--md-transition);
         }
 
-        .bookmark-btn.bookmarked {
+        .category-card:hover .category-card-icon {
             background: var(--md-primary);
             color: white;
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .category-card-content {
+            flex: 1;
+        }
+
+        .category-card-name {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .category-card-count {
+            color: var(--md-on-surface-variant);
+            font-size: 0.9rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--md-primary-container), var(--md-surface-variant));
+            border-radius: var(--md-radius-large);
+            padding: 48px 32px;
+            margin: 60px 0;
+            text-align: center;
+            border: 1px solid var(--md-outline);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-section p {
+            color: var(--md-on-surface-variant);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        @media (min-width:500px){ .newsletter-form{ flex-direction:row; } }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 16px 24px;
+            border-radius: var(--md-radius-pill);
+            border: 2px solid var(--md-outline);
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--md-transition);
+        }
+
+        .newsletter-input:focus {
             border-color: var(--md-primary);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
         }
 
         /* Toast */
@@ -860,14 +1446,13 @@
             right: 30px;
             background: var(--md-primary);
             color: white;
-            padding: 14px 28px;
+            padding: 12px 24px;
             border-radius: var(--md-radius-pill);
             box-shadow: var(--md-elevation-3);
             transform: translateY(100px);
             opacity: 0;
             transition: all 0.3s ease;
             z-index: 1000;
-            font-weight: 500;
         }
 
         .toast.show {
@@ -880,8 +1465,6 @@
             grid-column: 1 / -1;
             text-align: center;
             padding: 60px 20px;
-            color: var(--md-on-surface-variant);
-            font-size: 1.1rem;
             background: var(--md-surface);
             border-radius: var(--md-radius-large);
             border: 1px solid var(--md-outline);
@@ -889,9 +1472,9 @@
 
         .no-results .material-icons-round {
             font-size: 64px;
-            margin-bottom: 16px;
             color: var(--md-primary);
             opacity: 0.5;
+            margin-bottom: 16px;
         }
 
         /* Loading Spinner */
@@ -899,7 +1482,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 80px;
+            padding: 60px;
             grid-column: 1 / -1;
         }
 
@@ -912,7 +1495,9 @@
             animation: spin 1s linear infinite;
         }
 
-        @keyframes spin { to{ transform: rotate(360deg); } }
+        @keyframes spin { 
+            to{ transform: rotate(360deg); } 
+        }
 
         /* ===== FOOTER ===== */
         .footer {
@@ -967,11 +1552,10 @@
             font-weight: 900;
             line-height: 0.8;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--md-primary), #4a90e2);
+            background: linear-gradient(135deg, var(--md-primary), #9F7AEA);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            word-break: break-word;
         }
 
         .footer-tagline {
@@ -988,7 +1572,11 @@
             margin-bottom: 40px;
         }
 
-        @media (min-width:700px){ .footer-grid{ grid-template-columns:repeat(3,1fr); } }
+        @media (min-width:700px){ 
+            .footer-grid{ 
+                grid-template-columns:repeat(3,1fr); 
+            } 
+        }
 
         .footer-col h4 {
             font-family: var(--font-heading);
@@ -1036,7 +1624,6 @@
                 flex-direction: row; 
                 justify-content: space-between; 
                 text-align: left; 
-                align-items: center;
             }
         }
 
@@ -1047,39 +1634,15 @@
             flex-wrap: wrap;
         }
 
-        @media (max-width: 699px) {
-            .footer-logo-wrapper {
-                justify-content: center;
-                width: 100%;
-            }
-        }
-
         .footer-logo {
             width: 160px;
             height: 36px;
             background: url('https://aditya-cmd-max.github.io/Reverbit.svg') no-repeat left/contain;
-            transition: filter 0.3s;
             display: inline-block;
         }
 
         .dark-theme .footer-logo {
             filter: brightness(0) invert(1);
-        }
-
-        .footer-attribution {
-            font-size: 0.9rem;
-            color: var(--md-on-surface-variant);
-            margin-top: 10px;
-        }
-
-        .footer-attribution i {
-            color: #ff4d4d;
-            animation: heartbeat 1.5s ease infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
         }
 
         .social-links {
@@ -1106,26 +1669,17 @@
             color: white;
             transform: translateY(-2px);
         }
-
-        @media (max-width:480px){
-            .category-title{ font-size: 2rem; }
-            .category-description{ font-size: 1rem; }
-            .filter-tabs{ width: 100%; overflow-x: auto; }
-            .category-stats{ gap: var(--space-lg); }
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease forwards;
-        }
     </style>
 </head>
-<body class="light-theme">
+<body>
+    <!-- Neural network animation lines -->
+    <div class="neural-lines">
+        <div class="neural-line" style="top: 20%; animation-duration: 15s;"></div>
+        <div class="neural-line" style="top: 40%; animation-duration: 12s; animation-delay: -3s;"></div>
+        <div class="neural-line" style="top: 60%; animation-duration: 18s; animation-delay: -7s;"></div>
+        <div class="neural-line" style="top: 80%; animation-duration: 10s; animation-delay: -2s;"></div>
+    </div>
+
     <!-- Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
@@ -1148,20 +1702,17 @@
             <nav class="desktop-nav">
                 <a href="https://aditya-cmd-max.github.io/marina/" class="nav-item">Home</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles" class="nav-item">Articles</a>
-                <a href="https://aditya-cmd-max.github.io/marina/categories" class="nav-item active">Categories</a>
+                <a href="#" class="nav-item active">Categories</a>
                 <a href="https://aditya-cmd-max.github.io/marina/about" class="nav-item">About</a>
             </nav>
             
             <div class="header-actions">
-                <!-- Theme toggle for desktop -->
                 <button class="icon-btn theme-toggle" id="desktopThemeToggle">
                     <span class="material-icons-round">dark_mode</span>
                 </button>
                 
-                <!-- Auth avatar -->
                 <div id="authAvatarContainer"></div>
                 
-                <!-- Hamburger button -->
                 <button class="icon-btn hamburger-btn" id="menuBtn">
                     <span class="material-icons-round">menu</span>
                 </button>
@@ -1185,55 +1736,117 @@
             <span class="breadcrumb-separator">/</span>
             <a href="https://aditya-cmd-max.github.io/marina/articles">Articles</a>
             <span class="breadcrumb-separator">/</span>
-            <a href="https://aditya-cmd-max.github.io/marina/categories">Categories</a>
+            <a href="https://aditya-cmd-max.github.io/marina/articles/categories">Categories</a>
             <span class="breadcrumb-separator">/</span>
             <span class="breadcrumb-current">AI & Development</span>
         </nav>
 
-        <!-- Category Header (Dynamic) -->
-        <div class="category-header" id="categoryHeader">
+        <!-- Category Hero - Dynamically Populated -->
+        <div class="category-hero" id="categoryHero">
             <div class="category-icon">
-                <span class="material-icons-round" id="categoryIcon">smart_toy</span>
+                <i class="fas fa-brain"></i>
             </div>
-            <h1 class="category-title" id="categoryTitle">AI & Development</h1>
-            <p class="category-description" id="categoryDescription">Explore the intersection of artificial intelligence and software development. Discover how AI is transforming coding practices, development workflows, and the future of software engineering.</p>
+            <h1 id="categoryTitle">AI & Development</h1>
+            <p class="category-description" id="categoryDescription">How artificial intelligence is transforming software development and engineering.</p>
+            
+            <!-- Tech Tags -->
+            <div class="tech-tags" id="techTags">
+                <span class="tech-tag"><i class="fas fa-robot"></i> Machine Learning</span>
+                <span class="tech-tag"><i class="fas fa-code"></i> AI Tools</span>
+                <span class="tech-tag"><i class="fas fa-brain"></i> Neural Networks</span>
+                <span class="tech-tag"><i class="fas fa-microchip"></i> Intelligent Systems</span>
+            </div>
+            
             <div class="category-stats" id="categoryStats">
-                <div class="stat">
-                    <span class="stat-value" id="articleCount">0</span>
-                    <span class="stat-label">Articles</span>
+                <div class="stat-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span id="articleCount">Loading...</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-value" id="authorCount">0</span>
-                    <span class="stat-label">Authors</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value" id="readCount">0</span>
-                    <span class="stat-label">Total Reads</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value" id="bookmarkCount">0</span>
-                    <span class="stat-label">Bookmarks</span>
+                <div class="stat-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="latestUpdate">Latest: Mar 12, 2026</span>
                 </div>
             </div>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="filter-tabs">
-            <button class="filter-tab active" data-filter="all">All Articles</button>
-            <button class="filter-tab" data-filter="latest">Latest</button>
-            <button class="filter-tab" data-filter="featured">Featured</button>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h2 class="page-title">
+                All Articles in AI & Development
+                <span class="article-count" id="desktopArticleCount">0 articles</span>
+            </h2>
         </div>
-        
+
+        <!-- Desktop Filter Tabs -->
+        <div class="filter-tabs-desktop" id="filterTabsDesktop">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="latest">Latest</button>
+            <button class="filter-tab" data-filter="oldest">Oldest</button>
+            <button class="filter-tab" data-filter="popular">Most Popular</button>
+        </div>
+
+        <!-- Mobile Filter Button -->
+        <button class="mobile-filter-btn" id="mobileFilterBtn">
+            <i class="fas fa-filter"></i>
+            <span>Filter Articles</span>
+            <span class="material-icons-round" style="margin-left: auto;">arrow_drop_down</span>
+        </button>
+
+        <!-- Filter Modal (Mobile) -->
+        <div class="filter-modal-overlay" id="filterModalOverlay"></div>
+        <div class="filter-modal" id="filterModal">
+            <div class="filter-modal-header">
+                <h3 class="filter-modal-title">Filter Articles</h3>
+                <button class="filter-modal-close" id="filterModalClose">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="filter-options">
+                <button class="filter-option active" data-filter="all">
+                    <i class="fas fa-list-ul"></i> All Articles
+                </button>
+                <button class="filter-option" data-filter="latest">
+                    <i class="fas fa-clock"></i> Latest
+                </button>
+                <button class="filter-option" data-filter="oldest">
+                    <i class="fas fa-history"></i> Oldest
+                </button>
+                <button class="filter-option" data-filter="popular">
+                    <i class="fas fa-fire"></i> Most Popular
+                </button>
+            </div>
+        </div>
+
         <!-- Articles Grid -->
         <div class="articles-grid" id="articlesGrid">
             <div class="loading-spinner">
                 <div class="spinner"></div>
             </div>
         </div>
-    </main>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <h2>Stay Ahead in AI Development</h2>
+            <p>Get the latest AI tutorials, development tips, and industry insights delivered to your inbox.</p>
+            <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); showToast('Thanks for subscribing!'); this.reset();">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="btn signin-btn" style="margin:0; padding:16px 32px;">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Other Categories Section -->
+        <section class="other-categories">
+            <h2>Explore More Categories</h2>
+            <div class="categories-grid" id="otherCategoriesGrid">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toast -->
+        <div class="toast" id="toast"></div>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -1251,7 +1864,7 @@
                 <h4>Navigation</h4>
                 <a href="https://aditya-cmd-max.github.io/marina/">Home</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles">Articles</a>
-                <a href="https://aditya-cmd-max.github.io/marina/categories">Categories</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/categories">Categories</a>
                 <a href="https://aditya-cmd-max.github.io/marina/about">About</a>
             </div>
             <div class="footer-col">
@@ -1275,277 +1888,313 @@
                 <span>© 2026 Reverbit Marina. All rights reserved.</span>
             </div>
             
-            <div class="footer-attribution">
-                Made with <i class="fas fa-heart"></i> by Aditya Jha
-            </div>
-            
-            <div class="social-links">
-                <a href="https://youtube.com/@Reverbit" class="social-link"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/in/aditya-jha-2b0860399/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/aditya-cmd-max" class="social-link"><i class="fab fa-github"></i></a>
+            <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
+                <div class="social-links">
+                    <a href="https://youtube.com/@Reverbit" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/aditya-jha-2b0860399/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/aditya-cmd-max" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // ===== FETCH ARTICLES FROM JSON =====
-        async function fetchArticles() {
-            try {
-                const response = await fetch('https://aditya-cmd-max.github.io/marina/articlesmarina.json');
-                const articles = await response.json();
-                return articles;
-            } catch (error) {
-                console.error('Error fetching articles:', error);
-                return [];
-            }
-        }
-
-        // ===== FETCH CATEGORIES FROM JSON (if needed) =====
-        async function fetchCategories() {
-            try {
-                const response = await fetch('https://aditya-cmd-max.github.io/marina/categoriesmarina.json');
-                const categories = await response.json();
-                return categories;
-            } catch (error) {
-                console.error('Error fetching categories:', error);
-                return [];
-            }
-        }
-
-        // ===== BOOKMARK SYSTEM =====
-        let bookmarks = JSON.parse(localStorage.getItem('articleBookmarks')) || [];
-        let currentFilter = 'all';
-        let allArticles = [];
-
+        // ===== DATA FETCHING =====
+        const ARTICLES_URL = 'https://aditya-cmd-max.github.io/marina/articlesmarina.json';
+        const CATEGORIES_URL = 'https://aditya-cmd-max.github.io/marina/categoriesmarina.json';
+        const TAGS_URL = 'https://aditya-cmd-max.github.io/marina/tagsmarina.json';
+        
+        const CURRENT_CATEGORY = 'AI & Development';
+        const CURRENT_CATEGORY_SLUG = 'ai-development';
+        
         // DOM Elements
         const articlesGrid = document.getElementById('articlesGrid');
         const toast = document.getElementById('toast');
-        const filterTabs = document.querySelectorAll('.filter-tab');
+        const categoryTitle = document.getElementById('categoryTitle');
+        const categoryDescription = document.getElementById('categoryDescription');
+        const articleCount = document.getElementById('articleCount');
+        const desktopArticleCount = document.getElementById('desktopArticleCount');
+        const latestUpdate = document.getElementById('latestUpdate');
+        const techTags = document.getElementById('techTags');
+        
+        // Filter state
+        let currentFilter = 'all';
+        let articles = [];
+        let categories = [];
+        let tags = [];
 
-        // Helper: Get thumbnail URL
-        function getThumbnailUrl(article) {
-            if (article.thumbnail) {
-                if (article.thumbnail.startsWith('http')) {
-                    return article.thumbnail;
-                } else {
-                    return `https://aditya-cmd-max.github.io${article.thumbnail}`;
-                }
-            }
-            // Fallback images based on category
-            const category = article.category || '';
-            if (category.includes('AI') || category.includes('Intelligence')) {
-                return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80';
-            } else if (category.includes('Programming')) {
-                return 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80';
-            } else if (category.includes('Technology')) {
-                return 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80';
-            } else {
-                return 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
-            }
-        }
-
-        // Helper: Get author avatar URL
-        function getAuthorAvatar(article) {
-            if (article.authorAvatar) {
-                if (article.authorAvatar.startsWith('http')) {
-                    return article.authorAvatar;
-                } else {
-                    return `https://aditya-cmd-max.github.io${article.authorAvatar}`;
-                }
-            }
-            return `https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff`;
-        }
-
-        // Helper: Get author link
-        function getAuthorLink(article) {
-            if (article.authorLink) {
-                if (article.authorLink.startsWith('http')) {
-                    return article.authorLink;
-                } else {
-                    return `https://aditya-cmd-max.github.io${article.authorLink}`;
-                }
-            }
-            return '#';
-        }
-
-        // Helper: Format date
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-        }
-
-        // Helper: Check if article is bookmarked
-        function isBookmarked(articleId) {
-            return bookmarks.includes(articleId);
-        }
-
-        // Show toast
+        // ===== UTILITY FUNCTIONS =====
         function showToast(message) {
             toast.textContent = message;
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
-        // Toggle bookmark
-        function toggleBookmark(articleId) {
-            const index = bookmarks.indexOf(articleId);
-            
-            if (index === -1) {
-                bookmarks.push(articleId);
-                showToast('Article bookmarked!');
-            } else {
-                bookmarks.splice(index, 1);
-                showToast('Bookmark removed');
-            }
-            
-            localStorage.setItem('articleBookmarks', JSON.stringify(bookmarks));
-            
-            // Re-render articles with updated bookmark states
-            renderArticles(filterArticles(allArticles));
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        // Filter articles based on current filter
-        function filterArticles(articles) {
-            if (currentFilter === 'all') return articles;
-            
-            if (currentFilter === 'latest') {
-                return [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
+        function getThumbnailUrl(article) {
+            if (article.thumbnail) {
+                return article.thumbnail.startsWith('http') ? article.thumbnail : `https://aditya-cmd-max.github.io${article.thumbnail}`;
             }
-            
-            if (currentFilter === 'featured') {
-                return articles.filter(article => article.featured === true);
-            }
-            
-            return articles;
+            return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80';
         }
 
-        // Render articles
-        function renderArticles(articles) {
-            if (articles.length === 0) {
+        function getAuthorAvatar(article) {
+            if (article.authorAvatar) {
+                return article.authorAvatar.startsWith('http') ? article.authorAvatar : `https://aditya-cmd-max.github.io${article.authorAvatar}`;
+            }
+            return `https://ui-avatars.com/api/?name=${article.author}&background=8B5CF6&color=fff`;
+        }
+
+        // ===== FILTER FUNCTIONS =====
+        function filterArticles(filterType) {
+            const categoryArticles = articles.filter(a => a.category === CURRENT_CATEGORY);
+            
+            switch(filterType) {
+                case 'latest':
+                    return [...categoryArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
+                case 'oldest':
+                    return [...categoryArticles].sort((a, b) => new Date(a.date) - new Date(b.date));
+                case 'popular':
+                  
+                    return [...categoryArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
+                default:
+                    return [...categoryArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
+            }
+        }
+
+        function updateActiveFilter(filter) {
+            // Desktop tabs
+            document.querySelectorAll('#filterTabsDesktop .filter-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.filter === filter);
+            });
+
+            // Modal options
+            document.querySelectorAll('.filter-option').forEach(option => {
+                option.classList.toggle('active', option.dataset.filter === filter);
+            });
+        }
+
+        // ===== RENDER FUNCTIONS =====
+        function renderArticles(filteredArticles) {
+            if (filteredArticles.length === 0) {
                 articlesGrid.innerHTML = `
                     <div class="no-results">
-                        <span class="material-icons-round">bookmark_border</span>
-                        <h3>No articles found</h3>
-                        <p>Try changing your filter</p>
+                        <span class="material-icons-round">psychology</span>
+                        <h3>No AI articles found</h3>
+                        <p>Check back soon for new content on AI development!</p>
                     </div>
                 `;
                 return;
             }
 
             let html = '';
-            articles.forEach((article, index) => {
-                const bookmarked = isBookmarked(article.id);
-                const bookmarkIcon = bookmarked ? 'bookmark' : 'bookmark_border';
-                const animationDelay = index * 0.1;
+            filteredArticles.forEach((article, index) => {
+                // Extract AI-related keywords for tags
+                const aiKeywords = ['AI', 'Machine Learning', 'Neural Networks', 'Deep Learning'];
                 
                 html += `
-                    <div class="article-card fade-in" style="animation-delay: ${animationDelay}s;" data-id="${article.id}" data-featured="${article.featured || false}" data-date="${article.date}">
-                        ${article.featured ? '<div class="featured-badge">Featured</div>' : ''}
-                        <img src="${getThumbnailUrl(article)}" class="article-image" alt="${article.title}" loading="lazy">
+                    <div class="article-card" data-id="${article.id}" style="animation-delay: ${index * 0.1}s">
+                        <div class="article-image-container">
+                            ${article.featured ? '<div class="featured-badge">Featured</div>' : ''}
+                            <img src="${getThumbnailUrl(article)}" class="article-image" alt="${article.title}" loading="lazy">
+                        </div>
                         <div class="article-content">
-                            <span class="article-category">${article.category || 'Technology'}</span>
+                            <span class="article-category" onclick="event.stopPropagation(); window.location.href='/marina/articles/categories/ai&development'">AI & Development</span>
                             <h3 class="article-title">${article.title}</h3>
-                            <p class="article-excerpt">${article.description.substring(0, 100)}...</p>
+                            <p class="article-excerpt">${article.description.substring(0, 120)}...</p>
+                          
                             
-                            <a href="${getAuthorLink(article)}" class="author-section" target="_blank">
-                                <img src="${getAuthorAvatar(article)}" class="author-avatar" alt="${article.author}" onerror="this.src='https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff'">
+                            <a href="${article.authorLink || '#'}" class="author-section" target="_blank" onclick="event.stopPropagation()">
+                                <img src="${getAuthorAvatar(article)}" class="author-avatar" alt="${article.author}">
                                 <div class="author-info">
                                     <div class="author-name">${article.author}</div>
                                     <div class="meta-info">
                                         <span>${formatDate(article.date)}</span>
                                         <span>•</span>
-                                        <span>${article.readTime || '5 min'}</span>
+                                        <span>${article.readTime || '5 min read'}</span>
                                     </div>
                                 </div>
                             </a>
                             
-                            <div class="article-actions">
-                                <a href="${article.link}" class="read-btn" target="_blank">
-                                    Read Article <span class="material-icons-round" style="font-size:18px;">arrow_forward</span>
-                                </a>
-                                <button class="bookmark-btn" data-id="${article.id}">
-                                    <span class="material-icons-round">${bookmarkIcon}</span>
-                                </button>
-                            </div>
+                            <a href="${article.link}" class="read-btn" target="_blank" onclick="event.stopPropagation()">
+                                Read Article <span class="material-icons-round" style="font-size: 18px;">arrow_forward</span>
+                            </a>
                         </div>
                     </div>
                 `;
             });
             
             articlesGrid.innerHTML = html;
-            
-            // Add bookmark button listeners
-            document.querySelectorAll('.bookmark-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const articleId = btn.getAttribute('data-id');
-                    toggleBookmark(articleId);
-                });
-            });
 
             // Add card click listeners
             document.querySelectorAll('.article-card').forEach(card => {
                 card.addEventListener('click', (e) => {
-                    if (!e.target.closest('.bookmark-btn') && !e.target.closest('a')) {
+                    if (!e.target.closest('a')) {
                         const link = card.querySelector('.read-btn');
-                        if (link) window.location.href = link.href;
+                        if (link) window.open(link.href, '_blank');
                     }
                 });
             });
         }
 
-        // Initialize category page
-        async function initCategoryPage() {
-            const articles = await fetchArticles();
+        function renderOtherCategories() {
+            const otherCategories = categories.filter(c => c.name !== CURRENT_CATEGORY).slice(0, 3);
             
-            if (!articles || articles.length === 0) {
-                articlesGrid.innerHTML = '<div class="no-results">Failed to load articles</div>';
-                return;
+            let html = '';
+            otherCategories.forEach(cat => {
+                const count = articles.filter(a => a.category === cat.name).length;
+                // Determine icon based on category
+                let icon = 'fa-folder';
+                if (cat.name === 'Technology') icon = 'fa-microchip';
+                else if (cat.name === 'Product Launch') icon = 'fa-rocket';
+                else if (cat.name === 'Programming') icon = 'fa-code';
+                else if (cat.name === 'Artificial Intelligence') icon = 'fa-brain';
+                
+                html += `
+                    <a href="/marina/articles/categories/${cat.slug || cat.name.toLowerCase().replace(/\s+/g, '-')}" class="category-card">
+                        <div class="category-card-icon">
+                            <i class="fas ${icon}"></i>
+                        </div>
+                        <div class="category-card-content">
+                            <div class="category-card-name">${cat.name}</div>
+                            <div class="category-card-count">${count} articles</div>
+                        </div>
+                    </a>
+                `;
+            });
+            
+            document.getElementById('otherCategoriesGrid').innerHTML = html;
+        }
+
+        // Update tech tags based on articles
+        function updateTechTags(articles) {
+            const aiTags = [
+                { icon: 'fa-robot', text: 'Machine Learning' },
+                { icon: 'fa-code', text: 'AI Tools' },
+                { icon: 'fa-brain', text: 'Neural Networks' },
+                { icon: 'fa-microchip', text: 'Intelligent Systems' },
+                { icon: 'fa-database', text: 'Data Science' },
+                { icon: 'fa-cloud', text: 'Cloud AI' }
+            ];
+            
+            // Randomly select 4 tags
+            const selectedTags = aiTags.sort(() => 0.5 - Math.random()).slice(0, 4);
+            
+            let html = '';
+            selectedTags.forEach(tag => {
+                html += `<span class="tech-tag"><i class="fas ${tag.icon}"></i> ${tag.text}</span>`;
+            });
+            
+            techTags.innerHTML = html;
+        }
+
+        // ===== FILTER MODAL FUNCTIONS =====
+        const filterModal = document.getElementById('filterModal');
+        const filterModalOverlay = document.getElementById('filterModalOverlay');
+        const filterModalClose = document.getElementById('filterModalClose');
+
+        function openFilterModal() {
+            filterModal.classList.add('active');
+            filterModalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFilterModal() {
+            filterModal.classList.remove('active');
+            filterModalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ===== INITIALIZATION =====
+        async function init() {
+            try {
+                // Fetch all data
+                const [articlesRes, categoriesRes, tagsRes] = await Promise.all([
+                    fetch(ARTICLES_URL),
+                    fetch(CATEGORIES_URL),
+                    fetch(TAGS_URL)
+                ]);
+                
+                articles = await articlesRes.json();
+                categories = await categoriesRes.json();
+                tags = await tagsRes.json();
+
+                // Filter category articles
+                const categoryArticles = articles.filter(a => a.category === CURRENT_CATEGORY);
+                
+                // Update hero stats
+                articleCount.textContent = `${categoryArticles.length} articles`;
+                desktopArticleCount.textContent = `${categoryArticles.length} articles`;
+                
+                if (categoryArticles.length > 0) {
+                    const latest = new Date(Math.max(...categoryArticles.map(a => new Date(a.date))));
+                    latestUpdate.textContent = `Latest: ${latest.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+                }
+
+                // Find category info
+                const categoryInfo = categories.find(c => c.name === CURRENT_CATEGORY);
+                if (categoryInfo) {
+                    categoryDescription.textContent = categoryInfo.description;
+                }
+
+                // Update tech tags
+                updateTechTags(categoryArticles);
+
+                // Render articles
+                renderArticles(filterArticles(currentFilter));
+                renderOtherCategories();
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                articlesGrid.innerHTML = `
+                    <div class="no-results">
+                        <span class="material-icons-round">error</span>
+                        <h3>Failed to load articles</h3>
+                        <p>Please refresh the page or try again later</p>
+                    </div>
+                `;
+                showToast('Failed to load content');
             }
-
-            // Filter articles for this category (AI & Development)
-            const categoryArticles = articles.filter(article => 
-                article.category === 'AI & Development' || 
-                article.category === 'Artificial Intelligence' ||
-                article.category?.includes('AI')
-            );
-
-            allArticles = categoryArticles;
-
-            // Update category stats
-            document.getElementById('articleCount').textContent = categoryArticles.length;
-            
-            // Count unique authors
-            const uniqueAuthors = new Set(categoryArticles.map(a => a.author)).size;
-            document.getElementById('authorCount').textContent = uniqueAuthors;
-            
-            // Calculate total reads (simulated)
-            const totalReads = categoryArticles.reduce((sum, a) => sum + (Math.floor(Math.random() * 500) + 100), 0);
-            document.getElementById('readCount').textContent = totalReads.toLocaleString();
-            
-            // Count bookmarks for this category (from localStorage)
-            const categoryBookmarks = categoryArticles.filter(a => bookmarks.includes(a.id)).length;
-            document.getElementById('bookmarkCount').textContent = categoryBookmarks;
-
-            // Render articles
-            renderArticles(filterArticles(categoryArticles));
         }
 
         // ===== EVENT LISTENERS =====
         
-        // Filter tabs
-        filterTabs.forEach(tab => {
+        // Desktop filter tabs
+        document.querySelectorAll('#filterTabsDesktop .filter-tab').forEach(tab => {
             tab.addEventListener('click', () => {
-                filterTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                currentFilter = tab.getAttribute('data-filter');
-                renderArticles(filterArticles(allArticles));
+                currentFilter = tab.dataset.filter;
+                updateActiveFilter(currentFilter);
+                renderArticles(filterArticles(currentFilter));
             });
         });
 
-        // Initialize
-        initCategoryPage();
+        // Mobile filter button
+        document.getElementById('mobileFilterBtn').addEventListener('click', openFilterModal);
+
+        // Filter modal close
+        filterModalClose.addEventListener('click', closeFilterModal);
+        filterModalOverlay.addEventListener('click', closeFilterModal);
+
+        // Filter options in modal
+        document.querySelectorAll('.filter-option').forEach(option => {
+            option.addEventListener('click', () => {
+                currentFilter = option.dataset.filter;
+                updateActiveFilter(currentFilter);
+                renderArticles(filterArticles(currentFilter));
+                closeFilterModal();
+            });
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && filterModal.classList.contains('active')) {
+                closeFilterModal();
+            }
+        });
 
         // ===== THEME TOGGLE =====
         const body = document.body;
@@ -1603,10 +2252,12 @@
 
         // ===== POPULATE MENU =====
         function updateMenu(isLoggedIn = false, userData = null) {
+            const isDark = body.classList.contains('dark-theme');
+            
             if (isLoggedIn && userData) {
                 menuContent.innerHTML = `
                     <div class="menu-user">
-                        <img src="${userData.photoURL || `https://ui-avatars.com/api/?name=${userData.displayName}&background=1a73e8&color=fff`}" class="menu-user-avatar">
+                        <img src="${userData.photoURL || `https://ui-avatars.com/api/?name=${userData.displayName}&background=8B5CF6&color=fff`}" class="menu-user-avatar">
                         <div class="menu-user-info">
                             <h4>${userData.displayName}</h4>
                             <p>${userData.email}</p>
@@ -1618,7 +2269,7 @@
                         <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link"><i class="fas fa-newspaper"></i> Articles</a>
                         <a href="#" class="menu-link active"><i class="fas fa-folder"></i> Categories</a>
                         <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
-                        <a href="/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
+                        <a href="https://aditya-cmd-max.github.io/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
                     </div>
                     
                     <div class="menu-theme" id="menuThemeToggle">
@@ -1626,7 +2277,7 @@
                             <i class="fas fa-moon"></i>
                             <span>Dark Mode</span>
                         </div>
-                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                        <span class="material-icons-round" id="menuThemeIcon">${isDark ? 'light_mode' : 'dark_mode'}</span>
                     </div>
                     
                     <a href="#" class="menu-link signin-btn" onclick="window.ReverbitAuth?.logout(); return false;">
@@ -1647,7 +2298,7 @@
                             <i class="fas fa-moon"></i>
                             <span>Dark Mode</span>
                         </div>
-                        <span class="material-icons-round" id="menuThemeIcon">${body.classList.contains('dark-theme') ? 'light_mode' : 'dark_mode'}</span>
+                        <span class="material-icons-round" id="menuThemeIcon">${isDark ? 'light_mode' : 'dark_mode'}</span>
                     </div>
                     
                     <a href="https://aditya-cmd-max.github.io/signin" class="menu-link signin-btn">
@@ -1667,27 +2318,25 @@
         // ===== AUTH =====
         async function initAuth() {
             try {
-                await window.ReverbitAuth?.init();
-                
-                window.ReverbitAuth?.addAuthListener((user, profile) => {
-                    if (user && profile) {
-                        updateMenu(true, profile);
-                    } else {
-                        updateMenu(false);
-                    }
+                await window.ReverbitAuth.init();
+                window.ReverbitAuth.addAuthListener((user, profile) => {
+                    updateMenu(!!user, profile);
                 });
-                
             } catch (error) {
                 console.error('Auth error:', error);
                 updateMenu(false);
             }
         }
 
+        // Start everything
+        init();
         initAuth();
 
         // GSAP Animations
         if (typeof gsap !== 'undefined') {
-            gsap.from('.category-header', { duration: 1, y: 30, opacity: 0, ease: 'power3.out' });
+            gsap.from('.category-hero', { duration: 1, y: 30, opacity: 0, ease: 'power3.out' });
+            gsap.from('.page-header', { duration: 0.8, y: 20, opacity: 0, delay: 0.2, ease: 'power3.out' });
+            gsap.from('.tech-tag', { duration: 0.5, scale: 0, opacity: 0, stagger: 0.1, delay: 0.5, ease: 'back.out(1.7)' });
         }
     </script>
 </body>
