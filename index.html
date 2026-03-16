@@ -2345,6 +2345,15 @@ href="https://aditya-cmd-max.github.io/marina/rss.xml">
     });
   });
 </script>
+    <script>
+const today = new Date();
+
+const visibleArticles = articles.filter(article => {
+  const publishDate = new Date(article.date);
+  return publishDate <= today;
+});
+        
+    </script>
     
 </body>
 </html>
