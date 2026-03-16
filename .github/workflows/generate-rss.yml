@@ -3,7 +3,7 @@ name: Generate RSS Feed
 on:
   push:
     paths:
-      - 'articlesmarina.json'
+      - "articlesmarina.json"
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
 
       - name: Generate RSS
         run: |
-          python3 << 'EOF'
+          python3 <<EOF
           import json, datetime
 
           site = "https://aditya-cmd-max.github.io/marina"
@@ -23,26 +23,26 @@ jobs:
           with open("articlesmarina.json") as f:
               articles = json.load(f)
 
-          rss = f'''<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-<channel>
-<title>Reverbit Marina</title>
-<link>{site}</link>
-<description>Technology News, AI Insights and Software Engineering</description>
-<language>en-us</language>
-<lastBuildDate>{datetime.datetime.utcnow()}</lastBuildDate>
-'''
+          rss = f"""<?xml version="1.0" encoding="UTF-8"?>
+          <rss version="2.0">
+          <channel>
+          <title>Reverbit Marina</title>
+          <link>{site}</link>
+          <description>Technology News, AI Insights and Software Engineering</description>
+          <language>en-us</language>
+          <lastBuildDate>{datetime.datetime.utcnow()}</lastBuildDate>
+          """
 
           for a in articles:
               rss += f"""
-<item>
-<title>{a['title']}</title>
-<link>{a['link']}</link>
-<description>{a['description']}</description>
-<pubDate>{a['date']}</pubDate>
-<guid>{a['link']}</guid>
-</item>
-"""
+          <item>
+          <title>{a['title']}</title>
+          <link>{a['link']}</link>
+          <description>{a['description']}</description>
+          <pubDate>{a['date']}</pubDate>
+          <guid>{a['link']}</guid>
+          </item>
+          """
 
           rss += "</channel></rss>"
 
