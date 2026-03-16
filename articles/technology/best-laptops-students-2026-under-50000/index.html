@@ -2685,7 +2685,7 @@
             <nav class="desktop-nav" aria-label="Main navigation">
                 <a href="https://aditya-cmd-max.github.io/marina/" class="nav-item">Home</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles" class="nav-item active" aria-current="page">Articles</a>
-                <a href="https://aditya-cmd-max.github.io/marina/categories" class="nav-item">Categories</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="nav-item">Categories</a>
                 <a href="https://aditya-cmd-max.github.io/marina/tags/" class="nav-item">Tags</a>
                 <a href="https://aditya-cmd-max.github.io/marina/about" class="nav-item">About</a>
             </nav>
@@ -2725,7 +2725,7 @@
         <article>
             <!-- Article Header -->
             <header class="article-header fade-in">
-                <span class="article-category">Technology • Buying Guide</span>
+                <span class="article-category">Product Review</span>
                 <h1 class="article-title">Top 5 Best Laptops for Students Under ₹50,000 (2026)</h1>
                 
                 <div class="article-meta">
@@ -3716,7 +3716,7 @@
                         <div class="article-card" onclick="window.open('${article.link || '#'}', '_blank')" role="button" tabindex="0" aria-label="Read article: ${sanitizeHTML(article.title)}">
                             <img src="${thumbnail}" class="article-card-image" alt="${sanitizeHTML(article.title)}" loading="lazy">
                             <div class="article-card-content">
-                                <span class="article-card-category">${sanitizeHTML(article.category || 'Technology')}</span>
+                                <span class="article-card-category">${sanitizeHTML(article.category || 'Product Review')}</span>
                                 <h3 class="article-card-title">${sanitizeHTML(article.title)}</h3>
                                 <p class="article-card-excerpt">${sanitizeHTML(article.description || '').substring(0, 80)}...</p>
                                 <div class="article-card-meta">
@@ -3742,7 +3742,7 @@
                     const articlesData = await fetchArticles();
                     const related = articlesData
                         .filter(article => 
-                            article.category === 'Technology' && 
+                            article.category === 'Product Review' && 
                             article.id !== CURRENT_ARTICLE_ID
                         )
                         .slice(0, 3);
@@ -4073,7 +4073,7 @@
                         <div class="menu-links">
                             <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
                             <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link active"><i class="fas fa-newspaper"></i> Articles</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
                             <a href="https://aditya-cmd-max.github.io/marina/tags/" class="menu-link"><i class="fas fa-tag"></i> Tags</a>
                             <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
                             <a href="https://aditya-cmd-max.github.io/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
@@ -4096,7 +4096,7 @@
                         <div class="menu-links">
                             <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
                             <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link active"><i class="fas fa-newspaper"></i> Articles</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
                             <a href="https://aditya-cmd-max.github.io/marina/tags/" class="menu-link"><i class="fas fa-tag"></i> Tags</a>
                             <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
                         </div>
