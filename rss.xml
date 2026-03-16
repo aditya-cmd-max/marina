@@ -1,1 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
 
+<title>Reverbit Marina</title>
+<link>https://aditya-cmd-max.github.io/marina</link>
+<description>Technology News, AI Insights and Software Engineering</description>
+<language>en-us</language>
+<lastBuildDate>Sun, 15 Mar 2026 00:00:00 GMT</lastBuildDate>
+
+<item>
+<title>When is windows 12 going to arrive? What are the features expected?</title>
+<link>https://aditya-cmd-max.github.io/marina/articles/product-launch/windows-12-arrival-and-features/</link>
+<guid>https://aditya-cmd-max.github.io/marina/articles/product-launch/windows-12-arrival-and-features/</guid>
+<description>Everything you need to know about Windows 12—from AI-powered features and modular architecture to release dates, hardware requirements, and whether your PC will survive the upgrade.</description>
+<author>Aditya Jha</author>
+<category>Product Launch</category>
+<pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+<item>
+<title>The Future of AI-Powered Development</title>
+<link>https://aditya-cmd-max.github.io/marina/articles/ai&amp;development/future-of-ai-powered-development/</link>
+<guid>https://aditya-cmd-max.github.io/marina/articles/ai&amp;development/future-of-ai-powered-development/</guid>
+<description>The future of AI development focuses on shifting AI from a specialized tool to an integrated teammate that automates the entire software development lifecycle.</description>
+<author>Aditya Jha</author>
+<category>AI &amp; Development</category>
+<pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+<item>
+<title>The Future of Technology: 7 Trends That Will Change the World</title>
+<link>https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/</link>
+<guid>https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/</guid>
+<description>From AI to quantum computing, the next decade will bring massive technological shifts. Discover the key trends shaping our future.</description>
+<author>Aditya Jha</author>
+<category>Technology</category>
+<pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+</channel>
+</rss>
