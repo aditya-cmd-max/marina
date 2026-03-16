@@ -1942,7 +1942,7 @@
                             <img src="${getThumbnailUrl(article)}" class="article-image" alt="${article.title}" loading="lazy">
                         </div>
                         <div class="article-content">
-                            <a href="https://aditya-cmd-max.github.io/marina/articles/category/${article.category?.toLowerCase().replace(/\s+/g, '-') || 'uncategorized'}" class="article-category">${article.category || 'Technology'}</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories/${article.category?.toLowerCase().replace(/\s+/g, '-') || 'uncategorized'}" class="article-category">${article.category || 'Technology'}</a>
                             <h3 class="article-title">${article.title}</h3>
                             <p class="article-excerpt">${article.description.substring(0, 120)}...</p>
                             
