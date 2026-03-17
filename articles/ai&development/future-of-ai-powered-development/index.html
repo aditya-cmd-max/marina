@@ -89,6 +89,9 @@
     
     <!-- Auth.js (defer) -->
     <script src="https://aditya-cmd-max.github.io/js/auth.js" defer></script>
+  
+  <!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     
     <!-- ===== SCHEMA.ORG / STRUCTURED DATA ===== -->
     <script type="application/ld+json">
@@ -2466,9 +2469,10 @@
             <nav class="desktop-nav" aria-label="Main navigation">
                 <a href="https://aditya-cmd-max.github.io/marina/" class="nav-item">Home</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles" class="nav-item active" aria-current="page">Articles</a>
-                <a href="https://aditya-cmd-max.github.io/marina/categories" class="nav-item">Categories</a>
-                <a href="https://aditya-cmd-max.github.io/marina/tags/" class="nav-item">Tags</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="nav-item">Categories</a>
                 <a href="https://aditya-cmd-max.github.io/marina/about" class="nav-item">About</a>
+                <a href="https://aditya-cmd-max.github.io/marina/contact" class="nav-item">Contact Us</a>
+                <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="nav-item">Write for Us.</a>
             </nav>
             
             <div class="header-actions">
@@ -2724,16 +2728,16 @@ app.post('/api/users', async (req, res) => {
                 <p class="fade-in-up">As we continue to push the boundaries of what's possible with AI-powered development, one thing remains clear: the most successful teams will be those that combine human creativity and critical thinking with the power and efficiency of artificial intelligence.</p>
             </section>
 
-            <!-- Newsletter CTA -->
-            <section class="newsletter-cta fade-in-up" aria-labelledby="newsletter-title">
-                <h3 id="newsletter-title" class="newsletter-title">Stay Updated on AI Development</h3>
-                <p class="newsletter-text">Get the latest insights, tutorials, and industry news on AI-powered development delivered directly to your inbox.</p>
-                <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter subscription">
-                    <label for="newsletter-email" class="visually-hidden">Email address</label>
-                    <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Enter your email" required>
-                    <button type="submit" class="btn btn-filled">Subscribe</button>
-                </form>
-            </section>
+<!-- Newsletter CTA -->
+<section class="newsletter-cta fade-in-up" aria-labelledby="newsletter-title">
+    <h3 id="newsletter-title" class="newsletter-title">Stay Updated on AI Development</h3>
+    <p class="newsletter-text">Get the latest insights, tutorials, and industry news on AI-powered development delivered directly to your inbox.</p>
+    <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter subscription">
+        <label for="newsletter-email" class="visually-hidden">Email address</label>
+        <input type="email" name="user_email" id="newsletter-email" class="newsletter-input" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-filled">Subscribe</button>
+    </form>
+</section>
 
             <!-- Article Navigation -->
             <div class="article-navigation" id="article-navigation" aria-label="Article navigation">
@@ -2858,9 +2862,10 @@ app.post('/api/users', async (req, res) => {
                 <h4>Navigation</h4>
                 <a href="https://aditya-cmd-max.github.io/marina/">Home</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles">Articles</a>
-                <a href="https://aditya-cmd-max.github.io/marina/categories">Categories</a>
-                <a href="https://aditya-cmd-max.github.io/marina/tags/">Tags</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/categories">Categories</a>
                 <a href="https://aditya-cmd-max.github.io/marina/about">About</a>
+                <a href="https://aditya-cmd-max.github.io/marina/contact">Contact</a>
+                <a href="https://aditya-cmd-max.github.io/marina/write-for-us/">Write for Us</a>
             </div>
             <div class="footer-col">
                 <h4>Teams</h4>
@@ -2871,9 +2876,10 @@ app.post('/api/users', async (req, res) => {
             </div>
             <div class="footer-col">
                 <h4>Connect</h4>
-                <a href="https://github.com/aditya-cmd-max">GitHub</a>
-                <a href="https://www.linkedin.com/in/aditya-jha-2b0860399/">LinkedIn</a>
-                <a href="https://youtube.com/@Reverbit">YouTube</a>
+                <a href="https://aditya-cmd-max.github.io/marina/contact">Contact</a>
+                <a href="https://aditya-cmd-max.github.io/reverbit">Reverbit</a>
+                <a href="https://aditya-cmd-max.github.io/ekatvaai">About the Creator</a>
+                <a href="https://aditya-cmd-max.github.io/marina/write-for-us/">Write for Us</a>
             </div>
         </div>
         
@@ -2931,14 +2937,31 @@ app.post('/api/users', async (req, res) => {
             const menuOverlay = document.getElementById('menuOverlay');
             const menuContent = document.getElementById('menuContent');
 
-            // Constants
+            // EmailJS Configuration
+            const EMAILJS_PUBLIC_KEY = 'kd3XWlZ-6jSKMrPr5';
+            const EMAILJS_SERVICE_ID = 'service_v3uhdxn';
+            const EMAILJS_TEMPLATE_ID = 'template_n4efbny';
+         
+          
+           // Constants
             const CURRENT_ARTICLE_ID = 'future-ai-powered-development';
             const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
             const ARTICLES_CACHE_KEY = 'marina_articles_cache';
             const TAGS_CACHE_KEY = 'marina_tags_cache';
             const BOOKMARKS_KEY = 'articleBookmarks';
-
-            // State
+ 
+           // Initialize EmailJS
+(function() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        console.log('EmailJS initialized');
+    } else {
+        console.error('EmailJS not loaded');
+    }
+})();        
+          
+          
+           // State
             let isTocCollapsed = false;
             let isLiked = false;
             let isBookmarked = false;
@@ -3473,27 +3496,44 @@ function initTheme() {
                 });
             }
 
-            // ===== NEWSLETTER =====
-            function initNewsletter() {
-                if (!newsletterForm) return;
-                
-                newsletterForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const emailInput = document.getElementById('newsletter-email');
-                    const email = emailInput?.value;
-                    
-                    if (email && email.includes('@')) {
-                        showToast('Thanks for subscribing!');
-                        emailInput.value = '';
-                        
-                        // In production, send to your API
-                        // fetch('/api/newsletter', { method: 'POST', body: JSON.stringify({ email }) });
-                    } else {
-                        showToast('Please enter a valid email', 'error');
-                    }
-                });
-            }
-
+           // ===== NEWSLETTER WITH EMAILJS =====
+function initNewsletter() {
+    if (!newsletterForm) return;
+    
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Check if EmailJS is loaded
+        if (typeof emailjs === 'undefined') {
+            showToast('Email service not available. Please try again later.', 'error');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            return;
+        }
+        
+        // Send via EmailJS
+        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, newsletterForm)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showToast('Thanks for subscribing! Check your inboxin 2-4 days.');
+                newsletterForm.reset();
+            }, function(error) {
+                console.log('FAILED...', error);
+                showToast('Failed to subscribe. Please try again.', 'error');
+            })
+            .finally(function() {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+    });
+}
             // ===== AUTHOR PROFILE =====
             function initAuthorLinks() {
                 const authorProfileUrl = 'https://aditya-cmd-max.github.io/marina/profiles/adityajha';
@@ -3586,11 +3626,11 @@ function initTheme() {
                         <div class="menu-links">
                             <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
                             <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link active"><i class="fas fa-newspaper"></i> Articles</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/tags/" class="menu-link"><i class="fas fa-tag"></i> Tags</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
-                            <a href="https://aditya-cmd-max.github.io/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
-                        </div>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+<a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                        <a href="https://aditya-cmd-max.github.io/marina/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
+                        <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us.</a>
+                        <a href="https://aditya-cmd-max.github.io/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>                        </div>
                         
                         <div class="menu-theme" id="menuThemeToggle" role="button" tabindex="0" aria-label="Toggle dark mode">
                             <div class="menu-theme-left">
@@ -3609,9 +3649,10 @@ function initTheme() {
                         <div class="menu-links">
                             <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
                             <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link active"><i class="fas fa-newspaper"></i> Articles</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/tags/" class="menu-link"><i class="fas fa-tag"></i> Tags</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                             <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
+                             <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us.</a>
                         </div>
                         
                         <div class="menu-theme" id="menuThemeToggle" role="button" tabindex="0" aria-label="Toggle dark mode">
