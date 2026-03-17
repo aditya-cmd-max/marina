@@ -1578,23 +1578,48 @@
             transform: rotate(180deg);
         }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: var(--md-surface);
-            padding: 0 24px;
-        }
+       /* Remove the max-height limitation entirely */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: var(--md-surface);
+    padding: 0 24px;
+}
 
-        .faq-answer.active {
-            max-height: 200px;
-            padding: 0 24px 18px 24px;
-        }
+.faq-answer.active {
+    max-height: 1000px;  /* Large enough for any content */
+    padding: 0 24px 18px 24px;
+}
 
-        .faq-answer p {
-            margin-top: 12px;
-            color: var(--md-on-surface-variant);
-        }
+/* For very long answers, add scroll if needed */
+.faq-answer.active p {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Mobile optimization */
+@media (max-width: 640px) {
+    .faq-answer.active {
+        padding: 0 16px 16px 16px;
+    }
+    
+    .faq-answer.active p {
+        max-height: 250px;  /* Shorter on mobile, with scroll */
+        font-size: 0.95rem;
+    }
+    
+    /* Optional: style the scrollbar for better mobile experience */
+    .faq-answer.active p::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .faq-answer.active p::-webkit-scrollbar-thumb {
+        background: var(--md-primary);
+        border-radius: 4px;
+    }
+}
 
         /* Article Footer */
         .article-footer {
