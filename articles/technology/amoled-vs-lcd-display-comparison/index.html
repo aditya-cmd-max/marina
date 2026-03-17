@@ -40,7 +40,6 @@
     <meta property="article:tag" content="Screen Quality">
     <meta property="article:tag" content="Mobile Displays">
     
-    
     <!-- ===== LINKEDIN META TAGS ===== -->
     <meta name="linkedin:owner" content="Aditya Jha">
     
@@ -87,7 +86,7 @@
     
     <!-- Auth.js (defer) -->
     <script src="https://aditya-cmd-max.github.io/js/auth.js" defer></script>
-  <!-- EmailJS -->
+    <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>  
     
     <!-- ===== SCHEMA.ORG / STRUCTURED DATA ===== -->
@@ -290,9 +289,6 @@
             --z-sticky: 100;
             --z-modal: 1000;
             --z-toast: 2000;
-            
-            /* Settings modal specific */
-            --z-settings: 1500;
         }
 
         .dark-theme {
@@ -319,15 +315,19 @@
             font-family: var(--font-body);
             background-color: var(--md-background);
             color: var(--md-on-surface);
-            line-height: var(--line-height, 1.7);
-            font-size: var(--font-size-base, 1.125rem); /* Increased default font size */
+            line-height: 1.7;
+            font-size: 1.125rem;
             overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease, font-size 0.2s ease, line-height 0.2s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
             min-height: 100vh;
             position: relative;
         }
 
-        /* Page width classes */
+        /* Page width classes - kept for possible future use but settings removed */
+        .article-container {
+            max-width: 900px;
+        }
+        
         .article-container.narrow {
             max-width: 700px;
         }
@@ -454,361 +454,6 @@
             66% { transform: translateY(15px) rotate(-2deg); }
         }
 
-        /* ===== SETTINGS BUTTON (DESKTOP ONLY) - FIXED POSITION ===== */
-        .settings-button {
-            position: fixed;
-            right: 24px;
-            top: 120px;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--md-surface);
-            color: var(--md-on-surface);
-            border: 1px solid var(--md-outline);
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: var(--z-settings);
-            transition: var(--md-transition);
-            font-size: 24px;
-            box-shadow: var(--md-elevation-2);
-        }
-
-        .settings-button:hover {
-            color: var(--md-primary);
-            transform: rotate(90deg) scale(1.1);
-            border-color: var(--md-primary);
-            box-shadow: var(--md-elevation-3);
-        }
-
-        @media (min-width: 1024px) {
-            .settings-button {
-                display: flex;
-            }
-        }
-
-        /* Adjust settings button position when TOC is on right */
-        .toc-right .settings-button {
-            right: 300px;
-        }
-
-        /* ===== SETTINGS MODAL ===== */
-        .settings-modal {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 360px;
-            height: 100vh;
-            background: var(--md-surface);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: calc(var(--z-settings) + 1);
-            transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-            border-left: 1px solid var(--md-outline);
-            box-shadow: var(--md-elevation-4);
-            overflow-y: auto;
-            padding: 80px 24px 40px;
-        }
-
-        @media (min-width: 1024px) {
-            .settings-modal {
-                width: 380px;
-            }
-        }
-
-        .settings-modal.active {
-            right: 0;
-        }
-
-        .settings-close {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: none;
-            background: var(--md-surface-variant);
-            color: var(--md-on-surface);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 22px;
-            transition: var(--md-transition);
-            z-index: 10;
-            box-shadow: var(--md-elevation-1);
-        }
-
-        .settings-close:hover {
-            background: var(--md-primary);
-            color: white;
-            transform: rotate(90deg);
-        }
-
-        .settings-title {
-            font-family: var(--font-heading);
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 32px;
-            color: var(--md-on-surface);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        .settings-title i {
-            color: var(--md-primary);
-            font-size: 2rem;
-        }
-
-        .settings-section {
-            margin-bottom: 32px;
-            padding-bottom: 28px;
-            border-bottom: 1px solid var(--md-outline-variant);
-        }
-
-        .settings-section:last-child {
-            border-bottom: none;
-        }
-
-        .settings-section h3 {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--md-on-surface-variant);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .settings-section h3 i {
-            color: var(--md-primary);
-            font-size: 1.2rem;
-        }
-
-        /* TOC Position Options */
-        .toc-position-options {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-
-        .toc-option {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 16px 8px;
-            background: var(--md-surface-variant);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-large);
-            cursor: pointer;
-            transition: var(--md-transition);
-        }
-
-        .toc-option:hover {
-            background: var(--md-primary-container);
-            border-color: var(--md-primary);
-        }
-
-        .toc-option.active {
-            background: var(--md-primary-container);
-            border-color: var(--md-primary);
-        }
-
-        .toc-option svg {
-            width: 40px;
-            height: 30px;
-            stroke: var(--md-on-surface-variant);
-            fill: none;
-            stroke-width: 1.5;
-        }
-
-        .toc-option.active svg {
-            stroke: var(--md-primary);
-        }
-
-        .toc-option span {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--md-on-surface);
-        }
-
-        /* Font size slider */
-        .font-size-control {
-            margin-bottom: 12px;
-        }
-
-        .slider-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            color: var(--md-on-surface-variant);
-            font-size: 0.9rem;
-        }
-
-        .slider {
-            width: 100%;
-            height: 6px;
-            border-radius: 3px;
-            background: var(--md-outline);
-            outline: none;
-            -webkit-appearance: none;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--md-primary);
-            cursor: pointer;
-            transition: var(--md-transition);
-            border: 2px solid white;
-            box-shadow: var(--md-elevation-2);
-        }
-
-        .slider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            background: var(--md-primary-dark);
-        }
-
-        /* Line spacing options */
-        .line-spacing-options {
-            display: flex;
-            gap: 10px;
-        }
-
-        .spacing-option {
-            flex: 1;
-            padding: 12px 8px;
-            background: var(--md-surface-variant);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-pill);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--md-transition);
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .spacing-option:hover {
-            background: var(--md-primary-container);
-            border-color: var(--md-primary);
-        }
-
-        .spacing-option.active {
-            background: var(--md-primary);
-            color: white;
-            border-color: var(--md-primary);
-        }
-
-        /* Page width options */
-        .width-options {
-            display: flex;
-            gap: 10px;
-        }
-
-        .width-option {
-            flex: 1;
-            padding: 12px 8px;
-            background: var(--md-surface-variant);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-pill);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--md-transition);
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .width-option:hover {
-            background: var(--md-primary-container);
-            border-color: var(--md-primary);
-        }
-
-        .width-option.active {
-            background: var(--md-primary);
-            color: white;
-            border-color: var(--md-primary);
-        }
-
-        /* Text-to-Speech Button */
-        .tts-button {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 20px;
-            background: var(--md-surface-variant);
-            color: var(--md-on-surface);
-            border: 1px solid var(--md-outline);
-            border-radius: var(--md-radius-pill);
-            cursor: pointer;
-            transition: var(--md-transition);
-            font-family: var(--font-heading);
-            font-weight: 500;
-            width: 100%;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        .tts-button:hover {
-            background: var(--md-primary);
-            color: white;
-            border-color: var(--md-primary);
-            transform: translateY(-2px);
-            box-shadow: var(--md-elevation-2);
-        }
-
-        .tts-button.speaking {
-            background: #34a853;
-            color: white;
-            border-color: #34a853;
-            animation: pulse-green 2s infinite;
-        }
-
-        @keyframes pulse-green {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        .speed-control {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 12px;
-            background: var(--md-surface-variant);
-            border-radius: var(--md-radius-pill);
-            border: 1px solid var(--md-outline);
-        }
-
-        .speed-label {
-            font-size: 0.9rem;
-            color: var(--md-on-surface-variant);
-            min-width: 50px;
-        }
-
-        .speed-value {
-            font-size: 0.9rem;
-            color: var(--md-primary);
-            font-weight: 600;
-            min-width: 45px;
-            text-align: right;
-        }
-
-        .speed-control .slider {
-            flex: 1;
-        }
-
-        
-    
         /* ===== HEADER ===== */
         .app-header {
             position: sticky;
@@ -1211,50 +856,6 @@
             }
         }
 
-        /* TOC positioning - FIXED to disappear after FAQs */
-        .toc-left .table-of-contents {
-            position: fixed;
-            left: 20px;
-            top: 100px;
-            width: 260px;
-            margin-left: 0;
-            z-index: 50;
-            max-height: calc(100vh - 150px);
-            overflow-y: auto;
-        }
-
-        .toc-left .article-container {
-            margin-left: 300px;
-        }
-
-        .toc-right .table-of-contents {
-            position: fixed;
-            right: 20px;
-            top: 100px;
-            width: 260px;
-            margin-right: 0;
-            z-index: 50;
-            max-height: calc(100vh - 150px);
-            overflow-y: auto;
-        }
-
-        .toc-right .article-container {
-            margin-right: 300px;
-        }
-
-        @media (max-width: 1200px) {
-            .toc-left .table-of-contents,
-            .toc-right .table-of-contents {
-                display: none;
-            }
-            
-            .toc-left .article-container,
-            .toc-right .article-container {
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-
         /* Article Header */
         .article-header {
             margin-bottom: var(--space-xl);
@@ -1484,7 +1085,7 @@
             position: relative;
             top: 0;
             z-index: 15;
-            transition: var(--md-transition), left 0.3s ease, right 0.3s ease;
+            transition: var(--md-transition);
             box-shadow: var(--md-elevation-2);
             border: 1px solid var(--md-outline);
         }
@@ -1597,14 +1198,14 @@
 
         /* Article Content */
         .article-content {
-            font-size: var(--font-size-base, 1.125rem); /* Increased default */
-            line-height: var(--line-height, 1.8);
+            font-size: 1.125rem;
+            line-height: 1.8;
             color: var(--md-on-surface);
         }
 
         @media (min-width: 768px) {
             .article-content {
-                font-size: var(--font-size-base, 1.2rem); /* Larger on desktop */
+                font-size: 1.2rem;
             }
         }
 
@@ -2969,11 +2570,7 @@
             .menu-overlay,
             .hamburger-menu,
             .mesh-background,
-            .mesh-overlay,
-            .settings-button,
-            .settings-modal,
-            .highlight-btn,
-            .highlight-note {
+            .mesh-overlay {
                 display: none !important;
             }
             
@@ -2993,12 +2590,6 @@
                 content: " (" attr(href) ")";
                 font-size: 0.8em;
                 font-style: italic;
-            }
-            
-            pre {
-                white-space: pre-wrap;
-                word-wrap: break-word;
-                border: 1px solid #ddd;
             }
             
             body {
@@ -3045,109 +2636,6 @@
     <!-- Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 
-    <!-- Settings Button (Desktop only) - FIXED positioning -->
-    <button class="settings-button" id="settingsButton" aria-label="Reading settings">
-        <span class="material-icons-round" aria-hidden="true">tune</span>
-    </button>
-
-    <!-- Settings Modal -->
-    <div class="settings-modal" id="settingsModal">
-        <button class="settings-close" id="settingsClose" aria-label="Close settings">
-            <span class="material-icons-round" aria-hidden="true">close</span>
-        </button>
-        
-        <div class="settings-title">
-            <span class="material-icons-round">tune</span>
-            Reading Settings
-        </div>
-        
-        <!-- Table of Contents Position -->
-        <div class="settings-section">
-            <h3><span class="material-icons-round">menu_book</span> Table of Contents</h3>
-            <div class="toc-position-options">
-                <div class="toc-option" data-position="default" id="toc-default">
-                    <svg viewBox="0 0 40 30">
-                        <rect x="2" y="2" width="36" height="26" rx="2" stroke="currentColor" fill="none"/>
-                        <rect x="8" y="8" width="10" height="4" rx="1" fill="currentColor" opacity="0.3"/>
-                        <rect x="8" y="15" width="10" height="4" rx="1" fill="currentColor" opacity="0.3"/>
-                        <rect x="8" y="22" width="10" height="4" rx="1" fill="currentColor" opacity="0.3"/>
-                        <rect x="22" y="8" width="12" height="4" rx="1" fill="currentColor" opacity="0.1"/>
-                        <rect x="22" y="15" width="12" height="4" rx="1" fill="currentColor" opacity="0.1"/>
-                    </svg>
-                    <span>Default</span>
-                </div>
-                <div class="toc-option" data-position="left" id="toc-left">
-                    <svg viewBox="0 0 40 30">
-                        <rect x="2" y="2" width="10" height="26" rx="2" stroke="currentColor" fill="none"/>
-                        <rect x="6" y="8" width="4" height="4" rx="1" fill="currentColor" opacity="0.5"/>
-                        <rect x="6" y="15" width="4" height="4" rx="1" fill="currentColor" opacity="0.5"/>
-                        <rect x="6" y="22" width="4" height="4" rx="1" fill="currentColor" opacity="0.5"/>
-                        <rect x="16" y="8" width="20" height="4" rx="1" fill="currentColor" opacity="0.1"/>
-                        <rect x="16" y="15" width="20" height="4" rx="1" fill="currentColor" opacity="0.1"/>
-                    </svg>
-                    <span>Left Side</span>
-                </div>
-                <div class="toc-option" data-position="right" id="toc-right">
-                    <svg viewBox="0 0 40 30">
-                        <rect x="28" y="2" width="10" height="26" rx="2" stroke="currentColor" fill="none"/>
-                        <rect x="30" y="8" width="4" height="4" rx="1" fill="currentColor" opacity="0.5"/>
-                        <rect x="30" y="15" width="4" height="4" rx="1" fill="currentColor" opacity="0.5"/>
-                        <rect x="30" y="22" width="4" height="4" rx="1" fill="currentColor" opacity="0.5"/>
-                        <rect x="4" y="8" width="20" height="4" rx="1" fill="currentColor" opacity="0.1"/>
-                        <rect x="4" y="15" width="20" height="4" rx="1" fill="currentColor" opacity="0.1"/>
-                    </svg>
-                    <span>Right Side</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Font Size Slider -->
-        <div class="settings-section">
-            <h3><span class="material-icons-round">text_fields</span> Font Size</h3>
-            <div class="font-size-control">
-                <div class="slider-label">
-                    <span>A</span>
-                    <span>A</span>
-                </div>
-                <input type="range" min="0.8" max="1.4" step="0.05" value="1" class="slider" id="fontSizeSlider">
-            </div>
-        </div>
-        
-        <!-- Line Spacing -->
-        <div class="settings-section">
-            <h3><span class="material-icons-round">format_line_spacing</span> Line Spacing</h3>
-            <div class="line-spacing-options">
-                <button class="spacing-option" data-spacing="1.4">Tight</button>
-                <button class="spacing-option active" data-spacing="1.8">Normal</button>
-                <button class="spacing-option" data-spacing="2.2">Relaxed</button>
-            </div>
-        </div>
-        
-        <!-- Page Width -->
-        <div class="settings-section">
-            <h3><span class="material-icons-round">width_full</span> Page Width</h3>
-            <div class="width-options">
-                <button class="width-option" data-width="narrow">Narrow</button>
-                <button class="width-option active" data-width="default">Default</button>
-                <button class="width-option" data-width="wide">Wide</button>
-            </div>
-        </div>
-        
-        <!-- Text-to-Speech -->
-        <div class="settings-section">
-            <h3><span class="material-icons-round">record_voice_over</span> Listen to Article</h3>
-            <button class="tts-button" id="ttsButton">
-                <span class="material-icons-round">play_circle</span>
-                <span>Start Listening</span>
-            </button>
-            <div class="speed-control">
-                <span class="speed-label">Speed:</span>
-                <input type="range" min="0.5" max="2" step="0.25" value="1" class="slider" id="ttsSpeed">
-                <span class="speed-value" id="ttsSpeedValue">1.0x</span>
-            </div>
-        </div>
-    </div>
-
     <!-- Background -->
     <div class="mesh-background" aria-hidden="true"></div>
     <div class="mesh-overlay" aria-hidden="true"></div>
@@ -3169,9 +2657,10 @@
             <nav class="desktop-nav" aria-label="Main navigation">
                 <a href="https://aditya-cmd-max.github.io/marina/" class="nav-item">Home</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles" class="nav-item active" aria-current="page">Articles</a>
-                <a href="https://aditya-cmd-max.github.io/marina/categories" class="nav-item">Categories</a>
-                <a href="https://aditya-cmd-max.github.io/marina/tags/" class="nav-item">Tags</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="nav-item">Categories</a>
                 <a href="https://aditya-cmd-max.github.io/marina/about" class="nav-item">About</a>
+                <a href="https://aditya-cmd-max.github.io/marina/contact" class="nav-item">Contact Us</a>
+                <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="nav-item">Write for Us</a>
             </nav>
             
             <div class="header-actions">
@@ -3203,7 +2692,6 @@
     <div class="reading-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100">
         <div class="reading-progress-bar" id="reading-progress" aria-valuenow="0"></div>
     </div>
-
 
     <!-- MAIN CONTENT -->
     <main class="article-container" id="main-content">
@@ -3268,7 +2756,7 @@
                     <picture>
                         <source srcset="https://www.panoxdisplay.com/uploadfile/images/Knowledge/amoled-vs-lcd-display-quality-power-durability-cost-cover.jpg" type="image/webp">
                         <img src="https://www.panoxdisplay.com/uploadfile/images/Knowledge/amoled-vs-lcd-display-quality-power-durability-cost-cover.jpg" alt="Smartphone with AMOLED display showing vibrant colors" class="article-image-full fade-in-up" loading="lazy">
-                    </picture>t
+                    </picture>
                     <div class="image-source-overlay">
                         <span class="material-icons-round" style="font-size: 12px;" aria-hidden="true">image</span>
                         <span>Panox Display</span>
@@ -3361,7 +2849,7 @@
                     </picture>
                     <div class="image-source-overlay">
                         <span class="material-icons-round" style="font-size: 12px;" aria-hidden="true">image</span>
-                        <span>Unsplash</span>
+                        <span>HONOR</span>
                     </div>
                     <figcaption>Figure 2: Dark mode on AMOLED screens saves battery by turning off black pixels</figcaption>
                 </figure>
@@ -3533,16 +3021,16 @@
                 </div>
             </section>
 
-           <!-- Newsletter CTA -->
-<section class="newsletter-cta fade-in-up" aria-labelledby="newsletter-title">
-    <h3 id="newsletter-title" class="newsletter-title">Stay Updated on Tech Comparisons</h3>
-    <p class="newsletter-text">Get the latest buying guides, tech comparisons, and display reviews delivered directly to your inbox.</p>
-    <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter subscription">
-        <label for="newsletter-email" class="visually-hidden">Email address</label>
-        <input type="email" id="newsletter-email" class="newsletter-input" name="user_email" placeholder="Enter your email" required>
-        <button type="submit" class="btn btn-filled">Subscribe</button>
-    </form>
-</section>
+            <!-- Newsletter CTA -->
+            <section class="newsletter-cta fade-in-up" aria-labelledby="newsletter-title">
+                <h3 id="newsletter-title" class="newsletter-title">Stay Updated on Tech Comparisons</h3>
+                <p class="newsletter-text">Get the latest buying guides, tech comparisons, and display reviews delivered directly to your inbox.</p>
+                <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter subscription">
+                    <label for="newsletter-email" class="visually-hidden">Email address</label>
+                    <input type="email" id="newsletter-email" class="newsletter-input" name="user_email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-filled">Subscribe</button>
+                </form>
+            </section>
 
             <!-- Article Navigation -->
             <div class="article-navigation" id="article-navigation" aria-label="Article navigation">
@@ -3667,9 +3155,10 @@
                 <h4>Navigation</h4>
                 <a href="https://aditya-cmd-max.github.io/marina/">Home</a>
                 <a href="https://aditya-cmd-max.github.io/marina/articles">Articles</a>
-                <a href="https://aditya-cmd-max.github.io/marina/categories">Categories</a>
-                <a href="https://aditya-cmd-max.github.io/marina/tags/">Tags</a>
+                <a href="https://aditya-cmd-max.github.io/marina/articles/categories">Categories</a>
                 <a href="https://aditya-cmd-max.github.io/marina/about">About</a>
+                <a href="https://aditya-cmd-max.github.io/marina/contact">Contact Us</a>
+                <a href="https://aditya-cmd-max.github.io/marina/write-for-us/">Write for Us</a>
             </div>
             <div class="footer-col">
                 <h4>Teams</h4>
@@ -3704,7 +3193,7 @@
         </div>
     </footer>
 
-  <script>
+    <script>
         // ===== PRODUCTION-READY JAVASCRIPT =====
         (function() {
             'use strict';
@@ -3740,29 +3229,10 @@
             const menuOverlay = document.getElementById('menuOverlay');
             const menuContent = document.getElementById('menuContent');
             
-            // Settings elements
-            const settingsButton = document.getElementById('settingsButton');
-            const settingsModal = document.getElementById('settingsModal');
-            const settingsClose = document.getElementById('settingsClose');
-            const tocOptions = document.querySelectorAll('.toc-option');
-            const fontSizeSlider = document.getElementById('fontSizeSlider');
-            const spacingOptions = document.querySelectorAll('.spacing-option');
-            const widthOptions = document.querySelectorAll('.width-option');
-            
-            // TTS elements
-            const ttsButton = document.getElementById('ttsButton');
-            const ttsSpeed = document.getElementById('ttsSpeed');
-            const ttsSpeedValue = document.getElementById('ttsSpeedValue');
-            
             // EmailJS Configuration
             const EMAILJS_PUBLIC_KEY = 'kd3XWlZ-6jSKMrPr5';
             const EMAILJS_SERVICE_ID = 'service_v3uhdxn';
             const EMAILJS_TEMPLATE_ID = 'template_n4efbny';
-            
-            // Speech synthesis
-            let speechSynthesis = window.speechSynthesis;
-            let speechUtterance = null;
-            let isSpeaking = false;
             
             // Constants
             const CURRENT_ARTICLE_ID = 'amoled-vs-lcd-display-comparison-2026';
@@ -3841,205 +3311,6 @@
                 if (menuThemeIcon) {
                     menuThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
                 }
-            }
-
-            // ===== SETTINGS MODAL =====
-            function initSettingsModal() {
-                if (!settingsButton || !settingsModal || !settingsClose) return;
-                
-                settingsButton.addEventListener('click', () => {
-                    settingsModal.classList.add('active');
-                });
-                
-                settingsClose.addEventListener('click', () => {
-                    settingsModal.classList.remove('active');
-                });
-                
-                // Close on overlay click
-                settingsModal.addEventListener('click', (e) => {
-                    if (e.target === settingsModal) {
-                        settingsModal.classList.remove('active');
-                    }
-                });
-                
-                // TOC Position
-                tocOptions.forEach(option => {
-                    option.addEventListener('click', () => {
-                        const position = option.dataset.position;
-                        tocOptions.forEach(opt => opt.classList.remove('active'));
-                        option.classList.add('active');
-                        
-                        // Remove existing TOC position classes
-                        document.body.classList.remove('toc-left', 'toc-right');
-                        
-                        if (position === 'left') {
-                            document.body.classList.add('toc-left');
-                            localStorage.setItem('tocPosition', 'left');
-                        } else if (position === 'right') {
-                            document.body.classList.add('toc-right');
-                            localStorage.setItem('tocPosition', 'right');
-                        } else {
-                            localStorage.setItem('tocPosition', 'default');
-                        }
-                        
-                        // Update settings button position
-                        updateSettingsButtonPosition();
-                    });
-                });
-                
-                // Load saved TOC position
-                const savedTocPosition = localStorage.getItem('tocPosition') || 'default';
-                if (savedTocPosition === 'left') {
-                    document.getElementById('toc-left')?.classList.add('active');
-                    document.body.classList.add('toc-left');
-                } else if (savedTocPosition === 'right') {
-                    document.getElementById('toc-right')?.classList.add('active');
-                    document.body.classList.add('toc-right');
-                } else {
-                    document.getElementById('toc-default')?.classList.add('active');
-                }
-                
-                // Update settings button position
-                updateSettingsButtonPosition();
-                
-                // Font Size
-                fontSizeSlider.addEventListener('input', (e) => {
-                    const size = e.target.value;
-                    document.documentElement.style.setProperty('--font-size-base', `${size}rem`);
-                    localStorage.setItem('fontSize', size);
-                });
-                
-                const savedFontSize = localStorage.getItem('fontSize') || '1';
-                fontSizeSlider.value = savedFontSize;
-                document.documentElement.style.setProperty('--font-size-base', `${savedFontSize}rem`);
-                
-                // Line Spacing
-                spacingOptions.forEach(option => {
-                    option.addEventListener('click', () => {
-                        const spacing = option.dataset.spacing;
-                        spacingOptions.forEach(opt => opt.classList.remove('active'));
-                        option.classList.add('active');
-                        
-                        document.documentElement.style.setProperty('--line-height', spacing);
-                        localStorage.setItem('lineSpacing', spacing);
-                    });
-                });
-                
-                const savedLineSpacing = localStorage.getItem('lineSpacing') || '1.8';
-                document.querySelector(`.spacing-option[data-spacing="${savedLineSpacing}"]`)?.classList.add('active');
-                document.documentElement.style.setProperty('--line-height', savedLineSpacing);
-                
-                // Page Width
-                widthOptions.forEach(option => {
-                    option.addEventListener('click', () => {
-                        const width = option.dataset.width;
-                        widthOptions.forEach(opt => opt.classList.remove('active'));
-                        option.classList.add('active');
-                        
-                        const articleContainer = document.querySelector('.article-container');
-                        articleContainer.classList.remove('narrow', 'wide');
-                        if (width !== 'default') {
-                            articleContainer.classList.add(width);
-                        }
-                        localStorage.setItem('pageWidth', width);
-                    });
-                });
-                
-                const savedPageWidth = localStorage.getItem('pageWidth') || 'default';
-                if (savedPageWidth !== 'default') {
-                    document.querySelector(`.width-option[data-width="${savedPageWidth}"]`)?.classList.add('active');
-                    document.querySelector('.article-container').classList.add(savedPageWidth);
-                } else {
-                    document.querySelector('.width-option[data-width="default"]')?.classList.add('active');
-                }
-            }
-            
-            function updateSettingsButtonPosition() {
-                if (!settingsButton) return;
-                if (document.body.classList.contains('toc-right')) {
-                    settingsButton.style.right = '300px';
-                } else {
-                    settingsButton.style.right = '24px';
-                }
-            }
-
-            // ===== TEXT-TO-SPEECH =====
-            function initTTS() {
-                if (!ttsButton || !ttsSpeed || !ttsSpeedValue) return;
-                
-                ttsSpeed.addEventListener('input', (e) => {
-                    ttsSpeedValue.textContent = e.target.value + 'x';
-                });
-                
-                ttsButton.addEventListener('click', () => {
-                    if (isSpeaking) {
-                        speechSynthesis.cancel();
-                        isSpeaking = false;
-                        ttsButton.innerHTML = '<span class="material-icons-round">play_circle</span><span>Start Listening</span>';
-                        ttsButton.classList.remove('speaking');
-                    } else {
-                        const articleText = document.querySelector('.article-content').innerText;
-                        speechUtterance = new SpeechSynthesisUtterance(articleText);
-                        speechUtterance.rate = parseFloat(ttsSpeed.value);
-                        
-                        speechUtterance.onend = () => {
-                            isSpeaking = false;
-                            ttsButton.innerHTML = '<span class="material-icons-round">play_circle</span><span>Start Listening</span>';
-                            ttsButton.classList.remove('speaking');
-                        };
-                        
-                        speechUtterance.onerror = () => {
-                            isSpeaking = false;
-                            ttsButton.innerHTML = '<span class="material-icons-round">play_circle</span><span>Start Listening</span>';
-                            ttsButton.classList.remove('speaking');
-                            showToast('Text-to-speech failed. Please try again.', 'error');
-                        };
-                        
-                        speechSynthesis.speak(speechUtterance);
-                        isSpeaking = true;
-                        ttsButton.innerHTML = '<span class="material-icons-round">stop_circle</span><span>Stop Listening</span>';
-                        ttsButton.classList.add('speaking');
-                    }
-                });
-            }
-
-            // ===== NEWSLETTER WITH EMAILJS =====
-            function initNewsletter() {
-                if (!newsletterForm) return;
-                
-                newsletterForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    
-                    // Show loading state
-                    const submitBtn = newsletterForm.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Sending...';
-                    submitBtn.disabled = true;
-                    
-                    // Check if EmailJS is loaded
-                    if (typeof emailjs === 'undefined') {
-                        showToast('Email service not available. Please try again later.', 'error');
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                        return;
-                    }
-                    
-                    // Send via EmailJS
-                    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, newsletterForm)
-                        .then(function(response) {
-                            console.log('SUCCESS!', response.status, response.text);
-                            showToast('Thanks for subscribing! Check your inbox after 2-4 days for confirmation.');
-                            newsletterForm.reset();
-                        }, function(error) {
-                            console.log('FAILED...', error);
-                            showToast('Failed to subscribe. Please try again.', 'error');
-                        })
-                        .finally(function() {
-                            // Reset button state
-                            submitBtn.textContent = originalText;
-                            submitBtn.disabled = false;
-                        });
-                });
             }
 
             // ===== READING PROGRESS =====
@@ -4507,6 +3778,41 @@
                 });
             }
 
+            // ===== NEWSLETTER WITH EMAILJS =====
+            function initNewsletter() {
+                if (!newsletterForm) return;
+                
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    if (typeof emailjs === 'undefined') {
+                        showToast('Email service not available. Please try again later.', 'error');
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        return;
+                    }
+                    
+                    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, newsletterForm)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            showToast('Thanks for subscribing! Check your inbox in 2-4 days.');
+                            newsletterForm.reset();
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            showToast('Failed to subscribe. Please try again.', 'error');
+                        })
+                        .finally(function() {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+
             // ===== AUTHOR PROFILE =====
             function initAuthorLinks() {
                 const authorProfileUrl = 'https://aditya-cmd-max.github.io/marina/profiles/adityajha';
@@ -4599,9 +3905,10 @@
                         <div class="menu-links">
                             <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
                             <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link active"><i class="fas fa-newspaper"></i> Articles</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/tags/" class="menu-link"><i class="fas fa-tag"></i> Tags</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
                             <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us</a>
                             <a href="https://aditya-cmd-max.github.io/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
                         </div>
                         
@@ -4622,9 +3929,10 @@
                         <div class="menu-links">
                             <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
                             <a href="https://aditya-cmd-max.github.io/marina/articles" class="menu-link active"><i class="fas fa-newspaper"></i> Articles</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/tags/" class="menu-link"><i class="fas fa-tag"></i> Tags</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
                             <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
+                            <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us</a>
                         </div>
                         
                         <div class="menu-theme" id="menuThemeToggle" role="button" tabindex="0" aria-label="Toggle dark mode">
@@ -4703,11 +4011,9 @@
                 initScrollAnimations();
                 initArticleActions();
                 initShare();
-                initNewsletter(); // EmailJS newsletter
+                initNewsletter();
                 initAuthorLinks();
                 initHamburgerMenu();
-                initSettingsModal();
-                initTTS();
                 initFaqAccordion();
 
                 const debouncedUpdateReadingProgress = debounce(updateReadingProgress, 10);
@@ -4759,8 +4065,7 @@
                 init();
             }
         })();
-</script>
+    </script>
      
-   
 </body>
 </html>
