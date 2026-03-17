@@ -1,69 +1,139 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
+xmlns:dc="http://purl.org/dc/elements/1.1/">
+
 <channel>
 
 <title>Reverbit Marina</title>
-<link>https://aditya-cmd-max.github.io/marina/</link>
-<description>Technology News, AI Insights and Software Engineering</description>
+<link>https://aditya-cmd-max.github.io/marina</link>
+<description>Latest Technology News, AI Insights, Programming Guides & Product Reviews</description>
 <language>en-us</language>
-<lastBuildDate>Sun, 15 Mar 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 18 Mar 2026 00:00:00 GMT</lastBuildDate>
 
+<!-- SELF LINK (VERY IMPORTANT FOR GOOGLE) -->
+<atom:link href="https://aditya-cmd-max.github.io/marina/rss.xml" rel="self" type="application/rss+xml"/>
+
+<!-- BRAND IMAGE -->
+<image>
+<title>Reverbit Marina</title>
+<link>https://aditya-cmd-max.github.io/marina</link>
+<url>https://aditya-cmd-max.github.io/marina/favicon.png</url>
+</image>
+
+<!-- ITEM 1 -->
 <item>
 <title>AMOLED vs LCD: Which Display is Better? Complete Comparison Guide (2026)</title>
 <link>https://aditya-cmd-max.github.io/marina/articles/technology/amoled-vs-lcd-display-comparison/</link>
-<guid>https://aditya-cmd-max.github.io/marina/articles/technology/amoled-vs-lcd-display-comparison/</guid>
-<description>Confused between AMOLED and LCD displays? Our comprehensive guide breaks down the differences in contrast, battery life, durability, and helps you choose the right screen for your needs.</description>
-<author>Aditya Jha</author>
+<guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/technology/amoled-vs-lcd-display-comparison/</guid>
+
+<description>
+Compare AMOLED vs LCD displays in 2026. Learn differences in battery life, contrast, durability, and performance to choose the best display for your smartphone or laptop.
+</description>
+
+<content:encoded><![CDATA[
+<p>Confused between AMOLED and LCD displays? This detailed 2026 comparison explains contrast, battery efficiency, color accuracy, and durability.</p>
+<p>Find out which display suits your usage—gaming, streaming, or everyday tasks.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
 <category>Technology</category>
 <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
 </item>
-  
+
+<!-- ITEM 2 -->
 <item>
 <title>Top 5 Best Laptops for Students Under ₹50,000 (2026)</title>
 <link>https://aditya-cmd-max.github.io/marina/articles/product-review/best-laptops-students-2026-under-50000/</link>
-<guid>https://aditya-cmd-max.github.io/marina/articles/product-review/best-laptops-students-2026-under-50000/</guid>
-<description>Find the perfect student laptop under ₹50,000. We review ASUS Vivobook, HP 15, Lenovo IdeaPad, and more with detailed specs, pros, and buying tips.</description>
-<author>Aditya Jha</author>
+<guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/product-review/best-laptops-students-2026-under-50000/</guid>
+
+<description>
+Best student laptops under ₹50,000 in 2026. Compare performance, battery life, and value for money with top picks from ASUS, HP, and Lenovo.
+</description>
+
+<content:encoded><![CDATA[
+<p>Looking for the best budget laptop? We break down top student laptops under ₹50,000 with real-world performance insights.</p>
+<p>Includes buying tips, pros/cons, and best use cases.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
 <category>Product Review</category>
 <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
 </item>
-  
+
+<!-- ITEM 3 -->
 <item>
 <title>Top 10 UI/UX Tips for Ambitious Programmers</title>
 <link>https://aditya-cmd-max.github.io/marina/articles/programming/uiux-tips-for-programmers/</link>
-<guid>https://aditya-cmd-max.github.io/marina/articles/programming/uiux-tips-for-programmers/</guid>
-<description>Build interfaces users love with these essential UI/UX principles. Perfect for developers who want to create better experiences without a designer.</description>
-<author>Aditya Jha</author>
+<guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/programming/uiux-tips-for-programmers/</guid>
+
+<description>
+Improve your UI/UX skills with 10 practical tips for developers. Build clean, user-friendly interfaces without needing a design background.
+</description>
+
+<content:encoded><![CDATA[
+<p>Learn how to design better interfaces as a developer. These UI/UX tips help you create smoother, more engaging user experiences.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
 <category>Programming</category>
 <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
 </item>
 
+<!-- ITEM 4 -->
 <item>
-<title>When is windows 12 going to arrive? What are the features expected?</title>
+<title>Windows 12 Release Date, Features & Requirements (2026 Guide)</title>
 <link>https://aditya-cmd-max.github.io/marina/articles/product-launch/windows-12-arrival-and-features/</link>
-<guid>https://aditya-cmd-max.github.io/marina/articles/product-launch/windows-12-arrival-and-features/</guid>
-<description>Everything you need to know about Windows 12—from AI-powered features and modular architecture to release dates, hardware requirements, and whether your PC will survive the upgrade.</description>
-<author>Aditya Jha</author>
+<guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/product-launch/windows-12-arrival-and-features/</guid>
+
+<description>
+Windows 12 expected features, release timeline, AI integration, and system requirements. Check if your PC is ready for the next big upgrade.
+</description>
+
+<content:encoded><![CDATA[
+<p>Explore everything about Windows 12 including AI-powered features, modular design, and expected launch timeline.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
 <category>Product Launch</category>
 <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
 </item>
 
+<!-- ITEM 5 -->
 <item>
 <title>The Future of AI-Powered Development</title>
 <link>https://aditya-cmd-max.github.io/marina/articles/ai&development/future-of-ai-powered-development/</link>
-<guid>https://aditya-cmd-max.github.io/marina/articles/ai&development/future-of-ai-powered-development/</guid>
-<description>The future of AI development focuses on shifting AI from a specialized tool to an integrated teammate that automates the entire software development lifecycle.</description>
-<author>Aditya Jha</author>
-<category>AI & Development</category>
+<guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/ai&development/future-of-ai-powered-development/</guid>
+
+<description>
+Discover how AI is transforming software development, from coding assistants to full lifecycle automation.
+</description>
+
+<content:encoded><![CDATA[
+<p>AI is evolving from a tool into a true development partner. Learn how it will reshape coding, testing, and deployment.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>AI &amp; Development</category>
 <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
 </item>
 
+<!-- ITEM 6 -->
 <item>
 <title>The Future of Technology: 7 Trends That Will Change the World</title>
 <link>https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/</link>
-<guid>https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/</guid>
-<description>From AI to quantum computing, the next decade will bring massive technological shifts. Discover the key trends shaping our future.</description>
-<author>Aditya Jha</author>
+<guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/</guid>
+
+<description>
+Top technology trends shaping the future including AI, quantum computing, and next-gen innovations.
+</description>
+
+<content:encoded><![CDATA[
+<p>Explore 7 major tech trends that will redefine industries and everyday life in the coming decade.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
 <category>Technology</category>
 <pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate>
 </item>
