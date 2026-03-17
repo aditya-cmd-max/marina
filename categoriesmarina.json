@@ -42,9 +42,9 @@
     "icon": "/images/categories/education.svg"
   },
   {
-    "name": "AI & Development",
+    "name": "AI and Development",
     "slug": "ai-development",
-    "link": "https://aditya-cmd-max.github.io/marina/articles/categories/ai&development",
+    "link": "https://aditya-cmd-max.github.io/marina/articles/categories/ai-and-development",
     "description": "How artificial intelligence is transforming software development and engineering.",
     "icon": "https://img.icons8.com/?size=80&id=qSNjZJRFEzLU&format=png"
   }
