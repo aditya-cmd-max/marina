@@ -1,53 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"
-xmlns:atom="http://www.w3.org/2005/Atom"
-xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+<urlset xmlns="http://www.sitemaps.org"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <url>
+    <loc>https://aditya-cmd-max.github.io/marina/articles/education/class-9-10-syllabus-30-days-study-plan/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Reverbit Marina</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-19T00:00:00Z</news:publication_date>
+      <news:title>How to Complete Class 9/10 Syllabus in 30 Days</news:title>
+    </news:news>
+  </url>
 
-<channel>
-
-<title>Reverbit Marina - News</title>
-<link>https://aditya-cmd-max.github.io/marina</link>
-<description>Latest News and Updates from Reverbit Marina</description>
-<language>en-us</language>
-<lastBuildDate>Wed, 18 Mar 2026 00:00:00 GMT</lastBuildDate>
-
-<atom:link href="https://aditya-cmd-max.github.io/marina/news.xml" rel="self" type="application/rss+xml"/>
-
-<!-- NEWS ITEM 1 -->
-<item>
-<title>How to Complete Class 9/10 Syllabus in 30 Days</title>
-<link>https://aditya-cmd-max.github.io/marina/articles/education/class-9-10-syllabus-30-days-study-plan/</link>
-<guid>https://aditya-cmd-max.github.io/marina/articles/education/class-9-10-syllabus-30-days-study-plan/</guid>
-<pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
-
-<news:news>
-  <news:publication>
-    <news:name>Reverbit Marina</news:name>
-    <news:language>en</news:language>
-  </news:publication>
-  <news:publication_date>2026-03-19T00:00:00Z</news:publication_date>
-  <news:title>How to Complete Class 9/10 Syllabus in 30 Days</news:title>
-</news:news>
-
-</item>
-
-<!-- NEWS ITEM 2 -->
-<item>
-<title>AMOLED vs LCD: Which Display is Better?</title>
-<link>https://aditya-cmd-max.github.io/marina/articles/technology/amoled-vs-lcd-display-comparison/</link>
-<guid>https://aditya-cmd-max.github.io/marina/articles/technology/amoled-vs-lcd-display-comparison/</guid>
-<pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
-
-<news:news>
-  <news:publication>
-    <news:name>Reverbit Marina</news:name>
-    <news:language>en</news:language>
-  </news:publication>
-  <news:publication_date>2026-03-18T00:00:00Z</news:publication_date>
-  <news:title>AMOLED vs LCD: Which Display is Better?</news:title>
-</news:news>
-
-</item>
-
-</channel>
-</rss>
+  <url>
+    <loc>https://aditya-cmd-max.github.io/marina/articles/technology/amoled-vs-lcd-display-comparison/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Reverbit Marina</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-18T00:00:00Z</news:publication_date>
+      <news:title>AMOLED vs LCD: Which Display is Better?</news:title>
+    </news:news>
+  </url>
+</urlset>
