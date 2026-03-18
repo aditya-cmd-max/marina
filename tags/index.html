@@ -1563,8 +1563,8 @@
         </div>
     </footer>
 
-    <script>
-        // ===== ENHANCED TAGS PAGE WITH SEARCH =====
+<script>
+        // ===== ENHANCED TAGS PAGE WITH SEARCH - SHOWS ALL 50+ TAGS =====
         (function() {
             'use strict';
 
@@ -1620,16 +1620,17 @@
             }
 
             function getDefaultColor(tagId) {
-                const colors = ['#1a73e8', '#34a853', '#fbbc04', '#ea4335', '#8e44ad', '#00acc1', '#673ab7', '#e67e22', '#c2185b', '#3f51b5'];
+                const colors = ['#1a73e8', '#34a853', '#fbbc04', '#ea4335', '#8e44ad', '#00acc1', '#673ab7', '#e67e22', '#c2185b', '#3f51b5', '#d32f2f', '#1976d2', '#388e3c', '#7b1fa2', '#f57c00'];
                 const hash = tagId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
                 return colors[hash % colors.length];
             }
 
             function adjustColor(hex, percent) {
-                return hex; // simplified for demo
+                // Simplified - just return the color
+                return hex;
             }
 
-            // Process tags with article counts
+            // Process tags with article counts - NOW SHOWING ALL TAGS (even with 0 articles)
             function processTagsWithCounts(tags, articles) {
                 return tags.map(tag => {
                     const count = articles.filter(article => 
@@ -1641,7 +1642,8 @@
                         count: count,
                         displayColor: tag.color || getDefaultColor(tag.id)
                     };
-                }).filter(tag => tag.count > 0); // Only show tags with articles
+                });
+                // 🔥 FIXED: No filter - now shows ALL 50+ tags even with 0 articles
             }
 
             // Filter tags based on current filter AND search
@@ -1660,14 +1662,15 @@
 
                 // Apply category filter
                 if (currentFilter === 'featured') {
-                    filtered = filtered.filter(tag => tag.featured);
+                    filtered = filtered.filter(tag => tag.featured === true);
                 } else if (currentFilter === 'popular') {
+                    // Sort by count (highest first) - popular based on article count
                     filtered = filtered.sort((a, b) => b.count - a.count);
                 } else if (currentFilter === 'a-z') {
                     filtered = filtered.sort((a, b) => a.name.localeCompare(b.name));
                 } else {
-                    // default 'all' - sort by count descending (popular first)
-                    filtered = filtered.sort((a, b) => b.count - a.count);
+                    // default 'all' - sort by name for better UX
+                    filtered = filtered.sort((a, b) => a.name.localeCompare(b.name));
                 }
 
                 return filtered;
@@ -1699,7 +1702,7 @@
                         <div class="no-results">
                             <span class="material-icons-round">local_offer</span>
                             <h3>No tags found</h3>
-                            <p>Try adjusting your search or filter</p>
+                            <p>Try adjusting your search</p>
                         </div>
                     `;
                     totalTagsSpan.textContent = '0';
@@ -1708,8 +1711,11 @@
 
                 let html = '';
                 tags.forEach((tag, index) => {
+                    // Show count badge - even if zero
+                    const countText = tag.count === 0 ? 'No articles yet' : `${tag.count} article${tag.count !== 1 ? 's' : ''}`;
+                    
                     html += `
-                        <div class="tag-card" style="animation-delay: ${index * 0.05}s;" onclick="window.location.href='/marina/tags/?tag=${tag.slug}'">
+                        <div class="tag-card" style="animation-delay: ${index * 0.02}s;" onclick="window.location.href='/marina/tags/?tag=${tag.slug}'">
                             <div class="tag-header">
                                 <div class="tag-icon" style="--tag-color: ${tag.displayColor}; background: linear-gradient(135deg, ${tag.displayColor}, ${adjustColor(tag.displayColor, -20)})">
                                     <span>${tag.icon || '🏷️'}</span>
@@ -1717,7 +1723,7 @@
                                 <div class="tag-info">
                                     <h3 class="tag-name">${sanitizeHTML(tag.name)}</h3>
                                     <div class="tag-meta">
-                                        <span class="tag-badge">${tag.count} article${tag.count !== 1 ? 's' : ''}</span>
+                                        <span class="tag-badge" style="${tag.count === 0 ? 'opacity: 0.7;' : ''}">${countText}</span>
                                         ${tag.featured ? '<span class="tag-badge" style="background: #fbbc04; color: #000;">Featured</span>' : ''}
                                     </div>
                                 </div>
@@ -1727,9 +1733,9 @@
                                 <div class="tag-stats">
                                     <div class="tag-stat">
                                         <span class="material-icons-round">article</span>
-                                        <span>${tag.count} posts</span>
+                                        <span>${tag.count} post${tag.count !== 1 ? 's' : ''}</span>
                                     </div>
-                                    ${tag.relatedTags ? `
+                                    ${tag.relatedTags && tag.relatedTags.length ? `
                                     <div class="tag-stat">
                                         <span class="material-icons-round">link</span>
                                         <span>${tag.relatedTags.length} related</span>
@@ -1783,10 +1789,20 @@
             // ===== INIT =====
             async function initTagsPage() {
                 try {
+                    // Show loading state
+                    tagsGrid.innerHTML = `
+                        <div class="loading-spinner">
+                            <div class="spinner"></div>
+                        </div>
+                    `;
+                    
                     const [articles, tags] = await Promise.all([fetchArticles(), fetchTags()]);
                     
                     allArticles = articles;
+                    // This now returns ALL tags (no filtering)
                     allTags = processTagsWithCounts(tags, articles);
+                    
+                    console.log(`Loaded ${allTags.length} tags`); // Should show 50+
                     
                     renderTags(filterTags(allTags));
                     
@@ -1897,10 +1913,10 @@
                 if (isLoggedIn && userData) {
                     menuContent.innerHTML = `
                         <div class="menu-user">
-                            <img src="${userData.photoURL || `https://ui-avatars.com/api/?name=${userData.displayName}&background=1a73e8&color=fff`}" class="menu-user-avatar">
+                            <img src="${userData.photoURL || `https://ui-avatars.com/api/?name=${userData.displayName}&background=1a73e8&color=fff`}" class="menu-user-avatar" alt="User avatar">
                             <div class="menu-user-info">
-                                <h4>${userData.displayName}</h4>
-                                <p>${userData.email}</p>
+                                <h4>${sanitizeHTML(userData.displayName || 'User')}</h4>
+                                <p>${sanitizeHTML(userData.email || '')}</p>
                             </div>
                         </div>
                         
@@ -1921,7 +1937,7 @@
                             <span class="material-icons-round" id="menuThemeIcon">${isDark ? 'light_mode' : 'dark_mode'}</span>
                         </div>
                         
-                        <a href="#" class="menu-link signin-btn" onclick="window.ReverbitAuth?.logout(); return false;">
+                        <a href="#" class="menu-link signin-btn" id="menuSignOut">
                             <i class="fas fa-sign-out-alt"></i> Sign Out
                         </a>
                     `;
@@ -1953,23 +1969,38 @@
                 if (menuThemeToggle) {
                     menuThemeToggle.addEventListener('click', toggleTheme);
                 }
-            }
 
-            updateMenu(false);
+                const signOutBtn = document.getElementById('menuSignOut');
+                if (signOutBtn) {
+                    signOutBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (window.ReverbitAuth && window.ReverbitAuth.logout) {
+                            window.ReverbitAuth.logout();
+                        }
+                    });
+                }
+            }
 
             // ===== AUTH =====
             async function initAuth() {
                 try {
-                    await window.ReverbitAuth?.init();
-                    
-                    window.ReverbitAuth?.addAuthListener((user, profile) => {
-                        if (user && profile) {
-                            updateMenu(true, profile);
+                    if (window.ReverbitAuth && window.ReverbitAuth.init) {
+                        await window.ReverbitAuth.init();
+                        
+                        if (window.ReverbitAuth.addAuthListener) {
+                            window.ReverbitAuth.addAuthListener((user, profile) => {
+                                if (user && profile) {
+                                    updateMenu(true, profile);
+                                } else {
+                                    updateMenu(false);
+                                }
+                            });
                         } else {
                             updateMenu(false);
                         }
-                    });
-                    
+                    } else {
+                        updateMenu(false);
+                    }
                 } catch (error) {
                     console.error('Auth error:', error);
                     updateMenu(false);
