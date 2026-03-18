@@ -8,11 +8,17 @@ xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 <title>Reverbit Marina</title>
 <link>https://aditya-cmd-max.github.io/marina</link>
-<description>Latest Technology News, AI Insights, Programming Guides &amp; Product Reviews</description>
+<description>Latest Technology News, AI Insights, Programming Guides, Education Tips &amp; Product Reviews</description>
 <language>en-us</language>
 <lastBuildDate>Wed, 18 Mar 2026 00:00:00 GMT</lastBuildDate>
 
-<!-- SELF LINK (VERY IMPORTANT FOR GOOGLE) -->
+<managingEditor>contact@reverbitmarina.com (Aditya Jha)</managingEditor>
+<webMaster>contact@reverbitmarina.com (Aditya Jha)</webMaster>
+<copyright>© 2026 Reverbit Marina</copyright>
+<ttl>60</ttl>
+<docs>https://www.rssboard.org/rss-specification</docs>
+
+<!-- SELF LINK -->
 <atom:link href="https://aditya-cmd-max.github.io/marina/rss.xml" rel="self" type="application/rss+xml"/>
 
 <!-- BRAND IMAGE -->
@@ -22,25 +28,26 @@ xmlns:dc="http://purl.org/dc/elements/1.1/">
 <url>https://aditya-cmd-max.github.io/marina/favicon.png</url>
 </image>
 
+<!-- ITEM 0 -->
 <item>
 <title>How to Complete Class 9/10 Syllabus in 30 Days (Proven Study Plan 2026)</title>
 <link>https://aditya-cmd-max.github.io/marina/articles/education/class-9-10-syllabus-30-days-study-plan/</link>
 <guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/education/class-9-10-syllabus-30-days-study-plan/</guid>
 
 <description>
-Struggling to finish your Class 9 or 10 syllabus? Here's a realistic, science-backed 30-day study plan. Learn the 80/20 rule, active recall, mistake diary method, and subject-specific hacks to score high without burning out. For every board whether CBSE, ICSE or boards.
+A realistic 30-day study plan for Class 9 and 10 students. Learn proven techniques like the 80/20 rule, active recall, and smart revision strategies to finish your syllabus without burnout.
 </description>
 
 <content:encoded><![CDATA[
-<p>Struggling to finish your Class 9 or 10 syllabus? Here's a realistic, science-backed 30-day study plan. Learn the 80/20 rule, active recall, mistake diary method, and subject-specific hacks to score high without burning out.</p>
-<p>For every board whether CBSE, ICSE or boards.</p>
+<p>Struggling to complete your syllabus? This guide gives you a practical 30-day roadmap using proven study techniques like active recall and mistake tracking.</p>
+<p>Useful for CBSE, ICSE, and other boards.</p>
 ]]></content:encoded>
 
 <dc:creator>Aditya Jha</dc:creator>
 <category>Education</category>
 <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
 </item>
-  
+
 <!-- ITEM 1 -->
 <item>
 <title>AMOLED vs LCD: Which Display is Better? Complete Comparison Guide (2026)</title>
@@ -48,12 +55,12 @@ Struggling to finish your Class 9 or 10 syllabus? Here's a realistic, science-ba
 <guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/technology/amoled-vs-lcd-display-comparison/</guid>
 
 <description>
-Compare AMOLED vs LCD displays in 2026. Learn differences in battery life, contrast, durability, and performance to choose the best display for your smartphone or laptop.
+A complete comparison of AMOLED vs LCD displays covering battery life, contrast, color accuracy, and durability to help you choose the right screen.
 </description>
 
 <content:encoded><![CDATA[
-<p>Confused between AMOLED and LCD displays? This detailed 2026 comparison explains contrast, battery efficiency, color accuracy, and durability.</p>
-<p>Find out which display suits your usage—gaming, streaming, or everyday tasks.</p>
+<p>Not sure which display is better? This guide breaks down AMOLED and LCD differences in real-world usage.</p>
+<p>Perfect for gaming, streaming, and everyday use.</p>
 ]]></content:encoded>
 
 <dc:creator>Aditya Jha</dc:creator>
@@ -68,12 +75,11 @@ Compare AMOLED vs LCD displays in 2026. Learn differences in battery life, contr
 <guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/product-review/best-laptops-students-2026-under-50000/</guid>
 
 <description>
-Best student laptops under ₹50,000 in 2026. Compare performance, battery life, and value for money with top picks from ASUS, HP, and Lenovo.
+Explore the best laptops for students under ₹50,000 with a focus on performance, battery life, and overall value.
 </description>
 
 <content:encoded><![CDATA[
-<p>Looking for the best budget laptop? We break down top student laptops under ₹50,000 with real-world performance insights.</p>
-<p>Includes buying tips, pros/cons, and best use cases.</p>
+<p>Looking for a budget laptop? This guide covers top picks with real-world performance insights, pros and cons, and buying tips.</p>
 ]]></content:encoded>
 
 <dc:creator>Aditya Jha</dc:creator>
@@ -88,11 +94,11 @@ Best student laptops under ₹50,000 in 2026. Compare performance, battery life,
 <guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/programming/uiux-tips-for-programmers/</guid>
 
 <description>
-Improve your UI/UX skills with 10 practical tips for developers. Build clean, user-friendly interfaces without needing a design background.
+Learn practical UI/UX tips to build clean, user-friendly interfaces even without a design background.
 </description>
 
 <content:encoded><![CDATA[
-<p>Learn how to design better interfaces as a developer. These UI/UX tips help you create smoother, more engaging user experiences.</p>
+<p>Improve your design skills as a developer with these simple yet powerful UI/UX tips.</p>
 ]]></content:encoded>
 
 <dc:creator>Aditya Jha</dc:creator>
@@ -107,11 +113,11 @@ Improve your UI/UX skills with 10 practical tips for developers. Build clean, us
 <guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/product-launch/windows-12-arrival-and-features/</guid>
 
 <description>
-Windows 12 expected features, release timeline, AI integration, and system requirements. Check if your PC is ready for the next big upgrade.
+Everything we know about Windows 12 including expected features, AI integration, and system requirements.
 </description>
 
 <content:encoded><![CDATA[
-<p>Explore everything about Windows 12 including AI-powered features, modular design, and expected launch timeline.</p>
+<p>Discover upcoming Windows 12 features, design changes, and whether your PC is ready for the upgrade.</p>
 ]]></content:encoded>
 
 <dc:creator>Aditya Jha</dc:creator>
@@ -126,11 +132,11 @@ Windows 12 expected features, release timeline, AI integration, and system requi
 <guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/ai-and-development/future-of-ai-powered-development/</guid>
 
 <description>
-Discover how AI is transforming software development, from coding assistants to full lifecycle automation.
+Understand how AI is transforming software development from coding assistants to automation.
 </description>
 
 <content:encoded><![CDATA[
-<p>AI is evolving from a tool into a true development partner. Learn how it will reshape coding, testing, and deployment.</p>
+<p>AI is becoming a real development partner. Explore how it will change coding, testing, and deployment.</p>
 ]]></content:encoded>
 
 <dc:creator>Aditya Jha</dc:creator>
@@ -145,11 +151,11 @@ Discover how AI is transforming software development, from coding assistants to 
 <guid isPermaLink="true">https://aditya-cmd-max.github.io/marina/articles/technology/the-future-of-technology/</guid>
 
 <description>
-Top technology trends shaping the future including AI, quantum computing, and next-gen innovations.
+Explore major technology trends like AI, quantum computing, and next-gen innovations shaping the future.
 </description>
 
 <content:encoded><![CDATA[
-<p>Explore 7 major tech trends that will redefine industries and everyday life in the coming decade.</p>
+<p>Discover 7 powerful tech trends that will redefine industries and everyday life in the coming years.</p>
 ]]></content:encoded>
 
 <dc:creator>Aditya Jha</dc:creator>
