@@ -116,7 +116,7 @@
     <!-- ===== EmailJS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>  
     
-    <!-- ===== SCHEMA.ORG / STRUCTURED DATA (ENHANCED) ===== -->
+    <!-- ===== SCHEMA.ORG / STRUCTURED DATA (ENHANCED WITH BACKLINKS) ===== -->
    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -135,7 +135,16 @@
       "sameAs": [
         "https://github.com/aditya-cmd-max",
         "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-        "https://youtube.com/@Reverbit"
+        "https://youtube.com/@Reverbit",
+        "https://www.realme.com/in/",
+        "https://www.iqoo.com/in",
+        "https://www.mi.com/in",
+        "https://www.motorola.in",
+        "https://www.mediatek.com",
+        "https://www.qualcomm.com",
+        "https://www.iec.ch",
+        "https://www.antutu.com",
+        "https://www.amazon.in/smartphones"
       ]
     },
     {
@@ -195,7 +204,11 @@
             "url": "https://amzn.to/4rEttzi",
             "image": "https://m.media-amazon.com/images/I/81RCajIAeLL._SL1500_.jpg",
             "description": "Dimensity 7400 Chipset, 6000mAh Battery, 4500nits Display, IP69 Waterproof.",
-            "brand": { "@type": "Brand", "name": "realme" },
+            "brand": { 
+              "@type": "Brand", 
+              "name": "realme",
+              "sameAs": "https://www.realme.com/in/"
+            },
             "review": {
                 "@type": "Review",
                 "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -221,7 +234,11 @@
             "url": "https://amzn.to/4sPkPil",
             "image": "https://m.media-amazon.com/images/I/61oa+zoqwmL._SL1200_.jpg",
             "description": "6500 mAh Battery | Dimensity 7300 Processor | Military-Grade Durability.",
-            "brand": { "@type": "Brand", "name": "iQOO" },
+            "brand": { 
+              "@type": "Brand", 
+              "name": "iQOO",
+              "sameAs": "https://www.iqoo.com/in"
+            },
             "review": {
                 "@type": "Review",
                 "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -245,7 +262,11 @@
             "url": "https://amzn.to/4bAWyWz",
             "image": "https://m.media-amazon.com/images/I/81dblfYZOYL._SL1500_.jpg",
             "description": "7000mAh Battery | 6.9\" 144Hz Display | Snapdragon 6s Gen 3.",
-            "brand": { "@type": "Brand", "name": "Redmi" },
+            "brand": { 
+              "@type": "Brand", 
+              "name": "Redmi",
+              "sameAs": "https://www.mi.com/in"
+            },
             "review": {
                 "@type": "Review",
                 "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -269,7 +290,11 @@
             "url": "https://amzn.to/47TMNRY",
             "image": "https://m.media-amazon.com/images/I/51Fy94anxuL.jpg",
             "description": "144Hz OLED Display | 5500mAh Battery | Clean Android 14 Experience.",
-            "brand": { "@type": "Brand", "name": "Motorola" },
+            "brand": { 
+              "@type": "Brand", 
+              "name": "Motorola",
+              "sameAs": "https://www.motorola.in"
+            },
             "review": {
                 "@type": "Review",
                 "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -293,7 +318,11 @@
             "url": "https://amzn.to/3Nazxla",
             "image": "https://m.media-amazon.com/images/I/811u8KqIIVL._SL1500_.jpg",
             "description": "7000mAh Battery | 60W Fast Charging | 50MP AI Cameras.",
-            "brand": { "@type": "Brand", "name": "realme" },
+            "brand": { 
+              "@type": "Brand", 
+              "name": "realme",
+              "sameAs": "https://www.realme.com/in/"
+            },
             "review": {
                 "@type": "Review",
                 "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -354,7 +383,7 @@
 }
 </script>
     
-    <!-- ===== PRODUCT SCHEMA FOR EACH PHONE (ADDITIONAL) ===== -->
+    <!-- ===== ADDITIONAL PRODUCT SCHEMA ===== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -365,7 +394,11 @@
           "position": 1,
           "name": "realme NARZO 80 Pro 5G",
           "description": "Segment's 1st MediaTek Dimensity 7400 Chipset | 6000mAh Titan Battery + 80W Ultra Charge | 4500nits HyperGlow Esports Display | IP69 Waterproof",
-          "brand": "realme",
+          "brand": {
+            "@type": "Brand",
+            "name": "realme",
+            "sameAs": "https://www.realme.com/in/"
+          },
           "offers": {
             "@type": "Offer",
             "price": "19999",
@@ -380,7 +413,11 @@
           "position": 2,
           "name": "iQOO Z10x 5G",
           "description": "6500 mAh Large Capacity Battery | Dimensity 7300 Processor | Military-Grade Durability",
-          "brand": "iQOO",
+          "brand": {
+            "@type": "Brand",
+            "name": "iQOO",
+            "sameAs": "https://www.iqoo.com/in"
+          },
           "offers": {
             "@type": "Offer",
             "price": "20498",
@@ -395,7 +432,11 @@
           "position": 3,
           "name": "Redmi 15 5G",
           "description": "Segment's Largest 7000mAh Battery | 6.9\" 144Hz Display | Snapdragon 6s Gen 3",
-          "brand": "Redmi",
+          "brand": {
+            "@type": "Brand",
+            "name": "Redmi",
+            "sameAs": "https://www.mi.com/in"
+          },
           "offers": {
             "@type": "Offer",
             "price": "19499",
@@ -410,7 +451,11 @@
           "position": 4,
           "name": "Motorola G96",
           "description": "144Hz OLED Display | 5500mAh Battery | 32MP Front Camera | Clean Android 14",
-          "brand": "Motorola",
+          "brand": {
+            "@type": "Brand",
+            "name": "Motorola",
+            "sameAs": "https://www.motorola.in"
+          },
           "offers": {
             "@type": "Offer",
             "price": "20349",
@@ -425,7 +470,11 @@
           "position": 5,
           "name": "realme NARZO 90 5G",
           "description": "7000mAh Biggest Battery | 60W Fast Charging | 50MP Front & Rear AI Cameras | 4000nits Brightest Display",
-          "brand": "realme",
+          "brand": {
+            "@type": "Brand",
+            "name": "realme",
+            "sameAs": "https://www.realme.com/in/"
+          },
           "offers": {
             "@type": "Offer",
             "price": "17749",
@@ -1535,6 +1584,369 @@
             margin-bottom: var(--space-sm);
         }
 
+        /* ===== BACKLINK STYLES - FULL CONTEXT DIFFERENTIATION ===== */
+
+        /* Style for any paragraph that contains a backlink */
+        .article-content p:has(a[target="_blank"]),
+        .article-content div:has(> a[target="_blank"]):not(.pros):not(.cons):not(.spec-item),
+        .article-content .guide-item:has(a[target="_blank"]),
+        .article-content .faq-answer:has(a[target="_blank"]) {
+            background: linear-gradient(145deg, rgba(52, 168, 83, 0.05), rgba(52, 168, 83, 0.02));
+            border-left: 4px solid #34a853;
+            border-radius: 8px;
+            padding: 16px 20px !important;
+            margin: 20px 0 !important;
+            box-shadow: 0 2px 8px rgba(52, 168, 83, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .article-content p:has(a[target="_blank"]):hover,
+        .article-content div:has(> a[target="_blank"]):not(.pros):not(.cons):not(.spec-item):hover,
+        .article-content .guide-item:has(a[target="_blank"]):hover,
+        .article-content .faq-answer:has(a[target="_blank"]):hover {
+            background: linear-gradient(145deg, rgba(52, 168, 83, 0.08), rgba(52, 168, 83, 0.03));
+            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Add a subtle "external reference" badge to these paragraphs */
+        .article-content p:has(a[target="_blank"])::before,
+        .article-content div:has(> a[target="_blank"]):not(.pros):not(.cons):not(.spec-item)::before {
+            content: "🔗";
+            font-size: 14px;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #34a853;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 6px rgba(52, 168, 83, 0.3);
+            z-index: 5;
+        }
+
+        /* Specific styling for the intro paragraph with Amazon link */
+        .article-content p:has(a[href*="amazon"]) {
+            background: linear-gradient(145deg, rgba(232, 123, 0, 0.05), rgba(232, 123, 0, 0.02));
+            border-left: 4px solid #ff9900;
+        }
+
+        .article-content p:has(a[href*="amazon"])::before {
+            content: "🛒 AMAZON DEAL";
+            background: #ff9900;
+        }
+
+        .article-content p:has(a[href*="amazon"]):hover {
+            background: linear-gradient(145deg, rgba(232, 123, 0, 0.08), rgba(232, 123, 0, 0.03));
+        }
+
+        /* Style for the backlink itself within these paragraphs */
+        .article-content p:has(a[target="_blank"]) a[target="_blank"],
+        .article-content div:has(> a[target="_blank"]) a[target="_blank"] {
+            color: #34a853 !important;
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid #34a853;
+            background: rgba(52, 168, 83, 0.1);
+            padding: 2px 8px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: inline-block;
+            margin: 0 2px;
+        }
+
+        .article-content p:has(a[href*="amazon"]) a[target="_blank"] {
+            color: #ff9900 !important;
+            border-bottom: 2px solid #ff9900;
+            background: rgba(255, 153, 0, 0.1);
+        }
+
+        .article-content p:has(a[target="_blank"]) a[target="_blank"]:hover {
+            background: rgba(52, 168, 83, 0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(52, 168, 83, 0.2);
+        }
+
+        .article-content p:has(a[href*="amazon"]) a[target="_blank"]:hover {
+            background: rgba(255, 153, 0, 0.15);
+            box-shadow: 0 2px 8px rgba(255, 153, 0, 0.2);
+        }
+
+        /* External link icon */
+        .article-content p:has(a[target="_blank"]) a[target="_blank"]::after,
+        .article-content div:has(> a[target="_blank"]) a[target="_blank"]::after {
+            content: " ↗";
+            font-size: 0.9em;
+            font-weight: 700;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .article-content p:has(a[target="_blank"]) a[target="_blank"]:hover::after,
+        .article-content div:has(> a[target="_blank"]) a[target="_blank"]:hover::after {
+            transform: translate(3px, -2px);
+        }
+
+        /* Style the surrounding text in the paragraph */
+        .article-content p:has(a[target="_blank"]) {
+            color: var(--md-on-surface);
+            font-weight: 500;
+        }
+
+        .article-content p:has(a[target="_blank"]) strong,
+        .article-content p:has(a[target="_blank"]) em {
+            color: #34a853;
+        }
+
+      
+      /* ===== CLEAN BACKLINK STYLES - MINIMAL & PROFESSIONAL ===== */
+
+/* Only target actual links, not containers */
+.article-content a[target="_blank"] {
+    color: #34a853 !important;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px dashed #34a853;
+    padding: 0 2px;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.article-content a[target="_blank"]:hover {
+    border-bottom: 1px solid #34a853;
+    transform: translateY(-1px);
+}
+
+/* Small external icon */
+.article-content a[target="_blank"]::after {
+    content: "↗";
+    font-size: 0.75em;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 2px;
+    transition: transform 0.2s ease;
+    opacity: 0.7;
+}
+
+.article-content a[target="_blank"]:hover::after {
+    transform: translate(2px, -1px);
+    opacity: 1;
+}
+
+/* Amazon links get slightly different color */
+.article-content a[href*="amazon"][target="_blank"] {
+    color: #ff9900 !important;
+    border-bottom-color: #ff9900;
+}
+
+/* Phone card spec items - keep original background, just highlight links */
+.phone-card .spec-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: var(--md-surface-variant);
+}
+
+/* No special background for items with backlinks - keep original! */
+.phone-card .spec-item a[target="_blank"] {
+    color: #34a853 !important;
+    font-weight: 600;
+    border-bottom: 1px dashed #34a853;
+    background: transparent;
+    padding: 0;
+    margin: 0 2px;
+}
+
+/* Official brand links in phone cards - keep minimal */
+.phone-card p a[target="_blank"] {
+    color: #34a853 !important;
+    font-weight: 600;
+    border-bottom: 1px dashed #34a853;
+    background: transparent;
+}
+
+.phone-card p {
+    color: var(--md-on-surface);
+    font-size: 0.9rem;
+}
+
+/* Guide items with links - just highlight the links, not the whole box */
+.guide-item a[target="_blank"] {
+    color: #34a853 !important;
+    font-weight: 600;
+}
+
+/* FAQ answers with links - just highlight the links */
+.faq-answer a[target="_blank"] {
+    color: #34a853 !important;
+    font-weight: 600;
+}
+
+/* Trusted Sources Section - keep as designed */
+.trusted-sources {
+    margin: var(--space-2xl) 0;
+    padding: var(--space-xl);
+    background: linear-gradient(135deg, #34a85308, #1a73e808);
+    border-radius: var(--md-radius-large);
+    border: 1px solid #34a85330;
+    box-shadow: var(--md-elevation-2);
+}
+
+.trusted-sources h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #34a853;
+}
+
+.trusted-sources h3 .material-icons-round {
+    color: #34a853;
+    font-size: 28px;
+}
+
+.trusted-sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.trusted-source-card {
+    background: var(--md-surface);
+    border-radius: var(--md-radius-large);
+    padding: var(--space-md);
+    transition: all 0.3s ease;
+    border: 1px solid #34a85330;
+    box-shadow: var(--md-elevation-1);
+}
+
+.trusted-source-card:hover {
+    border-color: #34a853;
+    transform: translateY(-4px);
+    box-shadow: var(--md-elevation-3);
+    background: rgba(52, 168, 83, 0.02);
+}
+
+.trusted-source-card a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--md-on-surface) !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.trusted-source-card a::after {
+    display: none !important;
+}
+
+.trusted-source-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #34a85315, #1a73e815);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #34a853;
+    border: 2px solid #34a85330;
+}
+
+.trusted-source-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--md-on-surface);
+}
+
+.trusted-source-info p {
+    font-size: 0.85rem;
+    color: #34a853;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Dark theme */
+.dark-theme .article-content a[target="_blank"] {
+    color: #81c784 !important;
+    border-bottom-color: #81c784;
+}
+
+.dark-theme .article-content a[href*="amazon"][target="_blank"] {
+    color: #ffb347 !important;
+    border-bottom-color: #ffb347;
+}
+
+.dark-theme .phone-card .spec-item a[target="_blank"] {
+    color: #81c784 !important;
+    border-bottom-color: #81c784;
+}
+
+.dark-theme .trusted-source-card {
+    border-color: #81c78440;
+}
+
+.dark-theme .trusted-source-info p {
+    color: #81c784;
+}
+        .article-content p:has(a[href*="amazon"]) strong,
+        .article-content p:has(a[href*="amazon"]) em {
+            color: #ff9900;
+        }
+
+        /* Dark theme adjustments */
+        .dark-theme .article-content p:has(a[target="_blank"]),
+        .dark-theme .article-content div:has(> a[target="_blank"]),
+        .dark-theme .article-content .guide-item:has(a[target="_blank"]),
+        .dark-theme .article-content .faq-answer:has(a[target="_blank"]) {
+            background: linear-gradient(145deg, rgba(129, 199, 132, 0.1), rgba(129, 199, 132, 0.05));
+            border-left: 4px solid #81c784;
+            box-shadow: 0 2px 8px rgba(129, 199, 132, 0.15);
+        }
+
+        .dark-theme .article-content p:has(a[target="_blank"])::before,
+        .dark-theme .article-content div:has(> a[target="_blank"])::before {
+            background: #81c784;
+            color: #202124;
+        }
+
+        .dark-theme .article-content p:has(a[href*="amazon"]) {
+            background: linear-gradient(145deg, rgba(255, 153, 0, 0.15), rgba(255, 153, 0, 0.08));
+            border-left: 4px solid #ff9900;
+        }
+
+        .dark-theme .article-content p:has(a[href*="amazon"])::before {
+            background: #ff9900;
+            color: #202124;
+        }
+
+        .dark-theme .article-content p:has(a[target="_blank"]) a[target="_blank"] {
+            color: #81c784 !important;
+            border-bottom: 2px solid #81c784;
+            background: rgba(129, 199, 132, 0.2);
+        }
+
+        .dark-theme .article-content p:has(a[href*="amazon"]) a[target="_blank"] {
+            color: #ffb347 !important;
+            border-bottom: 2px solid #ffb347;
+            background: rgba(255, 153, 0, 0.2);
+        }
+
         /* Phone Review Card */
         .phone-card {
             background: var(--md-surface);
@@ -1609,6 +2021,18 @@
         .spec-item .material-icons-round {
             color: var(--md-primary);
             font-size: 20px;
+        }
+
+        /* Special styling for spec items with backlinks */
+        .spec-item:has(a[target="_blank"]) {
+            background: rgba(52, 168, 83, 0.05);
+            padding: 8px 12px !important;
+            border-radius: 12px;
+            border: 1px solid #34a85330;
+        }
+
+        .spec-item:has(a[target="_blank"]) .material-icons-round {
+            color: #34a853 !important;
         }
 
         .pros-cons {
@@ -2995,6 +3419,12 @@
             .phone-price {
                 font-size: 1.3rem;
             }
+            
+            .article-content p:has(a[target="_blank"])::before,
+            .article-content div:has(> a[target="_blank"])::before {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
         }
     </style>
 </head>
@@ -3125,6 +3555,10 @@
                 <!-- 🔥 Introduction (Hook) -->
                 <h2 id="introduction" class="fade-in-up">1. Why ₹20,000 is the Sweet Spot in 2026 🇮🇳</h2>
                 <p class="fade-in-up">Let's be real—buying a new phone on a budget in India is like walking through a maze. Every brand claims to be the "best," and with so many options, it's easy to get overwhelmed. The ₹15,000–₹20,000 segment has become the battleground for smartphone brands in 2026. Why? Because you no longer have to compromise on core features.</p>
+              
+              
+                <!-- NEW: Contextual backlink - This paragraph will have special styling -->
+                <p class="fade-in-up">For the latest deals and offers, check out the <a href="https://www.amazon.in/smartphones" target="_blank" rel="nofollow sponsored" class="highlight">Amazon.in Smartphone Store</a> where you can compare prices across all major brands. You'll often find exclusive discounts and bank offers that aren't available elsewhere.</p>
 
                 <p class="fade-in-up">Today, for under ₹20,000, you can get a phone with a <span class="highlight">120Hz AMOLED display, a powerful 5G processor, a massive 6000mAh+ battery, and even IP69 water resistance</span>—features that were unthinkable in this price bracket just a couple of years ago.</p>
 
@@ -3139,7 +3573,7 @@
                     <figcaption>The ₹20,000 segment in 2026 offers premium features at mid-range prices.</figcaption>
                 </figure>
 
-                <!-- 📱 PHONE 1: realme NARZO 80 Pro 5G -->
+                <!-- 📱 PHONE 1: realme NARZO 80 Pro 5G (with backlinks) -->
                 <div class="phone-card fade-in-up" id="realme-narzo-80-pro">
                     <div class="phone-header">
                         <img src="https://m.media-amazon.com/images/I/81RCajIAeLL._SL1500_.jpg" alt="realme NARZO 80 Pro 5G" class="phone-image">
@@ -3150,13 +3584,22 @@
                     </div>
 
                     <div class="phone-specs-grid">
-                        <div class="spec-item"><span class="material-icons-round">speed</span> Dimensity 7400</div>
+                        <div class="spec-item">
+                            <span class="material-icons-round">speed</span>
+                            <a href="https://www.mediatek.com" target="_blank" rel="nofollow sponsored">Dimensity 7400</a> Chipset
+                        </div>
                         <div class="spec-item"><span class="material-icons-round">battery_charging_full</span> 6000mAh + 80W</div>
                         <div class="spec-item"><span class="material-icons-round">camera_alt</span> 50MP + 16MP Front</div>
                         <div class="spec-item"><span class="material-icons-round">screen_lock_portrait</span> 6.67" 120Hz AMOLED</div>
                         <div class="spec-item"><span class="material-icons-round">memory</span> 8GB RAM | 256GB</div>
-                        <div class="spec-item"><span class="material-icons-round">water_drop</span> IP69 Waterproof</div>
+                        <div class="spec-item">
+                            <span class="material-icons-round">water_drop</span>
+                            <a href="https://www.iec.ch" target="_blank" rel="nofollow sponsored">IP69 Waterproof</a>
+                        </div>
                     </div>
+
+                    <!-- Official brand link -->
+                    <p style="margin-bottom: var(--space-sm);"><small>🔗 Official: <a href="https://www.realme.com/in/" target="_blank" rel="nofollow sponsored">realme India Official Store</a></small></p>
 
                     <div class="pros-cons">
                         <div class="pros">
@@ -3185,7 +3628,7 @@
                     <a href="https://amzn.to/4rEttzi" target="_blank" rel="nofollow sponsored" class="buy-button">Check Price & Offers on Amazon <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- 📱 PHONE 2: iQOO Z10x 5G -->
+                <!-- 📱 PHONE 2: iQOO Z10x 5G (with backlinks) -->
                 <div class="phone-card fade-in-up" id="iqoo-z10x">
                     <div class="phone-header">
                         <img src="https://m.media-amazon.com/images/I/61oa+zoqwmL._SL1200_.jpg" alt="iQOO Z10x 5G" class="phone-image">
@@ -3196,13 +3639,19 @@
                     </div>
 
                     <div class="phone-specs-grid">
-                        <div class="spec-item"><span class="material-icons-round">speed</span> Dimensity 7300</div>
+                        <div class="spec-item">
+                            <span class="material-icons-round">speed</span>
+                            <a href="https://www.mediatek.com" target="_blank" rel="nofollow sponsored">Dimensity 7300</a>
+                        </div>
                         <div class="spec-item"><span class="material-icons-round">battery_charging_full</span> 6500mAh</div>
                         <div class="spec-item"><span class="material-icons-round">camera_alt</span> 50MP + 8MP Front</div>
                         <div class="spec-item"><span class="material-icons-round">screen_lock_portrait</span> 6.72" 120Hz LCD</div>
                         <div class="spec-item"><span class="material-icons-round">memory</span> 8GB RAM | 256GB</div>
                         <div class="spec-item"><span class="material-icons-round">military_tech</span> Military-Grade Durability</div>
                     </div>
+
+                    <!-- Official brand link -->
+                    <p style="margin-bottom: var(--space-sm);"><small>🔗 Official: <a href="https://www.iqoo.com/in" target="_blank" rel="nofollow sponsored">iQOO India Official Website</a></small></p>
 
                     <div class="pros-cons">
                         <div class="pros">
@@ -3231,7 +3680,7 @@
                     <a href="https://amzn.to/4sPkPil" target="_blank" rel="nofollow sponsored" class="buy-button">Check Price & Offers on Amazon <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- 📱 PHONE 3: Redmi 15 5G -->
+                <!-- 📱 PHONE 3: Redmi 15 5G (with backlinks) -->
                 <div class="phone-card fade-in-up" id="redmi-15-5g">
                     <div class="phone-header">
                         <img src="https://m.media-amazon.com/images/I/81dblfYZOYL._SL1500_.jpg" alt="Redmi 15 5G" class="phone-image">
@@ -3242,13 +3691,19 @@
                     </div>
 
                     <div class="phone-specs-grid">
-                        <div class="spec-item"><span class="material-icons-round">speed</span> Snapdragon 6s Gen 3</div>
+                        <div class="spec-item">
+                            <span class="material-icons-round">speed</span>
+                            <a href="https://www.qualcomm.com" target="_blank" rel="nofollow sponsored">Snapdragon 6s Gen 3</a>
+                        </div>
                         <div class="spec-item"><span class="material-icons-round">battery_charging_full</span> 7000mAh + 18W Reverse</div>
                         <div class="spec-item"><span class="material-icons-round">camera_alt</span> 50MP + 8MP Front</div>
                         <div class="spec-item"><span class="material-icons-round">screen_lock_portrait</span> 6.9" 144Hz LCD</div>
                         <div class="spec-item"><span class="material-icons-round">memory</span> 8GB RAM | 256GB</div>
                         <div class="spec-item"><span class="material-icons-round">bolt</span> 18W Reverse Charging</div>
                     </div>
+
+                    <!-- Official brand link -->
+                    <p style="margin-bottom: var(--space-sm);"><small>🔗 Official: <a href="https://www.mi.com/in" target="_blank" rel="nofollow sponsored">Xiaomi India</a></small></p>
 
                     <div class="pros-cons">
                         <div class="pros">
@@ -3277,7 +3732,7 @@
                     <a href="https://amzn.to/4bAWyWz" target="_blank" rel="nofollow sponsored" class="buy-button">Check Price & Offers on Amazon <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- 📱 PHONE 4: Motorola G96 -->
+                <!-- 📱 PHONE 4: Motorola G96 (with backlinks) -->
                 <div class="phone-card fade-in-up" id="motorola-g96">
                     <div class="phone-header">
                         <img src="https://m.media-amazon.com/images/I/51Fy94anxuL.jpg" alt="Motorola G96" class="phone-image">
@@ -3288,13 +3743,19 @@
                     </div>
 
                     <div class="phone-specs-grid">
-                        <div class="spec-item"><span class="material-icons-round">speed</span> Snapdragon G3</div>
+                        <div class="spec-item">
+                            <span class="material-icons-round">speed</span>
+                            <a href="https://www.qualcomm.com" target="_blank" rel="nofollow sponsored">Snapdragon G3</a>
+                        </div>
                         <div class="spec-item"><span class="material-icons-round">battery_charging_full</span> 5500mAh</div>
                         <div class="spec-item"><span class="material-icons-round">camera_alt</span> 50MP + 32MP Front</div>
                         <div class="spec-item"><span class="material-icons-round">screen_lock_portrait</span> 6.7" 144Hz OLED</div>
                         <div class="spec-item"><span class="material-icons-round">memory</span> 8GB RAM | 256GB</div>
                         <div class="spec-item"><span class="material-icons-round">android</span> Clean Android 14</div>
                     </div>
+
+                    <!-- Official brand link -->
+                    <p style="margin-bottom: var(--space-sm);"><small>🔗 Official: <a href="https://www.motorola.in" target="_blank" rel="nofollow sponsored">Motorola India</a></small></p>
 
                     <div class="pros-cons">
                         <div class="pros">
@@ -3323,7 +3784,7 @@
                     <a href="https://amzn.to/47TMNRY" target="_blank" rel="nofollow sponsored" class="buy-button">Check Price & Offers on Amazon <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- 📱 PHONE 5: realme NARZO 90 5G -->
+                <!-- 📱 PHONE 5: realme NARZO 90 5G (with backlinks) -->
                 <div class="phone-card fade-in-up" id="realme-narzo-90">
                     <div class="phone-header">
                         <img src="https://m.media-amazon.com/images/I/811u8KqIIVL._SL1500_.jpg" alt="realme NARZO 90 5G" class="phone-image">
@@ -3334,13 +3795,22 @@
                     </div>
 
                     <div class="phone-specs-grid">
-                        <div class="spec-item"><span class="material-icons-round">speed</span> MediaTek Dimensity</div>
+                        <div class="spec-item">
+                            <span class="material-icons-round">speed</span>
+                            <a href="https://www.mediatek.com" target="_blank" rel="nofollow sponsored">MediaTek Dimensity</a>
+                        </div>
                         <div class="spec-item"><span class="material-icons-round">battery_charging_full</span> 7000mAh + 60W</div>
                         <div class="spec-item"><span class="material-icons-round">camera_alt</span> 50MP + 50MP Front</div>
                         <div class="spec-item"><span class="material-icons-round">screen_lock_portrait</span> 4000nits AMOLED</div>
                         <div class="spec-item"><span class="material-icons-round">memory</span> 8GB RAM | 128GB</div>
-                        <div class="spec-item"><span class="material-icons-round">water_drop</span> IP69 Dust/Water Resistant</div>
+                        <div class="spec-item">
+                            <span class="material-icons-round">water_drop</span>
+                            <a href="https://www.iec.ch" target="_blank" rel="nofollow sponsored">IP69 Dust/Water Resistant</a>
+                        </div>
                     </div>
+
+                    <!-- Official brand link -->
+                    <p style="margin-bottom: var(--space-sm);"><small>🔗 Official: <a href="https://www.realme.com/in/" target="_blank" rel="nofollow sponsored">realme India Official Store</a></small></p>
 
                     <div class="pros-cons">
                         <div class="pros">
@@ -3502,7 +3972,7 @@
                 <div class="guide-grid fade-in-up">
                     <div class="guide-item">
                         <h4><span class="material-icons-round">memory</span> Processor</h4>
-                        <p>Look for Dimensity 7000 series or Snapdragon 6-series. For gaming, Dimensity 7400 is the best. For everyday use, all are smooth.</p>
+                        <p>Look for <a href="https://www.mediatek.com" target="_blank" rel="nofollow sponsored">Dimensity 7000 series</a> or <a href="https://www.qualcomm.com" target="_blank" rel="nofollow sponsored">Snapdragon 6-series</a>. For gaming, Dimensity 7400 is the best. For everyday use, all are smooth. Check <a href="https://www.antutu.com" target="_blank" rel="nofollow sponsored">AnTuTu benchmarks</a> to compare performance.</p>
                     </div>
                     <div class="guide-item">
                         <h4><span class="material-icons-round">signal_cellular_alt</span> 5G or Not?</h4>
@@ -3516,6 +3986,10 @@
                         <h4><span class="material-icons-round">screen_lock_portrait</span> Display Type</h4>
                         <p>AMOLED gives deeper blacks and vibrant colors. LCD is good but less contrast. Motorola G96 offers a 144Hz OLED—best display.</p>
                     </div>
+                    <div class="guide-item">
+                        <h4><span class="material-icons-round">water_drop</span> Water Resistance</h4>
+                        <p>IP69 rating means protection against high-pressure water jets. <a href="https://www.iec.ch" target="_blank" rel="nofollow sponsored">Learn more about IP ratings →</a></p>
+                    </div>
                 </div>
 
                 <!-- ❓ FAQs -->
@@ -3528,7 +4002,7 @@
                             <span class="material-icons-round">expand_more</span>
                         </div>
                         <div class="faq-answer">
-                            <p>The realme NARZO 80 Pro with its Dimensity 7400 chipset and 120Hz AMOLED display is the best for gaming. The iQOO Z10x with Dimensity 7300 is also a great option for gamers.</p>
+                            <p>The realme NARZO 80 Pro with its Dimensity 7400 chipset and 120Hz AMOLED display is the best for gaming. The iQOO Z10x with Dimensity 7300 is also a great option for gamers. <a href="https://www.qualcomm.com" target="_blank" rel="nofollow sponsored">Learn about gaming processors →</a></p>
                         </div>
                     </div>
                     
@@ -3558,7 +4032,7 @@
                             <span class="material-icons-round">expand_more</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Absolutely. 5G coverage has expanded rapidly across most Indian cities and towns. All phones on this list are 5G-ready, ensuring you're future-proofed for faster speeds and better connectivity.</p>
+                            <p>Absolutely. 5G coverage has expanded rapidly across most Indian cities and towns. All phones on this list are 5G-ready, ensuring you're future-proofed for faster speeds and better connectivity. <a href="https://www.qualcomm.com/5g/what-is-5g" target="_blank" rel="nofollow sponsored">Learn more about 5G technology →</a></p>
                         </div>
                     </div>
                     
@@ -3582,6 +4056,112 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ===== TRUSTED SOURCES SECTION WITH BACKLINKS ===== -->
+                <section class="trusted-sources fade-in-up">
+                    <h3>
+                        <span class="material-icons-round" style="color: #34a853;">verified</span> 
+                        Trusted Sources & References
+                        <span style="font-size: 0.8rem; color: #34a853; margin-left: 10px; font-weight: normal;">(External links)</span>
+                    </h3>
+                    <p style="color: var(--md-on-surface-variant); margin-bottom: var(--space-md);">We link to official sources so you can verify specifications, understand technologies, and find the best deals. <strong style="color: #34a853;">Green links with ↗ open external sites.</strong></p>
+                    
+                    <div class="trusted-sources-grid">
+                        <!-- Manufacturer Links -->
+                        <div class="trusted-source-card">
+                            <a href="https://www.realme.com/in/" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">🟡</div>
+                                <div class="trusted-source-info">
+                                    <h4>realme India</h4>
+                                    <p>realme.com →</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="trusted-source-card">
+                            <a href="https://www.iqoo.com/in" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">🔵</div>
+                                <div class="trusted-source-info">
+                                    <h4>iQOO India</h4>
+                                    <p>iqoo.com →</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="trusted-source-card">
+                            <a href="https://www.mi.com/in" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">🟠</div>
+                                <div class="trusted-source-info">
+                                    <h4>Xiaomi India</h4>
+                                    <p>mi.com →</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="trusted-source-card">
+                            <a href="https://www.motorola.in" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">🔴</div>
+                                <div class="trusted-source-info">
+                                    <h4>Motorola India</h4>
+                                    <p>motorola.in →</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Technology Links -->
+                        <div class="trusted-source-card">
+                            <a href="https://www.mediatek.com" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">🧠</div>
+                                <div class="trusted-source-info">
+                                    <h4>MediaTek</h4>
+                                    <p>mediatek.com →</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="trusted-source-card">
+                            <a href="https://www.qualcomm.com" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">⚡</div>
+                                <div class="trusted-source-info">
+                                    <h4>Qualcomm</h4>
+                                    <p>qualcomm.com →</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Standards & Benchmarks -->
+                        <div class="trusted-source-card">
+                            <a href="https://www.iec.ch" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">🌊</div>
+                                <div class="trusted-source-info">
+                                    <h4>IEC</h4>
+                                    <p>IP ratings</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="trusted-source-card">
+                            <a href="https://www.antutu.com" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">📊</div>
+                                <div class="trusted-source-info">
+                                    <h4>AnTuTu</h4>
+                                    <p>Benchmarks</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- E-commerce -->
+                        <div class="trusted-source-card">
+                            <a href="https://www.amazon.in/smartphones" target="_blank" rel="nofollow sponsored">
+                                <div class="trusted-source-icon">🛒</div>
+                                <div class="trusted-source-info">
+                                    <h4>Amazon India</h4>
+                                    <p>Best deals</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- 🏁 Conclusion -->
                 <h2 id="conclusion" class="fade-in-up">7. Final Verdict: Which One Should You Buy?</h2>
@@ -3761,7 +4341,7 @@
     </footer>
 
     <script>
-        // ===== PRODUCTION-READY JAVASCRIPT =====
+        // ===== PRODUCTION-READY JAVASCRIPT (unchanged) =====
         (function() {
             'use strict';
 
