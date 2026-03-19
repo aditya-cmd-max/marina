@@ -117,181 +117,242 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>  
     
     <!-- ===== SCHEMA.ORG / STRUCTURED DATA (ENHANCED) ===== -->
-    <script type="application/ld+json">
+   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "Organization",
+      "@id": "https://aditya-cmd-max.github.io/marina/#organization",
+      "name": "Reverbit Marina",
+      "url": "https://aditya-cmd-max.github.io/marina",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aditya-cmd-max.github.io/Reverbit.svg",
+        "width": 160,
+        "height": 36
+      },
+      "sameAs": [
+        "https://github.com/aditya-cmd-max",
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/",
+        "https://youtube.com/@Reverbit"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person",
+      "name": "Aditya Jha",
+      "url": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
+      "image": "https://aditya-cmd-max.github.io/adityajha.jpg",
+      "jobTitle": "Tech Reviewer & Product Analyst",
+      "description": "Aditya Jha is a specialized hardware analyst focusing on mobile performance and battery efficiency standards in the Indian market.",
+      "worksFor": { "@id": "https://aditya-cmd-max.github.io/marina/#organization" },
+      "sameAs": [
+        "https://github.com/aditya-cmd-max",
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/"
+      ]
+    },
+    {
+      "@type": "NewsArticle",
+      "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026#article",
+      "headline": "Best Smartphones Under ₹20,000 in India (2026) – Top Picks + Latest Offers",
+      "alternativeHeadline": "5 Best Budget Phones Under ₹20000: realme, iQOO, Redmi, Motorola Compared",
+      "description": "We've researched and compared the top 5 smartphones under ₹20000. Detailed specs, pros & cons, and the best bank offers. Find your perfect budget phone today!",
+      "image": [
+        "https://www.cnet.com/a/img/resize/a4ffadf45a4f42ce90a542af0d558b4b62e1b3eb/hub/2022/03/30/e841545d-e55c-47fc-b24a-003bf14e58c8/oneplus-10-pro-cnet-review-12.jpg?auto=webp&fit=crop&height=675&width=1200",
+        "https://m.media-amazon.com/images/I/81RCajIAeLL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61oa+zoqwmL._SL1200_.jpg",
+        "https://m.media-amazon.com/images/I/81dblfYZOYL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51Fy94anxuL.jpg",
+        "https://m.media-amazon.com/images/I/811u8KqIIVL._SL1500_.jpg"
+      ],
+      "datePublished": "2026-03-20T09:30:00+00:00",
+      "dateModified": "2026-03-20T12:00:00+00:00",
+      "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
+      "publisher": { "@id": "https://aditya-cmd-max.github.io/marina/#organization" },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026"
+      },
+      "articleSection": "Product Review",
+      "keywords": "Smartphones under 20000, realme Narzo 80 Pro review, iQOO Z10x review, Redmi 15 5G, Motorola G96, realme Narzo 90, Best phone under 20k, 5G budget phone India",
+      "inLanguage": "en-IN",
+      "wordCount": 3500,
+      "isAccessibleForFree": true,
+      "mainEntity": { "@id": "#productList" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "#productList",
+      "name": "Top 5 Smartphones Under ₹20,000 in India",
+      "itemListElement": [
         {
-          "@type": "Organization",
-          "@id": "https://aditya-cmd-max.github.io/marina/#organization",
-          "name": "Reverbit Marina",
-          "url": "https://aditya-cmd-max.github.io/marina",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://aditya-cmd-max.github.io/Reverbit.svg",
-            "width": 160,
-            "height": 36
-          },
-          "sameAs": [
-            "https://github.com/aditya-cmd-max",
-            "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-            "https://youtube.com/@Reverbit"
-          ]
-        },
-        {
-          "@type": "Person",
-          "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person",
-          "name": "Aditya Jha",
-          "url": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
-          "image": "https://aditya-cmd-max.github.io/adityajha.jpg",
-          "jobTitle": "Tech Reviewer & Product Analyst",
-          "worksFor": {
-            "@id": "https://aditya-cmd-max.github.io/marina/#organization"
-          },
-          "sameAs": [
-            "https://github.com/aditya-cmd-max",
-            "https://www.linkedin.com/in/aditya-jha-2b0860399/"
-          ]
-        },
-        {
-          "@type": "NewsArticle",
-          "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026#article",
-          "headline": "Best Smartphones Under ₹20,000 in India (2026) – Top Picks + Latest Offers",
-          "alternativeHeadline": "5 Best Budget Phones Under ₹20000: realme, iQOO, Redmi, Motorola Compared",
-          "description": "We've researched and compared the top 5 smartphones under ₹20000. Detailed specs, pros & cons, and the best bank offers. Find your perfect budget phone today!",
-          "image": [
-            "https://www.cnet.com/a/img/resize/a4ffadf45a4f42ce90a542af0d558b4b62e1b3eb/hub/2022/03/30/e841545d-e55c-47fc-b24a-003bf14e58c8/oneplus-10-pro-cnet-review-12.jpg?auto=webp&fit=crop&height=675&width=1200",
-            "https://m.media-amazon.com/images/I/81RCajIAeLL._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/61oa+zoqwmL._SL1200_.jpg",
-            "https://m.media-amazon.com/images/I/81dblfYZOYL._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/51Fy94anxuL.jpg",
-            "https://m.media-amazon.com/images/I/811u8KqIIVL._SL1500_.jpg"
-          ],
-          "datePublished": "2026-03-20T09:30:00+00:00",
-          "dateModified": "2026-03-20T12:00:00+00:00",
-          "author": {
-            "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person"
-          },
-          "publisher": {
-            "@id": "https://aditya-cmd-max.github.io/marina/#organization"
-          },
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026"
-          },
-          "articleSection": "Product Review",
-          "keywords": [
-            "Smartphones under 20000",
-            "realme Narzo 80 Pro review",
-            "iQOO Z10x review",
-            "Redmi 15 5G",
-            "Motorola G96",
-            "realme Narzo 90",
-            "Best phone under 20k",
-            "5G budget phone India"
-          ],
-          "inLanguage": "en-IN",
-          "isAccessibleForFree": true,
-          "wordCount": 3500,
-          "timeRequired": "PT12M",
-          "mainEntity": {
-            "@type": "ItemList",
-            "itemListElement": [
-              {"@type": "ListItem", "position": 1, "name": "realme NARZO 80 Pro 5G"},
-              {"@type": "ListItem", "position": 2, "name": "iQOO Z10x 5G"},
-              {"@type": "ListItem", "position": 3, "name": "Redmi 15 5G"},
-              {"@type": "ListItem", "position": 4, "name": "Motorola G96"},
-              {"@type": "ListItem", "position": 5, "name": "realme NARZO 90 5G"}
-            ]
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "realme NARZO 80 Pro 5G",
+            "url": "https://amzn.to/4rEttzi",
+            "image": "https://m.media-amazon.com/images/I/81RCajIAeLL._SL1500_.jpg",
+            "description": "Dimensity 7400 Chipset, 6000mAh Battery, 4500nits Display, IP69 Waterproof.",
+            "brand": { "@type": "Brand", "name": "realme" },
+            "review": {
+                "@type": "Review",
+                "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "4.8", "bestRating": "5" }
+            },
+            "positiveNotes": { "@type": "ItemList", "itemListElement": [{ "@type": "ListItem", "text": "IP69 Waterproofing" }, { "@type": "ListItem", "text": "Gaming Performance" }] },
+            "offers": {
+              "@type": "Offer",
+              "price": "19999",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://amzn.to/4rEttzi",
+              "priceValidUntil": "2026-12-31"
+            }
           }
         },
         {
-          "@type": "BreadcrumbList",
-          "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://aditya-cmd-max.github.io/marina/"
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "iQOO Z10x 5G",
+            "url": "https://amzn.to/4sPkPil",
+            "image": "https://m.media-amazon.com/images/I/61oa+zoqwmL._SL1200_.jpg",
+            "description": "6500 mAh Battery | Dimensity 7300 Processor | Military-Grade Durability.",
+            "brand": { "@type": "Brand", "name": "iQOO" },
+            "review": {
+                "@type": "Review",
+                "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "4.5", "bestRating": "5" }
             },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Articles",
-              "item": "https://aditya-cmd-max.github.io/marina/articles"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Product Review",
-              "item": "https://aditya-cmd-max.github.io/marina/articles/categories/product-review"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Best Smartphones Under ₹20,000 (2026)",
-              "item": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026"
+            "offers": {
+              "@type": "Offer",
+              "price": "20498",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://amzn.to/4sPkPil"
             }
-          ]
+          }
         },
         {
-          "@type": "FAQPage",
-          "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Which is the best phone under ₹20,000 for gaming?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The realme NARZO 80 Pro with its Dimensity 7400 chipset and 120Hz AMOLED display is the best for gaming. The iQOO Z10x with Dimensity 7300 is also a great option for gamers."
-              }
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "name": "Redmi 15 5G",
+            "url": "https://amzn.to/4bAWyWz",
+            "image": "https://m.media-amazon.com/images/I/81dblfYZOYL._SL1500_.jpg",
+            "description": "7000mAh Battery | 6.9\" 144Hz Display | Snapdragon 6s Gen 3.",
+            "brand": { "@type": "Brand", "name": "Redmi" },
+            "review": {
+                "@type": "Review",
+                "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "4.3", "bestRating": "5" }
             },
-            {
-              "@type": "Question",
-              "name": "Which phone has the best camera under ₹20,000?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The realme NARZO 90 5G stands out with a 50MP front and rear AI camera setup, making it excellent for selfies and photography. The realme NARZO 80 Pro also has a solid 50MP Sony sensor."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Which phone has the largest battery under ₹20,000?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Redmi 15 5G packs a massive 7000mAh battery, while the realme NARZO 90 and NARZO 80 come with 6830mAh and 6000mAh batteries respectively, offering exceptional backup."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is 5G worth it in India in 2026?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Absolutely. 5G coverage has expanded rapidly across most Indian cities and towns. All phones on this list are 5G-ready, ensuring you're future-proofed for faster speeds and better connectivity."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the best all-rounder under ₹20,000?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The realme NARZO 80 Pro 5G is the best all-rounder, offering a perfect balance of performance, camera, battery, display, and build quality with IP69 water resistance."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Are there any good Motorola phones under ₹20,000?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, the Motorola G96 is a great option with its clean Android 14 experience, 144Hz OLED display, and 5500mAh battery. It's perfect for users who prefer a stock-like interface."
-              }
+            "offers": {
+              "@type": "Offer",
+              "price": "19499",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://amzn.to/4bAWyWz"
             }
-          ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Product",
+            "name": "Motorola G96",
+            "url": "https://amzn.to/47TMNRY",
+            "image": "https://m.media-amazon.com/images/I/51Fy94anxuL.jpg",
+            "description": "144Hz OLED Display | 5500mAh Battery | Clean Android 14 Experience.",
+            "brand": { "@type": "Brand", "name": "Motorola" },
+            "review": {
+                "@type": "Review",
+                "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "4.6", "bestRating": "5" }
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "20349",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://amzn.to/47TMNRY"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Product",
+            "name": "realme NARZO 90 5G",
+            "url": "https://amzn.to/3Nazxla",
+            "image": "https://m.media-amazon.com/images/I/811u8KqIIVL._SL1500_.jpg",
+            "description": "7000mAh Battery | 60W Fast Charging | 50MP AI Cameras.",
+            "brand": { "@type": "Brand", "name": "realme" },
+            "review": {
+                "@type": "Review",
+                "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "4.4", "bestRating": "5" }
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "17749",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://amzn.to/3Nazxla"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aditya-cmd-max.github.io/marina/" },
+        { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://aditya-cmd-max.github.io/marina/articles" },
+        { "@type": "ListItem", "position": 3, "name": "Product Review", "item": "https://aditya-cmd-max.github.io/marina/articles/categories/product-review" },
+        { "@type": "ListItem", "position": 4, "name": "Best Smartphones Under ₹20,000 (2026)", "item": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best phone under ₹20,000 for gaming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The realme NARZO 80 Pro with its Dimensity 7400 chipset and 120Hz AMOLED display is the best for gaming."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which phone has the best camera under ₹20,000?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The realme NARZO 90 5G stands out with a 50MP front and rear AI camera setup, excellent for photography."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which phone has the largest battery under ₹20,000?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Redmi 15 5G packs a massive 7000mAh battery for long-term endurance."
+          }
         }
       ]
     }
-    </script>
+  ]
+}
+</script>
     
     <!-- ===== PRODUCT SCHEMA FOR EACH PHONE (ADDITIONAL) ===== -->
     <script type="application/ld+json">
