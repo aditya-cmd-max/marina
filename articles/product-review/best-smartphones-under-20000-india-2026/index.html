@@ -117,7 +117,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>  
     
     <!-- ===== SCHEMA.ORG / STRUCTURED DATA (ENHANCED WITH BACKLINKS) ===== -->
-   <script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -136,14 +136,6 @@
         "https://github.com/aditya-cmd-max",
         "https://www.linkedin.com/in/aditya-jha-2b0860399/",
         "https://youtube.com/@Reverbit",
-        "https://www.realme.com/in/",
-        "https://www.iqoo.com/in",
-        "https://www.mi.com/in",
-        "https://www.motorola.in",
-        "https://www.mediatek.com",
-        "https://www.qualcomm.com",
-        "https://www.iec.ch",
-        "https://www.antutu.com",
         "https://www.amazon.in/smartphones"
       ]
     },
@@ -154,35 +146,19 @@
       "url": "https://aditya-cmd-max.github.io/marina/profiles/adityajha",
       "image": "https://aditya-cmd-max.github.io/adityajha.jpg",
       "jobTitle": "Tech Reviewer & Product Analyst",
-      "description": "Aditya Jha is a specialized hardware analyst focusing on mobile performance, display technologies, and battery efficiency standards in the Indian market.",
-      "worksFor": { "@id": "https://aditya-cmd-max.github.io/marina/#organization" },
-      "sameAs": [
-        "https://github.com/aditya-cmd-max",
-        "https://www.linkedin.com/in/aditya-jha-2b0860399/"
-      ]
+      "description": "Aditya Jha is a specialized hardware analyst focusing on mobile performance, display technologies, and battery efficiency standards.",
+      "worksFor": { "@id": "https://aditya-cmd-max.github.io/marina/#organization" }
     },
     {
       "@type": "NewsArticle",
       "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026#article",
       "headline": "Best Smartphones Under ₹20,000 in India (2026) – Top Picks + Latest Offers",
-      "alternativeHeadline": "5 Best Budget Phones Under ₹20000: realme, iQOO, Redmi, Motorola Compared",
-      "description": "Comprehensive guide to the best smartphones under ₹20,000 in India for 2026. Comparing realme NARZO 80 Pro, iQOO Z10x, and Redmi 15 with expert reviews and bank offers.",
-      "image": [
-        "https://m.media-amazon.com/images/I/81RCajIAeLL._SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/61oa+zoqwmL._SL1200_.jpg",
-        "https://m.media-amazon.com/images/I/81dblfYZOYL._SL1500_.jpg"
-      ],
+      "description": "Expert guide to the top 5 smartphones under ₹20,000 in India for 2026. Detailed comparison of performance, battery, and camera with the latest bank offers.",
+      "image": "https://m.media-amazon.com/images/I/81RCajIAeLL._SL1500_.jpg",
       "datePublished": "2026-03-20T09:30:00+00:00",
       "dateModified": "2026-03-20T12:00:00+00:00",
       "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
       "publisher": { "@id": "https://aditya-cmd-max.github.io/marina/#organization" },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026"
-      },
-      "articleSection": "Product Review",
-      "keywords": "Smartphones under 20000, realme Narzo 80 Pro, iQOO Z10x, Redmi 15 5G, Motorola G96, best phone under 20k India 2026",
-      "wordCount": 3500,
       "mainEntity": { "@id": "#productList" }
     },
     {
@@ -196,10 +172,9 @@
           "item": {
             "@type": "Product",
             "name": "realme NARZO 80 Pro 5G",
-            "url": "https://amzn.to/4rEttzi",
             "image": "https://m.media-amazon.com/images/I/81RCajIAeLL._SL1500_.jpg",
-            "description": "Segment's 1st Dimensity 7400 Chipset | 6000mAh Battery | IP69 Waterproof.",
-            "brand": { "@type": "Brand", "name": "realme", "sameAs": "https://www.realme.com/in/" },
+            "description": "MediaTek Dimensity 7400 Chipset, 6000mAh Battery, IP69 Waterproof.",
+            "brand": { "@type": "Brand", "name": "realme" },
             "review": {
               "@type": "Review",
               "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -209,9 +184,22 @@
               "@type": "Offer",
               "price": "19999",
               "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
               "url": "https://amzn.to/4rEttzi",
-              "priceValidUntil": "2026-12-31"
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2026-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "INR" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "IN" }
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "IN",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnPeriod",
+                "merchantReturnDays": 7,
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn"
+              }
             }
           }
         },
@@ -221,10 +209,9 @@
           "item": {
             "@type": "Product",
             "name": "iQOO Z10x 5G",
-            "url": "https://amzn.to/4sPkPil",
             "image": "https://m.media-amazon.com/images/I/61oa+zoqwmL._SL1200_.jpg",
-            "description": "6500 mAh Battery | Dimensity 7300 Processor | Military-Grade Durability.",
-            "brand": { "@type": "Brand", "name": "iQOO", "sameAs": "https://www.iqoo.com/in" },
+            "description": "6500 mAh Battery, Dimensity 7300 Processor, Military-Grade Durability.",
+            "brand": { "@type": "Brand", "name": "iQOO" },
             "review": {
               "@type": "Review",
               "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -234,9 +221,21 @@
               "@type": "Offer",
               "price": "20498",
               "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
               "url": "https://amzn.to/4sPkPil",
-              "priceValidUntil": "2026-12-31"
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2026-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "INR" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "IN" }
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "IN",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnPeriod",
+                "merchantReturnDays": 7,
+                "returnFees": "https://schema.org/FreeReturn"
+              }
             }
           }
         },
@@ -246,10 +245,9 @@
           "item": {
             "@type": "Product",
             "name": "Redmi 15 5G",
-            "url": "https://amzn.to/4bAWyWz",
             "image": "https://m.media-amazon.com/images/I/81dblfYZOYL._SL1500_.jpg",
-            "description": "Segment's Largest 7000mAh Battery | 6.9\" 144Hz Display | Snapdragon 6s Gen 3.",
-            "brand": { "@type": "Brand", "name": "Redmi", "sameAs": "https://www.mi.com/in" },
+            "description": "7000mAh Battery, 144Hz Display, Snapdragon 6s Gen 3.",
+            "brand": { "@type": "Brand", "name": "Redmi" },
             "review": {
               "@type": "Review",
               "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -259,9 +257,21 @@
               "@type": "Offer",
               "price": "19499",
               "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
               "url": "https://amzn.to/4bAWyWz",
-              "priceValidUntil": "2026-12-31"
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2026-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "INR" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "IN" }
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "IN",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnPeriod",
+                "merchantReturnDays": 10,
+                "returnFees": "https://schema.org/FreeReturn"
+              }
             }
           }
         },
@@ -271,10 +281,9 @@
           "item": {
             "@type": "Product",
             "name": "Motorola G96",
-            "url": "https://amzn.to/47TMNRY",
             "image": "https://m.media-amazon.com/images/I/51Fy94anxuL.jpg",
-            "description": "144Hz OLED Display | 5500mAh Battery | Clean Android 14 Experience.",
-            "brand": { "@type": "Brand", "name": "Motorola", "sameAs": "https://www.motorola.in" },
+            "description": "144Hz OLED, 5500mAh Battery, Clean Android 14.",
+            "brand": { "@type": "Brand", "name": "Motorola" },
             "review": {
               "@type": "Review",
               "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -284,9 +293,21 @@
               "@type": "Offer",
               "price": "20349",
               "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
               "url": "https://amzn.to/47TMNRY",
-              "priceValidUntil": "2026-12-31"
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2026-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "INR" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "IN" }
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "IN",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnPeriod",
+                "merchantReturnDays": 7,
+                "returnFees": "https://schema.org/FreeReturn"
+              }
             }
           }
         },
@@ -296,10 +317,9 @@
           "item": {
             "@type": "Product",
             "name": "realme NARZO 90 5G",
-            "url": "https://amzn.to/3Nazxla",
             "image": "https://m.media-amazon.com/images/I/811u8KqIIVL._SL1500_.jpg",
-            "description": "7000mAh Biggest Battery | 60W Fast Charging | 50MP AI Cameras.",
-            "brand": { "@type": "Brand", "name": "realme", "sameAs": "https://www.realme.com/in/" },
+            "description": "7000mAh Battery, 60W Fast Charging, 50MP AI Cameras.",
+            "brand": { "@type": "Brand", "name": "realme" },
             "review": {
               "@type": "Review",
               "author": { "@id": "https://aditya-cmd-max.github.io/marina/profiles/adityajha#person" },
@@ -309,22 +329,24 @@
               "@type": "Offer",
               "price": "17749",
               "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
               "url": "https://amzn.to/3Nazxla",
-              "priceValidUntil": "2026-12-31"
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2026-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "INR" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "IN" }
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "IN",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnPeriod",
+                "merchantReturnDays": 7,
+                "returnFees": "https://schema.org/FreeReturn"
+              }
             }
           }
         }
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aditya-cmd-max.github.io/marina/" },
-        { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://aditya-cmd-max.github.io/marina/articles" },
-        { "@type": "ListItem", "position": 3, "name": "Product Review", "item": "https://aditya-cmd-max.github.io/marina/articles/categories/product-review" },
-        { "@type": "ListItem", "position": 4, "name": "Best Smartphones Under ₹20,000 (2026)", "item": "https://aditya-cmd-max.github.io/marina/articles/product-review/best-smartphones-under-20000-india-2026" }
       ]
     },
     {
@@ -333,50 +355,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Which is the best phone under ₹20,000 for gaming?",
+          "name": "Which is the absolute best phone under ₹20,000 for gaming in 2026?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The realme NARZO 80 Pro with its Dimensity 7400 chipset and 120Hz AMOLED display is currently the top choice for gaming under 20k."
+            "text": "The realme NARZO 80 Pro 5G is the top gaming choice due to its MediaTek Dimensity 7400 chipset and specialized 120Hz AMOLED display."
           }
         },
         {
           "@type": "Question",
-          "name": "Which phone has the best camera under ₹20,000?",
+          "name": "Which budget phone offers the best water resistance?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The realme NARZO 90 5G features a 50MP front and rear AI camera setup, making it ideal for vloggers and social media enthusiasts."
+            "text": "The realme NARZO 80 Pro 5G features an IP69 rating, which is the highest level of protection against dust and high-pressure water, rare in the sub-20k segment."
           }
         },
         {
           "@type": "Question",
-          "name": "Which phone has the largest battery under ₹20,000?",
+          "name": "Which phone under 20k has the longest battery life?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Redmi 15 5G leads the pack with a massive 7000mAh battery, followed closely by the realme NARZO 90."
+            "text": "The Redmi 15 5G and realme NARZO 90 both feature massive 7000mAh batteries, providing over two days of usage for average users."
           }
         },
         {
           "@type": "Question",
-          "name": "What does an IP69 rating mean for a budget phone?",
+          "name": "Is the iQOO Z10x durable enough for rough use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "An IP69 rating, found on the realme NARZO 80 Pro, means the device is protected against high-pressure water jets and total dust ingress, a rare premium feature in this segment."
+            "text": "Yes, the iQOO Z10x comes with Military-Grade Durability certification, making it one of the most rugged options for users prone to dropping their phones."
           }
         },
         {
           "@type": "Question",
-          "name": "Do these phones include chargers in the box?",
+          "name": "Which phone has the fastest charging under 20000?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most models like the realme NARZO 80 Pro (80W) and realme NARZO 90 (60W) include fast chargers in the box, though some brands like Motorola are moving toward leaner packaging."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which phone offers the cleanest software experience?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Motorola G96 is the best choice for users who prefer a near-stock Android 14 experience without the bloatware often found in other budget UIs."
+            "text": "The realme NARZO 80 Pro leads with 80W Ultra Charge, while the NARZO 90 offers a very capable 60W fast charging solution."
           }
         }
       ]
