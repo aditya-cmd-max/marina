@@ -58,7 +58,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://www.gstatic.com">
     <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://aditya-cmd-max.github.io">
+    <link rel="dns-prefetch" href="https:/reverbit.in">
     
     <!-- Preload critical assets -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" as="style">
@@ -3199,7 +3199,7 @@ function initTheme() {
                 if (article.thumbnail) {
                     return article.thumbnail.startsWith('http') 
                         ? article.thumbnail 
-                        : `https://aditya-cmd-max.github.io${article.thumbnail}`;
+                        : `https:/reverbit.in${article.thumbnail}`;
                 }
                 return 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
             }
@@ -3208,7 +3208,7 @@ function initTheme() {
                 if (article.authorAvatar) {
                     return article.authorAvatar.startsWith('http')
                         ? article.authorAvatar
-                        : `https://aditya-cmd-max.github.io${article.authorAvatar}`;
+                        : `https:/reverbit.in${article.authorAvatar}`;
                 }
                 return `https://ui-avatars.com/api/?name=${encodeURIComponent(article.author || 'Author')}&background=1a73e8&color=fff`;
             }
