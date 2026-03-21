@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://aditya-cmd-max.github.io/marina/sitemap.xml
