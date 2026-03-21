@@ -27,11 +27,11 @@
     <meta name="bingbot" content="index, follow">
     
     <!-- ===== CANONICAL URL ===== -->
-    <link rel="canonical" href="https://aditya-cmd-max.github.io/marina/articles">
+    <link rel="canonical" href="https://marina.reverbit.in/articles">
     
     <!-- ===== OPEN GRAPH / FACEBOOK META TAGS ===== -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aditya-cmd-max.github.io/marina/articles">
+    <meta property="og:url" content="https://marina.reverbit.in/articles">
     <meta property="og:title" content="Reverbit Marina - Articles on AI & Innovation by a Student">
     <meta property="og:description" content="Deep dives into artificial intelligence, web development, and future tech. Written by a Class 11 student building India's AI future.">
     <meta property="og:image" content="https://aditya-cmd-max.github.io/Reverbit.svg">
@@ -118,10 +118,10 @@
       "@graph": [
         {
           "@type": "Blog",
-          "@id": "https://aditya-cmd-max.github.io/marina/articles#blog",
+          "@id": "https://marina.reverbit.in/articles#blog",
           "name": "Reverbit Marina - Articles",
           "description": "A student's blog exploring artificial intelligence, web development, and technology innovation from India.",
-          "url": "https://aditya-cmd-max.github.io/marina/articles",
+          "url": "https://marina.reverbit.in/articles",
           "image": "https://aditya-cmd-max.github.io/Reverbit.svg",
           "author": {
             "@type": "Person",
@@ -143,8 +143,8 @@
         },
         {
           "@type": "WebSite",
-          "@id": "https://aditya-cmd-max.github.io/marina/articles#website",
-          "url": "https://aditya-cmd-max.github.io/marina/articles",
+          "@id": "https://marina.reverbit.in/articles#website",
+          "url": "https://marina.reverbit.in/articles",
           "name": "Reverbit Marina Articles",
           "description": "Tech articles, tutorials, and insights by a Class 11 Indian student",
           "publisher": {
@@ -155,14 +155,14 @@
             "@type": "SearchAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": "https://aditya-cmd-max.github.io/marina/search?q={search_term_string}"
+              "urlTemplate": "https://marina.reverbit.in/search?q={search_term_string}"
             },
             "query-input": "required name=search_term_string"
           }
         },
         {
           "@type": "Person",
-          "@id": "https://aditya-cmd-max.github.io/marina/articles#person",
+          "@id": "https://marina.reverbit.in/articles#person",
           "name": "Aditya Jha",
           "description": "Class 11 student, aspiring AI researcher, and creator of Reverbit",
           "url": "https://aditya-cmd-max.github.io/about",
@@ -188,13 +188,13 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aditya-cmd-max.github.io/marina/"
+          "item": "https://marina.reverbit.in/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Articles",
-          "item": "https://aditya-cmd-max.github.io/marina/articles"
+          "item": "https://marina.reverbit.in/articles"
         }
       ]
     }
@@ -1667,12 +1667,12 @@
             </div>
 
             <nav class="desktop-nav">
-                <a href="https://aditya-cmd-max.github.io/marina/" class="nav-item">Home</a>
+                <a href="https://marina.reverbit.in/" class="nav-item">Home</a>
                 <a href="#" class="nav-item active">Articles</a>
-                <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="nav-item">Categories</a>
-                <a href="https://aditya-cmd-max.github.io/marina/about" class="nav-item">About</a>
-                <a href="https://aditya-cmd-max.github.io/marina/contact" class="nav-item">Contact</a>
-                <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="nav-item">Write for Us.</a>
+                <a href="https://marina.reverbit.in/articles/categories" class="nav-item">Categories</a>
+                <a href="https://marina.reverbit.in/about" class="nav-item">About</a>
+                <a href="https://marina.reverbit.in/contact" class="nav-item">Contact</a>
+                <a href="https://marina.reverbit.in/write-for-us/" class="nav-item">Write for Us.</a>
             </nav>
 
             <div class="header-actions">
@@ -1701,7 +1701,7 @@
     <main class="main-content">
         <!-- Breadcrumb -->
         <nav class="breadcrumb">
-            <a href="https://aditya-cmd-max.github.io/marina/">Home</a>
+            <a href="https://marina.reverbit.in/">Home</a>
             <span class="breadcrumb-separator">/</span>
             <span class="breadcrumb-current">Articles</span>
         </nav>
@@ -1978,7 +1978,7 @@
                                 <img src="${getThumbnailUrl(article)}" class="article-image" alt="${sanitizeHTML(article.title)}" loading="lazy">
                             </div>
                             <div class="article-content">
-                                <a href="https://aditya-cmd-max.github.io/marina/articles/categories/${categorySlug}" class="article-category">${sanitizeHTML(article.category || 'Technology')}</a>
+                                <a href="https://marina.reverbit.in/articles/categories/${categorySlug}" class="article-category">${sanitizeHTML(article.category || 'Technology')}</a>
                                 <h3 class="article-title">${sanitizeHTML(article.title)}</h3>
                                 <p class="article-excerpt">${sanitizeHTML(article.description?.substring(0, 120))}...</p>
 
@@ -2032,7 +2032,7 @@
             // ===== DATA FETCH =====
             async function fetchArticles() {
                 try {
-                    const response = await fetch('https://aditya-cmd-max.github.io/marina/articlesmarina.json');
+                    const response = await fetch('https://marina.reverbit.in/articlesmarina.json');
                     allArticles = await response.json();
                     localStorage.setItem('allArticles', JSON.stringify(allArticles));
                     renderArticles();
@@ -2224,12 +2224,12 @@
                             <div class="menu-user-info"><h4>${userData.displayName}</h4><p>${userData.email}</p></div>
                         </div>
                         <div class="menu-links">
-                            <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
+                            <a href="https://marina.reverbit.in/" class="menu-link"><i class="fas fa-home"></i> Home</a>
                             <a href="#" class="menu-link active"><i class="fas fa-newspaper"></i> Articles</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us.</a>
+                            <a href="https://marina.reverbit.in/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                            <a href="https://marina.reverbit.in/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                            <a href="https://marina.reverbit.in/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
+                            <a href="https://marina.reverbit.in/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us.</a>
                             <a href="https://aditya-cmd-max.github.io/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
                         </div>
                         <div class="menu-theme" id="menuThemeToggle">
@@ -2241,12 +2241,12 @@
                 } else {
                     menuContent.innerHTML = `
                         <div class="menu-links">
-                            <a href="https://aditya-cmd-max.github.io/marina/" class="menu-link"><i class="fas fa-home"></i> Home</a>
+                            <a href="https://marina.reverbit.in/" class="menu-link"><i class="fas fa-home"></i> Home</a>
                             <a href="#" class="menu-link active"><i class="fas fa-newspaper"></i> Articles</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
-                            <a href="https://aditya-cmd-max.github.io/marina/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us.</a>
+                            <a href="https://marina.reverbit.in/articles/categories" class="menu-link"><i class="fas fa-folder"></i> Categories</a>
+                            <a href="https://marina.reverbit.in/about" class="menu-link"><i class="fas fa-info-circle"></i> About</a>
+                            <a href="https://marina.reverbit.in/contact" class="menu-link"><i class="fas fa-envelope"></i> Contact</a>
+                            <a href="https://marina.reverbit.in/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us.</a>
                         </div>
                         <div class="menu-theme" id="menuThemeToggle">
                             <div class="menu-theme-left"><i class="fas fa-moon"></i><span>Dark Mode</span></div>
