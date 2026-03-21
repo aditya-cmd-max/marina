@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
+  <url>
+    <loc>https://marina.reverbit.in/articles/product-review/best-smartphones-under-20000-india-2026/</loc>
+    
+    <lastmod>2026-03-20T00:00:00Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+
+    <news:news>
+      <news:publication>
+        <news:name>Reverbit Marina</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-20T00:00:00Z</news:publication_date>
+      <news:title>Best Smartphones Under ₹20,000 in India (2026) – Top Picks + Latest Offers </news:title>
+    </news:news>
+  </url>
+
+        
+ <url>
+    <loc>https://marina.reverbit.in/articles/education/class-9-10-syllabus-30-days-study-plan/</loc>
+    
+    <lastmod>2026-03-19T00:00:00Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+
+    <news:news>
+      <news:publication>
+        <news:name>Reverbit Marina</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-19T00:00:00Z</news:publication_date>
+      <news:title>How to Complete Class 9/10 Syllabus in 30 Days (Study Plan 2026)</news:title>
+    </news:news>
+  </url>
+
+</urlset>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
+xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+<channel>
+
+<title>Reverbit Marina</title>
+<link>https://marina.reverbit.in</link>
+<description>Latest Technology News, AI Insights, Programming Guides, Education Tips &amp; Product Reviews</description>
+<language>en-us</language>
+<lastBuildDate>Wed, 18 Mar 2026 00:00:00 GMT</lastBuildDate>
+
+<managingEditor>reverbit1104@gmail.com (Aditya Jha)</managingEditor>
+<webMaster>reverbit1104@gmail.com  (Aditya Jha)</webMaster>
+<copyright>© 2026 Reverbit Marina</copyright>
+<ttl>60</ttl>
+<docs>https://www.rssboard.org/rss-specification</docs>
+
+<!-- SELF LINK -->
+<atom:link href="https://marina.reverbit.in/rss.xml" rel="self" type="application/rss+xml"/>
+
+<!-- BRAND IMAGE -->
+<image>
+<title>Reverbit Marina</title>
+<link>https://marina.reverbit.in</link>
+<url>https://marina.reverbit.in/favicon.png</url>
+</image>
+
+<!-- ITEM -1 -->
+<item>
+<title>Best Smartphones Under ₹20,000 in India (2026) – Top Picks + Latest Offers </title>
+<link>https://marina.reverbit.in/articles/product-review/best-smartphones-under-20000-india-2026/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/product-review/best-smartphones-under-20000-india-2026/</guid>
+
+<description>
+Find the best smartphone under ₹20000 in India for 2026. We compare realme NARZO 80 Pro, iQOO Z10x, Redmi 15 5G, Motorola G96 &amp; realme NARZO 90. Detailed specs, pros &amp; cons, and best offers on Amazon/Flipkart.
+</description>
+
+<content:encoded><![CDATA[
+<p>Find the best smartphone under ₹20000 in India for 2026. We compare realme NARZO 80 Pro, iQOO Z10x, Redmi 15 5G, Motorola G96 &amp; realme NARZO 90.</p>
+<p>Detailed specs, pros &amp; cons, and best offers on Amazon/Flipkart.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>Product Review</category>
+<pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+  
+  <!-- ITEM 0 -->
+<item>
+<title>How to Complete Class 9/10 Syllabus in 30 Days (Proven Study Plan 2026)</title>
+<link>https://marina.reverbit.in/articles/education/class-9-10-syllabus-30-days-study-plan/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/education/class-9-10-syllabus-30-days-study-plan/</guid>
+
+<description>
+A realistic 30-day study plan for Class 9 and 10 students. Learn proven techniques like the 80/20 rule, active recall, and smart revision strategies to finish your syllabus without burnout.
+</description>
+
+<content:encoded><![CDATA[
+<p>Struggling to complete your syllabus? This guide gives you a practical 30-day roadmap using proven study techniques like active recall and mistake tracking.</p>
+<p>Useful for CBSE, ICSE, and other boards.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>Education</category>
+<pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+<!-- ITEM 1 -->
+<item>
+<title>AMOLED vs LCD: Which Display is Better? Complete Comparison Guide (2026)</title>
+<link>https://marina.reverbit.in/articles/technology/amoled-vs-lcd-display-comparison/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/technology/amoled-vs-lcd-display-comparison/</guid>
+
+<description>
+A complete comparison of AMOLED vs LCD displays covering battery life, contrast, color accuracy, and durability to help you choose the right screen.
+</description>
+
+<content:encoded><![CDATA[
+<p>Not sure which display is better? This guide breaks down AMOLED and LCD differences in real-world usage.</p>
+<p>Perfect for gaming, streaming, and everyday use.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>Technology</category>
+<pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+<!-- ITEM 2 -->
+<item>
+<title>Top 5 Best Laptops for Students Under ₹50,000 (2026)</title>
+<link>https://marina.reverbit.in/articles/product-review/best-laptops-students-2026-under-50000/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/product-review/best-laptops-students-2026-under-50000/</guid>
+
+<description>
+Explore the best laptops for students under ₹50,000 with a focus on performance, battery life, and overall value.
+</description>
+
+<content:encoded><![CDATA[
+<p>Looking for a budget laptop? This guide covers top picks with real-world performance insights, pros and cons, and buying tips.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>Product Review</category>
+<pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+<!-- ITEM 3 -->
+<item>
+<title>Top 10 UI/UX Tips for Ambitious Programmers</title>
+<link>https://marina.reverbit.in/articles/programming/uiux-tips-for-programmers/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/programming/uiux-tips-for-programmers/</guid>
+
+<description>
+Learn practical UI/UX tips to build clean, user-friendly interfaces even without a design background.
+</description>
+
+<content:encoded><![CDATA[
+<p>Improve your design skills as a developer with these simple yet powerful UI/UX tips.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>Programming</category>
+<pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+<!-- ITEM 4 -->
+<item>
+<title>Windows 12 Release Date, Features &amp; Requirements (2026 Guide)</title>
+<link>https://marina.reverbit.in/articles/product-launch/windows-12-arrival-and-features/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/product-launch/windows-12-arrival-and-features/</guid>
+
+<description>
+Everything we know about Windows 12 including expected features, AI integration, and system requirements.
+</description>
+
+<content:encoded><![CDATA[
+<p>Discover upcoming Windows 12 features, design changes, and whether your PC is ready for the upgrade.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>Product Launch</category>
+<pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+<!-- ITEM 5 -->
+<item>
+<title>The Future of AI-Powered Development</title>
+<link>https://marina.reverbit.in/articles/ai-and-development/future-of-ai-powered-development/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/ai-and-development/future-of-ai-powered-development/</guid>
+
+<description>
+Understand how AI is transforming software development from coding assistants to automation.
+</description>
+
+<content:encoded><![CDATA[
+<p>AI is becoming a real development partner. Explore how it will change coding, testing, and deployment.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>AI and Development</category>
+<pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+<!-- ITEM 6 -->
+<item>
+<title>The Future of Technology: 7 Trends That Will Change the World</title>
+<link>https://marina.reverbit.in/articles/technology/the-future-of-technology/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/technology/the-future-of-technology/</guid>
+
+<description>
+Explore major technology trends like AI, quantum computing, and next-gen innovations shaping the future.
+</description>
+
+<content:encoded><![CDATA[
+<p>Discover 7 powerful tech trends that will redefine industries and everyday life in the coming years.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>Technology</category>
+<pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+
+</channel>
+</rss>

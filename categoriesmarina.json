@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Product Review",
+    "slug": "product-review",
+    "link": "https://marina.reverbit.in/articles/categories/product-review/",
+    "description": "Latest Product reviews all across the world..",
+    "icon": "https://img.icons8.com/?size=100&id=Z05ITLFZzosL&format=png&color=000000"
+  },
+  {
+    "name": "Product Launch",
+    "slug": "product-launch",
+    "link": "https://marina.reverbit.in/articles/categories/product-launch/",
+    "description": "Latest tech insights about the product launches all across the world along with some review..",
+    "icon": "https://uxwing.com/wp-content/themes/uxwing/download/logistics-shipping-delivery/boxes-icon.png"
+  },
+  {
+    "name": "Programming",
+    "slug": "programming",
+    "link": "https://marina.reverbit.in/articles/categories/programming",
+    "description": "Guides, tutorials, and insights about coding, software development, and programming languages.",
+    "icon": "https://img.icons8.com/?size=100&id=116826&format=png&color=000000"
+  },
+  {
+    "name": "Artificial Intelligence",
+    "slug": "artificial-intelligence",
+    "link": "https://marina.reverbit.in/articles/categories/artificial-intelligence",
+    "description": "Beginner-friendly explanations and updates about artificial intelligence and machine learning.",
+    "icon": "/images/categories/ai.svg"
+  },
+  {
+    "name": "Technology",
+    "slug": "technology",
+    "link": "https://marina.reverbit.in/articles/categories/technology/",
+    "description": "Latest technology trends, innovations, and future tech shaping the world.",
+    "icon": "/images/categories/technology.svg"
+  },
+  {
+    "name": "Education",
+    "slug": "education",
+    "link": "https://marina.reverbit.in/articles/categories/education/",
+    "description": "Learning resources, study guides, and tips for students exploring tech and programming.",
+    "icon": "/images/categories/education.svg"
+  },
+  {
+    "name": "AI and Development",
+    "slug": "ai-development",
+    "link": "https://marina.reverbit.in/articles/categories/ai-and-development",
+    "description": "How artificial intelligence is transforming software development and engineering.",
+    "icon": "https://img.icons8.com/?size=80&id=qSNjZJRFEzLU&format=png"
+  }
+]

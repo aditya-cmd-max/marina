@@ -1,0 +1,954 @@
+[
+  {
+    "id": "artificial-intelligence",
+    "name": "Artificial Intelligence",
+    "slug": "ai",
+    "description": "Explore the latest developments, tools, and concepts in artificial intelligence and machine learning.",
+    "metaDescription": "AI articles covering machine learning, neural networks, and the future of intelligent systems.",
+    "featured": true,
+    "count": 0,
+    "icon": "🤖",
+    "color": "#34a853",
+    "relatedCategories": ["ai-development", "technology"],
+    "relatedTags": ["machine-learning", "future-technology", "deep-learning", "neural-networks", "generative-ai"],
+    "seo": {
+      "title": "Artificial Intelligence Articles | Reverbit Marina",
+      "keywords": ["AI", "Artificial Intelligence", "Machine Learning", "Deep Learning", "Neural Networks"]
+    }
+  },
+  {
+    "id": "programming",
+    "name": "Programming",
+    "slug": "programming",
+    "description": "Coding tutorials, development practices, and insights into modern programming languages.",
+    "metaDescription": "Programming guides and coding tutorials for developers and students.",
+    "featured": true,
+    "count": 0,
+    "icon": "💻",
+    "color": "#4285f4",
+    "relatedCategories": ["programming", "education"],
+    "relatedTags": ["coding-skills", "software-development", "web-development", "python", "javascript"],
+    "seo": {
+      "title": "Programming Guides | Reverbit Marina",
+      "keywords": ["Programming", "Coding", "Software Development", "Developer Skills", "Learn to Code"]
+    }
+  },
+  {
+    "id": "machine-learning",
+    "name": "Machine Learning",
+    "slug": "machine-learning",
+    "description": "Learn about machine learning algorithms, models, and practical AI applications.",
+    "metaDescription": "Machine learning guides, concepts, and practical applications in AI.",
+    "featured": false,
+    "count": 0,
+    "icon": "🧠",
+    "color": "#ea4335",
+    "relatedCategories": ["ai-development", "technology"],
+    "relatedTags": ["artificial-intelligence", "future-technology", "data-science", "deep-learning", "mlops"],
+    "seo": {
+      "title": "Machine Learning Articles | Reverbit Marina",
+      "keywords": ["Machine Learning", "ML", "AI Models", "Data Science", "ML Algorithms"]
+    }
+  },
+  {
+    "id": "future-technology",
+    "name": "Future Technology",
+    "slug": "future-tech",
+    "description": "Discover emerging technologies that will shape the future of humanity and innovation.",
+    "metaDescription": "Future tech trends including AI, quantum computing, and next-generation innovation.",
+    "featured": true,
+    "count": 0,
+    "icon": "🚀",
+    "color": "#fbbc05",
+    "relatedCategories": ["technology"],
+    "relatedTags": ["artificial-intelligence", "machine-learning", "quantum-computing", "robotics", "biotech"],
+    "seo": {
+      "title": "Future Technology Trends | Reverbit Marina",
+      "keywords": ["Future Tech", "Innovation", "Technology Trends", "AI Future", "Emerging Tech"]
+    }
+  },
+  {
+    "id": "software-development",
+    "name": "Software Development",
+    "slug": "software-development",
+    "description": "Explore modern software development workflows, tools, and engineering practices.",
+    "metaDescription": "Software engineering, development workflows, and coding practices.",
+    "featured": false,
+    "count": 0,
+    "icon": "⚙️",
+    "color": "#673ab7",
+    "relatedCategories": ["ai-development", "programming"],
+    "relatedTags": ["programming", "coding-skills", "devops", "agile", "software-architecture"],
+    "seo": {
+      "title": "Software Development Guides | Reverbit Marina",
+      "keywords": ["Software Development", "Engineering", "Coding", "Developer Tools", "DevOps"]
+    }
+  },
+  {
+    "id": "coding-skills",
+    "name": "Coding Skills",
+    "slug": "coding-skills",
+    "description": "Essential coding skills that every developer should learn to succeed in the tech industry.",
+    "metaDescription": "Learn the most important coding skills for modern developers.",
+    "featured": false,
+    "count": 0,
+    "icon": "📚",
+    "color": "#00acc1",
+    "relatedCategories": ["education", "programming"],
+    "relatedTags": ["programming", "software-development", "algorithms", "data-structures", "problem-solving"],
+    "seo": {
+      "title": "Developer Coding Skills | Reverbit Marina",
+      "keywords": ["Coding Skills", "Programming Skills", "Developer Learning", "Tech Skills"]
+    }
+  },
+  {
+    "id": "web-development",
+    "name": "Web Development",
+    "slug": "web-development",
+    "description": "Master frontend and backend web development with modern frameworks and best practices.",
+    "metaDescription": "Web development tutorials covering HTML, CSS, JavaScript, React, Node.js and more.",
+    "featured": true,
+    "count": 0,
+    "icon": "🌐",
+    "color": "#1a73e8",
+    "relatedCategories": ["programming"],
+    "relatedTags": ["javascript", "react", "nodejs", "frontend", "backend", "fullstack"],
+    "seo": {
+      "title": "Web Development Articles | Reverbit Marina",
+      "keywords": ["Web Development", "Frontend", "Backend", "Full Stack", "HTML", "CSS", "JavaScript"]
+    }
+  },
+  {
+    "id": "data-science",
+    "name": "Data Science",
+    "slug": "data-science",
+    "description": "Dive into data analysis, visualization, and the science behind extracting insights from data.",
+    "metaDescription": "Data science articles on analytics, visualization, Python, R, and big data.",
+    "featured": false,
+    "count": 0,
+    "icon": "📊",
+    "color": "#0b8043",
+    "relatedCategories": ["ai-development", "technology"],
+    "relatedTags": ["machine-learning", "python", "analytics", "big-data", "visualization"],
+    "seo": {
+      "title": "Data Science Insights | Reverbit Marina",
+      "keywords": ["Data Science", "Data Analytics", "Big Data", "Python", "Data Visualization"]
+    }
+  },
+  {
+    "id": "deep-learning",
+    "name": "Deep Learning",
+    "slug": "deep-learning",
+    "description": "Understand neural networks, deep learning architectures, and advanced AI techniques.",
+    "metaDescription": "Deep learning guides on CNNs, RNNs, Transformers, and neural network training.",
+    "featured": false,
+    "count": 0,
+    "icon": "🧬",
+    "color": "#c2185b",
+    "relatedCategories": ["ai-development"],
+    "relatedTags": ["artificial-intelligence", "machine-learning", "neural-networks", "tensorflow", "pytorch"],
+    "seo": {
+      "title": "Deep Learning Tutorials | Reverbit Marina",
+      "keywords": ["Deep Learning", "Neural Networks", "CNN", "RNN", "Transformers", "TensorFlow"]
+    }
+  },
+  {
+    "id": "python",
+    "name": "Python Programming",
+    "slug": "python",
+    "description": "Learn Python from basics to advanced – the most versatile language for AI, web, and automation.",
+    "metaDescription": "Python tutorials for beginners and experienced developers covering Django, Flask, and data science.",
+    "featured": true,
+    "count": 0,
+    "icon": "🐍",
+    "color": "#306998",
+    "relatedCategories": ["programming", "ai-development"],
+    "relatedTags": ["programming", "data-science", "machine-learning", "automation", "django"],
+    "seo": {
+      "title": "Python Programming Articles | Reverbit Marina",
+      "keywords": ["Python", "Python Tutorial", "Django", "Flask", "Python for AI"]
+    }
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "slug": "javascript",
+    "description": "Master JavaScript – the language of the web. From ES6 to async, frameworks, and beyond.",
+    "metaDescription": "JavaScript tutorials, ES6 features, async programming, and frameworks like React and Vue.",
+    "featured": true,
+    "count": 0,
+    "icon": "🟨",
+    "color": "#f7df1e",
+    "relatedCategories": ["programming"],
+    "relatedTags": ["web-development", "react", "nodejs", "frontend", "typescript"],
+    "seo": {
+      "title": "JavaScript Guides | Reverbit Marina",
+      "keywords": ["JavaScript", "JS", "ES6", "React", "Node.js", "Async JavaScript"]
+    }
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "slug": "react",
+    "description": "Build dynamic user interfaces with React – hooks, state management, and ecosystem tools.",
+    "metaDescription": "React tutorials covering hooks, context, Redux, Next.js, and component design.",
+    "featured": false,
+    "count": 0,
+    "icon": "⚛️",
+    "color": "#61dafb",
+    "relatedCategories": ["programming"],
+    "relatedTags": ["javascript", "web-development", "frontend", "ui-ux", "nextjs"],
+    "seo": {
+      "title": "React Development | Reverbit Marina",
+      "keywords": ["React", "React Hooks", "Redux", "Next.js", "Frontend Framework"]
+    }
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "slug": "nodejs",
+    "description": "Server-side JavaScript with Node.js – build scalable backends, APIs, and real-time apps.",
+    "metaDescription": "Node.js tutorials on Express, REST APIs, databases, and backend architecture.",
+    "featured": false,
+    "count": 0,
+    "icon": "📦",
+    "color": "#68a063",
+    "relatedCategories": ["programming"],
+    "relatedTags": ["javascript", "web-development", "backend", "express", "api"],
+    "seo": {
+      "title": "Node.js Articles | Reverbit Marina",
+      "keywords": ["Node.js", "Express", "Backend", "API Development", "JavaScript Runtime"]
+    }
+  },
+  {
+    "id": "cloud-computing",
+    "name": "Cloud Computing",
+    "slug": "cloud",
+    "description": "Explore cloud platforms – AWS, Azure, GCP – and modern infrastructure as code.",
+    "metaDescription": "Cloud computing guides on AWS, Azure, GCP, serverless, and DevOps practices.",
+    "featured": false,
+    "count": 0,
+    "icon": "☁️",
+    "color": "#1a73e8",
+    "relatedCategories": ["technology"],
+    "relatedTags": ["devops", "aws", "azure", "serverless", "infrastructure"],
+    "seo": {
+      "title": "Cloud Computing | Reverbit Marina",
+      "keywords": ["Cloud Computing", "AWS", "Azure", "Google Cloud", "Serverless"]
+    }
+  },
+  {
+    "id": "devops",
+    "name": "DevOps",
+    "slug": "devops",
+    "description": "Bridge development and operations – CI/CD, containerization, monitoring, and automation.",
+    "metaDescription": "DevOps practices, Docker, Kubernetes, CI/CD pipelines, and infrastructure automation.",
+    "featured": false,
+    "count": 0,
+    "icon": "🔧",
+    "color": "#f48024",
+    "relatedCategories": ["software-development"],
+    "relatedTags": ["cloud-computing", "docker", "kubernetes", "cicd", "automation"],
+    "seo": {
+      "title": "DevOps Practices | Reverbit Marina",
+      "keywords": ["DevOps", "CI/CD", "Docker", "Kubernetes", "Automation", "Infrastructure as Code"]
+    }
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "slug": "docker",
+    "description": "Containerize your applications with Docker – from basics to production deployment.",
+    "metaDescription": "Docker tutorials for beginners and advanced users: images, containers, compose, and swarm.",
+    "featured": false,
+    "count": 0,
+    "icon": "🐳",
+    "color": "#2496ed",
+    "relatedCategories": ["software-development"],
+    "relatedTags": ["devops", "containers", "kubernetes", "microservices"],
+    "seo": {
+      "title": "Docker Articles | Reverbit Marina",
+      "keywords": ["Docker", "Containers", "Docker Compose", "Containerization", "DevOps"]
+    }
+  },
+  {
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "slug": "kubernetes",
+    "description": "Orchestrate containers at scale with Kubernetes – pods, services, deployments, and clusters.",
+    "metaDescription": "Kubernetes tutorials covering cluster management, pods, services, and cloud-native apps.",
+    "featured": false,
+    "count": 0,
+    "icon": "☸️",
+    "color": "#326ce5",
+    "relatedCategories": ["software-development"],
+    "relatedTags": ["devops", "docker", "cloud-computing", "microservices"],
+    "seo": {
+      "title": "Kubernetes Guides | Reverbit Marina",
+      "keywords": ["Kubernetes", "K8s", "Container Orchestration", "Cloud Native", "DevOps"]
+    }
+  },
+  {
+    "id": "cybersecurity",
+    "name": "Cybersecurity",
+    "slug": "cybersecurity",
+    "description": "Protect systems and data – learn about ethical hacking, encryption, and security best practices.",
+    "metaDescription": "Cybersecurity articles on network security, ethical hacking, cryptography, and risk management.",
+    "featured": true,
+    "count": 0,
+    "icon": "🔒",
+    "color": "#dc3545",
+    "relatedCategories": ["technology"],
+    "relatedTags": ["networking", "encryption", "hacking", "privacy", "infosec"],
+    "seo": {
+      "title": "Cybersecurity Insights | Reverbit Marina",
+      "keywords": ["Cybersecurity", "InfoSec", "Ethical Hacking", "Network Security", "Encryption"]
+    }
+  },
+  {
+    "id": "blockchain",
+    "name": "Blockchain",
+    "slug": "blockchain",
+    "description": "Understand blockchain technology, cryptocurrencies, smart contracts, and decentralized apps.",
+    "metaDescription": "Blockchain guides on Bitcoin, Ethereum, smart contracts, DeFi, and Web3.",
+    "featured": false,
+    "count": 0,
+    "icon": "⛓️",
+    "color": "#3b3b3b",
+    "relatedCategories": ["future-technology"],
+    "relatedTags": ["cryptocurrency", "web3", "smart-contracts", "defi", "ethereum"],
+    "seo": {
+      "title": "Blockchain Technology | Reverbit Marina",
+      "keywords": ["Blockchain", "Cryptocurrency", "Ethereum", "Smart Contracts", "Web3"]
+    }
+  },
+  {
+    "id": "cryptocurrency",
+    "name": "Cryptocurrency",
+    "slug": "crypto",
+    "description": "Explore digital currencies – Bitcoin, Ethereum, trading, wallets, and market analysis.",
+    "metaDescription": "Cryptocurrency guides, trading strategies, wallet security, and market insights.",
+    "featured": false,
+    "count": 0,
+    "icon": "💰",
+    "color": "#f7931a",
+    "relatedCategories": ["future-technology"],
+    "relatedTags": ["blockchain", "web3", "trading", "bitcoin", "ethereum"],
+    "seo": {
+      "title": "Cryptocurrency Articles | Reverbit Marina",
+      "keywords": ["Cryptocurrency", "Bitcoin", "Ethereum", "Crypto Trading", "Digital Currency"]
+    }
+  },
+  {
+    "id": "quantum-computing",
+    "name": "Quantum Computing",
+    "slug": "quantum-computing",
+    "description": "Dive into the world of quantum bits, superposition, entanglement, and quantum algorithms.",
+    "metaDescription": "Quantum computing concepts, qubits, quantum gates, and future applications.",
+    "featured": true,
+    "count": 0,
+    "icon": "⚛️",
+    "color": "#5e35b1",
+    "relatedCategories": ["future-technology"],
+    "relatedTags": ["physics", "computing", "future-tech", "algorithms"],
+    "seo": {
+      "title": "Quantum Computing | Reverbit Marina",
+      "keywords": ["Quantum Computing", "Qubits", "Superposition", "Quantum Algorithms", "Future Tech"]
+    }
+  },
+  {
+    "id": "robotics",
+    "name": "Robotics",
+    "slug": "robotics",
+    "description": "Build and program robots – from hobbyist projects to industrial automation and AI integration.",
+    "metaDescription": "Robotics tutorials, AI in robotics, automation, and DIY robot projects.",
+    "featured": false,
+    "count": 0,
+    "icon": "🦾",
+    "color": "#e67e22",
+    "relatedCategories": ["future-technology"],
+    "relatedTags": ["automation", "ai", "mechatronics", "embedded-systems", "arduino"],
+    "seo": {
+      "title": "Robotics Articles | Reverbit Marina",
+      "keywords": ["Robotics", "Automation", "AI Robotics", "Robot Programming", "Mechatronics"]
+    }
+  },
+  {
+    "id": "iot",
+    "name": "Internet of Things",
+    "slug": "iot",
+    "description": "Connect the physical world – IoT devices, sensors, platforms, and real-world applications.",
+    "metaDescription": "IoT guides on connected devices, sensors, Arduino, Raspberry Pi, and smart home.",
+    "featured": false,
+    "count": 0,
+    "icon": "📡",
+    "color": "#0288d1",
+    "relatedCategories": ["technology"],
+    "relatedTags": ["embedded-systems", "arduino", "raspberry-pi", "sensors", "automation"],
+    "seo": {
+      "title": "Internet of Things (IoT) | Reverbit Marina",
+      "keywords": ["IoT", "Internet of Things", "Smart Devices", "Arduino", "Raspberry Pi", "Sensors"]
+    }
+  },
+  {
+    "id": "arduino",
+    "name": "Arduino",
+    "slug": "arduino",
+    "description": "Get started with Arduino – electronics, programming, and DIY projects for makers.",
+    "metaDescription": "Arduino tutorials for beginners: sensors, motors, displays, and IoT projects.",
+    "featured": false,
+    "count": 0,
+    "icon": "🔌",
+    "color": "#00979d",
+    "relatedCategories": ["programming"],
+    "relatedTags": ["iot", "robotics", "embedded-systems", "electronics", "makers"],
+    "seo": {
+      "title": "Arduino Projects & Tutorials | Reverbit Marina",
+      "keywords": ["Arduino", "Microcontroller", "Electronics", "DIY", "Makers", "IoT"]
+    }
+  },
+  {
+    "id": "raspberry-pi",
+    "name": "Raspberry Pi",
+    "slug": "raspberry-pi",
+    "description": "Unlock the power of Raspberry Pi – from retro gaming to home servers and AI projects.",
+    "metaDescription": "Raspberry Pi tutorials, projects, and ideas for hobbyists and educators.",
+    "featured": false,
+    "count": 0,
+    "icon": "🍓",
+    "color": "#c51a4a",
+    "relatedCategories": ["programming"],
+    "relatedTags": ["iot", "linux", "embedded-systems", "python", "makers"],
+    "seo": {
+      "title": "Raspberry Pi Articles | Reverbit Marina",
+      "keywords": ["Raspberry Pi", "Linux", "Embedded", "Python", "DIY", "IoT"]
+    }
+  },
+  {
+    "id": "augmented-reality",
+    "name": "Augmented Reality",
+    "slug": "ar",
+    "description": "Merge digital with real world – ARKit, ARCore, and immersive experiences.",
+    "metaDescription": "Augmented Reality development, tools, and creative applications.",
+    "featured": false,
+    "count": 0,
+    "icon": "🕶️",
+    "color": "#ff6d00",
+    "relatedCategories": ["future-technology"],
+    "relatedTags": ["virtual-reality", "3d", "unity", "arkit", "arcore"],
+    "seo": {
+      "title": "Augmented Reality (AR) | Reverbit Marina",
+      "keywords": ["Augmented Reality", "AR", "ARKit", "ARCore", "Mixed Reality"]
+    }
+  },
+  {
+    "id": "virtual-reality",
+    "name": "Virtual Reality",
+    "slug": "vr",
+    "description": "Immerse yourself in virtual worlds – VR headsets, development, and experiences.",
+    "metaDescription": "Virtual Reality guides on hardware, software, and immersive design.",
+    "featured": false,
+    "count": 0,
+    "icon": "🥽",
+    "color": "#3f51b5",
+    "relatedCategories": ["future-technology"],
+    "relatedTags": ["augmented-reality", "unity", "3d", "gaming", "immersive"],
+    "seo": {
+      "title": "Virtual Reality (VR) | Reverbit Marina",
+      "keywords": ["Virtual Reality", "VR", "Headsets", "Unity", "Immersive Tech"]
+    }
+  },
+  {
+    "id": "gaming",
+    "name": "Gaming",
+    "slug": "gaming",
+    "description": "Game development, design, and the business of gaming – from indie to AAA.",
+    "metaDescription": "Game development tutorials, design principles, and industry insights.",
+    "featured": true,
+    "count": 0,
+    "icon": "🎮",
+    "color": "#8e24aa",
+    "relatedCategories": ["entertainment"],
+    "relatedTags": ["game-design", "unity", "unreal", "indie", "3d"],
+    "seo": {
+      "title": "Gaming & Game Dev | Reverbit Marina",
+      "keywords": ["Gaming", "Game Development", "Unity", "Unreal Engine", "Indie Games"]
+    }
+  },
+  {
+    "id": "ui-ux",
+    "name": "UI/UX Design",
+    "slug": "ui-ux",
+    "description": "Create beautiful and intuitive interfaces – design principles, tools, and user research.",
+    "metaDescription": "UI/UX design articles on wireframing, prototyping, usability, and design systems.",
+    "featured": true,
+    "count": 0,
+    "icon": "🎨",
+    "color": "#ff4081",
+    "relatedCategories": ["design"],
+    "relatedTags": ["web-development", "app-design", "figma", "user-research", "accessibility"],
+    "seo": {
+      "title": "UI/UX Design Guides | Reverbit Marina",
+      "keywords": ["UI Design", "UX Design", "User Experience", "Figma", "Wireframing"]
+    }
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "slug": "figma",
+    "description": "Master Figma – the collaborative design tool for UI/UX, prototyping, and design systems.",
+    "metaDescription": "Figma tutorials, plugins, and best practices for designers.",
+    "featured": false,
+    "count": 0,
+    "icon": "🎭",
+    "color": "#a259ff",
+    "relatedCategories": ["design"],
+    "relatedTags": ["ui-ux", "prototyping", "design-systems", "wireframing"],
+    "seo": {
+      "title": "Figma Tutorials | Reverbit Marina",
+      "keywords": ["Figma", "UI Design", "Prototyping", "Design Tool", "Collaboration"]
+    }
+  },
+  {
+    "id": "productivity",
+    "name": "Productivity",
+    "slug": "productivity",
+    "description": "Boost your efficiency – time management, tools, and habits for students and professionals.",
+    "metaDescription": "Productivity hacks, time management, and tools for developers and students.",
+    "featured": false,
+    "count": 0,
+    "icon": "⏱️",
+    "color": "#43a047",
+    "relatedCategories": ["lifestyle"],
+    "relatedTags": ["time-management", "focus", "habits", "tools", "efficiency"],
+    "seo": {
+      "title": "Productivity Tips | Reverbit Marina",
+      "keywords": ["Productivity", "Time Management", "Focus", "Habits", "Efficiency"]
+    }
+  },
+  {
+    "id": "career-advice",
+    "name": "Career Advice",
+    "slug": "career",
+    "description": "Navigate your career – from landing your first job to leadership and beyond.",
+    "metaDescription": "Career guides for developers and students: resumes, interviews, and growth.",
+    "featured": true,
+    "count": 0,
+    "icon": "💼",
+    "color": "#f4511e",
+    "relatedCategories": ["education"],
+    "relatedTags": ["jobs", "interviews", "resume", "growth", "leadership"],
+    "seo": {
+      "title": "Career Advice | Reverbit Marina",
+      "keywords": ["Career Advice", "Jobs", "Tech Career", "Resume Tips", "Interview Prep"]
+    }
+  },
+  {
+    "id": "freelancing",
+    "name": "Freelancing",
+    "slug": "freelancing",
+    "description": "Start and grow your freelancing career – find clients, set rates, and deliver quality work.",
+    "metaDescription": "Freelancing guides for developers, designers, and writers.",
+    "featured": false,
+    "count": 0,
+    "icon": "💸",
+    "color": "#ffb300",
+    "relatedCategories": ["education"],
+    "relatedTags": ["career-advice", "business", "clients", "remote-work"],
+    "seo": {
+      "title": "Freelancing Articles | Reverbit Marina",
+      "keywords": ["Freelancing", "Remote Work", "Clients", "Rates", "Freelancer Tips"]
+    }
+  },
+  {
+    "id": "startup",
+    "name": "Startup",
+    "slug": "startup",
+    "description": "Lessons from the startup world – building, funding, and scaling a business.",
+    "metaDescription": "Startup insights, entrepreneurship, and business strategies.",
+    "featured": false,
+    "count": 0,
+    "icon": "🚀",
+    "color": "#d81b60",
+    "relatedCategories": ["business"],
+    "relatedTags": ["entrepreneurship", "funding", "business", "innovation", "growth"],
+    "seo": {
+      "title": "Startup Insights | Reverbit Marina",
+      "keywords": ["Startup", "Entrepreneurship", "Business", "Funding", "Scaling"]
+    }
+  },
+  {
+    "id": "education",
+    "name": "Education",
+    "slug": "education",
+    "description": "Resources for students and lifelong learners – study tips, courses, and learning strategies.",
+    "metaDescription": "Education articles on learning techniques, online courses, and student life.",
+    "featured": true,
+    "count": 0,
+    "icon": "🎓",
+    "color": "#7b1fa2",
+    "relatedCategories": ["learning"],
+    "relatedTags": ["students", "learning", "courses", "study-tips", "exams"],
+    "seo": {
+      "title": "Education & Learning | Reverbit Marina",
+      "keywords": ["Education", "Learning", "Study Tips", "Online Courses", "Student Resources"]
+    }
+  },
+  {
+    "id": "study-tips",
+    "name": "Study Tips",
+    "slug": "study-tips",
+    "description": "Learn how to learn – memory techniques, focus, and efficient studying methods.",
+    "metaDescription": "Study hacks, memory techniques, and focus strategies for students.",
+    "featured": true,
+    "count": 0,
+    "icon": "📝",
+    "color": "#3f51b5",
+    "relatedCategories": ["education"],
+    "relatedTags": ["education", "productivity", "memory", "focus", "exams"],
+    "seo": {
+      "title": "Study Tips & Techniques | Reverbit Marina",
+      "keywords": ["Study Tips", "Learning Techniques", "Memory", "Focus", "Exam Prep"]
+    }
+  },
+  {
+    "id": "mathematics",
+    "name": "Mathematics",
+    "slug": "math",
+    "description": "Explore math concepts – from algebra and calculus to discrete math for computing.",
+    "metaDescription": "Mathematics articles for computer science, AI, and engineering students.",
+    "featured": false,
+    "count": 0,
+    "icon": "🔢",
+    "color": "#c2185b",
+    "relatedCategories": ["education"],
+    "relatedTags": ["algebra", "calculus", "statistics", "discrete-math", "linear-algebra"],
+    "seo": {
+      "title": "Mathematics for Tech | Reverbit Marina",
+      "keywords": ["Mathematics", "Algebra", "Calculus", "Statistics", "Discrete Math"]
+    }
+  },
+  {
+    "id": "physics",
+    "name": "Physics",
+    "slug": "physics",
+    "description": "Understand the laws of nature – from classical mechanics to quantum physics.",
+    "metaDescription": "Physics concepts explained simply, with connections to technology.",
+    "featured": false,
+    "count": 0,
+    "icon": "⚛️",
+    "color": "#0d47a1",
+    "relatedCategories": ["education"],
+    "relatedTags": ["science", "quantum-physics", "mechanics", "relativity", "electromagnetism"],
+    "seo": {
+      "title": "Physics Articles | Reverbit Marina",
+      "keywords": ["Physics", "Quantum Physics", "Mechanics", "Relativity", "Science"]
+    }
+  },
+  {
+    "id": "chemistry",
+    "name": "Chemistry",
+    "slug": "chemistry",
+    "description": "Dive into the world of molecules – organic, inorganic, and physical chemistry.",
+    "metaDescription": "Chemistry guides for students and enthusiasts.",
+    "featured": false,
+    "count": 0,
+    "icon": "🧪",
+    "color": "#ef6c00",
+    "relatedCategories": ["education"],
+    "relatedTags": ["science", "organic-chemistry", "lab", "molecules"],
+    "seo": {
+      "title": "Chemistry Concepts | Reverbit Marina",
+      "keywords": ["Chemistry", "Organic Chemistry", "Molecules", "Science", "Lab"]
+    }
+  },
+  {
+    "id": "biology",
+    "name": "Biology",
+    "slug": "biology",
+    "description": "Explore life sciences – from cell biology to genetics, ecology, and biotechnology.",
+    "metaDescription": "Biology articles on genetics, ecology, biotech, and life sciences.",
+    "featured": false,
+    "count": 0,
+    "icon": "🧬",
+    "color": "#2e7d32",
+    "relatedCategories": ["education"],
+    "relatedTags": ["science", "genetics", "biotech", "ecology", "life-sciences"],
+    "seo": {
+      "title": "Biology Insights | Reverbit Marina",
+      "keywords": ["Biology", "Genetics", "Biotech", "Ecology", "Life Sciences"]
+    }
+  },
+  {
+    "id": "astronomy",
+    "name": "Astronomy",
+    "slug": "astronomy",
+    "description": "Gaze at the stars – learn about planets, galaxies, cosmology, and space exploration.",
+    "metaDescription": "Astronomy guides on planets, stars, galaxies, and space news.",
+    "featured": true,
+    "count": 0,
+    "icon": "🌌",
+    "color": "#1e3a5f",
+    "relatedCategories": ["science"],
+    "relatedTags": ["space", "planets", "cosmology", "nasa", "stars"],
+    "seo": {
+      "title": "Astronomy & Space | Reverbit Marina",
+      "keywords": ["Astronomy", "Space", "Planets", "Galaxies", "Cosmology", "NASA"]
+    }
+  },
+  {
+    "id": "environment",
+    "name": "Environment",
+    "slug": "environment",
+    "description": "Sustainability, climate change, and how tech can help save the planet.",
+    "metaDescription": "Environment articles on climate change, sustainability, and green tech.",
+    "featured": false,
+    "count": 0,
+    "icon": "🌱",
+    "color": "#388e3c",
+    "relatedCategories": ["science"],
+    "relatedTags": ["climate", "sustainability", "green-tech", "renewable-energy", "eco"],
+    "seo": {
+      "title": "Environment & Sustainability | Reverbit Marina",
+      "keywords": ["Environment", "Climate Change", "Sustainability", "Green Tech", "Renewable Energy"]
+    }
+  },
+  {
+    "id": "renewable-energy",
+    "name": "Renewable Energy",
+    "slug": "renewable-energy",
+    "description": "Solar, wind, hydro, and the future of clean energy technologies.",
+    "metaDescription": "Renewable energy guides on solar, wind, hydro, and sustainable power.",
+    "featured": false,
+    "count": 0,
+    "icon": "☀️",
+    "color": "#ffb300",
+    "relatedCategories": ["technology"],
+    "relatedTags": ["environment", "solar", "wind", "green-tech", "sustainability"],
+    "seo": {
+      "title": "Renewable Energy | Reverbit Marina",
+      "keywords": ["Renewable Energy", "Solar Power", "Wind Energy", "Clean Tech", "Sustainability"]
+    }
+  },
+  {
+    "id": "books",
+    "name": "Books",
+    "slug": "books",
+    "description": "Book reviews and recommendations for tech, science, and personal growth.",
+    "metaDescription": "Book reviews and recommendations for tech enthusiasts and students.",
+    "featured": false,
+    "count": 0,
+    "icon": "📚",
+    "color": "#8d6e63",
+    "relatedCategories": ["lifestyle"],
+    "relatedTags": ["reading", "reviews", "recommendations", "literature", "tech-books"],
+    "seo": {
+      "title": "Book Reviews | Reverbit Marina",
+      "keywords": ["Books", "Book Reviews", "Reading", "Recommendations", "Tech Books"]
+    }
+  },
+  {
+    "id": "movies",
+    "name": "Movies & TV",
+    "slug": "movies",
+    "description": "Reviews, analysis, and discussions on films and series with tech and sci-fi themes.",
+    "metaDescription": "Movie and TV reviews, especially sci-fi and tech-related content.",
+    "featured": false,
+    "count": 0,
+    "icon": "🎬",
+    "color": "#e53935",
+    "relatedCategories": ["entertainment"],
+    "relatedTags": ["sci-fi", "reviews", "cinema", "streaming", "tv-shows"],
+    "seo": {
+      "title": "Movies & TV Reviews | Reverbit Marina",
+      "keywords": ["Movies", "TV Shows", "Sci-Fi", "Reviews", "Entertainment"]
+    }
+  },
+  {
+    "id": "music",
+    "name": "Music",
+    "slug": "music",
+    "description": "Music production, tech in music, and how AI is changing the soundscape.",
+    "metaDescription": "Music tech, AI in music, and production tutorials.",
+    "featured": false,
+    "count": 0,
+    "icon": "🎵",
+    "color": "#9c27b0",
+    "relatedCategories": ["entertainment"],
+    "relatedTags": ["production", "audio", "ai-music", "instruments", "daw"],
+    "seo": {
+      "title": "Music & Tech | Reverbit Marina",
+      "keywords": ["Music", "Music Production", "AI Music", "Audio", "DAW"]
+    }
+  },
+  {
+    "id": "health",
+    "name": "Health & Wellness",
+    "slug": "health",
+    "description": "Stay healthy as a developer – ergonomics, mental health, and fitness tips.",
+    "metaDescription": "Health and wellness for tech professionals and students.",
+    "featured": true,
+    "count": 0,
+    "icon": "💪",
+    "color": "#43a047",
+    "relatedCategories": ["lifestyle"],
+    "relatedTags": ["fitness", "mental-health", "ergonomics", "wellness", "self-care"],
+    "seo": {
+      "title": "Health & Wellness | Reverbit Marina",
+      "keywords": ["Health", "Wellness", "Mental Health", "Fitness", "Self Care", "Ergonomics"]
+    }
+  },
+  {
+    "id": "meditation",
+    "name": "Meditation",
+    "slug": "meditation",
+    "description": "Mindfulness and meditation practices for focus and stress relief.",
+    "metaDescription": "Meditation guides and mindfulness techniques for students and professionals.",
+    "featured": false,
+    "count": 0,
+    "icon": "🧘",
+    "color": "#9575cd",
+    "relatedCategories": ["health"],
+    "relatedTags": ["mindfulness", "stress", "focus", "mental-health", "wellness"],
+    "seo": {
+      "title": "Meditation & Mindfulness | Reverbit Marina",
+      "keywords": ["Meditation", "Mindfulness", "Focus", "Stress Relief", "Wellness"]
+    }
+  },
+  {
+    "id": "travel",
+    "name": "Travel",
+    "slug": "travel",
+    "description": "Travel tips, digital nomad lifestyle, and tech for travelers.",
+    "metaDescription": "Travel guides and digital nomad resources for tech workers.",
+    "featured": false,
+    "count": 0,
+    "icon": "✈️",
+    "color": "#f06292",
+    "relatedCategories": ["lifestyle"],
+    "relatedTags": ["digital-nomad", "adventure", "destinations", "backpacking", "remote-work"],
+    "seo": {
+      "title": "Travel & Digital Nomad | Reverbit Marina",
+      "keywords": ["Travel", "Digital Nomad", "Backpacking", "Remote Work", "Adventure"]
+    }
+  },
+  {
+    "id": "food",
+    "name": "Food & Cooking",
+    "slug": "food",
+    "description": "Recipes, cooking tips, and the science of food for curious minds.",
+    "metaDescription": "Food science, recipes, and cooking articles.",
+    "featured": false,
+    "count": 0,
+    "icon": "🍳",
+    "color": "#ff7043",
+    "relatedCategories": ["lifestyle"],
+    "relatedTags": ["recipes", "cooking", "food-science", "nutrition", "kitchen"],
+    "seo": {
+      "title": "Food & Cooking | Reverbit Marina",
+      "keywords": ["Food", "Cooking", "Recipes", "Nutrition", "Food Science"]
+    }
+  },
+  {
+    "id": "fashion",
+    "name": "Fashion & Tech",
+    "slug": "fashion-tech",
+    "description": "Where fashion meets technology – wearable tech, smart fabrics, and style.",
+    "metaDescription": "Wearable technology and the intersection of fashion and innovation.",
+    "featured": false,
+    "count": 0,
+    "icon": "👕",
+    "color": "#c2185b",
+    "relatedCategories": ["lifestyle"],
+    "relatedTags": ["wearables", "smart-clothing", "style", "innovation", "design"],
+    "seo": {
+      "title": "Fashion & Technology | Reverbit Marina",
+      "keywords": ["Fashion Tech", "Wearable Tech", "Smart Clothing", "Innovation", "Style"]
+    }
+  },
+  {
+    "id": "sports",
+    "name": "Sports",
+    "slug": "sports",
+    "description": "Sports analysis, tech in sports, and how athletes use data to win.",
+    "metaDescription": "Sports technology, data analytics, and athlete performance.",
+    "featured": false,
+    "count": 0,
+    "icon": "⚽",
+    "color": "#1e88e5",
+    "relatedCategories": ["entertainment"],
+    "relatedTags": ["analytics", "performance", "data", "fitness", "training"],
+    "seo": {
+      "title": "Sports & Technology | Reverbit Marina",
+      "keywords": ["Sports", "Sports Tech", "Analytics", "Performance", "Athlete"]
+    }
+  },
+  {
+    "id": "history",
+    "name": "History",
+    "slug": "history",
+    "description": "Exploring historical events and their impact on modern technology and society.",
+    "metaDescription": "History articles with a focus on science, tech, and innovation.",
+    "featured": false,
+    "count": 0,
+    "icon": "🏛️",
+    "color": "#8d6e63",
+    "relatedCategories": ["education"],
+    "relatedTags": ["ancient", "modern-history", "civilization", "war", "inventions"],
+    "seo": {
+      "title": "History & Innovation | Reverbit Marina",
+      "keywords": ["History", "Ancient History", "Inventions", "Civilization", "Tech History"]
+    }
+  },
+  {
+    "id": "philosophy",
+    "name": "Philosophy",
+    "slug": "philosophy",
+    "description": "Deep thoughts on existence, ethics in AI, and the philosophy of technology.",
+    "metaDescription": "Philosophy of technology, ethics in AI, and existential questions.",
+    "featured": true,
+    "count": 0,
+    "icon": "🤔",
+    "color": "#5e35b1",
+    "relatedCategories": ["education"],
+    "relatedTags": ["ethics", "ai-ethics", "consciousness", "reason", "logic"],
+    "seo": {
+      "title": "Philosophy & Tech Ethics | Reverbit Marina",
+      "keywords": ["Philosophy", "Ethics", "AI Ethics", "Consciousness", "Logic"]
+    }
+  },
+  {
+    "id": "psychology",
+    "name": "Psychology",
+    "slug": "psychology",
+    "description": "Understanding the human mind – cognitive biases, behavior, and mental models.",
+    "metaDescription": "Psychology articles on cognition, behavior, and mental models for better decision-making.",
+    "featured": false,
+    "count": 0,
+    "icon": "🧠",
+    "color": "#f06292",
+    "relatedCategories": ["education"],
+    "relatedTags": ["cognitive-bias", "mental-models", "behavior", "mind", "brain"],
+    "seo": {
+      "title": "Psychology & Mind | Reverbit Marina",
+      "keywords": ["Psychology", "Cognitive Bias", "Mental Models", "Behavior", "Mind"]
+    }
+  },
+  {
+    "id": "language-learning",
+    "name": "Language Learning",
+    "slug": "language-learning",
+    "description": "Tips and tools for learning new languages, including programming languages!",
+    "metaDescription": "Language learning techniques and resources for polyglots and developers.",
+    "featured": false,
+    "count": 0,
+    "icon": "🗣️",
+    "color": "#43a047",
+    "relatedCategories": ["education"],
+    "relatedTags": ["linguistics", "polyglot", "vocabulary", "grammar", "communication"],
+    "seo": {
+      "title": "Language Learning | Reverbit Marina",
+      "keywords": ["Language Learning", "Linguistics", "Polyglot", "Vocabulary", "Communication"]
+    }
+  }
+]

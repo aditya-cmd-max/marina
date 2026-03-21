@@ -1,0 +1,39 @@
+[
+  {
+    "id": "aditya-jha",
+    "username": "adityajha",
+    "name": "Aditya Jha",
+    "role": "Founder & Author",
+    "bio": "Student developer and creator of Reverbit Marina. Writes about artificial intelligence, programming, and the future of technology.",
+    "avatar": "https://reverbit.in/adityajha.jpg",
+    "profileUrl": "/profiles/adityajha",
+    "website": "https://aditya-cmd-max.github.io",
+    "location": "India",
+    "joined": "2026-03-01",
+
+    "social": {
+      "github": "https://github.com/aditya-cmd-max",
+      "website": "https://aditya-cmd-max.github.io",
+      "platform": "https://marina.reverbit.in"
+    },
+
+    "badges": [
+      "Founder",
+      "Student",
+      "Tech Author"
+    ],
+
+    "verified": true,
+
+    "seo": {
+      "title": "Aditya Jha | Author at Marina",
+      "description": "Articles by Aditya Jha about AI, programming, and the future of technology on Marina.",
+      "keywords": [
+        "Aditya Jha",
+        "AI writer",
+        "technology articles",
+        "Marina author"
+      ]
+    }
+  }
+]
