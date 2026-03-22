@@ -1,4 +1,67 @@
+# =========================================
+# 🤖 Reverbit Marina - Advanced Robots.txt
+# =========================================
+
 User-agent: *
 Allow: /
 
+# 🔥 Important public sections
+Allow: /articles/
+Allow: /articles/categories/
+Allow: /articles/tags/
+
+# 🚫 Block useless / duplicate / low-value stuff
+Disallow: /search
+Disallow: /search/
+Disallow: /*?*
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /api/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /drafts/
+Disallow: /admin/
+
+# 🚫 Prevent crawling of scripts & system files
+Disallow: /*.js$
+Disallow: /*.css$
+
+# ✅ But allow critical rendering files (VERY IMPORTANT)
+Allow: /*.js$
+Allow: /*.css$
+
+# 🧠 Crawl optimization
+Crawl-delay: 5
+
+# 🌍 Sitemaps (VERY IMPORTANT)
 Sitemap: https://marina.reverbit.in/sitemap.xml
+
+# 🔍 Specific bots optimization
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 3
+
+# Yandex
+User-agent: Yandex
+Crawl-delay: 5
+
+# 🚫 Block bad / aggressive bots (optional but cool)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# =========================================
+# ❤️ Built for performance, SEO & control
+# =========================================
