@@ -17,6 +17,7 @@
     
     <!-- ===== CANONICAL URL ===== -->
     <link rel="canonical" href="https://marina.reverbit.in/">
+    
     <!-- ===== OPEN GRAPH / FACEBOOK META TAGS ===== -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://marina.reverbit.in/">
@@ -32,7 +33,6 @@
     <!-- ===== LINKEDIN META TAGS ===== -->
     <meta name="linkedin:owner" content="Aditya Jha">
     <meta name="google-adsense-account" content="ca-pub-6544559221754441">
-
     
     <!-- ===== ADDITIONAL SOCIAL META ===== -->
     <meta property="article:publisher" content="https://www.linkedin.com/in/aditya-jha-2b0860399/">
@@ -45,9 +45,9 @@
     
     <!-- ===== FAVICONS ===== -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileColor" content="#1a73e8">
     <meta name="theme-color" content="#1a73e8">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -70,6 +70,7 @@
     <link rel="preload" as="image" href="https://reverbit.in/Reverbit.svg" fetchpriority="high">
     
     <!-- ===== SCHEMA.ORG / STRUCTURED DATA ===== -->
+     <!-- ===== SCHEMA.ORG / STRUCTURED DATA ===== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -224,47 +225,44 @@
     <!-- ===== FONT AWESOME ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- ===== GSAP (defer for performance) ===== -->
+    <!-- ===== GSAP ===== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     
-    <!-- ===== FIREBASE (defer for performance) ===== -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
+    <!-- ===== FIREBASE ===== -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     
-    <!-- ===== AUTH.JS (defer for performance) ===== -->
-    <script src="https://reverbit.in/js/auth.js" defer></script>
-    
-    <link rel="alternate" type="application/rss+xml" 
+    <!-- ===== AUTH.JS ===== -->
+    <script src="https://reverbit.in/js/auth.js"></script>
+      <link rel="alternate" type="application/rss+xml" 
         title="Reverbit Marina RSS Feed" 
         href="https://marina.reverbit.in/rss.xml">
     
     <link rel="alternate" type="application/json" href="https://marina.reverbit.in/feed.json">
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     
-    <meta name="google-site-verification" content="gVm_Dk4QJW6bhd3nyT3WJPIzHXt9SEgn8Z43IU2t27Y">
-  
-  <!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-    <!--Microsft Clarity-->
+    <!-- Microsft Clarity -->
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "vxl0u7mnz7");
-</script>
-
+    </script>
+    
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4KXWSSYJ5X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4KXWSSYJ5X');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KXWSSYJ5X"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4KXWSSYJ5X');
+    </script>
+    
+    <meta name="google-site-verification" content="gVm_Dk4QJW6bhd3nyT3WJPIzHXt9SEgn8Z43IU2t27Y">
     
     <style>
         /* ===== ORIGINAL COLOR SYSTEM ===== */
@@ -457,7 +455,6 @@
             align-items: center;
         }
 
-        /* Logo size - reduced on mobile only */
         .logo-text {
             width: 160px;
             height: 36px;
@@ -541,17 +538,104 @@
             color: white;
         }
 
-        /* Theme toggle for desktop ONLY - hidden on mobile */
+        /* Theme toggle for desktop ONLY */
         .theme-toggle {
             display: none;
         }
 
         @media (min-width:900px){.theme-toggle{display:flex;}}
 
-        /* Auth avatar */
+        /* Desktop Sign In Button */
+        .desktop-signin-btn {
+            background: linear-gradient(135deg, var(--md-primary), #0d47a1);
+            color: white;
+            border: none;
+            border-radius: var(--md-radius-pill);
+            padding: 8px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--md-transition);
+            box-shadow: var(--md-elevation-1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+        }
+
+        .desktop-signin-btn:hover {
+            background: linear-gradient(135deg, #0d47a1, #0a336b);
+            transform: translateY(-2px);
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .desktop-signin-btn i {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 899px) {
+            .desktop-signin-btn {
+                display: none !important;
+            }
+        }
+
+        /* Auth Avatar Container */
         #authAvatarContainer {
             display: flex;
             align-items: center;
+        }
+
+        .user-menu-wrapper {
+            position: relative;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: var(--md-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--md-radius-medium);
+            box-shadow: var(--md-elevation-3);
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--md-transition);
+            z-index: 100;
+        }
+
+        .user-menu-wrapper:hover .user-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .user-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--md-on-surface);
+            text-decoration: none;
+            transition: var(--md-transition);
+            font-size: 0.9rem;
+        }
+
+        .user-dropdown a i {
+            width: 20px;
+            color: var(--md-primary);
+        }
+
+        .user-dropdown a:hover {
+            background: var(--md-surface-variant);
+            color: var(--md-primary);
+        }
+
+        .user-dropdown hr {
+            margin: 8px 0;
+            border-color: var(--md-outline);
         }
 
         .hamburger-btn { display: flex; }
@@ -1664,10 +1748,7 @@
     <div class="mesh-overlay"></div>
     
     <svg class="floating-svg svg-1" viewBox="0 0 282 281"><path fill-rule="evenodd" clip-rule="evenodd" d="M75.9469 280.078C91.5033 280.078 105.96 275.398 117.97 267.376C130.585 258.951 151.308 258.951 163.924 267.376C175.934 275.398 190.39 280.078 205.947 280.078C247.615 280.078 281.394 246.499 281.394 205.078C281.394 189.768 276.779 175.529 268.856 163.661C260.282 150.817 260.282 129.339 268.856 116.496C276.779 104.628 281.394 90.3887 281.394 75.0781C281.394 33.6568 247.615 0.078125 205.947 0.078125C190.39 0.078125 175.934 4.75843 163.924 12.7798C151.308 21.2056 130.585 21.2056 117.97 12.7798C105.96 4.75843 91.5033 0.078125 75.9469 0.078125C34.2787 0.078125 0.5 33.6568 0.5 75.0781C0.5 90.3887 5.11505 104.628 13.0377 116.496C21.6119 129.339 21.6119 150.817 13.0377 163.661C5.11505 175.529 0.5 189.768 0.5 205.078C0.5 246.499 34.2787 280.078 75.9469 280.078Z" fill="currentColor"></path></svg>
-    <svg class="floating-svg svg-2" viewBox="0 0 249 247"><path d="M245.7,56.1l0-9.9c0-22.7-18.4-41-41-41l-160.2,0c-22.7,0-41,18.4-41,41l0,9.9c0,11,4.3,21,11.4,28.4
-                    c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4l0,9.9c0,11,4.3,21,11.4,28.4c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4
-                    l0,10.1c0,22.7,18.4,41,41,41l160.2,0c22.7,0,41-18.4,41-41l0-10.1c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5
-                    c7.1-7.4,11.4-17.4,11.4-28.4l0-9.9c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5C241.3,77.1,245.7,67.1,245.7,56.1z" fill="currentColor"></path></svg>
+    <svg class="floating-svg svg-2" viewBox="0 0 249 247"><path d="M245.7,56.1l0-9.9c0-22.7-18.4-41-41-41l-160.2,0c-22.7,0-41,18.4-41,41l0,9.9c0,11,4.3,21,11.4,28.4c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4l0,9.9c0,11,4.3,21,11.4,28.4c1.5,1.5,1.5,4,0,5.5c-7.1,7.4-11.4,17.4-11.4,28.4l0,10.1c0,22.7,18.4,41,41,41l160.2,0c22.7,0,41-18.4,41-41l0-10.1c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5c7.1-7.4,11.4-17.4,11.4-28.4l0-9.9c0-11-4.3-21-11.4-28.4c-1.5-1.5-1.5-4,0-5.5C241.3,77.1,245.7,67.1,245.7,56.1z" fill="currentColor"></path></svg>
     <svg class="floating-svg svg-3" viewBox="0 0 401 401"><path d="M184.218 4.26754C194.176 -1.31835 206.324 -1.31835 216.282 4.26754L240.677 17.9521C245.454 20.6316 250.826 22.0711 256.302 22.139L284.272 22.4854C295.688 22.6268 306.208 28.7005 312.039 38.517L326.324 62.5657C329.121 67.2747 333.053 71.2075 337.762 74.0045L361.811 88.2891C371.628 94.1199 377.701 104.64 377.843 116.057L378.189 144.026C378.257 149.502 379.697 154.875 382.376 159.651L396.061 184.047C401.646 194.004 401.646 206.152 396.061 216.11L382.376 240.505C379.697 245.282 378.257 250.654 378.189 256.131L377.843 284.1C377.701 295.516 371.628 306.036 361.811 311.867L337.762 326.152C333.053 328.949 329.121 332.882 326.324 337.591L312.039 361.639C306.208 371.456 295.688 377.529 284.272 377.671L256.302 378.017C250.826 378.085 245.454 379.525 240.677 382.204L216.282 395.889C206.324 401.475 194.176 401.475 184.218 395.889L159.823 382.204C155.046 379.525 149.674 378.085 144.198 378.017L116.228 377.671C104.812 377.529 94.2918 371.456 88.461 361.639L74.1764 337.591C71.3794 332.882 67.4466 328.949 62.7376 326.152L38.6888 311.867C28.8724 306.036 22.7987 295.516 22.6573 284.1L22.3109 256.131C22.243 250.654 20.8035 245.282 18.124 240.505L4.43942 216.11C-1.14647 206.152 -1.14647 194.004 4.43941 184.047L18.124 159.651C20.8035 154.875 22.243 149.502 22.3109 144.026L22.6573 116.057C22.7987 104.64 28.8724 94.1199 38.6888 88.2891L62.7376 74.0045C67.4466 71.2075 71.3793 67.2747 74.1764 62.5657L88.461 38.517C94.2918 28.7005 104.812 22.6268 116.228 22.4854L144.198 22.139C149.674 22.0711 155.046 20.6316 159.823 17.9521L184.218 4.26754Z" fill="currentColor"></path></svg>
 
     <!-- HEADER -->
@@ -1687,9 +1768,14 @@
             </nav>
             
             <div class="header-actions">
-                <!-- Theme toggle for desktop ONLY - visible on PC, hidden on mobile -->
+                <!-- Theme toggle for desktop ONLY -->
                 <button class="icon-btn theme-toggle" id="desktopThemeToggle">
                     <span class="material-icons-round">dark_mode</span>
+                </button>
+                
+                <!-- Desktop Sign In Button -->
+                <button class="desktop-signin-btn" id="desktopSignInBtn">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
                 </button>
                 
                 <!-- Auth.js will inject avatar here -->
@@ -1703,13 +1789,11 @@
         </div>
     </header>
 
-    <!-- HAMBURGER MENU (Theme toggle is inside here for mobile) -->
+    <!-- HAMBURGER MENU -->
     <div class="hamburger-menu" id="hamburgerMenu">
         <button class="menu-close" id="menuClose">
             <span class="material-icons-round">close</span>
         </button>
-        
-        <!-- Menu content will be populated -->
         <div id="menuContent"></div>
     </div>
 
@@ -1749,13 +1833,12 @@
             <div class="articles-grid" id="articlesGrid"></div>
         </section>
 
-        <!-- CATEGORIES SECTION (Dynamic from categoriesmarina.json) -->
+        <!-- CATEGORIES SECTION -->
         <section class="categories-section" id="categoriesSection">
             <div class="section-header">
                 <h2 class="section-title">Popular Categories</h2>
                 <a href="https://marina.reverbit.in/articles/categories" class="section-link"><span>All Categories</span><span class="material-icons-round">arrow_forward</span></a>
             </div>
-            
             <div class="articles-grid" id="categoriesGrid"></div>
         </section>
 
@@ -1858,7 +1941,7 @@
         </div>
     </footer>
 
-   <script>
+    <script>
     // ===== FETCH ARTICLES AND CATEGORIES FROM JSON =====
     async function fetchArticles() {
         try {
@@ -1884,25 +1967,19 @@
         }
     }
 
-    // Format date
     function formatDate(dateString) {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
 
-    // Get thumbnail - EXTRACTED DIRECTLY FROM JSON
     function getArticleThumbnail(article) {
         if (article.thumbnail) {
-            // Check if it's a relative path or full URL
             if (article.thumbnail.startsWith('http')) {
                 return article.thumbnail;
             } else {
-                // Handle relative paths
                 return `https://reverbit.in${article.thumbnail}`;
             }
         }
-        
-        // Fallback images based on category
         const category = article.category || '';
         if (category.includes('AI') || category.includes('Intelligence')) {
             return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80';
@@ -1915,7 +1992,6 @@
         }
     }
 
-    // Get author avatar URL
     function getAuthorAvatar(article) {
         if (article.authorAvatar) {
             if (article.authorAvatar.startsWith('http')) {
@@ -1927,7 +2003,6 @@
         return `https://ui-avatars.com/api/?name=${article.author}&background=1a73e8&color=fff`;
     }
 
-    // Get author link
     function getAuthorLink(article) {
         if (article.authorLink) {
             if (article.authorLink.startsWith('http')) {
@@ -1939,33 +2014,25 @@
         return '#';
     }
 
-    // Get most popular categories based on article count
     function getTopCategories(articles, categories, count = 3) {
-        // Count articles per category
         const categoryCounts = {};
         articles.forEach(article => {
             const cat = article.category || 'Technology';
             categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
         });
         
-        // Filter categories that exist in categories.json and have articles
         const validCategories = categories.filter(cat => categoryCounts[cat.name] > 0);
-        
-        // Sort by article count
         const sorted = validCategories.sort((a, b) => {
             const countA = categoryCounts[a.name] || 0;
             const countB = categoryCounts[b.name] || 0;
             return countB - countA;
         });
         
-        // Return top 'count' categories
         return sorted.slice(0, count);
     }
 
-    // Get icon for category from categories.json
     function getCategoryIconFromJSON(category) {
         if (category.icon) {
-            // Extract icon class from URL or return appropriate Font Awesome class
             if (category.icon.includes('code')) return 'fa-code';
             if (category.icon.includes('ai')) return 'fa-robot';
             if (category.icon.includes('boxes')) return 'fa-cubes';
@@ -1973,7 +2040,6 @@
             if (category.icon.includes('technology')) return 'fa-microchip';
         }
         
-        // Fallback based on name
         const name = category.name.toLowerCase();
         if (name.includes('programming')) return 'fa-code';
         if (name.includes('ai') || name.includes('intelligence')) return 'fa-robot';
@@ -1985,7 +2051,6 @@
         return 'fa-folder';
     }
 
-    // Get color for category based on name
     function getCategoryColor(categoryName) {
         const colorMap = {
             'Programming': 'linear-gradient(135deg, #1a73e8, #0d47a1)',
@@ -1999,7 +2064,6 @@
         return colorMap[categoryName] || 'linear-gradient(135deg, #1a73e8, #0d47a1)';
     }
 
-    // Get category link from categories.json
     function getCategoryLink(category) {
         if (category.link) {
             if (category.link.startsWith('http')) {
@@ -2011,7 +2075,6 @@
         return `https://marina.reverbit.in/articles/categories/${category.slug || category.name.toLowerCase().replace(/\s+/g, '-')}`;
     }
 
-    // Get category image from unsplash or use default
     function getCategoryImage(categoryName) {
         const imageMap = {
             'Artificial Intelligence': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
@@ -2025,12 +2088,10 @@
         return imageMap[categoryName] || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
     }
 
-    // Display articles and categories
+    // Display articles
     async function displayArticles() {
         try {
             const [articles, categories] = await Promise.all([fetchArticles(), fetchCategories()]);
-            
-            // Filter articles by current date (only show published articles)
             const today = new Date();
             const visibleArticles = articles.filter(article => {
                 const publishDate = new Date(article.date);
@@ -2042,15 +2103,11 @@
                 return;
             }
 
-            // Sort by date
             const sorted = [...visibleArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
             const featured = sorted[0];
             const latest = sorted.slice(0, 3);
-
-            // Get top 3 popular categories from categories.json based on article count
             const topCategories = getTopCategories(visibleArticles, categories, 3);
 
-            // Featured article with all fields extracted
             const featuredEl = document.getElementById('featured');
             featuredEl.innerHTML = `
                 <img src="${getArticleThumbnail(featured)}" class="featured-image" alt="${featured.title}">
@@ -2078,7 +2135,6 @@
                 </div>
             `;
 
-            // Latest articles grid with all fields extracted
             const grid = document.getElementById('articlesGrid');
             let html = '';
             latest.forEach(article => {
@@ -2111,11 +2167,8 @@
             });
             grid.innerHTML = html;
 
-            // Categories grid with top categories from categories.json
             const categoriesGrid = document.getElementById('categoriesGrid');
             let categoriesHtml = '';
-            
-            // Count articles per category for display
             const categoryCounts = {};
             visibleArticles.forEach(article => {
                 const cat = article.category || 'Technology';
@@ -2126,7 +2179,6 @@
                 const count = categoryCounts[category.name] || 0;
                 const image = getCategoryImage(category.name);
                 const icon = getCategoryIconFromJSON(category);
-                const color = getCategoryColor(category.name);
                 const link = getCategoryLink(category);
                 
                 categoriesHtml += `
@@ -2148,8 +2200,6 @@
             });
             
             categoriesGrid.innerHTML = categoriesHtml;
-
-            // Setup search
             setupSearch(visibleArticles);
             
         } catch (error) {
@@ -2158,7 +2208,7 @@
         }
     }
 
-    // ===== SEARCH FUNCTIONALITY =====
+    // Search functionality
     function setupSearch(articles) {
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
@@ -2171,7 +2221,6 @@
             }
             
             const searchTerm = query.toLowerCase().trim();
-            
             const results = articles.filter(article => {
                 const titleMatch = article.title.toLowerCase().includes(searchTerm);
                 const descriptionMatch = article.description.toLowerCase().includes(searchTerm);
@@ -2224,82 +2273,11 @@
         });
     }
 
-    // ===== EMAILJS NEWSLETTER =====
-    // EmailJS Configuration
-    const EMAILJS_PUBLIC_KEY = 'kd3XWlZ-6jSKMrPr5';
-    const EMAILJS_SERVICE_ID = 'service_v3uhdxn';
-    const EMAILJS_TEMPLATE_ID = 'template_n4efbny';
-
-    // Initialize EmailJS
-    (function() {
-        if (typeof emailjs !== 'undefined') {
-            emailjs.init(EMAILJS_PUBLIC_KEY);
-            console.log('EmailJS initialized');
-        } else {
-            console.error('EmailJS not loaded');
-        }
-    })();
-
-    // Newsletter form handler
-    function initNewsletter() {
-        const newsletterForm = document.querySelector('.newsletter-section form');
-        
-        if (!newsletterForm) return;
-        
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form elements
-            const emailInput = newsletterForm.querySelector('input[type="email"]');
-            const submitBtn = newsletterForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Check if EmailJS is loaded
-            if (typeof emailjs === 'undefined') {
-                alert('Email service not available. Please try again later.');
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                return;
-            }
-            
-            // Prepare template parameters
-            const templateParams = {
-                user_email: emailInput.value,
-                to_name: 'Reverbit Marina Subscriber',
-                from_name: 'Reverbit Marina'
-            };
-            
-            // Send via EmailJS
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Thanks for subscribing! Check your inbox.');
-                    newsletterForm.reset();
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Failed to subscribe. Please try again.');
-                })
-                .finally(function() {
-                    // Reset button state
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                });
-        });
-    }
-
-    // Initialize articles
-    displayArticles();
-
-    // ===== THEME TOGGLE (Desktop only - mobile toggle is in hamburger menu) =====
+    // ===== THEME TOGGLE =====
     const body = document.body;
     const desktopThemeToggle = document.getElementById('desktopThemeToggle');
     const desktopThemeIcon = desktopThemeToggle.querySelector('.material-icons-round');
     
-    // Load saved theme
     const savedTheme = localStorage.getItem('theme') || 'light';
     if (savedTheme === 'dark') {
         body.classList.add('dark-theme');
@@ -2312,7 +2290,6 @@
         desktopThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         
-        // Update mobile theme toggle if it exists
         const menuThemeIcon = document.getElementById('menuThemeIcon');
         if (menuThemeIcon) {
             menuThemeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
@@ -2350,7 +2327,7 @@
         }
     });
 
-    // ===== POPULATE MENU (with theme toggle inside) =====
+    // ===== POPULATE MENU =====
     function updateMenu(isLoggedIn = false, userData = null) {
         if (isLoggedIn && userData) {
             menuContent.innerHTML = `
@@ -2372,7 +2349,6 @@
                     <a href="https://reverbit.in/dashboard" class="menu-link"><i class="fas fa-chart-line"></i> Dashboard</a>
                 </div>
                 
-                <!-- Theme toggle inside hamburger menu for mobile -->
                 <div class="menu-theme" id="menuThemeToggle">
                     <div class="menu-theme-left">
                         <i class="fas fa-moon"></i>
@@ -2396,7 +2372,6 @@
                     <a href="https://marina.reverbit.in/write-for-us/" class="menu-link"><i class="fas fa-pen-nib"></i> Write for Us.</a>
                 </div>
                 
-                <!-- Theme toggle inside hamburger menu for mobile -->
                 <div class="menu-theme" id="menuThemeToggle">
                     <div class="menu-theme-left">
                         <i class="fas fa-moon"></i>
@@ -2419,28 +2394,102 @@
 
     updateMenu(false);
 
-    // ===== AUTH =====
+    // ===== AUTH INITIALIZATION WITH DESKTOP BUTTON =====
     async function initAuth() {
         try {
+            const desktopSignInBtn = document.getElementById('desktopSignInBtn');
+            const authAvatarContainer = document.getElementById('authAvatarContainer');
+            
+            if (typeof window.ReverbitAuth === 'undefined') {
+                console.error('ReverbitAuth not loaded!');
+                if (desktopSignInBtn) desktopSignInBtn.style.display = 'flex';
+                updateMenu(false);
+                return;
+            }
+            
             await window.ReverbitAuth.init();
+            console.log('Auth initialized successfully');
             
             window.ReverbitAuth.addAuthListener((user, profile) => {
+                console.log('Auth state changed:', user ? 'Logged in' : 'Logged out');
+                
                 if (user && profile) {
+                    // User is signed in
+                    if (desktopSignInBtn) desktopSignInBtn.style.display = 'none';
+                    
+                    if (authAvatarContainer) {
+                        const photoURL = profile.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(profile.displayName || 'User')}&background=1a73e8&color=fff&size=42`;
+                        authAvatarContainer.innerHTML = `
+                            <div class="user-menu-wrapper">
+                                <button class="icon-btn" id="userAvatarBtn" style="padding: 0; overflow: hidden; width: 42px; height: 42px;">
+                                    <img src="${photoURL}" alt="${profile.displayName || 'User'}" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover;">
+                                </button>
+                                <div class="user-dropdown">
+                                    <a href="https://reverbit.in/dashboard">
+                                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                                    </a>
+                                    <a href="https://reverbit.in/profile">
+                                        <i class="fas fa-user"></i> Profile
+                                    </a>
+                                    <a href="https://reverbit.in/settings">
+                                        <i class="fas fa-cog"></i> Settings
+                                    </a>
+                                    <hr>
+                                    <a href="#" onclick="window.ReverbitAuth?.logout(); return false;">
+                                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                    }
                     updateMenu(true, profile);
                 } else {
+                    // User is signed out
+                    if (desktopSignInBtn) desktopSignInBtn.style.display = 'flex';
+                    if (authAvatarContainer) authAvatarContainer.innerHTML = '';
                     updateMenu(false);
                 }
             });
             
+            // Check current user state
+            const currentUser = await window.ReverbitAuth.getCurrentUser();
+            if (!currentUser && desktopSignInBtn) {
+                desktopSignInBtn.style.display = 'flex';
+            }
+            
         } catch (error) {
             console.error('Auth error:', error);
+            const desktopSignInBtn = document.getElementById('desktopSignInBtn');
+            if (desktopSignInBtn) desktopSignInBtn.style.display = 'flex';
             updateMenu(false);
         }
     }
 
+    // Desktop sign-in button click handler
+    const desktopSignInBtn = document.getElementById('desktopSignInBtn');
+    if (desktopSignInBtn) {
+        desktopSignInBtn.addEventListener('click', () => {
+            window.location.href = 'https://reverbit.in/signin';
+        });
+    }
+
+    // Initialize everything
+    displayArticles();
     initAuth();
 
-    // Initialize newsletter on DOM load
+    // Newsletter initialization
+    function initNewsletter() {
+        const newsletterForm = document.querySelector('.newsletter-section form');
+        if (!newsletterForm) return;
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            alert(`🎉 Thanks for subscribing! We'll send updates to ${emailInput.value}`);
+            newsletterForm.reset();
+        });
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
         initNewsletter();
     });
@@ -2451,6 +2500,6 @@
         gsap.from('.hero-subtitle', { duration:1, y:20, opacity:0, delay:0.2, ease:'power3.out' });
         gsap.from('.hero-buttons .btn', { duration:0.8, y:20, opacity:0, stagger:0.15, delay:0.4, ease:'power3.out' });
     }
-</script>
+    </script>
 </body>
 </html>
