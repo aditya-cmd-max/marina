@@ -2394,7 +2394,7 @@
 
     updateMenu(false);
 
-    // ===== AUTH INITIALIZATION WITH REVERBIT.IN INTEGRATION =====
+  // ===== AUTH INITIALIZATION WITH REVERBIT.IN INTEGRATION =====
 async function initAuth() {
     try {
         const desktopSignInBtn = document.getElementById('desktopSignInBtn');
@@ -2407,109 +2407,101 @@ async function initAuth() {
             return;
         }
         
-        // Wait for auth to initialize
-        await window.ReverbitAuth.init();
-        console.log('Auth initialized successfully');
+        console.log('Checking auth state...');
         
-        // Check if there's already a signed-in user (from reverbit.in)
+        // FORCE CHECK CURRENT USER IMMEDIATELY
         const currentUser = await window.ReverbitAuth.getCurrentUser();
         console.log('Current user from reverbit.in:', currentUser);
         
-        // Add auth state listener
+        if (currentUser) {
+            // User is signed in - immediately update UI
+            console.log('User is signed in, updating UI...');
+            
+            // Build user profile
+            let userProfile = {
+                uid: currentUser.uid,
+                email: currentUser.email,
+                displayName: currentUser.displayName || currentUser.email.split('@')[0],
+                photoURL: currentUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentUser.displayName || currentUser.email)}&background=1a73e8&color=fff&size=42`
+            };
+            
+            // Hide sign-in button, show avatar
+            if (desktopSignInBtn) {
+                desktopSignInBtn.style.display = 'none';
+                console.log('Sign-in button hidden');
+            }
+            
+            // Create avatar with dropdown
+            if (authAvatarContainer) {
+                authAvatarContainer.innerHTML = `
+                    <div class="user-menu-wrapper">
+                        <button class="icon-btn" style="padding: 0; overflow: hidden; width: 42px; height: 42px;">
+                            <img src="${userProfile.photoURL}" alt="${userProfile.displayName}" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover;">
+                        </button>
+                        <div class="user-dropdown">
+                            <a href="https://reverbit.in/dashboard">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                            <a href="https://reverbit.in/profile">
+                                <i class="fas fa-user"></i> Profile
+                            </a>
+                            <a href="https://reverbit.in/settings">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <hr>
+                            <a href="#" onclick="window.ReverbitAuth.logout(); window.location.reload(); return false;">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
+                            </a>
+                        </div>
+                    </div>
+                `;
+                console.log('Avatar created');
+            }
+            
+            // Update mobile menu
+            updateMenu(true, userProfile);
+            
+        } else {
+            // No user - show sign-in button
+            console.log('No user signed in');
+            if (desktopSignInBtn) desktopSignInBtn.style.display = 'flex';
+            if (authAvatarContainer) authAvatarContainer.innerHTML = '';
+            updateMenu(false);
+        }
+        
+        // Set up listener for future auth changes
         window.ReverbitAuth.addAuthListener((user, profile) => {
-            console.log('Auth state changed:', user ? 'Logged in' : 'Logged out', profile);
+            console.log('Auth state changed:', user ? 'Logged in' : 'Logged out');
             
             if (user && profile) {
-                // User is signed in (from reverbit.in or directly)
+                // User just signed in
                 if (desktopSignInBtn) desktopSignInBtn.style.display = 'none';
                 
-                // Create avatar with dropdown
                 if (authAvatarContainer) {
                     const photoURL = profile.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(profile.displayName || 'User')}&background=1a73e8&color=fff&size=42`;
                     authAvatarContainer.innerHTML = `
                         <div class="user-menu-wrapper">
-                            <button class="icon-btn" id="userAvatarBtn" style="padding: 0; overflow: hidden; width: 42px; height: 42px;">
+                            <button class="icon-btn" style="padding: 0; overflow: hidden; width: 42px; height: 42px;">
                                 <img src="${photoURL}" alt="${profile.displayName || 'User'}" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover;">
                             </button>
                             <div class="user-dropdown">
-                                <a href="https://reverbit.in/dashboard">
-                                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                                </a>
-                                <a href="https://reverbit.in/profile">
-                                    <i class="fas fa-user"></i> Profile
-                                </a>
-                                <a href="https://reverbit.in/settings">
-                                    <i class="fas fa-cog"></i> Settings
-                                </a>
+                                <a href="https://reverbit.in/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                <a href="https://reverbit.in/profile"><i class="fas fa-user"></i> Profile</a>
+                                <a href="https://reverbit.in/settings"><i class="fas fa-cog"></i> Settings</a>
                                 <hr>
-                                <a href="#" onclick="window.ReverbitAuth?.logout(); return false;">
-                                    <i class="fas fa-sign-out-alt"></i> Sign Out
-                                </a>
+                                <a href="#" onclick="window.ReverbitAuth.logout(); window.location.reload(); return false;"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
                             </div>
                         </div>
                     `;
                 }
                 updateMenu(true, profile);
             } else {
-                // User is signed out
+                // User signed out
                 if (desktopSignInBtn) desktopSignInBtn.style.display = 'flex';
                 if (authAvatarContainer) authAvatarContainer.innerHTML = '';
                 updateMenu(false);
             }
         });
-        
-        // If there's a user but the listener hasn't triggered yet, manually update UI
-        if (currentUser) {
-            // Try to get user profile from Firestore or use basic info
-            let userProfile = {
-                uid: currentUser.uid,
-                email: currentUser.email,
-                displayName: currentUser.displayName || currentUser.email.split('@')[0],
-                photoURL: currentUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentUser.displayName || currentUser.email)}&background=1a73e8&color=fff`
-            };
-            
-            // Try to fetch full profile from Firestore if available
-            if (window.firebase && window.firebase.firestore) {
-                try {
-                    const db = firebase.firestore();
-                    const userDoc = await db.collection('users').doc(currentUser.uid).get();
-                    if (userDoc.exists) {
-                        const userData = userDoc.data();
-                        userProfile = {
-                            ...userProfile,
-                            displayName: userData.displayName || userProfile.displayName,
-                            photoURL: userData.photoURL || userProfile.photoURL,
-                            bio: userData.bio,
-                            username: userData.username
-                        };
-                    }
-                } catch (err) {
-                    console.log('Could not fetch full profile:', err);
-                }
-            }
-            
-            if (desktopSignInBtn) desktopSignInBtn.style.display = 'none';
-            if (authAvatarContainer) {
-                authAvatarContainer.innerHTML = `
-                    <div class="user-menu-wrapper">
-                        <button class="icon-btn" style="padding: 0; overflow: hidden; width: 42px; height: 42px;">
-                            <img src="${userProfile.photoURL}" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover;">
-                        </button>
-                        <div class="user-dropdown">
-                            <a href="https://reverbit.in/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                            <a href="https://reverbit.in/profile"><i class="fas fa-user"></i> Profile</a>
-                            <a href="https://reverbit.in/settings"><i class="fas fa-cog"></i> Settings</a>
-                            <hr>
-                            <a href="#" onclick="window.ReverbitAuth?.logout(); return false;"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
-                        </div>
-                    </div>
-                `;
-            }
-            updateMenu(true, userProfile);
-        } else {
-            if (desktopSignInBtn) desktopSignInBtn.style.display = 'flex';
-            updateMenu(false);
-        }
         
     } catch (error) {
         console.error('Auth error:', error);
@@ -2519,41 +2511,78 @@ async function initAuth() {
     }
 }
 
-    // Desktop sign-in button click handler
-    const desktopSignInBtn = document.getElementById('desktopSignInBtn');
-    if (desktopSignInBtn) {
-        desktopSignInBtn.addEventListener('click', () => {
-            window.location.href = 'https://reverbit.in/signin';
-        });
-    }
-
-    // Initialize everything
-    displayArticles();
-    initAuth();
-
-    // Newsletter initialization
-    function initNewsletter() {
-        const newsletterForm = document.querySelector('.newsletter-section form');
-        if (!newsletterForm) return;
-        
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = newsletterForm.querySelector('input[type="email"]');
-            alert(`🎉 Thanks for subscribing! We'll send updates to ${emailInput.value}`);
-            newsletterForm.reset();
-        });
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        initNewsletter();
+// Desktop sign-in button click handler
+const desktopSignInBtn = document.getElementById('desktopSignInBtn');
+if (desktopSignInBtn) {
+    desktopSignInBtn.addEventListener('click', () => {
+        // Store current URL to return after sign-in
+        const returnUrl = encodeURIComponent(window.location.href);
+        window.location.href = `https://reverbit.in/signin?return=${returnUrl}`;
     });
+}
 
-    // GSAP Animations
-    if (typeof gsap !== 'undefined') {
-        gsap.from('.hero-title', { duration:1, y:30, opacity:0, ease:'power3.out' });
-        gsap.from('.hero-subtitle', { duration:1, y:20, opacity:0, delay:0.2, ease:'power3.out' });
-        gsap.from('.hero-buttons .btn', { duration:0.8, y:20, opacity:0, stagger:0.15, delay:0.4, ease:'power3.out' });
+// Check for return from sign-in
+function checkReturnFromSignIn() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const signedIn = urlParams.get('signed_in');
+    const returnUrl = urlParams.get('return');
+    
+    if (signedIn === 'true') {
+        console.log('Returned from sign-in, refreshing auth...');
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+        // Force auth check
+        setTimeout(() => {
+            initAuth();
+        }, 500);
     }
+}
+
+// Add this to check for cross-domain session
+function checkCrossDomainSession() {
+    // Check localStorage for session flag from reverbit.in
+    const sessionFlag = localStorage.getItem('reverbit_session');
+    if (sessionFlag === 'active') {
+        console.log('Cross-domain session detected');
+        localStorage.removeItem('reverbit_session');
+        // Force auth check
+        setTimeout(() => {
+            initAuth();
+        }, 300);
+    }
+}
+
+// Initialize everything
+displayArticles();
+
+// Run auth checks
+checkReturnFromSignIn();
+checkCrossDomainSession();
+initAuth();
+
+// Newsletter initialization
+function initNewsletter() {
+    const newsletterForm = document.querySelector('.newsletter-section form');
+    if (!newsletterForm) return;
+    
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        alert(`🎉 Thanks for subscribing! We'll send updates to ${emailInput.value}`);
+        newsletterForm.reset();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initNewsletter();
+});
+
+// GSAP Animations
+if (typeof gsap !== 'undefined') {
+    gsap.from('.hero-title', { duration:1, y:30, opacity:0, ease:'power3.out' });
+    gsap.from('.hero-subtitle', { duration:1, y:20, opacity:0, delay:0.2, ease:'power3.out' });
+    gsap.from('.hero-buttons .btn', { duration:0.8, y:20, opacity:0, stagger:0.15, delay:0.4, ease:'power3.out' });
+}
     </script>
    
 </body>
