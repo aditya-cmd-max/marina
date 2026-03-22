@@ -51,7 +51,6 @@
     <meta property="linkedin:owner" content="Aditya Jha">
     <meta name="linkedin:creator" content="Aditya Jha - Class 11 Student, India">
     <meta name="google-adsense-account" content="ca-pub-6544559221754441">
-
     
     <!-- ===== SECURITY ===== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -723,7 +722,7 @@
             white-space: nowrap;
         }
 
-        /* ===== SEARCH BAR (BEAUTIFUL, CENTERED ON DESKTOP) ===== */
+        /* ===== SEARCH BAR ===== */
         .search-section {
             margin: 16px 0 32px 0;
             display: flex;
@@ -865,10 +864,6 @@
         .mobile-filter-btn:hover {
             background: var(--md-surface-variant);
             border-color: var(--md-primary);
-        }
-
-        .mobile-filter-btn i {
-            color: var(--md-primary);
         }
 
         .filter-modal-overlay {
@@ -1377,7 +1372,6 @@
             .page-title::after { bottom: -12px; }
             .page-header{ flex-direction: column; align-items: flex-start; gap: 16px; }
             .tag-count { align-self: flex-start; }
-            .filter-tabs{ width: 100%; overflow-x: auto; }
             .search-input { font-size: 1rem; }
         }
     </style>
@@ -1453,7 +1447,7 @@
             </div>
         </div>
 
-        <!-- SEARCH SECTION - centered on desktop, full width mobile -->
+        <!-- SEARCH SECTION -->
         <div class="search-section">
             <div class="search-wrapper" id="searchWrapper">
                 <span class="search-icon material-icons-round">search</span>
@@ -1565,10 +1559,20 @@
         </div>
     </footer>
 
-<script>
-        // ===== ENHANCED TAGS PAGE WITH SEARCH - SHOWS ALL 50+ TAGS =====
+    <script>
+        // ===== ENHANCED TAGS PAGE WITH CORRECT TAG URL ROUTING =====
         (function() {
             'use strict';
+
+            // Helper function to convert tag name to URL-friendly slug
+            function slugifyTagName(name) {
+                return name
+                    .toLowerCase()
+                    .replace(/[^\w\s-]/g, '')  // Remove special characters
+                    .replace(/\s+/g, '-')       // Replace spaces with hyphens
+                    .replace(/--+/g, '-')       // Replace multiple hyphens with single
+                    .trim();
+            }
 
             // ===== FETCH TAGS AND ARTICLES =====
             async function fetchArticles() {
@@ -1628,11 +1632,10 @@
             }
 
             function adjustColor(hex, percent) {
-                // Simplified - just return the color
                 return hex;
             }
 
-            // Process tags with article counts - NOW SHOWING ALL TAGS (even with 0 articles)
+            // Process tags with article counts
             function processTagsWithCounts(tags, articles) {
                 return tags.map(tag => {
                     const count = articles.filter(article => 
@@ -1642,17 +1645,16 @@
                     return {
                         ...tag,
                         count: count,
-                        displayColor: tag.color || getDefaultColor(tag.id)
+                        displayColor: tag.color || getDefaultColor(tag.id),
+                        slug: tag.slug || slugifyTagName(tag.name)
                     };
                 });
-                // 🔥 FIXED: No filter - now shows ALL 50+ tags even with 0 articles
             }
 
             // Filter tags based on current filter AND search
             function filterTags(tags) {
                 let filtered = [...tags];
 
-                // Apply search filter
                 if (currentSearch.trim()) {
                     const searchLower = currentSearch.toLowerCase().trim();
                     filtered = filtered.filter(tag => 
@@ -1662,16 +1664,13 @@
                     );
                 }
 
-                // Apply category filter
                 if (currentFilter === 'featured') {
                     filtered = filtered.filter(tag => tag.featured === true);
                 } else if (currentFilter === 'popular') {
-                    // Sort by count (highest first) - popular based on article count
                     filtered = filtered.sort((a, b) => b.count - a.count);
                 } else if (currentFilter === 'a-z') {
                     filtered = filtered.sort((a, b) => a.name.localeCompare(b.name));
                 } else {
-                    // default 'all' - sort by name for better UX
                     filtered = filtered.sort((a, b) => a.name.localeCompare(b.name));
                 }
 
@@ -1697,6 +1696,12 @@
                 });
             }
 
+            // Generate correct tag URL
+            function getTagUrl(tag) {
+                const slug = tag.slug || slugifyTagName(tag.name);
+                return `https://marina.reverbit.in/tags/${slug}`;
+            }
+
             // Render tags
             function renderTags(tags) {
                 if (tags.length === 0) {
@@ -1713,11 +1718,11 @@
 
                 let html = '';
                 tags.forEach((tag, index) => {
-                    // Show count badge - even if zero
                     const countText = tag.count === 0 ? 'No articles yet' : `${tag.count} article${tag.count !== 1 ? 's' : ''}`;
+                    const tagUrl = getTagUrl(tag);
                     
                     html += `
-                        <div class="tag-card" style="animation-delay: ${index * 0.02}s;" onclick="window.location.href='/marina/tags/?tag=${tag.slug}'">
+                        <div class="tag-card" style="animation-delay: ${index * 0.02}s;">
                             <div class="tag-header">
                                 <div class="tag-icon" style="--tag-color: ${tag.displayColor}; background: linear-gradient(135deg, ${tag.displayColor}, ${adjustColor(tag.displayColor, -20)})">
                                     <span>${tag.icon || '🏷️'}</span>
@@ -1744,7 +1749,7 @@
                                     </div>
                                     ` : ''}
                                 </div>
-                                <a href="/marina/tags/?tag=${tag.slug}" class="tag-link">
+                                <a href="${tagUrl}" class="tag-link" onclick="event.stopPropagation();">
                                     Explore <span class="material-icons-round" style="font-size: 18px;">arrow_forward</span>
                                 </a>
                             </div>
@@ -1754,6 +1759,18 @@
                 
                 tagsGrid.innerHTML = html;
                 totalTagsSpan.textContent = tags.length;
+                
+                // Add click handlers for card navigation (but prevent double navigation)
+                document.querySelectorAll('.tag-card').forEach(card => {
+                    const link = card.querySelector('.tag-link');
+                    if (link) {
+                        card.addEventListener('click', (e) => {
+                            if (!e.target.closest('.tag-link')) {
+                                window.location.href = link.href;
+                            }
+                        });
+                    }
+                });
             }
 
             // ===== SEARCH HANDLERS =====
@@ -1791,7 +1808,6 @@
             // ===== INIT =====
             async function initTagsPage() {
                 try {
-                    // Show loading state
                     tagsGrid.innerHTML = `
                         <div class="loading-spinner">
                             <div class="spinner"></div>
@@ -1801,10 +1817,9 @@
                     const [articles, tags] = await Promise.all([fetchArticles(), fetchTags()]);
                     
                     allArticles = articles;
-                    // This now returns ALL tags (no filtering)
                     allTags = processTagsWithCounts(tags, articles);
                     
-                    console.log(`Loaded ${allTags.length} tags`); // Should show 50+
+                    console.log(`Loaded ${allTags.length} tags`);
                     
                     renderTags(filterTags(allTags));
                     
@@ -1822,12 +1837,9 @@
             }
 
             // ===== EVENT LISTENERS =====
-            
-            // Search
             searchInput.addEventListener('input', handleSearch);
             searchClear.addEventListener('click', clearSearch);
 
-            // Desktop filter tabs
             desktopFilterTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     currentFilter = tab.dataset.filter;
@@ -1836,14 +1848,10 @@
                 });
             });
 
-            // Mobile filter button
             mobileFilterBtn.addEventListener('click', openFilterModal);
-
-            // Filter modal close
             filterModalClose.addEventListener('click', closeFilterModal);
             filterModalOverlay.addEventListener('click', closeFilterModal);
 
-            // Filter options in modal
             filterOptions.forEach(option => {
                 option.addEventListener('click', () => {
                     currentFilter = option.dataset.filter;
@@ -1853,7 +1861,6 @@
                 });
             });
 
-            // Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     closeFilterModal();
