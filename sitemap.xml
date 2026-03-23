@@ -2,235 +2,116 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://marina.reverbit.in/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>1.0</priority>
 </url>
-
 <url>
   <loc>https://marina.reverbit.in/articles/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.9</priority>
 </url>
-
 <url>
   <loc>https://marina.reverbit.in/articles/categories/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.7</priority>
 </url>
-
 <url>
-  <loc>https://marina.reverbit.in/tags/</loc>
+  <loc>https://marina.reverbit.in/profiles/adityajha/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.6</priority>
 </url>
-
-<url>
-  <loc>https://marina.reverbit.in/profiles/adityajha</loc>
-</url>
-
 <url>
   <loc>https://marina.reverbit.in/articles/product-review/best-smartphones-under-20000-india-2026/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/education/class-9-10-syllabus-30-days-study-plan/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/technology/amoled-vs-lcd-display-comparison/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/product-review/best-laptops-students-2026-under-50000/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/programming/uiux-tips-for-programmers/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/product-launch/windows-12-arrival-and-features/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/ai-and-development/future-of-ai-powered-development/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/technology/the-future-of-technology/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/categories/product-review/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/categories/product-launch/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://marina.reverbit.in/articles/categories/programming</loc>
+  <loc>https://marina.reverbit.in/articles/categories/programming/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://marina.reverbit.in/articles/categories/artificial-intelligence</loc>
+  <loc>https://marina.reverbit.in/articles/categories/artificial-intelligence/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/categories/technology/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://marina.reverbit.in/articles/categories/education/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://marina.reverbit.in/articles/categories/ai-and-development</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/ai/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/programming/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/machine-learning/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/future-tech/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/software-development/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/coding-skills/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/web-development/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/data-science/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/deep-learning/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/python/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/javascript/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/react/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/nodejs/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/cloud/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/devops/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/docker/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/kubernetes/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/cybersecurity/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/blockchain/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/crypto/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/quantum-computing/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/robotics/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/iot/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/arduino/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/raspberry-pi/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/ar/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/vr/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/gaming/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/ui-ux/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/figma/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/productivity/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/career/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/freelancing/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/startup/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/education/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/study-tips/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/math/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/physics/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/chemistry/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/biology/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/astronomy/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/environment/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/renewable-energy/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/books/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/movies/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/music/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/health/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/meditation/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/travel/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/food/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/fashion-tech/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/sports/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/history/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/philosophy/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/psychology/</loc>
-</url>
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/language-learning/</loc>
+  <loc>https://marina.reverbit.in/articles/categories/ai-and-development/</loc>
+  <lastmod>2026-03-23</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
 </url>
 </urlset>
