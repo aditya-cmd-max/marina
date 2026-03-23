@@ -63,5 +63,5 @@ User-agent: SemrushBot
 Disallow: /
 
 # =========================================
-# ❤️ Built for performance, SEO & control
+# ❤️ Built By ADITYA JHA so please get out from here!
 # =========================================
