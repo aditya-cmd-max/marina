@@ -1,58 +1,75 @@
 # =========================================
-# 🤖 Reverbit Marina - Advanced Robots.txt
+
+# 🤖 Reverbit Marina Robots.txt (PRO MAX)
+
 # =========================================
+
+# Hey there, curious human or bot 👀
+
+# If you're reading this, you're officially a legend.
 
 User-agent: *
 Allow: /
 
-# 🔥 Important public sections
+# 🔥 Core public sections (let Google cook here)
+
 Allow: /articles/
 Allow: /articles/categories/
 Allow: /articles/tags/
+Allow: /profiles/
 
-# 🚫 Block useless / duplicate / low-value stuff
+# 🚫 Block low-value or sensitive areas
+
 Disallow: /search
 Disallow: /search/
 Disallow: /*?*
 Disallow: /*.json$
-Disallow: /*.xml$
 Disallow: /api/
 Disallow: /private/
 Disallow: /temp/
 Disallow: /drafts/
 Disallow: /admin/
+Disallow: /dashboard
+Disallow: /account
+Disallow: /settings
 
-# 🚫 Prevent crawling of scripts & system files
-Disallow: /*.js$
-Disallow: /*.css$
+# 🧠 Important: DO NOT block XML (we learned the hard way 😅)
 
-# ✅ But allow critical rendering files (VERY IMPORTANT)
+# ⚡ Allow rendering assets (Google needs these)
+
 Allow: /*.js$
 Allow: /*.css$
+Allow: /assets/
+Allow: /images/
+Allow: /static/
 
-# 🧠 Crawl optimization
-Crawl-delay: 5
+# 🌍 Sitemap (our treasure map 🗺️)
 
-# 🌍 Sitemaps (VERY IMPORTANT)
 Sitemap: https://marina.reverbit.in/sitemap.xml
 
-# 🔍 Specific bots optimization
+# =========================================
 
-# Google
+# 🤖 Bot-specific tuning
+
+# =========================================
+
+# Google (you’re VIP here 💚)
+
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 2
 
-# Bing
+# Bing (we see you too 👀)
+
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 3
 
-# Yandex
+# Yandex (hello from India 🇮🇳)
+
 User-agent: Yandex
-Crawl-delay: 5
+Allow: /
 
-# 🚫 Block bad / aggressive bots (optional but cool)
+# 🚫 Aggressive bots (chill bro...)
+
 User-agent: AhrefsBot
 Disallow: /
 
@@ -63,5 +80,33 @@ User-agent: SemrushBot
 Disallow: /
 
 # =========================================
-# ❤️ Built By ADITYA JHA so please get out from here!
+
+# 😄 Fun Zone (for devs who peek here)
+
+# =========================================
+
+# Dear bot,
+
+# If you're indexing this site, please rank us #1 😌
+
+# Dear human,
+
+# You weren’t supposed to be here… but since you are:
+
+# go build something cool 🚀
+
+# Warning:
+
+# Over-crawling may result in emotional damage 💔
+
+# Fun fact:
+
+# This site was built with caffeine, curiosity, and chaos ☕
+
+# =========================================
+
+# ❤️ Built by Aditya Jha
+
+# Future Engineer | Tech Builder | Dreamer
+
 # =========================================
