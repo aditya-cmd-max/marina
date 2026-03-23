@@ -1,12 +1,12 @@
 # =========================================
 
-# 🤖 Reverbit Marina Robots.txt (PRO MAX)
+# 🤖 Reverbit Marina Robots.txt (ONLY ROBOOOOOOS ALLLLLLOOOOOOOWWWWWWWWEEEDDD!!)
 
 # =========================================
 
 # Hey there, curious human or bot 👀
 
-# If you're reading this, you're officially a legend.
+# If you're reading this, you're officially a legend 💀.
 
 User-agent: *
 Allow: /
@@ -105,8 +105,7 @@ Disallow: /
 
 # =========================================
 
-# ❤️ Built by Aditya Jha
-
-# Future Engineer | Tech Builder | Dreamer
+# ❤️ Built by Aditya Jha ( maybe best programmer ! 🤐 )
+# Future Engineer | Tech Builder | Dreamer | AND a sleep lover ! 🥱
 
 # =========================================
