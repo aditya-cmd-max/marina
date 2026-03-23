@@ -25,9 +25,29 @@ xmlns:dc="http://purl.org/dc/elements/1.1/">
 <image>
 <title>Reverbit Marina</title>
 <link>https://marina.reverbit.in</link>
-<url>https://marina.reverbit.in/favicon.png</url>
+<url>https://marina.reverbit.in/logo.png</url>
 </image>
 
+<!-- ITEM -->
+<item>
+<title>What Really Happens When You Turn On Your Computer? (OS Explained) </title>
+<link>https://marina.reverbit.in/articles/technology/what-really-happens-when-you-turn-on-your-computer/</link>
+<guid isPermaLink="true">https://marina.reverbit.in/articles/technology/what-really-happens-when-you-turn-on-your-computer/</guid>
+
+<description>
+Ever wondered what happens from the moment you press the power button? This deep-dive explains the Operating System's boot process, kernel, process management, memory virtualization, and modern OS architecture — from beginner to expert, all in one guide.
+</description>
+
+<content:encoded><![CDATA[
+<p>Ever wondered what happens from the moment you press the power button? This deep-dive explains the Operating System's boot process, kernel, process management, memory virtualization, and modern OS architecture — from beginner to expert, all in one guide.</p>
+<p>from beginner to expert, all in one guide.</p>
+]]></content:encoded>
+
+<dc:creator>Aditya Jha</dc:creator>
+<category>Technology</category>
+<pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+  
 <!-- ITEM -1 -->
 <item>
 <title>Best Smartphones Under ₹20,000 in India (2026) – Top Picks + Latest Offers </title>
