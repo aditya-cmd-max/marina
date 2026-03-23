@@ -69,151 +69,117 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
     <link rel="preload" as="image" href="https://reverbit.in/Reverbit.svg" fetchpriority="high">
     
-    <!-- ===== SCHEMA.ORG / STRUCTURED DATA ===== -->
-    <script type="application/ld+json">
+   <!-- ===== FINAL ADVANCED STRUCTURED DATA (HOMEPAGE) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
     {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://marina.reverbit.in/#organization",
-          "name": "Reverbit Marina",
-          "url": "https://marina.reverbit.in/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://reverbit.in/Reverbit.svg",
-            "width": 160,
-            "height": 36
-          },
-          "sameAs": [
-            "https://github.com/aditya-cmd-max",
-            "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-            "https://youtube.com/@Reverbit",
-            "https://twitter.com/Reverbit"
-          ],
-          "foundingDate": "2025",
-          "founder": {
-            "@id": "https://marina.reverbit.in/#person"
-          },
-          "description": "Reverbit Marina delivers cutting-edge technology insights, AI research, software engineering best practices, and industry analysis.",
-          "email": "reverbit1104@gmail.com"
-        },
-        {
-          "@type": "Person",
-          "@id": "https://marina.reverbit.in/#person",
-          "name": "Aditya Jha",
-          "url": "https://marina.reverbit.in/profiles/adityajha",
-          "image": "https://reverbit.in/adityajha.jpg",
-          "jobTitle": "Founder & Technology Writer",
-          "worksFor": {
-            "@id": "https://marina.reverbit.in/#organization"
-          },
-          "sameAs": [
-            "https://github.com/aditya-cmd-max",
-            "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-            "https://youtube.com/@Reverbit"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://marina.reverbit.in/#website",
-          "url": "https://marina.reverbit.in/",
-          "name": "Reverbit Marina",
-          "description": "Your premier destination for cutting-edge technology insights, AI research, software engineering best practices, and industry analysis.",
-          "publisher": {
-            "@id": "https://marina.reverbit.in/#organization"
-          },
-          "inLanguage": "en-US",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://marina.reverbit.in/search?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-          }
-        },
-        {
-          "@type": "ItemList",
-          "name": "Latest Articles",
-          "url": "https://marina.reverbit.in/",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "item": {
-                "@type": "Article",
-                "headline": "The Future of AI-Powered Development",
-                "url": "https://marina.reverbit.in/articles/aianddevelopment/future-of-ai-powered-development"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "item": {
-                "@type": "Article",
-                "headline": "When is windows 12 going to arrive? What are the features expected?",
-                "url": "https://marina.reverbit.in/articles/product-launch/windows-12-arrival-and-features/"
-              }
-            }
-          ]
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://marina.reverbit.in/#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://marina.reverbit.in/"
-            }
-          ]
-        }
+      "@type": "WebSite",
+      "@id": "https://marina.reverbit.in/#website",
+      "url": "https://marina.reverbit.in/",
+      "name": "Reverbit Marina",
+      "alternateName": "Reverbit Marina Tech",
+      "description": "Cutting-edge technology insights, AI research, and software engineering content simplified for everyone.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://marina.reverbit.in/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://marina.reverbit.in/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+
+    {
+      "@type": "Organization",
+      "@id": "https://marina.reverbit.in/#organization",
+      "name": "Reverbit Marina",
+      "url": "https://marina.reverbit.in/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://marina.reverbit.in/logo.png"
+      },
+      "description": "Reverbit Marina is a modern platform delivering simplified technology news, AI insights, and developer-focused content.",
+      "foundingDate": "2025",
+      "email": "reverbit1104@gmail.com",
+      "sameAs": [
+        "https://github.com/aditya-cmd-max",
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/",
+        "https://youtube.com/@Reverbit",
+        "https://twitter.com/Reverbit"
+      ],
+      "founder": {
+        "@id": "https://marina.reverbit.in/#founder"
+      }
+    },
+
+    {
+      "@type": "Person",
+      "@id": "https://marina.reverbit.in/#founder",
+      "name": "Aditya Jha",
+      "url": "https://marina.reverbit.in/profiles/adityajha",
+      "image": "https://reverbit.in/adityajha.jpg",
+      "jobTitle": "Founder & Technology Writer",
+      "worksFor": {
+        "@id": "https://marina.reverbit.in/#organization"
+      },
+      "sameAs": [
+        "https://github.com/aditya-cmd-max",
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/",
+        "https://youtube.com/@Reverbit"
       ]
-    }
-    </script>
-    
-    <!-- ===== ADDITIONAL SCHEMA FOR ARTICLE LISTING ===== -->
-    <script type="application/ld+json">
+    },
+
     {
-      "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "@id": "https://marina.reverbit.in/#collection",
-      "name": "Reverbit Marina Articles",
-      "description": "Latest technology articles, AI insights, and software engineering best practices",
+      "@id": "https://marina.reverbit.in/#homepage",
+      "url": "https://marina.reverbit.in/",
+      "name": "Reverbit Marina - Home",
+      "description": "Explore the latest in AI, technology, and software development with simplified insights and deep analysis.",
+      "isPartOf": {
+        "@id": "https://marina.reverbit.in/#website"
+      },
+      "about": {
+        "@id": "https://marina.reverbit.in/#organization"
+      },
+      "inLanguage": "en",
       "mainEntity": {
         "@type": "ItemList",
-        "numberOfItems": "10",
+        "name": "Latest Articles",
         "itemListElement": [
           {
-            "@type": "Article",
+            "@type": "ListItem",
             "position": 1,
-            "headline": "The Future of Technology: 7 Trends That Will Change the World",
-            "datePublished": "2026-03-15",
+            "url": "https://marina.reverbit.in/articles/aianddevelopment/future-of-ai-powered-development"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
             "url": "https://marina.reverbit.in/articles/product-launch/windows-12-arrival-and-features/"
           }
         ]
       }
-    }
-    </script>
+    },
 
-    <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://marina.reverbit.in/",
-      "name": "Reverbit Marina",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Reverbit Marina",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://marina.reverbit.in/logo-insvg.svg"
+      "@type": "BreadcrumbList",
+      "@id": "https://marina.reverbit.in/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Reverbit Marina",
+          "item": "https://marina.reverbit.in/"
         }
-      }
+      ]
     }
-    </script>
+
+  ]
+}
+</script>
     
     <!-- ===== GOOGLE FONTS ===== -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap">
