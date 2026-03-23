@@ -2,63 +2,74 @@ const fs = require('fs');
 
 const articles = require('./articlesmarina.json');
 const categories = require('./categoriesmarina.json');
-const tags = require('./tagsmarina.json');
+// ❌ REMOVE TAGS (important)
+// const tags = require('./tagsmarina.json');
+
+const BASE_URL = "https://marina.reverbit.in";
+
+// helper to format date
+const getDate = () => new Date().toISOString().split('T')[0];
+
+// helper to clean URLs (important)
+const cleanUrl = (url) => {
+  if (!url) return null;
+  return url.endsWith('/') ? url : url + '/';
+};
 
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
-// ✅ STATIC PAGES
-sitemap += `
-<url>
-  <loc>https://marina.reverbit.in/</loc>
-</url>
+// ================= STATIC PAGES =================
+const staticPages = [
+  { url: `${BASE_URL}/`, priority: "1.0" },
+  { url: `${BASE_URL}/articles/`, priority: "0.9" },
+  { url: `${BASE_URL}/articles/categories/`, priority: "0.7" },
+  { url: `${BASE_URL}/profiles/adityajha/`, priority: "0.6" }
+];
 
+staticPages.forEach(page => {
+  sitemap += `
 <url>
-  <loc>https://marina.reverbit.in/articles/</loc>
-</url>
+  <loc>${cleanUrl(page.url)}</loc>
+  <lastmod>${getDate()}</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>${page.priority}</priority>
+</url>`;
+});
 
-<url>
-  <loc>https://marina.reverbit.in/articles/categories/</loc>
-</url>
-
-<url>
-  <loc>https://marina.reverbit.in/tags/</loc>
-</url>
-
-<url>
-  <loc>https://marina.reverbit.in/profiles/adityajha</loc>
-</url>
-`;
-
-// ✅ ARTICLES (perfect - already correct)
+// ================= ARTICLES =================
 articles.forEach(article => {
+  const url = cleanUrl(article.link);
+  if (!url) return;
+
   sitemap += `
 <url>
-  <loc>${article.link}</loc>
+  <loc>${url}</loc>
+  <lastmod>${getDate()}</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>`;
 });
 
-// ✅ CATEGORIES (use direct links)
+// ================= CATEGORIES (LIMITED) =================
 categories.forEach(cat => {
+  const url = cleanUrl(cat.link);
+  if (!url) return;
+
   sitemap += `
 <url>
-  <loc>${cat.link}</loc>
+  <loc>${url}</loc>
+  <lastmod>${getDate()}</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
 </url>`;
 });
 
-// ✅ TAGS (build links manually)
-tags.forEach(tag => {
-  sitemap += `
-<url>
-  <loc>https://marina.reverbit.in/articles/tags/${tag.slug}/</loc>
-</url>`;
-});
-
-// ✅ CLOSE
+// ================= CLOSE =================
 sitemap += `
 </urlset>`;
 
-// ✅ SAVE
+// ================= SAVE =================
 fs.writeFileSync('sitemap.xml', sitemap);
 
-console.log("🔥 Sitemap generated successfully!");
+console.log("Copyright, Aditya Jha");
