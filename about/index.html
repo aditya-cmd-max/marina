@@ -29,7 +29,7 @@
     
     <!-- ===== OPEN GRAPH / FACEBOOK META TAGS ===== -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://reverbit.in/
+    <meta property="og:url" content="https://marina.reverbit.in/
     <meta property="og:title" content="About Reverbit Marina - Making Tech News Simple">
     <meta property="og:description" content="Discover the story behind Reverbit Marina. We're on a mission to make technology news and complex concepts accessible to everyone, one article at a time.">
     <meta property="og:image" content="https://reverbit.in/Reverbit.svg">
@@ -118,74 +118,103 @@
     <meta name="geo.placename" content="India">
     <meta name="ICBM" content="20.5937, 78.9629">
     
-    <!-- ===== SCHEMA.ORG STRUCTURED DATA ===== -->
-    <script type="application/ld+json">
+    <!-- ===== ADVANCED SCHEMA.ORG STRUCTURED DATA ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "WebSite",
+      "@id": "https://marina.reverbit.in/#website",
+      "url": "https://marina.reverbit.in/",
+      "name": "Reverbit Marina",
+      "alternateName": "Reverbit Marina Tech",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://marina.reverbit.in/#organization"
+      }
+    },
+
+    {
+      "@type": "Organization",
+      "@id": "https://marina.reverbit.in/#organization",
+      "name": "Reverbit Marina",
+      "url": "https://marina.reverbit.in/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://marina.reverbit.in/logo.png"
+      },
+      "description": "Reverbit Marina is a modern technology platform focused on simplifying tech news, AI, and complex concepts for everyone.",
+      "foundingDate": "2024",
+      "founder": {
+        "@id": "https://marina.reverbit.in/#founder"
+      },
+      "sameAs": [
+        "https://github.com/aditya-cmd-max",
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/",
+        "https://youtube.com/@Reverbit"
+      ]
+    },
+
+    {
+      "@type": "Person",
+      "@id": "https://marina.reverbit.in/#founder",
+      "name": "Aditya Jha",
+      "url": "https://marina.reverbit.in/profiles/adityajha",
+      "image": "https://reverbit.in/adityajha.jpg",
+      "sameAs": [
+        "https://github.com/aditya-cmd-max",
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/",
+        "https://youtube.com/@Reverbit"
+      ],
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@id": "https://marina.reverbit.in/#organization"
+      }
+    },
+
+    {
+      "@type": "AboutPage",
+      "@id": "https://marina.reverbit.in/about#webpage",
+      "url": "https://marina.reverbit.in/about",
+      "name": "About Reverbit Marina",
+      "description": "Learn about Reverbit Marina's mission to simplify technology news and make complex tech concepts easy to understand.",
+      "isPartOf": {
+        "@id": "https://marina.reverbit.in/#website"
+      },
+      "about": {
+        "@id": "https://marina.reverbit.in/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://marina.reverbit.in/og-image.png"
+      },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://marina.reverbit.in/about#breadcrumb",
+      "itemListElement": [
         {
-          "@type": "AboutPage",
-          "@id": "https://marina.reverbit.in/about",
-          "name": "About Reverbit Marina",
-          "description": "Learn about Reverbit Marina's mission to simplify technology news and make complex concepts accessible to everyone.",
-          "url": "https://marina.reverbit.in/about",
-          "mainEntity": {
-            "@type": "Organization",
-            "@id": "https://marina.reverbit.in/#organization",
-            "name": "Reverbit Marina",
-            "description": "A technology publication focused on making tech news simple and accessible",
-            "foundingDate": "2024",
-            "founder": {
-              "@type": "Person",
-              "@id": "https://marina.reverbit.in/profiles/adityajha",
-              "name": "Aditya Jha",
-              "description": "Class 11 student passionate about making technology accessible",
-              "url": "https://marina.reverbit.in/profiles/adityajha",
-              "image": "https://reverbit.in/adityajha.jpg",
-              "sameAs": [
-                "https://github.com/aditya-cmd-max",
-                "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-                "https://youtube.com/@Reverbit"
-              ]
-            },
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://reverbit.in/Reverbit.svg",
-              "width": 160,
-              "height": 36
-            },
-            "sameAs": [
-              "https://github.com/aditya-cmd-max",
-              "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-              "https://youtube.com/@Reverbit"
-            ]
-          },
-          "publisher": {
-            "@type": "Organization",
-            "@id": "https://marina.reverbit.in/#organization"
-          }
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Reverbit Marina",
+          "item": "https://marina.reverbit.in/"
         },
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://marina.reverbit.in/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "About",
-              "item": "https://marina.reverbit.in/about"
-            }
-          ]
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About Reverbit Marina",
+          "item": "https://marina.reverbit.in/about"
         }
       ]
     }
-    </script>
-    
+
+  ]
+}
+</script>    
     <style>
         /* ===== ORIGINAL BEAUTIFUL COLOR SYSTEM ===== */
         :root {
