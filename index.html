@@ -29,7 +29,14 @@
     <meta property="og:image:alt" content="Reverbit Marina - Technology Publication">
     <meta property="og:site_name" content="Reverbit Marina">
     <meta property="og:locale" content="en_US">
-        
+    
+    <!-- ===== TWITTER CARD (SEO BOOST) ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reverbit Marina - Technology News & AI Insights">
+    <meta name="twitter:description" content="Explore expert articles on AI, machine learning, and software development.">
+    <meta name="twitter:image" content="https://marina.reverbit.in/marina-social-image.jpg">
+    <meta name="twitter:site" content="@Reverbit">
+    
     <!-- ===== LINKEDIN META TAGS ===== -->
     <meta name="linkedin:owner" content="Aditya Jha">
     <meta name="google-adsense-account" content="ca-pub-6544559221754441">
@@ -69,8 +76,8 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
     <link rel="preload" as="image" href="https://reverbit.in/Reverbit.svg" fetchpriority="high">
     
-   <!-- ===== FINAL ADVANCED STRUCTURED DATA (HOMEPAGE) ===== -->
-<script type="application/ld+json">
+    <!-- ===== SCHEMA.ORG / STRUCTURED DATA ===== -->
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -207,9 +214,58 @@
     // Force Firebase Auth to use LOCAL persistence for cross-subdomain sync
     if (typeof firebase !== 'undefined' && firebase.auth) {
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-            .then(() => console.log('Firebase persistence set to LOCAL for cross-subdomain sync'))
-            .catch((error) => console.error('Failed to set persistence:', error));
+            .then(() => console.log('[Marina] Firebase persistence set to LOCAL'))
+            .catch((error) => console.error('[Marina] Failed to set persistence:', error));
     }
+    
+    // Function to check cross-domain cookies
+    function checkCrossDomainCookies() {
+        const getCookie = (name) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+            return null;
+        };
+        
+        const authUid = getCookie('reverbit_auth_uid');
+        const authAuthenticated = getCookie('reverbit_auth_authenticated');
+        
+        if (authUid && authAuthenticated === 'true') {
+            console.log('[Marina] Cross-domain cookie found for UID:', authUid);
+            return true;
+        }
+        return false;
+    }
+    
+    // Listen for cross-domain auth broadcasts
+    function listenForAuthBroadcasts() {
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'reverbit_auth_broadcast' && e.newValue) {
+                try {
+                    const data = JSON.parse(e.newValue);
+                    if (data && data.timestamp && Date.now() - data.timestamp < 3000) {
+                        console.log('[Marina] Auth broadcast received:', data.action);
+                        if (data.action === 'login' && data.user) {
+                            console.log('[Marina] Login detected, refreshing page...');
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 500);
+                        } else if (data.action === 'logout') {
+                            console.log('[Marina] Logout detected, refreshing page...');
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 500);
+                        }
+                    }
+                } catch (error) {
+                    console.error('[Marina] Error parsing broadcast:', error);
+                }
+            }
+        });
+    }
+    
+    // Initialize cross-domain listeners
+    listenForAuthBroadcasts();
     </script>
     
     <link rel="alternate" type="application/rss+xml" title="Reverbit Marina RSS Feed" href="https://marina.reverbit.in/rss.xml">
@@ -2315,30 +2371,30 @@
             
             // Wait for ReverbitAuth to be available
             if (typeof window.ReverbitAuth === 'undefined') {
-                console.log('Waiting for ReverbitAuth...');
+                console.log('[Marina] Waiting for ReverbitAuth...');
                 setTimeout(initAuth, 300);
                 return;
             }
             
             // Wait for auth to initialize
             if (!window.ReverbitAuth.initialized) {
-                console.log('Waiting for auth initialization...');
+                console.log('[Marina] Waiting for auth initialization...');
                 setTimeout(initAuth, 300);
                 return;
             }
             
-            console.log('ReverbitAuth ready, checking user...');
+            console.log('[Marina] ReverbitAuth ready, checking user...');
             
             // Get current user from the auth instance
             const user = window.ReverbitAuth.getUser();
             const userProfile = window.ReverbitAuth.getUserProfile();
             
-            console.log('Current user:', user);
-            console.log('User profile:', userProfile);
+            console.log('[Marina] Current user:', user);
+            console.log('[Marina] User profile:', userProfile);
             
             if (user && userProfile) {
                 // User is signed in
-                console.log('User is signed in:', user.email);
+                console.log('[Marina] User is signed in:', user.email);
                 
                 // Hide sign-in button
                 if (desktopSignInBtn) {
@@ -2385,8 +2441,18 @@
                 });
                 
             } else {
+                // Check cross-domain cookies as fallback
+                const hasCrossDomainCookie = checkCrossDomainCookies();
+                if (hasCrossDomainCookie) {
+                    console.log('[Marina] Cross-domain cookie found, forcing auth refresh...');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 500);
+                    return;
+                }
+                
                 // No user - show sign-in button
-                console.log('No user signed in');
+                console.log('[Marina] No user signed in');
                 if (desktopSignInBtn) desktopSignInBtn.style.display = 'flex';
                 if (authAvatarContainer) authAvatarContainer.innerHTML = '';
                 updateMenu(false);
@@ -2394,7 +2460,7 @@
             
             // Set up listener for auth changes (for real-time updates)
             window.ReverbitAuth.addAuthListener((newUser, newProfile) => {
-                console.log('Auth state changed:', newUser ? 'Logged in' : 'Logged out');
+                console.log('[Marina] Auth state changed:', newUser ? 'Logged in' : 'Logged out');
                 
                 if (newUser && newProfile) {
                     // User just signed in
@@ -2441,7 +2507,7 @@
             if (authCheckInterval) clearInterval(authCheckInterval);
             
         } catch (error) {
-            console.error('Auth initialization error:', error);
+            console.error('[Marina] Auth initialization error:', error);
             const desktopSignInBtn = document.getElementById('desktopSignInBtn');
             if (desktopSignInBtn) desktopSignInBtn.style.display = 'flex';
             updateMenu(false);
@@ -2461,7 +2527,7 @@
                 window.location.reload();
             }
         } catch (error) {
-            console.error('Sign out error:', error);
+            console.error('[Marina] Sign out error:', error);
         }
     }
 
@@ -2480,9 +2546,9 @@
             // Store the current URL for return after login
             localStorage.setItem('reverbit_return_url', currentUrl);
             localStorage.setItem('reverbit_return_timestamp', Date.now().toString());
-            console.log('Stored return URL:', currentUrl);
+            console.log('[Marina] Stored return URL:', currentUrl);
         } catch (error) {
-            console.error('Error storing return URL:', error);
+            console.error('[Marina] Error storing return URL:', error);
         }
     }
 
@@ -2494,7 +2560,7 @@
             const returnUrl = urlParams.get('return');
             
             if (signedIn === 'true' && returnUrl) {
-                console.log('Returned from sign-in with return URL');
+                console.log('[Marina] Returned from sign-in with return URL');
                 // Clean URL
                 window.history.replaceState({}, document.title, window.location.pathname);
                 
@@ -2505,14 +2571,14 @@
                     
                     // Only redirect to our domain
                     if (urlObj.hostname.includes('reverbit.in')) {
-                        console.log('Redirecting to return URL:', decodedUrl);
+                        console.log('[Marina] Redirecting to return URL:', decodedUrl);
                         setTimeout(() => {
                             window.location.href = decodedUrl;
                         }, 500);
                         return;
                     }
                 } catch (e) {
-                    console.warn('Invalid return URL:', e);
+                    console.warn('[Marina] Invalid return URL:', e);
                 }
             }
             
@@ -2526,7 +2592,7 @@
                 if (age < 5 * 60 * 1000) {
                     // Check if we're now logged in
                     if (window.ReverbitAuth && window.ReverbitAuth.isAuthenticated()) {
-                        console.log('Found stored return URL, redirecting...');
+                        console.log('[Marina] Found stored return URL, redirecting...');
                         localStorage.removeItem('reverbit_return_url');
                         localStorage.removeItem('reverbit_return_timestamp');
                         setTimeout(() => {
@@ -2537,7 +2603,7 @@
                         const checkInterval = setInterval(() => {
                             if (window.ReverbitAuth && window.ReverbitAuth.isAuthenticated()) {
                                 clearInterval(checkInterval);
-                                console.log('Login detected, redirecting to stored URL...');
+                                console.log('[Marina] Login detected, redirecting to stored URL...');
                                 const url = localStorage.getItem('reverbit_return_url');
                                 localStorage.removeItem('reverbit_return_url');
                                 localStorage.removeItem('reverbit_return_timestamp');
@@ -2552,7 +2618,7 @@
                 }
             }
         } catch (error) {
-            console.error('Error checking return from sign-in:', error);
+            console.error('[Marina] Error checking return from sign-in:', error);
         }
     }
 
@@ -2562,7 +2628,7 @@
             // Check for session flag from reverbit.in
             const sessionFlag = localStorage.getItem('reverbit_session');
             if (sessionFlag === 'active') {
-                console.log('Cross-domain session flag detected');
+                console.log('[Marina] Cross-domain session flag detected');
                 localStorage.removeItem('reverbit_session');
                 // Force auth check
                 setTimeout(() => {
@@ -2576,7 +2642,7 @@
                 try {
                     const data = JSON.parse(authState);
                     if (data && data.timestamp && Date.now() - data.timestamp < 1000) {
-                        console.log('Cross-tab auth event detected:', data.action);
+                        console.log('[Marina] Cross-tab auth event detected:', data.action);
                         if (data.action === 'login') {
                             setTimeout(() => initAuth(), 300);
                         } else if (data.action === 'logout') {
@@ -2591,7 +2657,7 @@
                 }
             }
         } catch (error) {
-            console.error('Error checking cross-domain session:', error);
+            console.error('[Marina] Error checking cross-domain session:', error);
         }
     }
 
@@ -2602,7 +2668,7 @@
                 try {
                     const data = JSON.parse(e.newValue);
                     if (data && data.timestamp && Date.now() - data.timestamp < 1000) {
-                        console.log('Cross-tab auth event:', data.action);
+                        console.log('[Marina] Cross-tab auth event:', data.action);
                         if (data.action === 'login') {
                             setTimeout(() => initAuth(), 300);
                         } else if (data.action === 'logout') {
@@ -2613,7 +2679,7 @@
                         }
                     }
                 } catch (error) {
-                    console.error('Error processing storage event:', error);
+                    console.error('[Marina] Error processing storage event:', error);
                 }
             }
         });
