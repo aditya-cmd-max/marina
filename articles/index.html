@@ -111,83 +111,80 @@
     <meta name="geo.placename" content="India">
     <meta name="ICBM" content="20.5937, 78.9629">
     
-    <!-- ===== SCHEMA.ORG / STRUCTURED DATA FOR BLOG ===== -->
-    <script type="application/ld+json">
+    <!-- ===== FINAL STRUCTURED DATA (ARTICLES PAGE) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
     {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Blog",
-          "@id": "https://marina.reverbit.in/articles#blog",
-          "name": "Reverbit Marina - Articles",
-          "description": "A student's blog exploring artificial intelligence, web development, and technology innovation from India.",
-          "url": "https://marina.reverbit.in/articles",
-          "image": "https://reverbit.in/Reverbit.svg",
-          "author": {
-            "@type": "Person",
-            "name": "Aditya Jha",
-            "description": "Class 11 student passionate about AI and building for India",
-            "url": "https://reverbit.in/about"
+      "@type": "CollectionPage",
+      "@id": "https://marina.reverbit.in/articles#webpage",
+      "url": "https://marina.reverbit.in/articles",
+      "name": "Reverbit Marina Articles",
+      "description": "Explore AI, technology, and software development articles simplified for everyone.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://marina.reverbit.in/#website"
+      },
+      "about": {
+        "@id": "https://marina.reverbit.in/#organization"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Articles List",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://marina.reverbit.in/articles/aianddevelopment/future-of-ai-powered-development"
           },
-          "publisher": {
-            "@type": "Project",
-            "name": "Reverbit - Student Project",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://reverbit.in/Reverbit.svg"
-            }
-          },
-          "inLanguage": "en-IN",
-          "copyrightYear": "2026",
-          "keywords": "AI, machine learning, web development, India, student blog, technology, programming"
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://marina.reverbit.in/articles#website",
-          "url": "https://marina.reverbit.in/articles",
-          "name": "Reverbit Marina Articles",
-          "description": "Tech articles, tutorials, and insights by a Class 11 Indian student",
-          "publisher": {
-            "@id": "https://reverbit.in/#project"
-          },
-          "inLanguage": "en-IN",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://marina.reverbit.in/search?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://marina.reverbit.in/articles/product-launch/windows-12-arrival-and-features/"
           }
-        },
-        {
-          "@type": "Person",
-          "@id": "https://marina.reverbit.in/articles#person",
-          "name": "Aditya Jha",
-          "description": "Class 11 student, aspiring AI researcher, and creator of Reverbit",
-          "url": "https://reverbit.in/about",
-          "image": "https://reverbit.in/adityajha.jpg",
-          "sameAs": [
-            "https://www.linkedin.com/in/aditya-jha-2b0860399/",
-            "https://github.com/aditya-cmd-max",
-            "https://youtube.com/@Reverbit"
-          ],
-          "knowsAbout": ["Artificial Intelligence", "Web Development", "Indian Tech Innovation", "Machine Learning"]
-        }
-      ]
-    }
-    </script>
-    
-    <!-- ===== BREADCRUMB SCHEMA ===== -->
-    <script type="application/ld+json">
+        ]
+      }
+    },
+
     {
-      "@context": "https://schema.org",
+      "@type": "Blog",
+      "@id": "https://marina.reverbit.in/articles#blog",
+      "name": "Reverbit Marina Blog",
+      "url": "https://marina.reverbit.in/articles",
+      "description": "A modern tech blog covering AI, development, and innovation.",
+      "publisher": {
+        "@id": "https://marina.reverbit.in/#organization"
+      },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": "Person",
+      "@id": "https://marina.reverbit.in/#founder",
+      "name": "Aditya Jha",
+      "url": "https://marina.reverbit.in/profiles/adityajha",
+      "image": "https://reverbit.in/adityajha.jpg",
+      "jobTitle": "Founder & Tech Writer",
+      "worksFor": {
+        "@id": "https://marina.reverbit.in/#organization"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/aditya-jha-2b0860399/",
+        "https://github.com/aditya-cmd-max",
+        "https://youtube.com/@Reverbit"
+      ]
+    },
+
+    {
       "@type": "BreadcrumbList",
+      "@id": "https://marina.reverbit.in/articles#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "Reverbit Marina",
           "item": "https://marina.reverbit.in/"
         },
         {
@@ -198,8 +195,11 @@
         }
       ]
     }
-    </script>
-    
+
+  ]
+}
+</script>
+
     <!-- ===== GSAP (deferred) ===== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
