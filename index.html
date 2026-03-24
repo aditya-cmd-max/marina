@@ -267,6 +267,15 @@
     // Initialize cross-domain listeners
     listenForAuthBroadcasts();
     </script>
+
+    <script>
+if (window.location.hostname.includes("github.io")) {
+  const meta = document.createElement("meta");
+  meta.name = "robots";
+  meta.content = "noindex, nofollow";
+  document.head.appendChild(meta);
+}
+</script>
     
     <link rel="alternate" type="application/rss+xml" title="Reverbit Marina RSS Feed" href="https://marina.reverbit.in/rss.xml">
     <link rel="alternate" type="application/json" href="https://marina.reverbit.in/feed.json">
