@@ -214,7 +214,17 @@
 
   ]
 }
-</script>    
+</script>   
+
+    <script>
+if (window.location.hostname.includes("github.io")) {
+  const meta = document.createElement("meta");
+  meta.name = "robots";
+  meta.content = "noindex, nofollow";
+  document.head.appendChild(meta);
+}
+</script>
+    
     <style>
         /* ===== ORIGINAL BEAUTIFUL COLOR SYSTEM ===== */
         :root {
